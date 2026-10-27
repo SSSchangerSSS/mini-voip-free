@@ -65,12 +65,12 @@ class CallController extends ChangeNotifier {
   bool _muted = false;
   bool _speakerOn = false;
   String? _errorMessage;
-  String? _savedPassword;
 
   // answer intent binding (spec 6.2): AnswerRequested is bound to a callId and
   // survives until it can be applied exactly once — missing Dart/INVITE must not
   // destroy it.
   final Set<String> _answerIntents = <String>{};
+  final Set<String> _readySent = <String>{};
 
   AppCallState get state => _state;
   String? get callId => _callId;
@@ -79,6 +79,7 @@ class CallController extends ChangeNotifier {
   bool get muted => _muted;
   bool get speakerOn => _speakerOn;
   bool get micReady => _sip.registered;
+  int get deviceGeneration => _deviceGeneration;
   DateTime? get deadline => _deadline;
 
   // ── lifecycle ────────────────────────────────────────────────────────────
@@ -121,7 +122,6 @@ class CallController extends ChangeNotifier {
       );
       _api.setToken(result.accessToken);
       _deviceGeneration = result.deviceGeneration;
-      _savedPassword = password;
       await _store.saveAccount(
         domain: domain,
         extension: result.extension,
@@ -163,7 +163,7 @@ class CallController extends ChangeNotifier {
     final saved = await _store.load();
     if (saved != null && saved.installationId.isNotEmpty) return saved.installationId;
     final fresh = _newUuid();
-    await _bridge.secureWrite('smi.installationId', fresh);
+    await _native.secureWrite('smi.installationId', fresh);
     return fresh;
   }
 
@@ -369,6 +369,7 @@ class CallController extends ChangeNotifier {
             _state != AppCallState.outgoingPending) {
           _state = AppCallState.incomingPending;
         }
+        _sendReadyIfNeeded(call); // step 9: ready after SIP REGISTER gates the dial
         break;
       case CallDtoState.connecting:
         _state = AppCallState.connecting;
@@ -384,6 +385,30 @@ class CallController extends ChangeNotifier {
         break;
     }
     notifyListeners();
+  }
+
+  /// POST /ready exactly once per call — after REGISTER, with our device
+  /// generation. Repeated ready never creates a second call (spec 5.2, T27).
+  Future<void> _sendReadyIfNeeded(CallDto call) async {
+    if (call.isTerminal || !_readySent.add(call.callId)) return;
+    if (!_sip.registered) return; // ready will be sent on the next poll tick
+    try {
+      final fresh = await _api.callAction(
+        'ready',
+        call.callId,
+        idempotencyKey: 'ready-${call.callId}',
+        body: <String, dynamic>{
+          'registered': true,
+          'deviceGeneration': call.deviceGeneration,
+        },
+      );
+      if (!fresh.isTerminal) return; // normal path
+      onServerState(fresh);
+    } on ApiProblem catch (e) {
+      if (e.code == 'STALE_DEVICE' || e.code == 'CALL_EXPIRED' || e.code == 'CALL_ENDED') {
+        _teardown(outcome: CallOutcome.disconnected);
+      }
+    }
   }
 
   CallOutcome _mapEndReason(String? reason) {
@@ -493,6 +518,7 @@ class CallController extends ChangeNotifier {
   }
 
   void _teardown({required CallOutcome outcome, bool silent = false}) {
+    _readySent.clear();
     _callId = null;
     _attemptId = null;
     _nativeCallUuid = null;

@@ -1,0 +1,17 @@
+# gitleaks config — extends the default rule set.
+# The allowlist below covers DOCUMENTED false positives only: high-entropy source
+# identifiers (alphabet constants / SQL column names) that are part of the code,
+# not credentials. Real secrets must still fail the scan — never widen this list
+# without a recorded decision (spec 11.3).
+[extend]
+useDefault = true
+
+[allowlist]
+description = "False positives: code identifiers, not secrets"
+paths = [
+  # Crypto.cs: SipSecretAlphabet is the CSPRNG output alphabet (public constant).
+  '''services/control/src/Smi\.Control/Crypto\.cs''',
+  # SessionService/ExtensionsCli: SQL column names like PasswordHash/PasswordSalt.
+  '''services/control/src/Smi\.Control/Auth/SessionService\.cs''',
+  '''services/control/src/Smi\.Control/Provisioning/ExtensionsCli\.cs''',
+]

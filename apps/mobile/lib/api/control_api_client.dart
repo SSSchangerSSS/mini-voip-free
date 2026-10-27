@@ -108,11 +108,12 @@ class ControlApiClient {
     return CallDto.fromJson(jsonDecode(text) as Map<String, dynamic>);
   }
 
-  Future<CallDto> callAction(String path, String callId, {String? idempotencyKey}) async {
+  Future<CallDto> callAction(String path, String callId,
+      {String? idempotencyKey, Map<String, dynamic>? body}) async {
     final res = await _http.post(
       baseUri.replace(path: '${baseUri.path}/calls/$callId/$path'),
       headers: _headers(idempotencyKey: idempotencyKey),
-      body: '{}',
+      body: jsonEncode(body ?? const <String, dynamic>{}),
     );
     if (res.statusCode == 200 || res.statusCode == 202) {
       return CallDto.fromJson(

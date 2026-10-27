@@ -23,6 +23,8 @@ jobs:
         run: dotnet restore services/control/tests/Smi.Control.Tests/Smi.Control.Tests.csproj --locked-mode
       - name: Build
         run: dotnet build services/control/src/Smi.Control/Smi.Control.csproj -c Release --no-restore
+      - name: Build tests
+        run: dotnet build services/control/tests/Smi.Control.Tests/Smi.Control.Tests.csproj -c Release --no-restore
       - name: Test
         run: dotnet test services/control/tests/Smi.Control.Tests/Smi.Control.Tests.csproj -c Release --no-build --logger "console;verbosity=normal"
 

@@ -1,13 +1,13 @@
-;
-; mini-voip-free — Caddyfile (spec 2.1: Caddy is the TLS edge only, zero business logic)
-;
-; Exposure contract (spec 2.3): ONLY these routes reach the internet.
-;   /api/v1/*  /health/*   → Control API (127.0.0.1:5080, HTTP)
-;   /ws  (exact path)      → Asterisk built-in HTTP/WS (127.0.0.1:8088)
-; Everything else answers 404. AMI (5038) and SIP 5060 are never proxied.
-;
-; The WebSocket upgrade and the `sip` subprotocol must pass through — verified live in P2.
-; TLS certificates come from Let's Encrypt via ACME (HTTP-01 on :80 + TLS-ALPN).
+#
+# mini-voip-free — Caddyfile (spec 2.1: Caddy is the TLS edge only, zero business logic)
+#
+# Exposure contract (spec 2.3): ONLY these routes reach the internet.
+#   /api/v1/*  /health/*   → Control API (127.0.0.1:5080, HTTP)
+#   /ws  (exact path)      → Asterisk built-in HTTP/WS (127.0.0.1:8088)
+# Everything else answers 404. AMI (5038) and SIP 5060 are never proxied.
+#
+# The WebSocket upgrade and the `sip` subprotocol must pass through — verified live in P2.
+# TLS certificates come from Let's Encrypt via ACME (HTTP-01 on :80 + TLS-ALPN).
 
 {
 	email {$SMI_ACME_EMAIL:admin@example.invalid}

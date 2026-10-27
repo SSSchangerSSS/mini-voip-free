@@ -1,4 +1,4 @@
-import 'native_call_bridge.dart';
+import '../native/native_call_bridge.dart';
 
 /// Secure credential store contract (spec 10.1): native-backed shared store.
 /// Android: Keystore + AES-GCM (fresh IV, standard primitive).

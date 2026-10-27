@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'native_call_bridge.dart';
 
 /// Native event queue (spec 10.1/10.3): bounded buffer of bridge events for the

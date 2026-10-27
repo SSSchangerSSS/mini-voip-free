@@ -496,7 +496,7 @@ class CallController extends ChangeNotifier {
         }
         return;
       }
-      if (call.attemptId != null && _attemptId != null && call.attemptId != _attemptId) {
+      if (_attemptId != null && call.attemptId != _attemptId) {
         return; // not our attempt
       }
       if (_deadline != null && call.callId == _callId &&

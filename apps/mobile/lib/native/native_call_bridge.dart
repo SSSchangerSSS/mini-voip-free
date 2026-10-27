@@ -1,8 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/services.dart';
-
-import 'native_event_queue.dart';
 
 /// Typed Flutter↔native bridge for the FIXED channel `smi.phone/native/v1`
 /// (spec 10.2). Exactly one owner dispatcher exists in the app (this class);

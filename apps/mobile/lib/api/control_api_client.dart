@@ -6,7 +6,7 @@ import 'api_models.dart';
 
 /// Control API client (spec section 7). TLS verification is NEVER disabled here
 /// (spec 11.1) — no badCertificateCallback overrides exist in this codebase.
-/// Base URL is always https://<domain> — scheme/host come from the user-supplied
+/// Base URL is always `https://` + domain — scheme/host come from the user-supplied
 /// domain at login; path/version are fixed.
 class ControlApiClient {
   final http.Client _http;
@@ -27,7 +27,7 @@ class ControlApiClient {
   Map<String, String> _headers({bool auth = true, String? idempotencyKey}) {
     final h = <String, String>{
       'Accept': 'application/json',
-      if (idempotencyKey != null) 'Idempotency-Key': idempotencyKey,
+      ?'Idempotency-Key': idempotencyKey,
       if (auth && _token != null) 'Authorization': 'Bearer $_token',
     };
     return h;

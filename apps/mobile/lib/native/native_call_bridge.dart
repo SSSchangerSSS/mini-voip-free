@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/services.dart';
 
 /// Typed Flutter↔native bridge for the FIXED channel `smi.phone/native/v1`

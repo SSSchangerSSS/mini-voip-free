@@ -27,7 +27,7 @@ class ControlApiClient {
   Map<String, String> _headers({bool auth = true, String? idempotencyKey}) {
     final h = <String, String>{
       'Accept': 'application/json',
-      ?'Idempotency-Key': idempotencyKey,
+      'Idempotency-Key': ?idempotencyKey, // null-aware value: entry omitted when key absent
       if (auth && _token != null) 'Authorization': 'Bearer $_token',
     };
     return h;

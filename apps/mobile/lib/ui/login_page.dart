@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../call/call_controller.dart';
+import '../config/app_config.dart';
 import '../secure/secure_credential_store.dart';
 import '../util/digit_normalizer.dart';
 
 /// Onboarding/login (F01): domain + extension + password.
+/// When the APK was built with a baked server address (AppConfig.hasBakedHost,
+/// android-build workflow), the server field is shown read-only and the user
+/// only enters extension + password.
 /// Order follows spec 10.1: validate → login → secure save → permissions/push → SIP.
 class LoginPage extends StatefulWidget {
   final CallController controller;
@@ -33,8 +37,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _domainFocus.requestFocus());
+    if (AppConfig.hasBakedHost) {
+      _domainCtrl.text = AppConfig.domain;
+    } else {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _domainFocus.requestFocus());
+    }
   }
+
+  String get _effectiveDomain =>
+      AppConfig.hasBakedHost ? AppConfig.domain : _domainCtrl.text.trim().toLowerCase();
 
   @override
   void dispose() {
@@ -49,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
     if (!_formKey.currentState!.validate()) return;
     setState(() => _busy = true);
     final ok = await widget.controller.signIn(
-      domain: _domainCtrl.text.trim().toLowerCase(),
+      domain: _effectiveDomain,
       extension: _extCtrl.text,
       password: _passCtrl.text,
     );
@@ -76,21 +87,33 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   TextFormField(
                     controller: _domainCtrl,
-                    focusNode: _domainFocus,
+                    focusNode: AppConfig.hasBakedHost ? null : _domainFocus,
+                    enabled: !AppConfig.hasBakedHost,
                     textDirection: TextDirection.ltr,
                     keyboardType: TextInputType.url,
                     autofillHints: const [AutofillHints.url],
-                    decoration: const InputDecoration(
-                        labelText: 'دامنه سرور', hintText: 'phone.example.com'),
+                    decoration: InputDecoration(
+                        labelText: 'سرور',
+                        hintText: 'phone.example.com',
+                        helperText: AppConfig.hasBakedHost
+                            ? 'سرور هنگام ساخت برنامه تنظیم شده است'
+                            : null),
                     validator: (v) {
+                      // baked builds: the address is build-time config, not user input
+                      if (AppConfig.hasBakedHost) return null;
                       final s = v?.trim().toLowerCase() ?? '';
                       if (s.isEmpty) return 'دامنه را وارد کنید';
                       // hostname only — no scheme, no path, no userinfo (spec 10.1)
-                      if (s.contains('/') || s.contains(':') || s.contains('@') ||
-                          s.contains(' ')) {
+                      if (s.contains('/') || s.contains('@') || s.contains(' ')) {
                         return 'فقط نام دامنه، بدون http و مسیر';
                       }
-                      if (!s.contains('.')) return 'دامنه معتبر نیست';
+                      // host[:port] — scheme-less; port allowed only as :digits
+                      if (s.contains(':') &&
+                          !RegExp(r'^[^:]+:\d{1,5}$').hasMatch(s)) {
+                        return 'پورت فقط به شکل :عدد مجاز است';
+                      }
+                      final hostPart = s.split(':').first;
+                      if (!hostPart.contains('.')) return 'دامنه معتبر نیست';
                       return null;
                     },
                   ),

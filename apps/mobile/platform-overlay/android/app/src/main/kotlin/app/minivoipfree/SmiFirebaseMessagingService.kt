@@ -111,11 +111,3 @@ class SmiFirebaseMessagingService : FirebaseMessagingService() {
         private const val CHANNEL_CALLS = "smi_calls"
     }
 }
-
-/**
- * Native-side event backlog for cold start (spec 10.3): bridge events survive until
- * Dart acks them. Bounded at 64, secrets never stored here.
- */
-object SmiCallStore {
-    val instance = SmiCallStoreImpl()
-}

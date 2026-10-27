@@ -18,9 +18,21 @@
 
 هیچ‌کدام از موارد بالا «آماده تولید» اعلام نمی‌شود؛ معیار تحویل نهایی در بخش ۱۸ سند است.
 
-## نصب سرور (خلاصه؛ جزئیات در `docs/RUNBOOK.fa.md`)
+## نصب سرور (خلاصه؛ کامل: `docs/USAGE.fa.md` و `docs/RUNBOOK.fa.md`)
 
 پیش‌نیاز: Ubuntu Server 24.04 LTS (amd64)، Docker + Compose، دامنه واقعی با DNS صحیح رو به این سرور، TCP 80/443 و UDP 10000–10199 باز.
+
+**مسیر سریع (یک‌دستوری):**
+
+```bash
+unzip mini-voip-free-server-bundle-r*.zip -d mini-voip-free && cd mini-voip-free
+curl -fsSL https://get.docker.com | sh        # اگر docker ندارید
+sudo bash scripts/deploy/install-server.sh    # تعاملی: دامنه + ایمیل را می‌پرسد،
+                                              # secret می‌سازد، stack را بالا می‌آورد،
+                                              # داخلی‌ها را با رمز تولیدشده می‌سازد
+```
+
+**مسیر دستی (همان مراحل، کنترل کامل):**
 
 ```bash
 git clone <repo-url> mini-voip-free && cd mini-voip-free
@@ -31,6 +43,18 @@ cp deploy/site.env.example deploy/site.env      # ویرایش: SMI_DOMAIN و SM
 ./smi extension add 101 --credential-file /path/to/passfile   # رمز از فایل خوانده می‌شود، نه CLI
 ./smi extension add 102 --credential-file /path/to/passfile2
 ```
+
+## گرفتن APK اندروید با IP/دامنه سرور خودتان
+
+Workflow ‏`.github/workflows/android-build.yml`‏ یک فرم اجرای دستی (Run workflow) دارد:
+فیلد **`server_ip`** (IP یا دامنه سرور) و **`server_port`** (پیش‌فرض 443) را وارد کنید؛
+APK با همان آدرس پخته می‌شود (dart-define ‏`SMI_SERVER_HOST/PORT`)‏ و آرتیفکت‌های
+**APK** و **باندل کد سرور** (git archive — شامل هرگز secrets نیست) در همان صفحه‌ی اجرا
+برای دانلود ظاهر می‌شوند. قدم‌به‌قدم: `docs/USAGE.fa.md` §۴.
+
+وضعیت صادقانه‌ی این بیلد: APK با کلید debug امضا شده (B6) و در حالت بدون-Push ساخته
+می‌شود چون پروژه‌ی Firebase هنوز موجود نیست (B3) — تماس ورودی در حالت اپِ باز/ریسنت
+کار می‌کند؛ push پس از باز شدن B3 فعال می‌شود.
 
 سپس اپ را نصب کنید و در صفحه ورود: دامنه سرور، شماره داخلی (مثلاً `101`) و رمز همان داخلی را وارد کنید. تماس خروجی: وارد کردن ۳ رقم مقصد (مثلاً `102`) و زدن تماس.
 

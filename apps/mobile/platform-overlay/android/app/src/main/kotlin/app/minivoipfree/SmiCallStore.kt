@@ -98,3 +98,12 @@ class SmiCallStoreImpl {
         private const val KEY_GENERATION = "deviceGeneration"
     }
 }
+
+/**
+ * Access point for the native event backlog (spec 10.3). Lives in its own
+ * Firebase-free file so the app builds in `--android-no-push` mode too, where
+ * SmiFirebaseMessagingService.kt is intentionally excluded (PREFLIGHT B3).
+ */
+object SmiCallStore {
+    val instance = SmiCallStoreImpl()
+}

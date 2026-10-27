@@ -1,0 +1,139 @@
+# android-build — user-triggered delivery pipeline (docs/USAGE.fa.md)
+#
+# WHAT THIS PRODUCES
+#   job android-apk:      a release APK with the server address (IP or domain)
+#                         given below baked in via --dart-define. The user then
+#                         only enters extension + password at login.
+#   job server-bundle:    a zip of the whole tracked repository (server code,
+#                         infra, deploy scripts, docs) — the exact git tree, so
+#                         deploy/secrets/ real files are never included.
+#
+# HONEST STATUS (AGENTS.md rule 1 — no fake labels)
+#   - The APK is signed with the DEBUG key (no production keystore yet —
+#     PREFLIGHT B6). It installs on Android 8.0+ but is not a store/enterprise
+#     release binary.
+#   - Built in --android-no-push mode: the FCM receiver is excluded because the
+#     Firebase project (PREFLIGHT B3) is still BLOCKED. Incoming calls work
+#     while the app is open/recent; background push arrives after B3.
+#   - TLS is never bypassed: the baked host must present a certificate Android
+#     trusts. With a bare IP you need a cert with that IP SAN — the easy path is
+#     a domain (see docs/USAGE.fa.md §2).
+on:
+  workflow_dispatch:
+    inputs:
+      server_ip:
+        description: 'Server IP or domain baked into the APK (e.g. 51.104.0.7 or phone.example.com)'
+        required: true
+        type: string
+      server_port:
+        description: 'HTTPS port of the control plane (443 recommended; SIP/WSS ride the same origin)'
+        required: false
+        default: '443'
+
+name: android-build
+
+permissions:
+  contents: read
+
+jobs:
+  android-apk:
+    name: "Build release APK (server: ${{ inputs.server_ip }})"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate server input
+        env:
+          SMI_HOST: ${{ inputs.server_ip }}
+        run: |
+          host="$SMI_HOST"
+          if ! echo "$host" | grep -qE '^[A-Za-z0-9.-]+$'; then
+            echo "server_ip must be an IP or hostname without scheme/path — got: $host"
+            exit 2
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8 # toolchain.lock.json — verified 2026-10-27
+          channel: stable
+          cache: true
+
+      - name: Pub get
+        working-directory: apps/mobile
+        run: flutter pub get
+
+      - name: Analyze
+        working-directory: apps/mobile
+        run: flutter analyze
+
+      - name: Unit tests
+        working-directory: apps/mobile
+        run: flutter test
+
+      - name: Generate Android platform (flutter create) + align with overlay package
+        working-directory: apps/mobile
+        run: |
+          flutter create . --platforms android,ios --project-name smi_phone --org app
+          # overlay Kotlin lives in package app.minivoipfree — make the generated
+          # Gradle namespace/applicationId match exactly so manifest entries
+          # (.MainActivity, .SmiTelecomCallService) resolve to the overlay classes
+          sed -i 's/app\.smi_phone/app.minivoipfree/g' android/app/build.gradle.kts
+          grep -n 'namespace\|applicationId' android/app/build.gradle.kts
+          # the generated placeholder MainActivity would shadow the overlay one
+          rm -rf android/app/src/main/kotlin/app/smi_phone
+          # overlay services use java.time (API<26 needs desugaring); Android 8+ is
+          # the honest supported floor for this build
+          sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 26/' android/app/build.gradle.kts
+          grep -n 'minSdk' android/app/build.gradle.kts
+          # SmiTelecomCallService uses androidx.core (NotificationCompat/ServiceCompat)
+          printf '\ndependencies {\n    implementation("androidx.core:core-ktx:1.15.0")\n}\n' \
+            >> android/app/build.gradle.kts
+          tail -5 android/app/build.gradle.kts
+
+      - name: Apply platform overlay (no-push mode — PREFLIGHT B3 BLOCKED)
+        run: bash scripts/build/apply-platform-overlay.sh --android-no-push
+
+      - name: Build release APK (server baked via dart-define)
+        working-directory: apps/mobile
+        env:
+          SMI_HOST: ${{ inputs.server_ip }}
+          SMI_PORT: ${{ inputs.server_port }}
+        run: |
+          flutter build apk --release \
+            --dart-define=SMI_SERVER_HOST="$SMI_HOST" \
+            --dart-define=SMI_SERVER_PORT="$SMI_PORT"
+          ls -la build/app/outputs/flutter-apk/
+          cp build/app/outputs/flutter-apk/app-release.apk \
+             "mini-voip-free-${SMI_HOST}-r${GITHUB_RUN_NUMBER}.apk"
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mini-voip-free-android-apk-r${{ github.run_number }}
+          path: apps/mobile/mini-voip-free-*.apk
+          if-no-files-found: error
+
+  server-bundle:
+    name: Package server code bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # git archive = the exact tracked tree: real secrets (git-ignored) can
+      # never leak into the artifact (AGENTS.md rule 3)
+      - name: Create source bundle
+        run: |
+          git archive --format=zip -o mini-voip-free-server-bundle-r${{ github.run_number }}.zip HEAD
+          unzip -l mini-voip-free-server-bundle-r${{ github.run_number }}.zip | tail -3
+
+      - name: Upload server bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mini-voip-free-server-bundle-r${{ github.run_number }}
+          path: mini-voip-free-server-bundle-*.zip
+          if-no-files-found: error

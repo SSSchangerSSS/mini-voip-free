@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mini-voip-free.invalid/push.schema.json",
+  "title": "SMI push payload (spec section 9.1)",
+  "description": "Payload delivered through APNs (voip) and FCM data messages. Contains ONLY minimal call info — never SIP secrets, session tokens or private keys. FCM transports every value as a string; native parsers must validate type/range and never crash on malformed input.",
+  "type": "object",
+  "required": ["schemaVersion", "type", "callId", "callerExtension", "calleeExtension", "deviceGeneration", "expiresAt"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "type": { "enum": ["incoming_call", "cancel_call"], "description": "cancel_call is an Android-only best-effort data message; iOS never receives a new VoIP push for cancellation (spec 5.4)" },
+    "callId": { "type": "string", "format": "uuid" },
+    "callerExtension": { "type": "string", "pattern": "^1[0-9][0-9]$" },
+    "calleeExtension": { "type": "string", "pattern": "^1[0-9][0-9]$" },
+    "deviceGeneration": { "type": "integer", "minimum": 1, "description": "string-encoded in FCM data; stale generation = ignore push" },
+    "expiresAt": { "type": "string", "format": "date-time", "description": "call setup deadline (UTC, RFC 3339, Z). Server deadline remains authoritative even when push TTL differs." }
+  }
+}

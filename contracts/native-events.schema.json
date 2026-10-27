@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mini-voip-free.invalid/native-events.schema.json",
+  "title": "smi.phone/native/v1 — Flutter↔native bridge contract (spec section 10.2)",
+  "description": "EventChannel payloads native→Dart and MethodChannel request/response shapes. One owner dispatcher only. Unknown/nullable fields must be handled defensively; no stack/SIP raw errors cross this boundary.",
+  "type": "object",
+  "required": ["eventId", "type"],
+  "properties": {
+    "eventId": { "type": "string", "description": "unique per event; used by Dart ackEvent exactly once (idempotent)" },
+    "type": {
+      "enum": [
+        "incomingReported",
+        "answerRequested",
+        "declineRequested",
+        "endRequested",
+        "audioActivated",
+        "audioDeactivated",
+        "pushTokenChanged",
+        "nativeCallReset",
+        "capabilityChanged"
+      ]
+    },
+    "callId": { "type": "string", "format": "uuid", "nullable": true, "description": "server callId for incoming; attemptId for outgoing until mapping exists" },
+    "nativeTimestamp": { "type": "string", "format": "date-time" },
+    "callerExtension": { "type": "string", "pattern": "^1[0-9][0-9]$", "nullable": true },
+    "deviceGeneration": { "type": "integer", "minimum": 1, "nullable": true },
+    "expiresAt": { "type": "string", "format": "date-time", "nullable": true },
+    "pushToken": { "type": "string", "nullable": true, "description": "present only for pushTokenChanged; never logged, never broadcast" },
+    "capabilities": { "type": "object", "nullable": true, "description": "platform capability map, e.g. {microphone:boolean, callstyle:boolean, voipPush:boolean}" },
+    "detail": { "type": "string", "nullable": true, "description": "short human-safe reason; no raw stack traces" }
+  },
+  "methodChannel": {
+    "channel": "smi.phone/native/v1",
+    "operations": {
+      "configure": { "args": ["domain"], "returns": "void" },
+      "getCapabilities": { "returns": "object" },
+      "getPushToken": { "returns": "string|null" },
+      "reportOutgoing": { "args": ["attemptId"], "returns": "void", "description": "outgoing native UUID = attemptId for the whole call lifetime (spec 9.3)" },
+      "updateCallState": { "args": ["nativeCallUuid", "state"], "returns": "void" },
+      "endCall": { "args": ["nativeCallUuid", "reason"], "returns": "void" },
+      "setMuted": { "args": ["nativeCallUuid", "muted"], "returns": "void" },
+      "setSpeaker": { "args": ["nativeCallUuid", "speakerOn"], "returns": "void" },
+      "getPendingEvents": { "returns": "Event[]", "description": "native event queue; consumed at cold start / resume before any new dispatch" },
+      "ackEvent": { "args": ["eventId"], "returns": "void", "description": "dequeues only after real processing (spec 10.1)" },
+      "secureStore": { "args": ["op", "key", "value?"], "returns": "string|null", "description": "op in {read,write,delete}; backed by Android Keystore AES-GCM / iOS Keychain AfterFirstUnlockThisDeviceOnly" }
+    }
+  }
+}

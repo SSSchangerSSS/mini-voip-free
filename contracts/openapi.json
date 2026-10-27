@@ -1,0 +1,277 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "mini-voip-free Control API",
+    "version": "0.1.0",
+    "description": "Control-plane API for the internal 2-party calling product (spec section 7). All timestamps are UTC RFC 3339 with Z. Errors are ProblemDetails with extensions code/traceId and, when allowed, callId. NOTE (P1): this file is hand-authored to match the implemented endpoints; CI drift-checks the required path set. Generating it from code (OpenAPI document emission) is part of P1 and will replace manual maintenance."
+  },
+  "servers": [{ "url": "https://{domain}", "variables": { "domain": { "default": "phone.example.invalid" } } }],
+  "tags": [
+    { "name": "sessions" }, { "name": "calls" }, { "name": "device" }, { "name": "health" }
+  ],
+  "paths": {
+    "/api/v1/sessions": {
+      "post": {
+        "tags": ["sessions"],
+        "summary": "Login (extension + password + installationId). Rate limited per IP+extension; failures never disclose account existence.",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LoginRequest" } } } },
+        "responses": {
+          "200": { "description": "Session created; token returned exactly once", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LoginResponse" } } } },
+          "400": { "$ref": "#/components/responses/Problem" },
+          "401": { "description": "INVALID_CREDENTIALS", "$ref": "#/components/responses/Problem" },
+          "409": { "description": "DEVICE_ALREADY_BOUND — takeover is CLI-only", "$ref": "#/components/responses/Problem" },
+          "429": { "description": "RATE_LIMITED", "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/v1/sessions/current": {
+      "delete": {
+        "tags": ["sessions"],
+        "summary": "Logout: ends any live call first, revokes session, unbinds push",
+        "responses": {
+          "204": { "description": "Session revoked" },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/api/v1/me": {
+      "get": {
+        "tags": ["sessions"],
+        "summary": "Account + app settings (server-derived, never guessed client-side)",
+        "responses": {
+          "200": {
+            "description": "Setup bundle",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MeResponse" } } }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/api/v1/devices/current/push": {
+      "put": {
+        "tags": ["device"],
+        "summary": "Register/update the push binding of the session device; empty token = explicit unregister",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PushBindingRequest" } } } },
+        "responses": {
+          "204": { "description": "Binding updated (or cleared)" },
+          "400": { "$ref": "#/components/responses/Problem" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "409": { "description": "STALE_DEVICE", "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/v1/calls/current": {
+      "get": {
+        "tags": ["calls"],
+        "summary": "Current call of this extension; with attemptId: that exact attempt (terminal allowed, within retention)",
+        "parameters": [
+          { "name": "attemptId", "in": "query", "schema": { "type": "string", "format": "uuid" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Call state or null when none",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CallStateResponse" } } }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/api/v1/calls/{callId}": {
+      "get": {
+        "tags": ["calls"],
+        "summary": "Call state; only parties of the call (others get 404)",
+        "parameters": [{ "name": "callId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": {
+          "200": { "description": "Call state", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CallStateResponse" } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "description": "CALL_NOT_FOUND (or not a party)", "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/v1/calls/{callId}/ready": {
+      "post": {
+        "tags": ["calls"],
+        "summary": "Callee-only: SIP registered + runtime ready; gates the single Dial. Repeated ready never creates a second call.",
+        "parameters": [{ "name": "callId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReadyRequest" } } } },
+        "responses": {
+          "200": { "description": "Call state", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CallStateResponse" } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "description": "NOT_CALLEE", "$ref": "#/components/responses/Problem" },
+          "404": { "description": "CALL_NOT_FOUND", "$ref": "#/components/responses/Problem" },
+          "409": { "description": "STALE_DEVICE", "$ref": "#/components/responses/Problem" },
+          "410": { "description": "CALL_EXPIRED / CALL_ENDED", "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/v1/calls/{callId}/accept": {
+      "post": {
+        "tags": ["calls"],
+        "summary": "Callee-only: registers the accept INTENT; never answers SIP by itself",
+        "parameters": [{ "name": "callId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": {
+          "200": { "description": "Call state (Connecting)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CallStateResponse" } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "description": "NOT_CALLEE", "$ref": "#/components/responses/Problem" },
+          "404": { "$ref": "#/components/responses/Problem" },
+          "409": { "description": "INVALID_TRANSITION", "$ref": "#/components/responses/Problem" },
+          "410": { "description": "CALL_EXPIRED / CALL_ENDED", "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/v1/calls/{callId}/decline": {
+      "post": {
+        "tags": ["calls"],
+        "summary": "Callee-only: decline a pending call (for Connected use /end)",
+        "parameters": [{ "name": "callId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": {
+          "200": { "description": "Call state (Ended/Declined)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CallStateResponse" } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "description": "NOT_CALLEE", "$ref": "#/components/responses/Problem" },
+          "404": { "$ref": "#/components/responses/Problem" },
+          "409": { "description": "INVALID_TRANSITION", "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/v1/calls/{callId}/end": {
+      "post": {
+        "tags": ["calls"],
+        "summary": "Either party: request end. 202 until PBX determination; SIP CANCEL/BYE remains the primary teardown path.",
+        "parameters": [{ "name": "callId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": {
+          "202": { "description": "End accepted, awaiting PBX confirmation", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CallStateResponse" } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/v1/ice-servers": {
+      "get": {
+        "tags": ["calls"],
+        "summary": "Short-lived TURN credentials; only when the optional TURN profile is enabled (spec 2.4)",
+        "responses": {
+          "200": { "description": "ICE server list", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "503": { "description": "TURN_DISABLED", "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/health/live": {
+      "get": { "tags": ["health"], "summary": "Process liveness (no internal detail)", "responses": { "200": { "description": "Live" } } }
+    },
+    "/health/ready": {
+      "get": {
+        "tags": ["health"],
+        "summary": "DB migrated + AMI connected + reconciled; 503 otherwise (summary only)",
+        "responses": {
+          "200": { "description": "Ready" },
+          "503": { "description": "Not ready (summary only)", "content": { "application/json": { "schema": { "type": "object" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "Problem": {
+        "description": "ProblemDetails with code/traceId extensions",
+        "content": { "application/problem+json": { "schema": { "$ref": "#/components/schemas/Problem" } } }
+      },
+      "Unauthorized": {
+        "description": "SESSION_EXPIRED (missing/invalid/expired/revoked token)",
+        "content": { "application/problem+json": { "schema": { "$ref": "#/components/schemas/Problem" } } }
+      }
+    },
+    "schemas": {
+      "Problem": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "integer" },
+          "code": { "type": "string", "enum": ["INVALID_CREDENTIALS", "DEVICE_ALREADY_BOUND", "SESSION_EXPIRED", "CALL_NOT_FOUND", "CALL_ENDED", "CALL_EXPIRED", "STALE_DEVICE", "INVALID_TRANSITION", "PBX_NOT_READY", "RATE_LIMITED", "NOT_CALLEE", "INVALID_INPUT", "TURN_DISABLED", "INTERNAL"] },
+          "traceId": { "type": "string" },
+          "callId": { "type": "string", "format": "uuid", "nullable": true },
+          "detail": { "type": "string", "nullable": true }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "required": ["extension", "password", "installationId", "platform"],
+        "properties": {
+          "extension": { "type": "string", "description": "3 digits 101..199; Persian/Arabic digits normalized to ASCII before validation" },
+          "password": { "type": "string", "minLength": 1 },
+          "installationId": { "type": "string", "format": "uuid" },
+          "platform": { "type": "string", "enum": ["android", "ios"] }
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "required": ["accessToken", "idleExpiresAt", "extension", "deviceGeneration", "sipUri", "sipUsername", "wssUrl", "setupTimeoutSeconds", "serverTime"],
+        "properties": {
+          "accessToken": { "type": "string", "description": "opaque 256-bit random token; shown once" },
+          "idleExpiresAt": { "type": "string", "format": "date-time" },
+          "extension": { "type": "string" },
+          "deviceGeneration": { "type": "integer" },
+          "sipUri": { "type": "string" },
+          "sipUsername": { "type": "string" },
+          "wssUrl": { "type": "string" },
+          "setupTimeoutSeconds": { "type": "integer" },
+          "serverTime": { "type": "string", "format": "date-time" }
+        }
+      },
+      "MeResponse": {
+        "type": "object",
+        "properties": {
+          "extension": { "type": "string" },
+          "deviceGeneration": { "type": "integer" },
+          "codec": { "type": "string", "enum": ["ulaw"] },
+          "setupTimeoutSeconds": { "type": "integer" },
+          "sipUri": { "type": "string" },
+          "sipUsername": { "type": "string" },
+          "wssUrl": { "type": "string" }
+        }
+      },
+      "PushBindingRequest": {
+        "type": "object",
+        "required": ["provider", "token", "environment"],
+        "properties": {
+          "provider": { "type": "string", "enum": ["apns", "fcm"] },
+          "token": { "type": "string", "description": "empty string = explicit unregister" },
+          "environment": { "type": "string", "enum": ["production", "sandbox"] },
+          "capabilities": { "type": "object", "nullable": true }
+        }
+      },
+      "ReadyRequest": {
+        "type": "object",
+        "required": ["registered", "deviceGeneration"],
+        "properties": {
+          "registered": { "type": "boolean" },
+          "deviceGeneration": { "type": "integer" }
+        }
+      },
+      "CallStateResponse": {
+        "type": "object",
+        "properties": {
+          "callId": { "type": "string", "format": "uuid" },
+          "attemptId": { "type": "string", "format": "uuid" },
+          "caller": { "type": "string" },
+          "callee": { "type": "string" },
+          "state": { "type": "string", "enum": ["Pending", "Connecting", "Connected", "Ended"] },
+          "deviceGeneration": { "type": "integer" },
+          "revision": { "type": "integer" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "expiresAt": { "type": "string", "format": "date-time" },
+          "acceptedAt": { "type": "string", "format": "date-time", "nullable": true },
+          "connectedAt": { "type": "string", "format": "date-time", "nullable": true },
+          "endedAt": { "type": "string", "format": "date-time", "nullable": true },
+          "endReason": { "type": "string", "nullable": true, "enum": ["Completed", "Declined", "CallerCancelled", "NoAnswer", "Busy", "Unavailable", "Expired", "NetworkLost", "ServerRestart", "SetupFailed", "AccountDisabled", null] },
+          "serverTime": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": { "type": "http", "scheme": "bearer", "description": "opaque session token (not a JWT)" }
+    }
+  },
+  "security": [{ "bearerAuth": [] }]
+}

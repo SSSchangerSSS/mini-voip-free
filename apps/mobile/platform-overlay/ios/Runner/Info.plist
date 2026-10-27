@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<CFBundleDisplayName>Mini VoIP Free</CFBundleDisplayName>
+	<CFBundleExecutable>$(EXECUTABLE_NAME)</CFBundleExecutable>
+	<CFBundleIdentifier>$(PRODUCT_BUNDLE_IDENTIFIER)</CFBundleIdentifier>
+	<CFBundleName>smi_phone</CFBundleName>
+	<CFBundlePackageType>APPL</CFBundlePackageType>
+	<CFBundleShortVersionString>$(FLUTTER_BUILD_NAME)</CFBundleShortVersionString>
+	<CFBundleSignature>????</CFBundleSignature>
+	<CFBundleVersion>$(FLUTTER_BUILD_NUMBER)</CFBundleVersion>
+	<LSRequiresIPhoneOS>true</LSRequiresIPhoneOS>
+	<UILaunchStoryboardName>LaunchScreen</UILaunchStoryboardName>
+	<UIMainStoryboardFile>Main</UIMainStoryboardFile>
+	<UISupportedInterfaceOrientations>
+		<string>UIInterfaceOrientationPortrait</string>
+	</UISupportedInterfaceOrientations>
+	<!-- VoIP + audio only; NO camera background mode — audio-only product (spec 1.3) -->
+	<UIBackgroundModes>
+		<string>voip</string>
+		<string>audio</string>
+	</UIBackgroundModes>
+	<!-- Microphone usage reason; camera/contacts/location are never requested -->
+	<NSMicrophoneUsageDescription>برای گفتگوی صوتی تماس‌های داخلی، میکروفون لازم است.</NSMicrophoneUsageDescription>
+	<CADisableMinimumFrameDurationOnPhone>true</CADisableMinimumFrameDurationOnPhone>
+	<FlutterDeepLinkingEnabled>false</FlutterDeepLinkingEnabled>
+</dict>
+</plist>

@@ -1,0 +1,83 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  control-api:
+    name: Control API (build + unit/integration tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Restore (locked)
+        run: dotnet restore services/control/src/Smi.Control/Smi.Control.csproj --locked-mode
+      - name: Restore tests (locked)
+        run: dotnet restore services/control/tests/Smi.Control.Tests/Smi.Control.Tests.csproj --locked-mode
+      - name: Build
+        run: dotnet build services/control/src/Smi.Control/Smi.Control.csproj -c Release --no-restore
+      - name: Test
+        run: dotnet test services/control/tests/Smi.Control.Tests/Smi.Control.Tests.csproj -c Release --no-build --logger "console;verbosity=normal"
+
+  contracts:
+    name: Contract validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/checks/validate-contracts.py
+
+  mobile:
+    name: Flutter (analyze + unit tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8
+          channel: stable
+          cache: true
+      - name: Pub get
+        working-directory: apps/mobile
+        run: flutter pub get
+      - name: Analyze
+        working-directory: apps/mobile
+        run: flutter analyze
+      - name: Test
+        working-directory: apps/mobile
+        run: flutter test
+
+  caddy-config:
+    name: Caddyfile validation (caddy 2.11.7)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate
+        run: |
+          docker run --rm -v "$PWD/infra/caddy/Caddyfile:/etc/caddy/Caddyfile:ro" \
+            -e SMI_DOMAIN=ci-validate.local -e SMI_ACME_EMAIL=ci@example.invalid \
+            caddy:2.11.7 caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+
+  secret-scan:
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # P2 gate (recorded here so the absence is explicit, not forgotten):
+  # `asterisk-config` job — builds infra/asterisk Dockerfile (source build, ~20min),
+  # then `asterisk -C ... -x 'dialplan show'` validation + live AMI handshake tests.
+  # It requires a runner with network access to downloads.asterisk.org and is
+  # enabled when P2 starts. No skipped-test green badges are produced meanwhile:
+  # dialplan validity is explicitly NOT claimed until then.

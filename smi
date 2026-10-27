@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# smi — delivery-command wrapper for mini-voip-free (contract: PROJECT_SPEC section 13)
+# Exit codes: 0 ok | 1 execution/test error | 2 invalid input / missing prerequisite | 3 blocked (account/device/confirmation/env)
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export SMI_ROOT="$ROOT"
+# shellcheck source=scripts/lib/common.sh
+source "$ROOT/scripts/lib/common.sh"
+
+cmd="${1:-}"
+sub="${2:-}"
+shift 2>/dev/null || true
+
+usage() {
+  cat <<'EOF'
+Usage: ./smi <command> [subcommand] [options]
+
+  doctor                                        Check toolchain, config, ports, secrets (no values printed)
+  check                                         Run available static checks (format/lint/contract validation)
+  test unit|integration [--json]                Run test suites (integration is BLOCKED until P2 PBX env)
+  build android|ios --release                   Build release binaries (ios requires macOS)
+  server init --config deploy/site.env          Validate config, prepare dirs/files (idempotent)
+  server up|status|logs [--call-id <UUID>]      Compose lifecycle helpers
+  extension add|disable <ext> --credential-file <f>
+  device reset <ext> --credential-file <f> [--force]
+  backup --output <f> | restore --input <f> --confirm
+  upgrade|rollback --release <v> --drain | verify-release --manifest <f>
+
+Exit codes: 0=ok 1=error 2=invalid input/prereq 3=blocked
+EOF
+}
+
+case "$cmd" in
+  doctor)
+    exec bash "$ROOT/scripts/doctor/doctor.sh" "$@"
+    ;;
+  check)
+    exec bash "$ROOT/scripts/doctor/check.sh" "$@"
+    ;;
+  test)
+    case "$sub" in
+      unit)        exec bash "$ROOT/scripts/test/unit.sh" "${@/--json/}" ;;
+      integration) fail_blocked "integration suite requires a live PBX + real devices (P2). Current env does not satisfy the gate." ;;
+      ""|*)        usage; exit 2 ;;
+    esac
+    ;;
+  build)
+    case "$sub" in
+      android) exec bash "$ROOT/scripts/build/build-android.sh" "$@" ;;
+      ios)     exec bash "$ROOT/scripts/build/build-ios.sh" "$@" ;;
+      *)       usage; exit 2 ;;
+    esac
+    ;;
+  server)
+    case "$sub" in
+      init)  exec bash "$ROOT/scripts/deploy/server-init.sh" "$@" ;;
+      up)    exec bash "$ROOT/scripts/deploy/server-up.sh" "$@" ;;
+      status) exec bash "$ROOT/scripts/deploy/server-status.sh" "$@" ;;
+      logs)  exec bash "$ROOT/scripts/deploy/server-logs.sh" "$@" ;;
+      *)     usage; exit 2 ;;
+    esac
+    ;;
+  extension)
+    action="$sub"; ext="${1:-}"; shift || true
+    case "$action" in
+      add|disable) exec bash "$ROOT/scripts/deploy/extension.sh" "$action" "$ext" "$@" ;;
+      *)           usage; exit 2 ;;
+    esac
+    ;;
+  device)
+    action="$sub"; ext="${1:-}"; shift || true
+    case "$action" in
+      reset) exec bash "$ROOT/scripts/deploy/device-reset.sh" "$ext" "$@" ;;
+      *)     usage; exit 2 ;;
+    esac
+    ;;
+  backup)
+    [ "${1:-}" = "--output" ] && [ -n "${2:-}" ] || { usage; exit 2; }
+    exec bash "$ROOT/scripts/deploy/backup.sh" --output "$2"
+    ;;
+  restore)
+    [ "${1:-}" = "--input" ] && [ -n "${2:-}" ] || { usage; exit 2; }
+    exec bash "$ROOT/scripts/deploy/restore.sh" --input "$2" "${@:3}"
+    ;;
+  upgrade|rollback)
+    exec bash "$ROOT/scripts/deploy/release-roll.sh" "$cmd" "$@"
+    ;;
+  verify-release)
+    exec bash "$ROOT/scripts/release/verify-release.sh" "$@"
+    ;;
+  -h|--help|help|*)
+    usage
+    [ -z "$cmd" ] || [ "$cmd" = "-h" ] || [ "$cmd" = "--help" ] || [ "$cmd" = "help" ] && exit 0
+    exit 2
+    ;;
+esac

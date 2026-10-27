@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "project": "mini-voip-free",
+  "generatedAt": "2026-10-27",
+  "generatedBy": "P0 preflight verification against official APIs/downloads (see docs/decisions/0002-toolchain-versions.md)",
+  "status": "CANDIDATE — versions verified to exist on official sources on 2026-10-27; NOT yet build-validated together on real devices (P0 gate pending). Do not treat as a tested combination.",
+  "entries": {
+    "flutter": {
+      "version": "3.47.8",
+      "dartSdk": "3.13.7",
+      "channel": "stable",
+      "source": "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json",
+      "verifiedAt": "2026-10-27"
+    },
+    "dotnet-sdk": {
+      "version": "10.0.403",
+      "lts": true,
+      "source": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
+      "verifiedAt": "2026-10-27"
+    },
+    "asterisk": {
+      "version": "22.11.0",
+      "lts": true,
+      "source": "https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-22.11.0.tar.gz",
+      "sha256": "3bd5ee040509a3d3cd9b1ba9520c18e6ec0a7e7981ca68c457dcd36ba3c54d94",
+      "verifiedAt": "2026-10-27",
+      "note": "Latest 22 LTS stable; 22.12.0 exists only as rc3 and is intentionally NOT used."
+    },
+    "caddy": {
+      "version": "2.11.7",
+      "source": "https://github.com/caddyserver/caddy/releases/tag/v2.11.7",
+      "verifiedAt": "2026-10-27",
+      "note": "Pin image digest at first deploy; record digest in release manifest."
+    },
+    "pub.sip_ua": { "version": "1.1.0", "source": "https://pub.dev/packages/sip_ua", "verifiedAt": "2026-10-27" },
+    "pub.flutter_webrtc": { "version": "1.6.3", "source": "https://pub.dev/packages/flutter_webrtc", "verifiedAt": "2026-10-27" },
+    "pub.http": { "version": "1.6.0", "source": "https://pub.dev/packages/http", "verifiedAt": "2026-10-27" },
+    "pub.flutter_lints": { "version": "6.0.0", "source": "https://pub.dev/packages/flutter_lints", "verifiedAt": "2026-10-27" },
+    "nuget.Microsoft.Data.Sqlite": { "version": "10.0.14", "source": "https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlite/index.json", "verifiedAt": "2026-10-27" },
+    "nuget.Microsoft.AspNetCore.Mvc.Testing": { "version": "10.0.14", "source": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.mvc.testing/index.json", "verifiedAt": "2026-10-27" },
+    "nuget.Microsoft.NET.Test.Sdk": { "version": "18.11.0", "source": "https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json", "verifiedAt": "2026-10-27" },
+    "nuget.xunit": { "version": "2.9.3", "source": "https://api.nuget.org/v3-flatcontainer/xunit/index.json", "verifiedAt": "2026-10-27" },
+    "nuget.xunit.runner.visualstudio": { "version": "4.0.1", "source": "https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/index.json", "verifiedAt": "2026-10-27" }
+  },
+  "rules": {
+    "floatingVersionsForbidden": true,
+    "upgradeRequires": "recorded decision in docs/decisions/ plus passing test run with the new combination",
+    "fakeChecksumsForbidden": true
+  }
+}

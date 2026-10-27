@@ -1,0 +1,14 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # keep the build honest: no silent ignores
+    unused_import: warning
+    dead_code: warning
+
+linter:
+  rules:
+    avoid_print: true
+    prefer_single_quotes: true
+    always_declare_return_types: true
+    unnecessary_string_interpolations: true

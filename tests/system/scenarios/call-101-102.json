@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "scenario": "call-101-102",
+  "status": "planned-p2",
+  "requires": ["live PBX with TLS", "two test WebRTC clients (Playwright + SIP.js)", "two provisioned extensions"],
+  "steps": [
+    { "n": 1, "action": "register 101 and 102 over WSS with real DTLS-SRTP", "expect": "both REGISTERED" },
+    { "n": 2, "action": "INVITE sip:102@<domain> with X-SMI-Attempt-ID", "expect": "UserEvent SMICallRequested; slots reserved; push recorded (test sink)" },
+    { "n": 3, "action": "callee ready (same callId, same deviceGeneration)", "expect": "SMI_DIAL_ALLOWED=1; exactly one Dial" },
+    { "n": 4, "action": "answer 102", "expect": "bridge evidence → state Connected on both sides" },
+    { "n": 5, "action": "play tone 10s both directions", "expect": "received RTP energy > threshold, packet counters advance (not just HTTP 200)" },
+    { "n": 6, "action": "hangup from 101", "expect": "BYE, state Ended/Completed, both CallSlots freed, no residual channel" }
+  ],
+  "reportContract": {
+    "file": "reports/<timestamp>-call-101-102.json",
+    "mustInclude": ["commit", "build", "startedUtc", "endedUtc", "stepResults", "iceCandidates", "codec", "rtpBytes", "finalStates", "slotState"]
+  }
+}

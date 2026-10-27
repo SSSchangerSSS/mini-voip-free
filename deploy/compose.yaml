@@ -1,0 +1,96 @@
+# mini-voip-free — production stack (spec 2.3)
+#
+# Exactly THREE persistent services: edge (TLS/WSS), pbx (Asterisk 22), control (.NET 10).
+# SQLite is a file on the control volume, not a fourth container.
+# Linux host networking: NO ports: section, NO compose DNS names — every internal
+# address is an explicit 127.0.0.1 (spec 2.3, [S19]). Each service binds only what it
+# must: edge on 80/443 (all interfaces), pbx+control on loopback only.
+#
+# Required host firewall: TCP 80/443 + UDP 10000-10199 public; SSH restricted to
+# admin addresses; 5038/5080/8088/5060 never public.
+
+name: mini-voip-free
+
+services:
+  edge:
+    image: caddy:2.11.7
+    container_name: smi-edge
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      SMI_DOMAIN: ${SMI_DOMAIN:?SMI_DOMAIN missing — set it in deploy/site.env}
+      SMI_ACME_EMAIL: ${SMI_ACME_EMAIL:-}
+    volumes:
+      - ../infra/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./data/caddy/data:/data
+      - ./data/caddy/config:/config
+    depends_on:
+      - control
+      - pbx
+
+  pbx:
+    build:
+      context: ../infra/asterisk
+    image: mini-voip-free/pbx:22.11.0
+    container_name: smi-pbx
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      # config dir is shared with `control` (extension CLI renders accounts.conf here)
+      - ./data/asterisk/config:/etc/asterisk
+      - ./data/asterisk/lib:/var/lib/asterisk
+      - ./data/asterisk/spool:/var/spool/asterisk
+      - ./data/asterisk/logs:/var/log/asterisk
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "5" }
+
+  control:
+    build:
+      context: ../services/control
+    image: mini-voip-free/control:0.1.0
+    container_name: smi-control
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_URLS: http://127.0.0.1:5080
+      SMI_DB_PATH: /var/lib/smi/smi.db
+      SMI_PBX_CFG_DIR: /etc/asterisk
+      SMI_DOMAIN: ${SMI_DOMAIN:?SMI_DOMAIN missing — set it in deploy/site.env}
+      SMI_SETUP_TIMEOUT_SECONDS: ${SMI_SETUP_TIMEOUT_SECONDS:-40}
+      SMI_SESSION_IDLE_DAYS: ${SMI_SESSION_IDLE_DAYS:-90}
+      SMI_DIAGNOSTIC_RETENTION_DAYS: ${SMI_DIAGNOSTIC_RETENTION_DAYS:-7}
+      SMI_AMI_HOST: 127.0.0.1
+      SMI_AMI_PORT: "5038"
+      SMI_AMI_USERNAME: smi-control
+      SMI_AMI_SECRET_FILE: /run/secrets/ami
+      # push providers stay BLOCKED until employer secrets exist (docs/PREFLIGHT.md B2/B3)
+      SMI_APNS_P8_FILE: /run/secrets/apns_p8
+      SMI_APNS_KEY_ID: ${SMI_APNS_KEY_ID:-}
+      SMI_APNS_TEAM_ID: ${SMI_APNS_TEAM_ID:-}
+      SMI_APNS_BUNDLE_ID: ${SMI_APNS_BUNDLE_ID:-}
+      SMI_APNS_ENVIRONMENT: ${SMI_APNS_ENVIRONMENT:-production}
+      SMI_FCM_SERVICE_ACCOUNT_FILE: /run/secrets/fcm_service_account
+      SMI_FCM_PROJECT_ID: ${SMI_FCM_PROJECT_ID:-}
+      TURN_ENABLED: ${TURN_ENABLED:-false}
+    volumes:
+      - ./data/control:/var/lib/smi
+      - ./data/asterisk/config:/etc/asterisk
+    secrets:
+      - ami
+      - apns_p8
+      - fcm_service_account
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "5" }
+
+# File-based secrets (spec 11.3): real files live in deploy/secrets/ (git-ignored).
+# Missing optional files make compose fail — server-init creates safe empty
+# placeholders ONLY for the optional push secrets, never for the AMI secret.
+secrets:
+  ami:
+    file: ./secrets/ami
+  apns_p8:
+    file: ./secrets/apns.p8
+  fcm_service_account:
+    file: ./secrets/fcm-service-account.json

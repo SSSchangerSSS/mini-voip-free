@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-27",
+  "requiredDevices": {
+    "ios": [
+      {
+        "count": 1,
+        "note": "minimum real iPhone; T08 needs a 2nd iPhone or documented BLOCKED"
+      }
+    ],
+    "android": [
+      {
+        "count": 2,
+        "note": "two models from employer brands (spec 15.3)"
+      }
+    ]
+  },
+  "runProtocol": {
+    "incomingWhileLockedPerPlatform": 20,
+    "thirtyMinuteCall": 1,
+    "twoHourIdle": 1,
+    "recordEveryFailure": true
+  },
+  "fields": [
+    "deviceId",
+    "model",
+    "osVersion",
+    "buildNumber",
+    "commit",
+    "network",
+    "battery",
+    "permissionState",
+    "backgroundMethod",
+    "result",
+    "evidencePath"
+  ],
+  "runs": []
+}

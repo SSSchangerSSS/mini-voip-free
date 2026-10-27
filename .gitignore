@@ -1,0 +1,58 @@
+# ---- Secrets (NEVER commit) ----
+deploy/secrets/*
+!deploy/secrets/README.md
+deploy/site.env
+*.p8
+*.p12
+*.pem.key
+*.keystore
+*.jks
+key.properties
+service-account*.json
+*-firebase-adminsdk*.json
+apns*.key
+
+# ---- Runtime data ----
+data/
+backups/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+
+# ---- .NET ----
+bin/
+obj/
+*.user
+artifacts/
+TestResults/
+*.lock.json.tmp
+
+# ---- Flutter / Dart ----
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+GeneratedPluginRegistrant.*
+ios/Pods/
+ios/.symlinks/
+android/.gradle/
+android/local.properties
+*.iml
+
+# ---- Node/Tooling ----
+node_modules/
+.tool-results/
+agent-ctx/
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# ---- CI local scratch ----
+/.coverage
+/coverage/

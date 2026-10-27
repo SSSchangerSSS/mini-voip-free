@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-27",
+  "note": "All rows start NOT_RUN. BLOCKED is never PASS. N/A requires recorded scope reason + employer confirmation (spec 15.2).",
+  "tests": [
+    {
+      "id": "T01",
+      "scenario": "login صحیح و نادرست",
+      "expected": "ورود واقعی؛ خطای عمومی امن بدون افشای حساب",
+      "level": "خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T02",
+      "scenario": "داخلی غیرفعال/ناشناخته",
+      "expected": "عدم ثبت یا تماس مجاز؛ بدون Push",
+      "level": "خودکار/PBX",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T03",
+      "scenario": "ورودی فارسی، عربی و نامعتبر",
+      "expected": "تبدیل ۱۰۲ و ١٠٢؛ رد URI/header injection",
+      "level": "خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T04",
+      "scenario": "ورود دستگاه دوم",
+      "expected": "409؛ عدم takeover دستگاه قبلی",
+      "level": "خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T05",
+      "scenario": "reset دستگاه",
+      "expected": "نسل/token/رمز قبلی نامعتبر؛ دستگاه تازه قابل‌استفاده",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T06",
+      "scenario": "token نشست منقضی/revoked",
+      "expected": "401 و UI غیرآماده؛ نبود دسترسی به تماس دیگران",
+      "level": "خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T07",
+      "scenario": "تماس foreground دوطرفه",
+      "expected": "Android→iOS و iOS→Android؛ صوت دوطرفه و پایان صحیح",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T08",
+      "scenario": "تماس هم‌پلتفرم",
+      "expected": "Android→Android و iOS→iOS؛ با دو دستگاه یا تست مستقل واقعی",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T09",
+      "scenario": "تماس خروجی تکراری با چند tap",
+      "expected": "فقط یک attempt/INVITE/slot",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T10",
+      "scenario": "تماس با خود و شماره تعریف‌نشده",
+      "expected": "رد واضح؛ بدون تخصیص ماندگار slot",
+      "level": "خودکار/PBX",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T11",
+      "scenario": "میوت حداقل ۶۰ ثانیه",
+      "expected": "قطع صدای ارسال، ادامه تماس و بازگشت درست",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T12",
+      "scenario": "بلندگو/receiver و مسیر عادی headset",
+      "expected": "کنترل درست، بدون crash یا میکروفون مانده",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T13",
+      "scenario": "قفل صفحه حین مکالمه",
+      "expected": "مکالمه ادامه یابد؛ Activity مالک عمر تماس نباشد",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T14",
+      "scenario": "incoming پس از ۳۰ دقیقه قفل",
+      "expected": "رابط native، پاسخ از قفل و صدای دوطرفه روی هر OS",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T15",
+      "scenario": "incoming پس از دو ساعت بیکاری",
+      "expected": "بدون بازکردن قبلی اپ در همان بازه؛ نتیجه و تأخیر ثبت شود",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T16",
+      "scenario": "cold start پس از kill توسط OS",
+      "expected": "رخداد native گم نشود؛ startup و صدا در Release موفق",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T17",
+      "scenario": "Android Doze",
+      "expected": "اعلان واقعی و تماس مطابق قواعد سیستم؛ trace دریافت",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T18",
+      "scenario": "Android Force Stop",
+      "expected": "عدم ادعای بیدارسازی؛ بازیابی پس از بازشدن دستی",
+      "level": "دستگاه/محدودیت",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T19",
+      "scenario": "Focus/DND یا notification permission خاموش",
+      "expected": "احترام به تنظیم کاربر؛ وضعیت روشن و بدون bypass",
+      "level": "دستگاه/محدودیت",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T20",
+      "scenario": "پاسخ قبل از رسیدن INVITE",
+      "expected": "intent حفظ، answer دقیقاً یک بار، بدون outgoing جدید",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T21",
+      "scenario": "رد پیش از REGISTER/INVITE",
+      "expected": "تماس سرور پایان یابد؛ دیررس‌ها زنده‌اش نکنند",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T22",
+      "scenario": "caller cancel پیش از Push receipt",
+      "expected": "terminal؛ stale Push اتصال ایجاد نکند",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T23",
+      "scenario": "caller cancel هنگام زنگ",
+      "expected": "CANCEL/UI cleanup و عدم زنگ مانده",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T24",
+      "scenario": "پاسخ هم‌زمان با cancel",
+      "expected": "یک نتیجه نهایی؛ بدون ghost bridge یا slot",
+      "level": "race + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T25",
+      "scenario": "پایان timeout",
+      "expected": "مهلت کل ۴۰ ثانیه؛ timeout بعد از ready از نو شروع نشود",
+      "level": "خودکار/PBX",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T26",
+      "scenario": "Push با تأخیر بیش از deadline",
+      "expected": "عدم اتصال تماس منقضی؛ پایان UI مطابق قواعد CallKit",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T27",
+      "scenario": "Push تکراری و event تکراری",
+      "expected": "یک UUID/UI/INVITE؛ بدون mic/session تکراری",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T28",
+      "scenario": "دو caller هم‌زمان به یک callee",
+      "expected": "یک تماس پذیرفته، دیگری busy؛ قفل اتمیک",
+      "level": "race/PBX",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T29",
+      "scenario": "تماس متقابل هم‌زمان",
+      "expected": "بدون deadlock/دو تماس فعال روی یک داخلی",
+      "level": "race/PBX",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T30",
+      "scenario": "contact قدیمی و غیرقابل‌دسترسی",
+      "expected": "Dial صرفاً با contact انجام نشود؛ ready همان تماس لازم",
+      "level": "PBX + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T31",
+      "scenario": "اپ مقصد بدون اینترنت",
+      "expected": "نتیجه timeout/unavailable؛ خطای کنترل‌شده و آزادشدن slot",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T32",
+      "scenario": "APNs/FCM token باطل یا چرخش token",
+      "expected": "invalidate فقط نسل درست؛ token تازه حذف نشود",
+      "level": "خودکار + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T33",
+      "scenario": "429/5xx provider",
+      "expected": "retry محدود تا deadline، بدون UUID تازه یا ارسال بعد از پایان",
+      "level": "خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T34",
+      "scenario": "قطع/reconnect AMI",
+      "expected": "fail-closed تماس جدید؛ reconcile و حفظ تماس زنده ممکن",
+      "level": "PBX",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T35",
+      "scenario": "restart Control در Pending/Connected",
+      "expected": "بدون busy دائمی و بدون قطع بی‌دلیل رسانه متصل",
+      "level": "PBX + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T36",
+      "scenario": "restart Asterisk",
+      "expected": "پایان قابل‌فهم؛ ثبت مجدد و تماس بعدی موفق",
+      "level": "PBX + دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T37",
+      "scenario": "تغییر Wi-Fi/دیتا در تماس",
+      "expected": "recovery یا پایان روشن تا مهلت؛ عدم اتصال شبح",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T38",
+      "scenario": "foreground/lock روی Wi-Fi شرکت و شبکه بیرونی",
+      "expected": "خروج از فرض LAN؛ WSS و صوت واقعی",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T39",
+      "scenario": "IDOR و callId جعلی",
+      "expected": "ناتوانی در خواندن/رد/قطع/ready تماس دیگران",
+      "level": "امنیت خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T40",
+      "scenario": "جعل From/Caller-ID و headerها",
+      "expected": "هویت از endpoint؛ عدم جعل داخلی و UUID",
+      "level": "امنیت PBX",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T41",
+      "scenario": "race در ready/end/idempotency",
+      "expected": "terminal immutable، side effect دقیقاً یک بار",
+      "level": "خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T42",
+      "scenario": "TLS نامعتبر و endpoint ناامن",
+      "expected": "اتصال رد شود؛ release هیچ trust-all نداشته باشد",
+      "level": "امنیت",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T43",
+      "scenario": "secret scan سورس و APK/IPA/image",
+      "expected": "نبود کلید سرور، رمز واقعی و backdoor تست",
+      "level": "CI/security",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T44",
+      "scenario": "پورت و سطح دسترسی",
+      "expected": "AMI/API داخلی/HTTP PBX از اینترنت بسته باشند",
+      "level": "عملیات",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T45",
+      "scenario": "۳۰ داخلی و ۱۰ تماس هم‌زمان، ۱۰ دقیقه",
+      "expected": "ثبت ظرفیت واقعی، صوت و منابع؛ بدون خطای منطقی",
+      "level": "بار واقعی/خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T46",
+      "scenario": "حداقل ۱۰۰ چرخه تماس/پایان",
+      "expected": "عدم رشد ماندگار channel/track/slot و خطای cleanup",
+      "level": "خودکار + نمونه دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T47",
+      "scenario": "نصب روی VM تمیز",
+      "expected": "README و wrapper بدون اصلاح دستی پنهان کار کنند",
+      "level": "عملیات",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T48",
+      "scenario": "backup و restore روی محیط تمیز",
+      "expected": "بازیابی واقعی و تماس پس از restore",
+      "level": "عملیات",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T49",
+      "scenario": "upgrade و rollback",
+      "expected": "حفظ data/config و رفتار drain؛ schema سازگار",
+      "level": "عملیات",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T50",
+      "scenario": "Android signed APK و upgrade روی نصب قبلی",
+      "expected": "امضای ثابت، حفظ حساب، FCM/صوت واقعی",
+      "level": "انتشار/دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T51",
+      "scenario": "iOS archive/TestFlight واقعی",
+      "expected": "امضا/entitlement/APNs production صحیح و تماس قفل",
+      "level": "انتشار/دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T52",
+      "scenario": "انتشار پایدار iOS",
+      "expected": "لینک واقعی توزیع موردتأیید؛ TestFlight جای آن نیست",
+      "level": "انتشار/وابسته به حساب",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T53",
+      "scenario": "دسترس‌پذیری و RTL",
+      "expected": "ارقام/متن/دکمه‌ها خوانا، تغییر font scale خراب نکند",
+      "level": "UI/device",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T54",
+      "scenario": "TURN با UDP مسدود و relay اجباری",
+      "expected": "فقط در صورت فعال‌بودن profile؛ credential امن و رسانه واقعی",
+      "level": "شرطی/شبکه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T55",
+      "scenario": "reboot گوشی و unlock اولیه",
+      "expected": "بازیابی token/حساب؛ رفتار قبل از unlock مستند",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T56",
+      "scenario": "تمدید/تعویض گواهی و reconnect WSS",
+      "expected": "اتصال بعدی موفق؛ عدم ورود به حالت ready کاذب",
+      "level": "عملیات",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T57",
+      "scenario": "نبود/قطع secret یا اشتباه محیط Push",
+      "expected": "startup/preflight یا پیام صریح؛ بدون fallback ناامن",
+      "level": "خودکار/عملیات",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T58",
+      "scenario": "auth throttling و ورودی بزرگ/بدقالب",
+      "expected": "429/4xx قابل‌کنترل؛ بدون crash یا اجرای command",
+      "level": "امنیت خودکار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T59",
+      "scenario": "app/system phone interruption",
+      "expected": "پایان/مدیریت سیستم بدون ضبط پنهان و audio session گیرکرده",
+      "level": "دستگاه",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    },
+    {
+      "id": "T60",
+      "scenario": "تطبیق tag، commit، checksum و گزارش‌ها",
+      "expected": "همان باینری آزموده‌شده انتشار یابد",
+      "level": "انتشار",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "lastRunAtUtc": null,
+      "commit": null
+    }
+  ]
+}

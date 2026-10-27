@@ -19,7 +19,6 @@ backups/
 *.db-shm
 *.db-wal
 *.sqlite
-
 # ---- .NET ----
 bin/
 obj/
@@ -31,7 +30,9 @@ TestResults/
 # ---- Flutter / Dart ----
 .dart_tool/
 .packages
-build/
+# build outputs — ROOT-ANCHORED would still hide scripts/build/*.sh (regression
+# fixed 2026-10-27: the android-build runner could not find the overlay script)
+apps/mobile/build/
 .flutter-plugins
 .flutter-plugins-dependencies
 GeneratedPluginRegistrant.*

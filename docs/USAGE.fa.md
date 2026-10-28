@@ -115,6 +115,62 @@ cd mini-voip-free   # ریشه باندل روی سرور
 - صدای یک‌طرفه/قطع → UDP 10000-10199 در فایروال بسته است
 - هنگام بیلد اول Asterisk خطای حافظه → swap اضافه کنید (بخش ۲)
 
+## ۱۰) اجرای سرور روی ویندوز — وضعیت: «سند‌شده ولی تست‌نشده»
+
+> صداقت: این بخش روی ویندوز واقعی **تست نشده است** (این پروژه فقط روی لینوکس اجرا و تأیید شده).
+> مسیر پشتیبانی‌شده برای تولید همان VPS لینوکسی است (بخش ۲). ویندوز را برای **ارزیابی/شبکه داخلی** به کار ببرید.
+
+### چرا نatively نه؟
+
+- **Asterisk** اصلاً بیلد بومی ویندوز ندارد (سرویس pbx شماست).
+- `deploy/compose.yaml` طبق سند ۲.۳ از **host networking لینوکس** استفاده می‌کند (`network_mode: host` + بایند روی 127.0.0.1) که در Docker Desktop ویندوز معنا ندارد.
+- سرویس control (.NET 10) و Caddy روی ویندوز اجرا می‌شوند، ولی به‌تنهایی کافی نیستند — pbx گم می‌شود.
+
+### راه درست روی ویندوز: WSL2 (ابونتو داخل ویندوز)
+
+**شرط‌ها:**
+
+| شرط | توضیح |
+|---|---|
+| ویندوز ۱۱ ۲۲H2 یا جدیدتر | برای حالت شبکه‌ی `mirrored` (بدون آن، فوروارد **UDP 10000-10199** از ویندوز به WSL عملاً ممکن نیست → صدا قطع می‌شود) |
+| دامنه + IP عمومی | دامنه باید به IP **عمومیِ** همان ویندوز اشاره کند؛ اگر پشت NAT خانه/اداره است، روی مودم/روتر فوروارد لازم دارید: TCP 80+443 و UDP 10000-10199 |
+| باندل داخل فایل‌سیستم لینوکسی | باندل را در `~/` داخل WSL باز کنید، **هرگز** در `C:\` یا `/mnt/c/...` — به همین دلیل `install-server.sh` حالا روی فایل‌سیستم‌های NTFS/drvfs **fail-closed** می‌شود (chmod 600 آنجا واقعاً محافظت نمی‌کند) |
+
+**گام‌ها (PowerShell با دسترسی Administrator):**
+
+```powershell
+wsl --install -d Ubuntu-24.04
+# بعد از ری‌استارت، فایل %UserProfile%\.wslconfig بسازید:
+#   [wsl2]
+#   networkingMode=mirrored
+# سپس:  wsl --shutdown   و دوباره وارد Ubuntu شوید
+```
+
+```powershell
+# فایروال ویندوز (هر ۳ قانون)
+New-NetFirewallRule -DisplayName "SMI HTTP"  -Direction Inbound -Protocol TCP -LocalPort 80  -Action Allow
+New-NetFirewallRule -DisplayName "SMI HTTPS" -Direction Inbound -Protocol TCP -LocalPort 443 -Action Allow
+New-NetFirewallRule -DisplayName "SMI RTP"   -Direction Inbound -Protocol UDP -LocalPort 10000-10199 -Action Allow
+```
+
+داخل اوبونتوی WSL — دقیقاً همان بخش ۳:
+
+```bash
+curl -fsSL https://get.docker.com | sh
+unzip ~/Downloads/mini-voip-free-server-bundle-*.zip -d ~/mini-voip-free   # فایل را اول به ~/ کپی کنید
+cd ~/mini-voip-free
+sudo bash scripts/deploy/install-server.sh
+```
+
+بقیه‌ی مسیر (گرفتن APK با `server_ip` = دامنه‌ی همان ویندوز، نصب، تماس) عیناً بخش‌های ۴ تا ۶ است.
+
+### ملاحظات صادقانه برای ویندوز
+
+- **ویندوز ۱۰:** بدون mirrored networking فوروارد UDP به WSL راه استاندارد ندارد → تماس صوتی از اینترنت کار نخواهد کرد (فقط HTTPS). برای ویندوز ۱۰ همان VPS لینوکسی را توصیه می‌کنیم.
+- **CGNAT / بدون فوروارد روتر:** هیچ تونلی در این مخزن برای RTP/UDP تعریف نشده؛ دامنه از اینترنت قابل‌دسترس نمی‌شود و Let's Encrypt هم گواهی نمی‌دهد → سرور روی VPS بالا بیاید.
+- **فقط داخل LAN:** می‌شود ولی گواهی معتبر لازم است (اپ هرگز TLS را دور نمی‌زند)؛ راه فعلی مخزن فقط HTTP-01 است. اگر لازم شد، سوییچ Caddy به گواهی فایل‌محور (DNS-01) با یک تصمیم ثبت‌شده اضافه می‌شود.
+- عملکرد WSL2 برای بیلد اول Asterisk (۱۵–۳۰ دقیقه) کافی است؛ برای بهره‌برداری پایدار چندکاربره، VPS/سرور لینوکسی مسیر رسمی است.
+
 ---
 
 *نسخه سند: 1.0 — هم‌راستا با toolchain.lock.json (Flutter 3.47.8، .NET 10.0.403، Asterisk 22.11.0، Caddy 2.11.7) و تصمیم‌های ثبت‌شده در docs/decisions/.*

@@ -30,6 +30,14 @@ ROOT="$(pwd)"
 [ -f "$ROOT/smi" ] && [ -f "$ROOT/deploy/compose.yaml" ] \
   || die "run this script from the extracted bundle root (install-server.sh not found next to smi/compose.yaml)"
 
+# fail-closed: on Windows-mounted filesystems (NTFS via WSL /mnt/c, drvfs/9p) chmod 600
+# does NOT actually restrict access — secrets would sit unprotected. Refuse and say why.
+fstype="$(df --output=fstype "$ROOT" 2>/dev/null | tail -1 | tr -d ' ')"
+case "$fstype" in
+  drvfs|9p|ntfs|ntfs-3g|fuseblk)
+    die "bundle is on a Windows-mounted filesystem ($fstype) — extract it INSIDE the Linux filesystem (e.g. ~/mini-voip-free in WSL2) so chmod 600 on secrets really protects them" ;;
+esac
+
 command -v docker >/dev/null 2>&1 || die "docker is not installed. Install first:  curl -fsSL https://get.docker.com | sh  — then re-run."
 command -v openssl >/dev/null 2>&1 || die "openssl not found (apt-get install -y openssl)"
 docker compose version >/dev/null 2>&1 || die "docker compose plugin missing (usually bundled with get.docker.com install)"

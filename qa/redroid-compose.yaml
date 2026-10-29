@@ -1,0 +1,25 @@
+# Separate QA runtime; never included by ./smi server up.
+name: mini-voip-free-qa
+services:
+  android15:
+    image: docker.1ms.run/redroid/redroid@sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3
+    pull_policy: never
+    container_name: smi-qa-android15
+    privileged: true
+    restart: "no"
+    mem_limit: 2560m
+    cpus: 2.0
+    pids_limit: 4096
+    ports:
+      - "127.0.0.1:5565:5555"
+    volumes:
+      - /home/changer/.local/share/mini-voip-free/redroid15-data:/data
+    command:
+      - androidboot.redroid_width=480
+      - androidboot.redroid_height=800
+      - androidboot.redroid_dpi=160
+      - androidboot.redroid_fps=10
+      - androidboot.redroid_gpu_mode=guest
+      - androidboot.use_memfd=1
+      - androidboot.redroid_net_ndns=1
+      - androidboot.redroid_net_dns1=192.168.1.1

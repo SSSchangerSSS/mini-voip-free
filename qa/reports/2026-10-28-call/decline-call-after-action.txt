@@ -1,0 +1,6 @@
+Channel                                                          Location                         State   Application(Data)             
+PJSIP/102-00000003                                               102@smi-internal:1               Ringing AppDial((Outgoing Line))      
+PJSIP/101-00000002                                               102@smi-call:20                  Ring    Dial(PJSIP/102,40,b(smi-predia
+2 active channels
+1 active call
+2 calls processed

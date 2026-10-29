@@ -1,0 +1,14 @@
+HTTP Server Status:
+Prefix: 
+Server: Asterisk/22.11.0
+Server Enabled and Bound to 127.0.0.1:8088
+
+Enabled URI's:
+/media/... => Media over Websocket
+/ws => Asterisk HTTP WebSocket
+
+Enabled Redirects:
+  None.
+
+Path Restrictions:
+  None.

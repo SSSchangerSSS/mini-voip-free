@@ -1,6 +1,7 @@
 package app.minivoipfree
 
 import android.app.Notification
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
@@ -28,6 +29,15 @@ import java.time.Instant
  * call slot and never claims default-dialer behaviour.
  */
 class SmiTelecomCallService : Service() {
+
+    override fun onCreate() {
+        super.onCreate()
+        // Every supported release (Android 8+) requires an existing channel
+        // before a foreground notification can be posted.
+        getSystemService(NotificationManager::class.java).createNotificationChannel(
+            NotificationChannel(CHANNEL_ID, "تماس‌ها", NotificationManager.IMPORTANCE_HIGH),
+        )
+    }
 
     override fun onBind(intent: Intent?): IBinder? = null
 

@@ -1,0 +1,5 @@
+Channel                                                                          Context                  Extension                Prio State   Application  Data                      CallerID        Duration Accountcode PeerAccount BridgeID            
+PJSIP/101-00000000                                                               smi-call                 102                        17 Ring    WaitForCondi #,#["#{SMI_DIAL_ALLOWED}" 101             00:00:33                                             
+1 active channel
+1 active call
+1 call processed

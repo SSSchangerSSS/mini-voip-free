@@ -1,0 +1,23 @@
+--------- beginning of main
+--------- beginning of system
+10-28 14:55:10.763  1478  1478 D AndroidRuntime: >>>>>> START com.android.internal.os.ZygoteInit uid 0 <<<<<<
+10-28 14:55:12.173  1479  1479 D AndroidRuntime: >>>>>> START com.android.internal.os.ZygoteInit uid 0 <<<<<<
+10-28 14:56:39.182  2707  2707 I flutter : [IMPORTANT:flutter/shell/common/shell.cc(528)] [Action Required]: Impeller opt-out deprecated.
+10-28 14:56:39.182  2707  2707 I flutter :     The application opted out of Impeller by either using the
+10-28 14:56:39.182  2707  2707 I flutter :     `--no-enable-impeller` flag or the
+10-28 14:56:39.182  2707  2707 I flutter :     `io.flutter.embedding.android.EnableImpeller` `AndroidManifest.xml` entry.
+10-28 14:56:39.182  2707  2707 I flutter :     These options are going to go away in an upcoming Flutter release. Remove
+10-28 14:56:39.182  2707  2707 I flutter :     the explicit opt-out. If you need to opt-out, please report a bug describing
+10-28 14:56:39.182  2707  2707 I flutter :     the issue.
+10-28 14:56:39.182  2707  2707 I flutter : 
+10-28 14:56:39.182  2707  2707 I flutter :     https://github.com/flutter/flutter/issues/new?template=02_bug.yml
+10-28 14:56:39.182  2707  2707 I flutter : 
+10-28 14:56:43.763  2736  2736 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:56:44.421  2736  2736 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:56:45.802  2736  2736 D AndroidRuntime: Shutting down VM
+10-28 14:56:47.315  2758  2758 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:56:47.611  2758  2758 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 14:56:47.688  2758  2758 D AndroidRuntime: Shutting down VM
+10-28 14:56:50.559  2771  2771 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:56:50.870  2771  2771 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:56:52.161  2771  2771 D AndroidRuntime: Shutting down VM

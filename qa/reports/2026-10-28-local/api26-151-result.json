@@ -1,0 +1,12 @@
+{
+  "api": 26,
+  "device": "emulator-5554",
+  "apk": "artifacts/android/mini-voip-free-192.168.1.151-local.apk",
+  "scope": "software emulator install/launch/login-form smoke only; no SIP/audio/push acceptance",
+  "installExit": 0,
+  "launchExit": 0,
+  "bakedHostVisible": true,
+  "emptyFormRejected": true,
+  "status": "PASS",
+  "elapsedSeconds": 113
+}

@@ -1,0 +1,53 @@
+2026-10-28T12:52:39Z build wrapper regression tests (stubbed Flutter; no mobile runtime validation)
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.154s
+
+OK
+2026-10-28T12:52:40Z dotnet test (Control: state machine, slots, auth endpoints, crypto, normalization)
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Smi.Control -> /home/changer/Desktop/flash/mini-voip-free/services/control/src/Smi.Control/bin/Release/net10.0/Smi.Control.dll
+  Smi.Control.Tests -> /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll
+Test run for /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 2 s - Smi.Control.Tests.dll (net10.0)
+2026-10-28T12:52:46Z flutter test (mobile: normalization, event queue, wire models)
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart
+00:00 +0: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) accepts plain ASCII
+00:00 +1: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: unresponsive server has a bounded request deadline
+00:00 +2: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: unresponsive server has a bounded request deadline
+00:00 +3: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) rejects invalid targets
+00:00 +4: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: JSON requests declare JSON rather than form/text content
+00:00 +5: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: JSON requests declare JSON rather than form/text content
+00:00 +6: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart
+00:00 +6: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: replays the Android JSON backlog without a type cast crash
+00:00 +7: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: accepts the contract list and safely handles malformed legacy JSON
+00:00 +8: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: legacy incoming expiry uses UTC and preserves contract fields
+00:00 +9: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart: remote fixed SIP MESSAGE triggers authenticated reconcile; unrelated bodies do not
+00:00 +10: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart: WS transport is explicit, TLS remains verified, startup errors propagate
+00:00 +11: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart: outgoing INVITE carries attempt UUID and stays audio-only
+00:00 +12: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:00 +13: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:00 +14: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:00 +15: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:00 +16: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:00 +17: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:01 +18: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:01 +19: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:01 +20: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: failed network login returns to error rather than leaving spinner active
+00:01 +21: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: unavailable secure store is handled before any network request
+00:01 +22: All tests passed!
+2026-10-28T12:52:52Z contract validation
+PASS contracts validated (openapi.json, push.schema.json, native-events.schema.json)

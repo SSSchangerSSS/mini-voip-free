@@ -1,0 +1,17 @@
+{
+  "api": 35,
+  "device": "emulator-5556",
+  "apk": "artifacts/android/mini-voip-free-192.168.1.151-local.apk",
+  "scope": "install, eventual login rendering, baked-host display, and empty-form rejection only; no timing/audio/push acceptance",
+  "installExit": 0,
+  "launchExit": 0,
+  "bakedHostVisible": true,
+  "emptyFormRejected": true,
+  "status": "PASS",
+  "elapsedSeconds": 474,
+  "limitations": [
+    "Initial am start -W reported Status: timeout despite exit 0.",
+    "Emulator Quickstep and System UI ANR dialogs occurred and were dismissed/waited; screenshots and diagnostics retained.",
+    "UI subsequently rendered without the system dialog and empty-form validation passed. Startup performance is not validated."
+  ]
+}

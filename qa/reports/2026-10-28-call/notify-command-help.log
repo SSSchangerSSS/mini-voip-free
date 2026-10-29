@@ -1,0 +1,69 @@
+
+[1;35m  -= Info about Manager Command 'PJSIPNotify' =- [0m
+
+[1;35m[Synopsis][0m
+[1;36mSend a NOTIFY to either an endpoint, an arbitrary URI, or inside a SIP dialog. [0m
+
+[1;35m[Provided By][0m
+[1;36mres_pjsip_notify[0m
+
+[1;35m[Since][0m
+[1;36m12.0.0[0m
+
+[1;35m[Description][0m
+[1;36mSends a NOTIFY to an endpoint, an arbitrary URI, or inside a SIP dialog.
+All parameters for this event must be specified in the body of this request	via
+multiple [1;34m'Variable: name=value'[1;36m sequences.
+[1;33mNOTE:[1;36m One (and only one) of [1;34m'Endpoint'[1;36m, [1;34m'URI'[1;36m, or [1;34m'Channel'[1;36m must be specified.
+If [1;34m'URI'[1;36m is used, the default outbound endpoint will be used to send the
+message. If the default outbound endpoint isn't configured, this command can
+not send to an arbitrary URI.[0m
+
+[1;35m[Syntax][0m
+[1;36mAction: PJSIPNotify
+[ActionID:] <value>
+[Endpoint:] <value>
+[URI:] <value>
+[channel:] <value>
+[Option:] <value>
+[Variable:] <value>[0m
+
+[1;35m[Arguments][0m
+[1;36m
+ActionID
+    ActionID for this transaction. Will be returned.
+
+Endpoint
+    The endpoint to which to send the NOTIFY.
+
+URI
+    Abritrary URI to which to send the NOTIFY.
+
+channel
+    Channel name to send the NOTIFY. Must be a PJSIP channel.
+
+Option
+    The config section name from [1;34m'pjsip_notify.conf'[1;36m to use.
+    One of Option or Variable must be specified.
+
+Variable
+    Appends variables as headers/content to the NOTIFY. If the variable is
+    named [1;34m'Content'[1;36m, then the value will compose the body of the message if
+    another variable sets [1;34m'Content-Type'[1;36m. [1;32m<name>[1;36m=[1;32m<value>[1;36m
+    One of Option or Variable must be specified.[0m
+
+[1;35m[Privilege][0m
+[1;36msystem,all[0m
+
+[1;35m[See Also][0m
+[1;36mNot available[0m
+
+[1;35m[List Responses][0m
+[1;36mNone[0m
+
+[1;35m[End List Responses][0m
+
+[1;35m[Final Response][0m
+[1;36mNone[0m
+
+[1;35m[End Final Response][0m

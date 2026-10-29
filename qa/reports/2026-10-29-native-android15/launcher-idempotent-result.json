@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "sameCallBridgeRetained": true,
+  "apkReinstallSkipped": true,
+  "scope": "Repeated desktop launch during active call"
+}

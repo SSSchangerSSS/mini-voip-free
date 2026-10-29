@@ -1,0 +1,9 @@
+{
+  "caller": "101",
+  "callee": "102",
+  "answerButtonSeen": true,
+  "status": "FAIL",
+  "secretValuesRecorded": false,
+  "answerAfterSeconds": 9.97,
+  "hangupTapped": true
+}

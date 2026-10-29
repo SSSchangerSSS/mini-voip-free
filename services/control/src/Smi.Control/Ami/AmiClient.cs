@@ -78,33 +78,41 @@ public sealed class AmiClient : BackgroundService
         await _tcp.ConnectAsync(_cfg.AmiHost, _cfg.AmiPort, ct);
         _stream = _tcp.GetStream();
 
-        var login = await SendAction(new Dictionary<string, string>
-        {
-            ["Action"] = "Login",
-            ["Username"] = _cfg.AmiUsername,
-            ["Secret"] = _cfg.AmiSecret,
-            ["Events"] = "call,system",
-        }, ct);
-        if (!string.Equals(login?.Get("Response"), "Success", StringComparison.OrdinalIgnoreCase))
-        {
-            _log.LogError("AMI login failed: {Response}", login?.Get("Message"));
-            throw new InvalidOperationException("AMI login rejected");
-        }
-
-        ConnectedAndLoggedIn = true;
-        _log.LogInformation("AMI connected (loopback {Host}:{Port})", _cfg.AmiHost, _cfg.AmiPort);
-        ConnectionRestored?.Invoke();
-
-        using var heartbeat = new CancellationTokenSource();
-        var hbTask = HeartbeatLoop(heartbeat.Token);
+        using var connection = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        // Responses must be consumed while Login is awaiting its ActionID.
+        var reader = ReadLoop(connection.Token);
+        Task? heartbeat = null;
         try
         {
-            await ReadLoop(ct);
+            var login = await SendAction(new Dictionary<string, string>
+            {
+                ["Action"] = "Login",
+                ["Username"] = _cfg.AmiUsername,
+                ["Secret"] = _cfg.AmiSecret,
+                ["Events"] = "call,system,user",
+            }, connection.Token);
+            if (!string.Equals(login?.Get("Response"), "Success", StringComparison.OrdinalIgnoreCase))
+            {
+                _log.LogError("AMI login rejected or timed out");
+                throw new InvalidOperationException("AMI login rejected");
+            }
+
+            ConnectedAndLoggedIn = true;
+            _log.LogInformation("AMI connected (loopback {Host}:{Port})", _cfg.AmiHost, _cfg.AmiPort);
+            ConnectionRestored?.Invoke();
+            heartbeat = HeartbeatLoop(connection.Token);
+            await reader;
         }
         finally
         {
-            heartbeat.Cancel();
-            try { await hbTask; } catch (OperationCanceledException) { }
+            connection.Cancel();
+            _tcp.Dispose();
+            try { await reader; } catch (OperationCanceledException) { } catch (IOException) { }
+            if (heartbeat is not null)
+            {
+                try { await heartbeat; } catch (OperationCanceledException) { }
+            }
+            _stream = null;
         }
     }
 
@@ -129,9 +137,9 @@ public sealed class AmiClient : BackgroundService
             sb.Append(Encoding.ASCII.GetString(buffer, 0, n));
 
             // packets are separated by a blank line; handle several per read
-            var text = sb.ToString();
+            var text = sb.ToString().Replace("\r\n", "\n");
             int idx;
-            while ((idx = IndexOfPacketEnd(text)) >= 0)
+            while ((idx = text.IndexOf("\n\n", StringComparison.Ordinal)) >= 0)
             {
                 var rawPacket = text[..idx];
                 text = text[(idx + 2)..];
@@ -141,19 +149,6 @@ public sealed class AmiClient : BackgroundService
             sb.Clear();
             sb.Append(text);
         }
-    }
-
-    private static int IndexOfPacketEnd(string text)
-    {
-        int i = 0;
-        while (i < text.Length - 1)
-        {
-            if (text[i] == '\r' && i + 1 < text.Length && text[i + 1] == '\r') return i;
-            if (text[i] == '\n' && i + 1 < text.Length && text[i + 1] == '\n') return i;
-            if (text[i] == '\r' && i + 2 < text.Length && text[i + 1] == '\n' && text[i + 2] == '\r') return i;
-            i++;
-        }
-        return -1;
     }
 
     private static AmiPacket? ParsePacket(string raw)
@@ -199,7 +194,9 @@ public sealed class AmiClient : BackgroundService
     /// <summary>Send an action and await its response. Returns null on timeout.</summary>
     public async Task<AmiPacket?> SendAction(IReadOnlyDictionary<string, string> fields, CancellationToken ct, TimeSpan? timeout = null)
     {
-        if (_stream is null || !ConnectedAndLoggedIn) return null;
+        var isLogin = fields.TryGetValue("Action", out var action) &&
+            string.Equals(action, "Login", StringComparison.OrdinalIgnoreCase);
+        if (_stream is null || (!ConnectedAndLoggedIn && !isLogin)) return null;
         var actionId = $"smi-{Environment.ProcessId}-{Interlocked.Increment(ref _actionSeq)}";
         var tcs = new TaskCompletionSource<AmiPacket>(TaskCreationOptions.RunContinuationsAsynchronously);
         _pending[actionId] = tcs;

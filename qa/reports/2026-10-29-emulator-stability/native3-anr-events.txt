@@ -1,0 +1,4 @@
+10-29 10:30:55.146   566  1124 I am_anr  : [0,871,com.android.systemui,818462221,Process ProcessRecord{e9d5ae 871:com.android.systemui/u0a121} failed to complete startup]
+10-29 10:32:27.417   566  1124 I am_anr  : [0,995,com.android.phone,952647245,Process ProcessRecord{aa122c0 995:com.android.phone/1001} failed to complete startup]
+10-29 10:32:33.499   566  1124 I am_anr  : [0,1392,com.android.providers.media.module,684211781,Process ProcessRecord{81f710e 1392:com.android.providers.media.module/u0a128} failed to complete startup]
+10-29 10:33:05.515   566  1942 I am_anr  : [0,1654,com.android.phone,952647245,Process ProcessRecord{aa122c0 1654:com.android.phone/1001} failed to complete startup]

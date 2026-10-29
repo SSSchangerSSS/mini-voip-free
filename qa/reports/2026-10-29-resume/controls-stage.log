@@ -1,0 +1,1 @@
+{"status": "PASS", "muteIntervalSeconds": 74.72, "bothLegsStillUp": true, "rtpRows": 2, "scope": "60s+ mute stability, unmute and speaker UI controls; physical audio routing NOT_RUN", "observedAtUtc": "2026-10-29T04:53:57.747925+00:00"}

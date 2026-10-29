@@ -1,0 +1,14 @@
+{
+  "wrongPasswordStatus": 401,
+  "wrongPasswordCode": "INVALID_CREDENTIALS",
+  "unknownAccountStatus": 401,
+  "unknownAccountCode": "INVALID_CREDENTIALS",
+  "validLoginStatus": 200,
+  "requiredFieldsPresent": true,
+  "secondDeviceStatus": 409,
+  "authenticatedMeStatus": 200,
+  "logoutStatus": 204,
+  "revokedTokenMeStatus": 401,
+  "status": "PASS",
+  "secretValuesRecorded": false
+}

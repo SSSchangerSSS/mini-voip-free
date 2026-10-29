@@ -1,0 +1,9 @@
+
+  Contact:  <Aor/ContactUri..............................> <Hash....> <Status> <RTT(ms)..>
+==========================================================================================
+
+  Contact:  101/sip:74576931@127.0.0.1:42836;transport=WS; f3adcfb30f NonQual         nan
+  Contact:  102/sip:asgfj9p5@127.0.0.1:43734;transport=WS; 786c8e44d8 NonQual         nan
+
+Objects found: 2
+

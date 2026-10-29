@@ -2,9 +2,9 @@
 # backup — SQLite via the online backup API (WAL-safe) + config snapshot, then
 # encrypted with age/openssl using a key INDEPENDENT of the data (spec 14.3).
 set -euo pipefail
-source "$(cd "$(dirname "${BASH_SOURCE[0]}")/../lib/common.sh")"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/common.sh"
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 DEPLOY="$ROOT/deploy"
 out=""
 [ "${1:-}" = "--output" ] && out="${2:-}"

@@ -2,9 +2,9 @@
 # restore — decrypt, verify, stop control (not pbx), restore DB, run migrations.
 # NEVER restores over a live database (spec 14.3).
 set -euo pipefail
-source "$(cd "$(dirname "${BASH_SOURCE[0]}")/../lib/common.sh")"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/common.sh"
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 DEPLOY="$ROOT/deploy"
 inp=""; confirm=false
 [ "${1:-}" = "--input" ] && inp="${2:-}"

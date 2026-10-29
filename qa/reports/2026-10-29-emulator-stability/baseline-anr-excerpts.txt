@@ -1,0 +1,70 @@
+FILE anr_2026-10-29-09-12-46-259.txt
+Subject: executing service com.android.launcher3/com.android.quickstep.TouchInteractionService, waited 21045ms
+RssKb: 161800
+VmSwapKb: 0
+Cmd line: com.android.launcher3
+"main" prio=5 tid=1 Native
+  | group="main" sCount=1 ucsCount=0 flags=1 obj=0x73a6a270 self=0x72ae69bfb010
+  | sysTid=1170 nice=-10 cgrp=top-app sched=0/0 handle=0x72b0f2174d18
+  | state=S schedstat=( 1623008779 25182788651 601 ) utm=48 stm=113 core=0 HZ=100
+  | stack=0x7ffea6b94000-0x7ffea6b96000 stackSize=8188KB
+  | held mutexes=
+  native: #00 pc 000cd777  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: eb58b4d427279994f00c0e1818477e4f)
+  native: #01 pc 00068a48  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+216) (BuildId: eb58b4d427279994f00c0e1818477e4f)
+  native: #02 pc 0007e678  /system/lib64/libbinder.so (android::IPCThreadState::transact+1832) (BuildId: 9787e923a8c93596d3c1f09a7fc9023a)
+  native: #03 pc 00067f67  /system/lib64/libbinder.so (android::BpBinder::transact+151) (BuildId: 9787e923a8c93596d3c1f09a7fc9023a)
+  native: #04 pc 001950a7  /system/lib64/libandroid_runtime.so (android_os_BinderProxy_transact+215) (BuildId: 74e467b22a4c3107eac51948743c9977)
+  at android.os.BinderProxy.transactNative(Native method)
+  at android.os.BinderProxy.transact(BinderProxy.java:586)
+  at android.app.IActivityManager$Stub$Proxy.registerReceiverWithFeature(IActivityManager.java:6091)
+  at android.app.ContextImpl.registerReceiverInternal(ContextImpl.java:1881)
+  at android.app.ContextImpl.registerReceiver(ContextImpl.java:1821)
+  at android.content.ContextWrapper.registerReceiver(ContextWrapper.java:769)
+  at com.android.launcher3.icons.IconProvider$IconChangeReceiver.<init>(IconProvider.java:290)
+  at com.android.launcher3.icons.IconProvider.registerIconChangeListener(IconProvider.java:252)
+  at com.android.quickstep.RecentsModel.<init>(RecentsModel.java:128)
+  at com.android.quickstep.RecentsModel.<init>(RecentsModel.java:90)
+  at com.android.quickstep.RecentsModel.<init>(RecentsModel.java:86)
+  at com.android.quickstep.RecentsModel.$r8$lambda$6vQaiFDqIiLIBNhYUBBc0ue2kH4(unavailable:2)
+  at com.android.quickstep.RecentsModel$$ExternalSyntheticLambda0.get(D8$$SyntheticClass:0)
+  at com.android.launcher3.util.MainThreadInitializedObject.lambda$get$0(MainThreadInitializedObject.java:56)
+  at com.android.launcher3.util.MainThreadInitializedObject.$r8$lambda$icoSB2GSttV1yd5beTvcp2Ed9FU(unavailable:0)
+  at com.android.launcher3.util.MainThreadInitializedObject$$ExternalSyntheticLambda1.get(D8$$SyntheticClass:0)
+  at com.android.launcher3.util.TraceHelper.allowIpcs(TraceHelper.java:92)
+  at com.android.launcher3.util.MainThreadInitializedObject.get(MainThreadInitializedObject.java:56)
+  at com.android.launcher3.taskbar.TaskbarActivityContext.<init>(TaskbarActivityContext.java:296)
+FILE anr_2026-10-29-09-11-44-860.txt
+Subject: Process ProcessRecord{893b1d8 847:com.android.systemui/u0a121} failed to complete startup
+RssKb: 161884
+VmSwapKb: 0
+Cmd line: com.android.systemui
+"main" prio=5 tid=1 Runnable
+  | group="main" sCount=0 ucsCount=0 flags=0 obj=0x73a6a270 self=0x72ae69bfb010
+  | sysTid=847 nice=0 cgrp=foreground sched=0/0 handle=0x72b0f2174d18
+  | state=R schedstat=( 2419996042 16181726382 810 ) utm=73 stm=168 core=1 HZ=100
+  | stack=0x7ffea6b94000-0x7ffea6b96000 stackSize=8188KB
+  | held mutexes= "mutator lock"(shared held)
+  at kotlinx.coroutines.JobSupport.attachChild(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:1)
+  at kotlinx.coroutines.JobSupport.initParentJob(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:14)
+  at kotlinx.coroutines.AbstractCoroutine.<init>(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:12)
+  at kotlinx.coroutines.internal.ScopeCoroutine.<init>(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:2)
+  at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:7)
+  at kotlinx.coroutines.flow.internal.ChannelFlow.collect(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:7)
+  at kotlinx.coroutines.flow.internal.ChannelFlowOperator.collect(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:90)
+  at kotlinx.coroutines.flow.FlowKt.collectLatest(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:12)
+  at kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1.invokeSuspend(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:127)
+  at kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1.invoke(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:13)
+  at kotlinx.coroutines.AbstractCoroutine.start(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:37)
+  at kotlinx.coroutines.BuildersKt.launch(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:24)
+  at kotlinx.coroutines.flow.FlowKt.stateIn(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:6)
+  at com.android.systemui.statusbar.pipeline.mobile.data.repository.demo.DemoMobileConnectionRepository.<init>(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:231)
+  at com.android.systemui.statusbar.pipeline.mobile.data.repository.demo.DemoMobileConnectionsRepository.getRepoForSubId(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:12)
+  at com.android.systemui.statusbar.pipeline.mobile.data.repository.demo.DemoMobileConnectionsRepository.<init>(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:133)
+  at com.android.systemui.dagger.DaggerReferenceGlobalRootComponent$ReferenceSysUIComponentImpl.demoMobileConnectionsRepository(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:46)
+  at com.android.systemui.dagger.DaggerReferenceGlobalRootComponent$ReferenceSysUIComponentImpl.-$$Nest$mdemoMobileConnectionsRepository(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:1)
+  at com.android.systemui.dagger.DaggerReferenceGlobalRootComponent$ReferenceSysUIComponentImpl$SwitchingProvider.get1(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:3427)
+  at com.android.systemui.dagger.DaggerReferenceGlobalRootComponent$ReferenceSysUIComponentImpl$SwitchingProvider.get(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:76)
+  at dagger.internal.DoubleCheck.get(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:14)
+  - locked <@addr=0x14104378> (a dagger.internal.DoubleCheck)
+  at com.android.systemui.dagger.DaggerReferenceGlobalRootComponent$ReferenceSysUIComponentImpl$SwitchingProvider.get2(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:5190)
+  at com.android.systemui.dagger.DaggerReferenceGlobalRootComponent$ReferenceSysUIComponentImpl$SwitchingProvider.get(go/retraceme 1eef83acd5dd625ddc70e6d8730670fe0bab79abe671b088947e053e97f0b06a:71)

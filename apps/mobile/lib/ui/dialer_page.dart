@@ -118,7 +118,7 @@ class _DialerPageState extends State<DialerPage> {
     );
   }
 
-  void _start() {
+  Future<void> _start() async {
     final n = DigitNormalizer.normalizeInternal(_targetCtrl.text);
     if (n == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -126,6 +126,7 @@ class _DialerPageState extends State<DialerPage> {
       );
       return;
     }
-    widget.onStartCall();
+    final started = await widget.controller.placeCall(n);
+    if (started && mounted) widget.onStartCall();
   }
 }

@@ -1,0 +1,9 @@
+WARN keep existing pjsip.conf (idempotent init)
+WARN keep existing extensions.conf (idempotent init)
+WARN keep existing http.conf (idempotent init)
+WARN keep existing manager.conf (idempotent init)
+WARN keep existing rtp.conf (idempotent init)
+WARN keep existing modules.conf (idempotent init)
+PASS manager.d/smi-control.conf rendered from secret (value never printed)
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+BLOCKED Caddy validation failed; check Docker access, image availability and configuration

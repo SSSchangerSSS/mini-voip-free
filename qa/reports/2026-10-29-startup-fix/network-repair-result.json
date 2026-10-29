@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Owned API35 emulator IPv4 default routing and saved-account recovery; no host network changes",
+  "before": "Connected AndroidWifi with DHCP address10.0.2.16; ip route table all lacked IPv4 default via10.0.2.2; ping192.168.1.151 returned Network is unreachable; host HTTPS ready db/ami ok",
+  "repair": "svc wifi disable; svc wifi enable; IPv4 default route returned, ping succeeded",
+  "accountRecovery": "Saved-account button, no password typed, no data reset; fresh102 SIP contact and Ready screenshot",
+  "systemUi": "SystemUI ANR appeared during followup and was explicitly closed; opening existing activity and retrying were needed during this manual diagnosis",
+  "launcherRegression": "Force-stop app, deliberately disable emulator Wi-Fi, run installed desktop helper; helper detected missing default route, reconnected once, opened app, fresh102 contact and Ready UI; exit0",
+  "evidence": [
+    "network-connectivity-before.txt",
+    "network-routes-after.txt",
+    "network-saved-retry.png",
+    "network-launcher-regression.log",
+    "network-launcher-final.png"
+  ]
+}

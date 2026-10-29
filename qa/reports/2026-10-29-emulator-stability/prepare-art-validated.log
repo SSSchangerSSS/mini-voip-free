@@ -1,0 +1,4 @@
+Compiling com.android.systemui; evidence /home/changer/.local/share/mini-voip-free/logs/api35-art-20261029T065127Z
+PASS: com.android.systemui has speed artifacts
+Compiling com.android.launcher3; evidence /home/changer/.local/share/mini-voip-free/logs/api35-art-20261029T065127Z
+PASS: com.android.launcher3 has speed artifacts

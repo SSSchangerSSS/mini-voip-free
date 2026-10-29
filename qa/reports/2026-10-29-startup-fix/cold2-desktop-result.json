@@ -1,0 +1,14 @@
+{
+  "status": "FAIL",
+  "bootReadySeconds": 195.75,
+  "passwordEntered": false,
+  "dataWiped": false,
+  "manualAppRestart": false,
+  "launchOutput": "Observed the standard desktop launcher; no separate probe launch/restart",
+  "sipContactSeen": false,
+  "diagnostics": [],
+  "screenReviewRequired": true,
+  "screenReviewed": true,
+  "blockingDialogAtCapture": false,
+  "networkFollowup": "IPv4 default route missing in guest; host HTTPS healthy; Wi-Fi reconnect restored route and guest ping. Empty diagnostics from initial probe are a log-filter limitation, not proof of no errors."
+}

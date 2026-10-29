@@ -1,0 +1,7 @@
+{
+  "transport": "loopback SIP/UDP auth diagnostic (not a WSS or audio test)",
+  "credentials_equal": false,
+  "account_password_register_status": 401,
+  "provisioned_sip_password_register_status": 200,
+  "secret_values_recorded": false
+}

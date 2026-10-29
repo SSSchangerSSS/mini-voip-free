@@ -1,0 +1,3 @@
+QA_NETWORK IPv4 default route ready
+Starting: Intent { cmp=app.minivoipfree/.MainActivity }
+PASS QA emulator/API35 booted with IPv4 route; app launch accepted; native display (no scrcpy encoder)

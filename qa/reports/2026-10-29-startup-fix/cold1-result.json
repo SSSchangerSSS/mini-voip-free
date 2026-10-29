@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "bootReadySeconds": 218.4,
+  "passwordEntered": false,
+  "dataWiped": false,
+  "manualAppRestart": false,
+  "launchOutput": "Starting: Intent { cmp=app.minivoipfree/.MainActivity }",
+  "registeredAfterLaunchSeconds": 67.06,
+  "sipContactSeen": true,
+  "diagnostics": [
+    "SMI_STARTUP failure stage=api-login kind=network retryable=true",
+    "SMI_STARTUP retry attempt=2",
+    "SMI_STARTUP failure stage=api-login kind=network retryable=true",
+    "SMI_STARTUP retry attempt=3"
+  ],
+  "screenReviewRequired": false,
+  "screenReviewed": true,
+  "readyUiVisible": true,
+  "blockingDialogVisible": false,
+  "systemUiAnrInBootLog": true,
+  "scope": "Automatic stored-account recovery on Android 15 cold boot; Android System UI stability not certified"
+}

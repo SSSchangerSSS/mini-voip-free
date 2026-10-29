@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "boot_completed": true,
+  "software_emulation": true,
+  "waitSeconds": 12
+}

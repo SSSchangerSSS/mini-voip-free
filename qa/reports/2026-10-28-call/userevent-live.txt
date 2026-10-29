@@ -1,0 +1,63 @@
+Event: UserEvent
+
+[1;35m  -= Info about Manager Event 'UserEvent' =- [0m
+
+[1;35m[Synopsis][0m
+[1;36mA user defined event raised from the dialplan.[0m
+
+[1;35m[Provided By][0m
+[1;36mbuiltin[0m
+
+[1;35m[Since][0m
+[1;36m12.3.0[0m
+
+[1;35m[Description][0m
+[1;36mEvent may contain additional arbitrary parameters in addition to optional
+bridge and endpoint snapshots.  Multiple snapshots of the same type are
+prefixed with a numeric value.[0m
+
+[1;35m[Syntax][0m
+[1;36mEvent: UserEvent
+Channel: <value>
+ChannelState: <value>
+ChannelStateDesc: <value>
+CallerIDNum: <value>
+CallerIDName: <value>
+ConnectedLineNum: <value>
+ConnectedLineName: <value>
+Language: <value>
+AccountCode: <value>
+Context: <value>
+Exten: <value>
+Priority: <value>
+Uniqueid: <value>
+Linkedid: <value>
+UserEvent: <value>[0m
+
+[1;35m[Arguments][0m
+[1;36m
+ChannelState
+    A numeric code for the channel's current state, related to ChannelStateDesc
+
+ChannelStateDesc
+    [1;34mDown[1;36m
+    [1;34mRsrvd[1;36m
+    [1;34mOffHook[1;36m
+    [1;34mDialing[1;36m
+    [1;34mRing[1;36m
+    [1;34mRinging[1;36m
+    [1;34mUp[1;36m
+    [1;34mBusy[1;36m
+    [1;34mDialing Offhook[1;36m
+    [1;34mPre-ring[1;36m
+    [1;34mUnknown[1;36m
+
+Linkedid
+    Uniqueid of the oldest channel associated with this channel.
+
+UserEvent
+    The event name, as specified in the dialplan.[0m
+
+[1;35m[See Also][0m
+[1;36mUserEvent(), UserEvent[0m
+

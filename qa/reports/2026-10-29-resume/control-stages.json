@@ -1,0 +1,41 @@
+{
+  "start": {
+    "status": "PASS",
+    "answerButtonTapped": true,
+    "sharedBridgeAndBidirectionalRtp": true,
+    "scope": "Emulator call signaling and RTP transport; acoustic audio NOT_RUN",
+    "observedAtUtc": "2026-10-29T04:47:37.254668+00:00"
+  },
+  "buttons": {
+    "\u0645\u06cc\u0648\u062a": {
+      "bounds": "[376,552][378,554]"
+    },
+    "\u0628\u0644\u0646\u062f\u06af\u0648": {
+      "bounds": "[102,552][104,554]"
+    },
+    "\u0642\u0637\u0639 \u062a\u0645\u0627\u0633": {
+      "bounds": "[239,552][241,554]"
+    }
+  },
+  "geometrySource": "post-reboot-controls-before-mute.png (visually reviewed)",
+  "mute": {
+    "status": "PASS",
+    "muteRequestedAtEpoch": 1793249476.0611548,
+    "scope": "Visually grounded mute tap; screenshot retained, audible effect NOT_RUN",
+    "observedAtUtc": "2026-10-29T04:51:16.061167+00:00"
+  },
+  "controls": {
+    "status": "PASS",
+    "muteIntervalSeconds": 74.72,
+    "bothLegsStillUp": true,
+    "rtpRows": 2,
+    "scope": "60s+ mute stability, unmute and speaker UI controls; physical audio routing NOT_RUN",
+    "observedAtUtc": "2026-10-29T04:53:57.747925+00:00"
+  },
+  "end": {
+    "status": "PASS",
+    "channelsCleared": true,
+    "scope": "Caller hangup; UI screenshots retained",
+    "observedAtUtc": "2026-10-29T04:55:15.171225+00:00"
+  }
+}

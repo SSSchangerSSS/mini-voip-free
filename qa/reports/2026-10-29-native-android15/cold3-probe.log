@@ -1,0 +1,1 @@
+{"status": "PASS", "bootReadySeconds": 11.7, "credentialsEntered": false, "dataWiped": false, "anrDismissed": false, "freshSipContact": true, "registeredSecondsFromStart": 12.84, "anrOrCrashEvents": 0, "crashBufferEmpty": true, "screenReviewRequired": true, "pidsEvents": "max 0"}

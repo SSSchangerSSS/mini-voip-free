@@ -1,0 +1,13 @@
+Starting: Intent { cmp=app.minivoipfree/.MainActivity }
+/home/changer/.local/share/mini-voip-free/scrcpy-linux-x86_64-v5.0.1/scrcpy-server: 1 file pushed, 0 skipped. 4.3 MB/s (733930 bytes in 0.163s)
+[server] INFO: Device: [unknown] Android Android SDK built for x86_64 (Android 8.0.0)
+scrcpy 5.0.1 <https://github.com/Genymobile/scrcpy>
+INFO: ADB device found:
+INFO:     --> (tcpip)  emulator-5554                   device  Android_SDK_built_for_x86_64
+INFO:         (tcpip)  emulator-5556                  offline  
+INFO: Renderer: software
+INFO: VA-API not available: the renderer is not OpenGL or OpenGL ES
+INFO: VA-API interop unavailable
+INFO: Interop: software
+INFO: Video decoding: software
+INFO: Texture: 480x800

@@ -1,0 +1,13 @@
+{
+  "repository": "redroid/redroid",
+  "tagAtLookup": "15.0.0_64only-latest",
+  "platform": "linux/amd64",
+  "digest": "sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3",
+  "compressedLayerBytes": 729788703,
+  "source": "Official Docker Hub registry-1.docker.io manifest; bearer token not recorded",
+  "registryManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+  "configDigest": "sha256:f096388ce85946ef6c599766043ce21e24e4b95e320702c03a4d77472c4db11f",
+  "layerDigests": [
+    "sha256:7719e5442aee2fded6f7a609799881db5fa95318388ec0d935ed372574e3509e"
+  ]
+}

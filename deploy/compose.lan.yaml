@@ -1,0 +1,5 @@
+# Explicit LAN-only TLS issuer. Use with compose.yaml, never for public ACME.
+services:
+  edge:
+    volumes:
+      - ../infra/caddy/Caddyfile.lan:/etc/caddy/Caddyfile:ro

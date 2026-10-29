@@ -1,0 +1,2 @@
+2026-10-28T12:36:48Z info: Smi.Control.Ami.AmiCallCoordinator[0] call 81fa3f4a-3258-41c9-a1ef-d052e05d83d4 101->102 admitted, push=False
+2026-10-28T12:37:09Z info: Smi.Control.Ami.AmiCallCoordinator[0] call 81fa3f4a-3258-41c9-a1ef-d052e05d83d4 connected via bridge evidence

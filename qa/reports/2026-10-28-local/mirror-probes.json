@@ -1,0 +1,49 @@
+[
+  {
+    "url": "https://storage.flutter-io.cn/flutter_infra_release/flutter/737ba8f885dc774b53b442759999a312c9461e4e/linux-x64/artifacts.zip",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://storage.flutter-io.cn/flutter_infra_release/flutter/737ba8f885dc774b53b442759999a312c9461e4e/linux-x64/flutter_patched_sdk.zip",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://storage.flutter-io.cn/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.8-stable.tar.xz",
+    "status": 200,
+    "size": "1581444364",
+    "type": "application/x-tar",
+    "prefix": "fd377a585a000004e6d6b4460200210116000000742fe5a3e7711fefff5d00331b0b12250d9d1c85b51dc9e8579756ff2e97660cd9fbb49b5d005af469f3be0175b4d9d6e6b0cf5c85e38f85ad7e4c56b2916a0eb7f207ea91d941ddb6337ad494a67192"
+  },
+  {
+    "url": "https://mirror.sjtu.edu.cn/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.8-stable.tar.xz",
+    "status": 206,
+    "size": "512",
+    "type": "application/octet-stream",
+    "prefix": "fd377a585a000004e6d6b4460200210116000000742fe5a3e7711fefff5d00331b0b12250d9d1c85b51dc9e8579756ff2e97660cd9fbb49b5d005af469f3be0175b4d9d6e6b0cf5c85e38f85ad7e4c56b2916a0eb7f207ea91d941ddb6337ad494a67192"
+  },
+  {
+    "url": "https://mirrors.tuna.tsinghua.edu.cn/flutter/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.8-stable.tar.xz",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://pub.flutter-io.cn/api/packages/http",
+    "status": 206,
+    "size": "512",
+    "type": "application/json; charset=\"utf-8\"",
+    "prefix": "7b226e616d65223a2268747470222c226c6174657374223a7b2276657273696f6e223a22312e362e30222c2270756273706563223a7b226e616d65223a2268747470222c2276657273696f6e223a22312e362e30222c226465736372697074696f6e223a"
+  },
+  {
+    "url": "https://mirror.sjtu.edu.cn/dart-pub/api/packages/http",
+    "status": 200,
+    "size": "80948",
+    "type": "application/json; charset=\"utf-8\"",
+    "prefix": "7b226e616d65223a2268747470222c226c6174657374223a7b2276657273696f6e223a22312e362e30222c2270756273706563223a7b226e616d65223a2268747470222c2276657273696f6e223a22312e362e30222c226465736372697074696f6e223a"
+  },
+  {
+    "url": "https://mirrors.huaweicloud.com/dotnet/sdk/10.0.403/dotnet-sdk-10.0.403-linux-x64.tar.gz",
+    "status": 200,
+    "size": null,
+    "type": "text/html;charset=utf-8",
+    "prefix": "3c21444f43545950452068746d6c3e3c68746d6c20646174612d62656173746965732d636f6e7461696e65723e3c686561643e0a202020203c6d65746120636861727365743d227574662d38223e0a202020203c6d65746120687474702d65717569763d"
+  }
+]

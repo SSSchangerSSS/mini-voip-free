@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # build ios — requires macOS + Xcode; on other OSes fail LOUDLY (spec 13: no fake success).
 set -euo pipefail
-source "$(cd "$(dirname "${BASH_SOURCE[0]}")/../lib/common.sh")"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/common.sh"
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 MOBILE="$ROOT/apps/mobile"
 
 if [ "$(uname -s)" != "Darwin" ]; then

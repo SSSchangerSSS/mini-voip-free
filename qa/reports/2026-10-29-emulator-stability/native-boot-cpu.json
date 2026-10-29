@@ -1,0 +1,6 @@
+{
+  "api26WithoutMirror": 13.7,
+  "api35NativeBoot": 210.08,
+  "measurementSeconds": 10,
+  "cleanup": "Owned shutdown API35 left an orphan one-thread process with only /dev/null fd0-2, >50sec and ~100% CPU. It was terminated; no active emulator killed."
+}

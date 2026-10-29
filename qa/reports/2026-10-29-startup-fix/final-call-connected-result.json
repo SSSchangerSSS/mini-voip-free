@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "sharedBridge": true,
+  "rtpCounts": [
+    {
+      "received": 231,
+      "transmitted": 77
+    },
+    {
+      "received": 77,
+      "transmitted": 172
+    }
+  ],
+  "answer": "Manual tap based on reviewed actual incoming screen; initial automated probe checked before incoming UI rendered",
+  "scope": "Foreground102/API35 to101/API26, SIP and RTP transport; acousticAudio NOT_RUN",
+  "apkSha256": "565ecc09c5f9f02c91aa52277bc9df47900aa5a9d9c75fdb63fdf37d0df0d335"
+}

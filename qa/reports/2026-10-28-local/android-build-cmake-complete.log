@@ -1,0 +1,1296 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+[  +42 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[   +9 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +21 ms] Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+[   +2 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[  +54 ms] Skipping pub get: version match.
+[  +52 ms] Found plugin flutter_webrtc at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/flutter_webrtc-1.6.3/
+[   +4 ms] Found plugin path_provider at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.6/
+[        ] Found plugin path_provider_windows at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.3.0/
+[   +6 ms] Found plugin path_provider_linux at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.2/
+[   +1 ms] Found plugin path_provider_foundation at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.6.0/
+[   +9 ms] Found plugin path_provider_android at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.3.1/
+[   +2 ms] Found plugin jni_flutter at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni_flutter-1.0.4+1/
+[   +2 ms] Found plugin jni at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/
+[  +32 ms] Found plugin flutter_webrtc at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/flutter_webrtc-1.6.3/
+[   +2 ms] Found plugin path_provider at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.6/
+[        ] Found plugin path_provider_windows at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.3.0/
+[   +2 ms] Found plugin path_provider_linux at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.2/
+[   +1 ms] Found plugin path_provider_foundation at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.6.0/
+[   +3 ms] Found plugin path_provider_android at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.3.1/
+[        ] Found plugin jni_flutter at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni_flutter-1.0.4+1/
+[        ] Found plugin jni at /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/
+[   +6 ms] Generating /home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+[   +7 ms] Skipping generating GeneratedPluginRegistrant.java because it is up-to-date.
+[  +19 ms] Top-level Gradle build file not found, skipping migration of task "clean".
+[        ] Android Studio version could not be detected, skipping Gradle-Java version compatibility check.
+[        ] CMake project not found, skipping support Android 15 16k page size migration.
+[   +1 ms] The developer has already configured the Built-In Kotlin flag, skipping migration.
+[        ] The developer has already configured the new DSL flag, skipping migration.
+[   +1 ms] Using gradle from /home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/gradlew.
+[   +8 ms] LocalFile: '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/build.gradle.kts' doesn't provide an AGP version. Checking settings.
+[        ] LocalFile: '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/settings.gradle.kts' provides AGP version: 9.1.0
+[        ] Running Gradle task 'assembleRelease'...
+[        ] executing: [/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/] /home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/gradlew --full-stacktrace --info -Pverbose=true -Ptarget-platform=android-arm,android-arm64,android-x64 -Ptarget=lib/main.dart -Pbase-application-name=android.app.Application -Pdart-defines=U01JX1NFUlZFUl9IT1NUPTE5Mi4xNjguMS4xNTE=,U01JX1NFUlZFUl9QT1JUPTQ0Mw==,RkxVVFRFUl9CVUlMRF9OQU1FPTAuMS4w,RkxVVFRFUl9CVUlMRF9OVU1CRVI9MQ==,RkxVVFRFUl9WRVJTSU9OPTMuNDcuOA==,RkxVVFRFUl9DSEFOTkVMPVt1c2VyLWJyYW5jaF0=,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049NzM3YmE4Zjg4NQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049Y2Y2MzZiMWRmYg==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMy43 -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=true -Pflutter.androidSdkRoot=/home/changer/.local/share/mini-voip-free/android-sdk -Pflutter.installedNdkVersions=28.2.13676358 assembleRelease
+[ +205 ms] Initialized native services in: /home/changer/.gradle/native
+[        ] Initialized jansi services in: /home/changer/.gradle/native
+[ +113 ms] The client will now receive all logging from the daemon (pid: 61415). The daemon log file: /home/changer/.gradle/daemon/9.3.1/daemon-61415.out.log
+[        ] Starting 8th build in daemon [uptime: 13 mins 23.543 secs, performance: 100%, GC rate: 0.00/s, heap usage: 1% of 1.5 GiB, non-heap usage: 41% of 512 MiB]
+[        ] Using 2 worker leases.
+[   +1 ms] Operational build model parameters: {requiresToolingModels=false, parallelProjectExecution=false, configureOnDemand=false, configurationCache=false, configurationCacheParallelStore=false, configurationCacheParallelLoad=true, isolatedProjects=false, parallelProjectConfiguration=false, intermediateModelCache=false, parallelToolingApiActions=false, invalidateCoupledProjects=false, modelAsProjectDependency=false, resilientModelBuilding=false}
+[        ] Now considering [/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android, /home/changer/.local/share/mini-voip-free/flutter-source/packages/flutter_tools/gradle] as hierarchies to watch
+[        ] Watching the file system is configured to be enabled if available
+[        ] File system watching is active
+[ +101 ms] Starting Build
+[        ] Now considering [/home/changer/.local/share/mini-voip-free/flutter-source/packages/flutter_tools/gradle, /home/changer/Desktop/flash/mini-voip-free/apps/mobile/android] as hierarchies to watch
+[        ] > Configure project :gradle
+[        ] Evaluating project ':gradle' using build file '/home/changer/.local/share/mini-voip-free/flutter-source/packages/flutter_tools/gradle/build.gradle.kts'.
+[        ] Resolved plugin [id: 'org.gradle.java-gradle-plugin']
+[        ] Resolved plugin [id: 'org.gradle.groovy']
+[        ] Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.4.2']
+[        ] Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.2.20']
+[        ] Build 6337ba89-bc4e-4958-a112-145094defa2b is started
+[        ] Using Kotlin Gradle Plugin gradle813 variant
+[        ] kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+[        ] kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+[        ] file or directory '/home/changer/.local/share/mini-voip-free/flutter-source/packages/flutter_tools/gradle/src/main/java', not found
+[        ] Resolved plugin [id: 'dev.flutter.flutter-plugin-loader', version: '1.0.0']
+[        ] Resolved plugin [id: 'com.android.application', version: '9.1.0', apply: false]
+[        ] Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.4.0', apply: false]
+[        ] Resolve mutations for :gradle:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+[        ] :gradle:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+[        ] > Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+[        ] Skipping task ':gradle:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+[        ] Resolve mutations for :gradle:compileKotlin (Thread[Execution worker,5,main]) started.
+[        ] :gradle:compileKotlin (Thread[Execution worker,5,main]) started.
+[        ] > Task :gradle:compileKotlin UP-TO-DATE
+[        ] Caching disabled for task ':gradle:compileKotlin' because:
+[        ]   Build cache is disabled
+[        ] Skipping task ':gradle:compileKotlin' as it is up-to-date.
+[        ] Resolve mutations for :gradle:compileJava (Thread[Execution worker,5,main]) started.
+[        ] :gradle:compileJava (Thread[included builds,5,main]) started.
+[        ] > Task :gradle:compileJava NO-SOURCE
+[        ] Skipping task ':gradle:compileJava' as it has no source files and no previous output files.
+[        ] Resolve mutations for :gradle:compileGroovy (Thread[included builds,5,main]) started.
+[        ] :gradle:compileGroovy (Thread[included builds,5,main]) started.
+[        ] > Task :gradle:compileGroovy NO-SOURCE
+[        ] Skipping task ':gradle:compileGroovy' as it has no source files and no previous output files.
+[        ] Resolve mutations for :gradle:pluginDescriptors (Thread[included builds,5,main]) started.
+[        ] :gradle:pluginDescriptors (Thread[included builds,5,main]) started.
+[  +98 ms] > Task :gradle:pluginDescriptors UP-TO-DATE
+[        ] Caching disabled for task ':gradle:pluginDescriptors' because:
+[        ]   Build cache is disabled
+[        ]   Not worth caching
+[        ] Skipping task ':gradle:pluginDescriptors' as it is up-to-date.
+[        ] Resolve mutations for :gradle:processResources (Thread[included builds,5,main]) started.
+[        ] :gradle:processResources (Thread[included builds,5,main]) started.
+[        ] > Task :gradle:processResources UP-TO-DATE
+[        ] Caching disabled for task ':gradle:processResources' because:
+[        ]   Build cache is disabled
+[        ]   Not worth caching
+[        ] Skipping task ':gradle:processResources' as it is up-to-date.
+[        ] Resolve mutations for :gradle:classes (Thread[included builds,5,main]) started.
+[        ] :gradle:classes (Thread[included builds,5,main]) started.
+[        ] > Task :gradle:classes UP-TO-DATE
+[        ] Skipping task ':gradle:classes' as it has no actions.
+[        ] Resolve mutations for :gradle:jar (Thread[included builds,5,main]) started.
+[        ] :gradle:jar (Thread[included builds,5,main]) started.
+[        ] > Task :gradle:jar UP-TO-DATE
+[        ] Caching disabled for task ':gradle:jar' because:
+[        ]   Build cache is disabled
+[        ]   Not worth caching
+[        ] Skipping task ':gradle:jar' as it is up-to-date.
+[        ] Settings evaluated using settings file '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/settings.gradle.kts'.
+[        ] Projects loaded. Root project using build file '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/build.gradle.kts'.
+[        ] Included projects: [root project 'android', project ':app', project ':flutter_webrtc', project ':jni', project ':jni_flutter']
+[  +96 ms] > Configure project :app
+[   +1 ms] Evaluating project ':app' using build file '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/build.gradle.kts'.
+[        ] Resolved plugin [id: 'com.android.application']
+[        ] Resolved plugin [id: 'dev.flutter.flutter-gradle-plugin']
+[        ] WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+[        ] The current default is 'true'.
+[        ] It will be removed in version 10.0 of the Android Gradle plugin.
+[        ] WARNING: The option setting 'android.newDsl=false' is deprecated.
+[        ] The current default is 'true'.
+[        ] It will be removed in version 10.0 of the Android Gradle plugin.
+[        ] Using default execution profile
+[        ] Build 073168e2-2e6a-4e53-8643-09997d80a850 is started
+[        ] Using Kotlin Gradle Plugin gradle813 variant
+[        ] Using Kotlin Gradle Plugin gradle813 variant
+[        ] Using Kotlin Gradle Plugin gradle813 variant
+[        ] w: [33m[1m⚠️ Deprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+[        ] The 'org.jetbrains.kotlin.android' plugin in project ':app' is no longer required for Kotlin support since AGP 9.0.
+[        ] [32m[1mSolution:[0m[0m
+[        ] [32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[        ] [36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+[        ] > Configure project :
+[        ] Evaluating root project 'android' using build file '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/build.gradle.kts'.
+[        ] > Configure project :flutter_webrtc
+[        ] Evaluating project ':flutter_webrtc' using build file '/home/changer/.pub-cache/hosted/pub.flutter-io.cn/flutter_webrtc-1.6.3/android/build.gradle'.
+[        ] Using default execution profile
+[        ] Using Kotlin Gradle Plugin gradle813 variant
+[        ] w: [33m[1m⚠️ Deprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+[        ] The 'org.jetbrains.kotlin.android' plugin in project ':flutter_webrtc' is no longer required for Kotlin support since AGP 9.0.
+[        ] [32m[1mSolution:[0m[0m
+[        ] [32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[        ] [36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+[  +99 ms] > Configure project :jni
+[        ] Evaluating project ':jni' using build file '/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/build.gradle'.
+[        ] Using default execution profile
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[   +2 ms] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+[        ] C/C++: android.ndkPath from module build.gradle is not set
+[        ] C/C++: ndk.dir in local.properties is not set
+[        ] C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+[        ] C/C++: sdkFolder is /home/changer/.local/share/mini-voip-free/android-sdk
+[        ] w: [33m[1m⚠️ Deprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+[        ] The 'org.jetbrains.kotlin.android' plugin in project ':jni' is no longer required for Kotlin support since AGP 9.0.
+[        ] [32m[1mSolution:[0m[0m
+[        ] [32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[        ] [36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+[        ] > Configure project :jni_flutter
+[        ] Evaluating project ':jni_flutter' using build file '/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni_flutter-1.0.4+1/android/build.gradle'.
+[        ] Using default execution profile
+[        ] w: [33m[1m⚠️ Deprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+[        ] The 'org.jetbrains.kotlin.android' plugin in project ':jni_flutter' is no longer required for Kotlin support since AGP 9.0.
+[        ] [32m[1mSolution:[0m[0m
+[        ] [32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[        ] [36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+[        ] All projects evaluated.
+[        ] Task name matched 'assembleRelease'
+[        ] Selected primary task 'assembleRelease' from project :
+[   +2 ms] WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): flutter_webrtc
+[        ] Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
+[        ] Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
+[        ] If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing
+[        ] an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
+[        ] If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
+[  +89 ms] Adding -Xuse-inline-scopes-numbers Kotlin compiler flag for task :app:compileDebugAndroidTestKotlin
+[        ] Adding -Xuse-inline-scopes-numbers Kotlin compiler flag for task :app:compileDebugKotlin
+[        ] Adding -Xuse-inline-scopes-numbers Kotlin compiler flag for task :app:compileProfileKotlin
+[ +106 ms] Tasks to be executed: [task ':app:ReleaseMinSdkCheck', task ':app:compileFlutterBuildRelease', task ':app:copyJniLibsflutterBuildRelease', task ':app:validateCompileSdkVersion', task ':app:preBuild', task ':app:preReleaseBuild', task ':app:mergeReleaseJniLibFolders', task ':flutter_webrtc:preBuild', task ':flutter_webrtc:preReleaseBuild', task ':flutter_webrtc:mergeReleaseJniLibFolders', task ':flutter_webrtc:mergeReleaseNativeLibs', task ':flutter_webrtc:copyReleaseJniLibsProjectOnly', task ':jni:preBuild', task ':jni:preReleaseBuild', task ':jni:configureCMakeRelWithDebInfo[arm64-v8a]', task ':jni:buildCMakeRelWithDebInfo[arm64-v8a]', task ':jni:configureCMakeRelWithDebInfo[armeabi-v7a]', task ':jni:buildCMakeRelWithDebInfo[armeabi-v7a]', task ':jni:configureCMakeRelWithDebInfo[x86]', task ':jni:buildCMakeRelWithDebInfo[x86]', task ':jni:configureCMakeRelWithDebInfo[x86_64]', task ':jni:buildCMakeRelWithDebInfo[x86_64]', task ':jni:mergeReleaseJniLibFolders', task ':jni:mergeReleaseNativeLibs', task ':jni:copyReleaseJniLibsProjectOnly', task ':jni_flutter:preBuild', task ':jni_flutter:preReleaseBuild', task ':jni_flutter:mergeReleaseJniLibFolders', task ':jni_flutter:mergeReleaseNativeLibs', task ':jni_flutter:copyReleaseJniLibsProjectOnly', task ':app:mergeReleaseNativeLibs', task ':app:stripReleaseDebugSymbols', task ':app:extractReleaseNativeSymbolTables', task ':app:mergeReleaseNativeDebugMetadata', task ':flutter_webrtc:checkKotlinGradlePluginConfigurationErrors', task ':flutter_webrtc:generateReleaseResources', task ':flutter_webrtc:packageReleaseResources', task ':flutter_webrtc:processReleaseNavigationResources', task ':flutter_webrtc:parseReleaseLocalResources', task ':flutter_webrtc:generateReleaseRFile', task ':flutter_webrtc:compileReleaseKotlin', task ':flutter_webrtc:javaPreCompileRelease', task ':flutter_webrtc:compileReleaseJavaWithJavac', task ':flutter_webrtc:mergeReleaseGeneratedProguardFiles', task ':flutter_webrtc:exportReleaseConsumerProguardFiles', task ':jni:checkKotlinGradlePluginConfigurationErrors', task ':jni:generateReleaseResources', task ':jni:packageReleaseResources', task ':jni:processReleaseNavigationResources', task ':jni:parseReleaseLocalResources', task ':jni:generateReleaseRFile', task ':jni:compileReleaseKotlin', task ':jni:javaPreCompileRelease', task ':jni:compileReleaseJavaWithJavac', task ':jni:bundleLibCompileToJarRelease', task ':jni_flutter:checkKotlinGradlePluginConfigurationErrors', task ':jni_flutter:generateReleaseResources', task ':jni_flutter:packageReleaseResources', task ':jni_flutter:processReleaseNavigationResources', task ':jni_flutter:parseReleaseLocalResources', task ':jni_flutter:generateReleaseRFile', task ':jni_flutter:compileReleaseKotlin', task ':jni_flutter:javaPreCompileRelease', task ':jni_flutter:compileReleaseJavaWithJavac', task ':jni_flutter:mergeReleaseGeneratedProguardFiles', task ':jni_flutter:exportReleaseConsumerProguardFiles', task ':jni:mergeReleaseGeneratedProguardFiles', task ':jni:exportReleaseConsumerProguardFiles', task ':app:buildKotlinToolingMetadata', task ':app:checkReleaseDuplicateClasses', task ':app:checkKotlinGradlePluginConfigurationErrors', task ':app:cleanMergeReleaseAssets', task ':app:generateReleaseAssets', task ':flutter_webrtc:generateReleaseAssets', task ':flutter_webrtc:mergeReleaseAssets', task ':jni:generateReleaseAssets', task ':jni:mergeReleaseAssets', task ':jni_flutter:generateReleaseAssets', task ':jni_flutter:mergeReleaseAssets', task ':app:mergeReleaseAssets', task ':app:copyFlutterAssetsRelease', task ':app:generateReleaseResources', task ':app:packageReleaseResources', task ':app:processReleaseNavigationResources', task ':app:parseReleaseLocalResources', task ':app:generateReleaseRFile', task ':flutter_webrtc:bundleLibCompileToJarRelease', task ':jni_flutter:bundleLibCompileToJarRelease', task ':app:compileReleaseKotlin', task ':app:javaPreCompileRelease', task ':app:compileReleaseJavaWithJavac', task ':flutter_webrtc:prepareReleaseArtProfile', task ':jni:prepareReleaseArtProfile', task ':jni_flutter:prepareReleaseArtProfile', task ':app:mergeReleaseArtProfile', task ':flutter_webrtc:writeReleaseAarMetadata', task ':jni:writeReleaseAarMetadata', task ':jni_flutter:writeReleaseAarMetadata', task ':app:checkReleaseAarMetadata', task ':app:mapReleaseSourceSetPaths', task ':app:compileReleaseNavigationResources', task ':app:mergeReleaseResources', task ':app:createReleaseCompatibleScreenManifests', task ':app:extractDeepLinksRelease', task ':flutter_webrtc:extractDeepLinksRelease', task ':flutter_webrtc:processReleaseManifest', task ':jni:extractDeepLinksRelease', task ':jni:processReleaseManifest', task ':jni_flutter:extractDeepLinksRelease', task ':jni_flutter:processReleaseManifest', task ':app:processReleaseMainManifest', task ':app:outputReleaseAppLinkSettings', task ':app:processReleaseManifest', task ':app:processReleaseManifestForPackage', task ':flutter_webrtc:mapReleaseSourceSetPaths', task ':flutter_webrtc:compileReleaseLibraryResources', task ':jni:mapReleaseSourceSetPaths', task ':jni:compileReleaseLibraryResources', task ':jni_flutter:mapReleaseSourceSetPaths', task ':jni_flutter:compileReleaseLibraryResources', task ':app:processReleaseResources', task ':flutter_webrtc:bundleLibRuntimeToJarRelease', task ':jni:bundleLibRuntimeToJarRelease', task ':jni_flutter:bundleLibRuntimeToJarRelease', task ':app:expandReleaseArtProfileWildcards', task ':app:extractProguardFiles', task ':app:mergeReleaseGeneratedProguardFiles', task ':app:processReleaseJavaRes', task ':flutter_webrtc:processReleaseJavaRes', task ':jni:processReleaseJavaRes', task ':jni_flutter:processReleaseJavaRes', task ':app:mergeReleaseJavaResource', task ':app:mergeReleaseStartupProfile', task ':app:minifyReleaseWithR8', task ':app:compileReleaseArtProfile', task ':app:compressReleaseAssets', task ':app:extractReleaseVersionControlInfo', task ':flutter_webrtc:createFullJarRelease', task ':flutter_webrtc:extractProguardFiles', task ':flutter_webrtc:generateReleaseLintModel', task ':flutter_webrtc:prepareLintJarForPublish', task ':jni:createFullJarRelease', task ':jni:extractProguardFiles', task ':jni:generateReleaseLintModel', task ':jni:prepareLintJarForPublish', task ':jni_flutter:createFullJarRelease', task ':jni_flutter:extractProguardFiles', task ':jni_flutter:generateReleaseLintModel', task ':jni_flutter:prepareLintJarForPublish', task ':app:generateReleaseLintVitalReportModel', task ':flutter_webrtc:checkReleaseAarMetadata', task ':flutter_webrtc:stripReleaseDebugSymbols', task ':flutter_webrtc:copyReleaseJniLibsProjectAndLocalJars', task ':flutter_webrtc:extractDeepLinksForAarRelease', task ':flutter_webrtc:extractReleaseAnnotations', task ':flutter_webrtc:mergeReleaseConsumerProguardFiles', task ':flutter_webrtc:mergeReleaseJavaResource', task ':flutter_webrtc:syncReleaseLibJars', task ':flutter_webrtc:bundleReleaseLocalLintAar', task ':jni_flutter:checkReleaseAarMetadata', task ':jni_flutter:stripReleaseDebugSymbols', task ':jni_flutter:copyReleaseJniLibsProjectAndLocalJars', task ':jni_flutter:extractDeepLinksForAarRelease', task ':jni_flutter:extractReleaseAnnotations', task ':jni_flutter:mergeReleaseConsumerProguardFiles', task ':jni_flutter:mergeReleaseJavaResource', task ':jni_flutter:syncReleaseLibJars', task ':jni_flutter:bundleReleaseLocalLintAar', task ':jni:checkReleaseAarMetadata', task ':jni:stripReleaseDebugSymbols', task ':jni:copyReleaseJniLibsProjectAndLocalJars', task ':jni:extractDeepLinksForAarRelease', task ':jni:extractReleaseAnnotations', task ':jni:mergeReleaseConsumerProguardFiles', task ':jni:mergeReleaseJavaResource', task ':jni:syncReleaseLibJars', task ':jni:bundleReleaseLocalLintAar', task ':flutter_webrtc:lintVitalAnalyzeRelease', task ':flutter_webrtc:writeReleaseLintModelMetadata', task ':jni:lintVitalAnalyzeRelease', task ':jni:writeReleaseLintModelMetadata', task ':jni_flutter:lintVitalAnalyzeRelease', task ':jni_flutter:writeReleaseLintModelMetadata', task ':app:lintVitalAnalyzeRelease', task ':flutter_webrtc:generateReleaseLintVitalModel', task ':jni:generateReleaseLintVitalModel', task ':jni_flutter:generateReleaseLintVitalModel', task ':app:lintVitalReportRelease', task ':app:lintVitalRelease', task ':app:convertShrunkResourcesToBinaryRelease', task ':app:optimizeReleaseResources', task ':app:collectReleaseDependencies', task ':app:sdkReleaseDependencyData', task ':app:validateSigningRelease', task ':app:writeReleaseAppMetadata', task ':app:writeReleaseSigningConfigVersions', task ':app:packageRelease', task ':app:createReleaseApkListingFileRedirect', task ':app:assembleRelease', task ':flutter_webrtc:bundleReleaseAar', task ':flutter_webrtc:mergeReleaseResources', task ':flutter_webrtc:verifyReleaseResources', task ':flutter_webrtc:assembleRelease', task ':jni:bundleReleaseAar', task ':jni:mergeReleaseResources', task ':jni:verifyReleaseResources', task ':jni:assembleRelease', task ':jni_flutter:bundleReleaseAar', task ':jni_flutter:mergeReleaseResources', task ':jni_flutter:verifyReleaseResources', task ':jni_flutter:assembleRelease']
+[   +2 ms] Tasks that were excluded: []
+[        ] work action Parameters of FilterShrinkerRulesTransform (Thread[included builds,5,main]) started.
+[        ] work action Parameters of ExtractAarTransform (Thread[Execution worker,5,main]) started.
+[        ] work action Parameters of ExtractAarTransform (Thread[Execution worker,5,main]) started.
+[        ] Resolve mutations for :app:ReleaseMinSdkCheck (Thread[Execution worker,5,main]) started.
+[        ] :app:ReleaseMinSdkCheck (Thread[Execution worker,5,main]) started.
+[        ] > Task :app:ReleaseMinSdkCheck
+[        ] Caching disabled for task ':app:ReleaseMinSdkCheck' because:
+[        ]   Build cache is disabled
+[        ] Task ':app:ReleaseMinSdkCheck' is not up-to-date because:
+[        ]   Task has not declared any outputs despite executing actions.
+[        ] Resolve mutations for :app:compileFlutterBuildRelease (Thread[Execution worker,5,main]) started.
+[        ] :app:compileFlutterBuildRelease (Thread[included builds,5,main]) started.
+[        ] > Task :app:compileFlutterBuildRelease UP-TO-DATE
+[        ] Caching disabled for task ':app:compileFlutterBuildRelease' because:
+[        ]   Build cache is disabled
+[        ]   Caching has not been enabled for the task
+[        ] Skipping task ':app:compileFlutterBuildRelease' as it is up-to-date.
+[        ] Resolve mutations for :app:copyJniLibsflutterBuildRelease (Thread[Execution worker,5,main]) started.
+[        ] :app:copyJniLibsflutterBuildRelease (Thread[Execution worker,5,main]) started.
+[        ] > Task :app:copyJniLibsflutterBuildRelease UP-TO-DATE
+[        ] Caching disabled for task ':app:copyJniLibsflutterBuildRelease' because:
+[        ]   Build cache is disabled
+[        ]   Caching has not been enabled for the task
+[        ] Skipping task ':app:copyJniLibsflutterBuildRelease' as it is up-to-date.
+[        ] Resolve mutations for :app:validateCompileSdkVersion (Thread[included builds,5,main]) started.
+[        ] :app:validateCompileSdkVersion (Thread[included builds,5,main]) started.
+[        ] > Task :app:validateCompileSdkVersion
+[        ] Caching disabled for task ':app:validateCompileSdkVersion' because:
+[        ]   Build cache is disabled
+[        ] Task ':app:validateCompileSdkVersion' is not up-to-date because:
+[        ]   Task has not declared any outputs despite executing actions.
+[        ] Resolve mutations for :app:preBuild (Thread[included builds,5,main]) started.
+[        ] :app:preBuild (Thread[included builds,5,main]) started.
+[        ] > Task :app:preBuild
+[        ] Skipping task ':app:preBuild' as it has no actions.
+[        ] Resolve mutations for :app:preReleaseBuild (Thread[included builds,5,main]) started.
+[        ] :app:preReleaseBuild (Thread[included builds,5,main]) started.
+[        ] > Task :app:preReleaseBuild
+[        ] Skipping task ':app:preReleaseBuild' as it has no actions.
+[        ] Resolve mutations for :app:mergeReleaseJniLibFolders (Thread[Execution worker,5,main]) started.
+[        ] :app:mergeReleaseJniLibFolders (Thread[Execution worker,5,main]) started.
+[        ] > Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+[        ] Caching disabled for task ':app:mergeReleaseJniLibFolders' because:
+[        ]   Build cache is disabled
+[        ]   Simple merging task
+[        ] Skipping task ':app:mergeReleaseJniLibFolders' as it is up-to-date.
+[        ] Resolve mutations for :flutter_webrtc:preBuild (Thread[included builds,5,main]) started.
+[        ] :flutter_webrtc:preBuild (Thread[included builds,5,main]) started.
+[        ] > Task :flutter_webrtc:preBuild UP-TO-DATE
+[        ] Skipping task ':flutter_webrtc:preBuild' as it has no actions.
+[        ] Resolve mutations for :flutter_webrtc:preReleaseBuild (Thread[Execution worker,5,main]) started.
+[        ] :flutter_webrtc:preReleaseBuild (Thread[Execution worker,5,main]) started.
+[        ] > Task :flutter_webrtc:preReleaseBuild UP-TO-DATE
+[        ] Skipping task ':flutter_webrtc:preReleaseBuild' as it has no actions.
+[        ] Resolve mutations for :flutter_webrtc:mergeReleaseJniLibFolders (Thread[Execution worker,5,main]) started.
+[        ] :flutter_webrtc:mergeReleaseJniLibFolders (Thread[Execution worker,5,main]) started.
+[        ] > Task :flutter_webrtc:mergeReleaseJniLibFolders UP-TO-DATE
+[        ] Caching disabled for task ':flutter_webrtc:mergeReleaseJniLibFolders' because:
+[        ]   Build cache is disabled
+[        ]   Simple merging task
+[        ] Skipping task ':flutter_webrtc:mergeReleaseJniLibFolders' as it is up-to-date.
+[        ] Resolve mutations for :flutter_webrtc:mergeReleaseNativeLibs (Thread[Execution worker,5,main]) started.
+[        ] :flutter_webrtc:mergeReleaseNativeLibs (Thread[Execution worker,5,main]) started.
+[        ] > Task :flutter_webrtc:mergeReleaseNativeLibs NO-SOURCE
+[        ] Skipping task ':flutter_webrtc:mergeReleaseNativeLibs' as it has no source files and no previous output files.
+[        ] Resolve mutations for :flutter_webrtc:copyReleaseJniLibsProjectOnly (Thread[included builds,5,main]) started.
+[        ] :flutter_webrtc:copyReleaseJniLibsProjectOnly (Thread[included builds,5,main]) started.
+[  +85 ms] > Task :flutter_webrtc:copyReleaseJniLibsProjectOnly UP-TO-DATE
+[        ] Caching disabled for task ':flutter_webrtc:copyReleaseJniLibsProjectOnly' because:
+[        ]   Build cache is disabled
+[        ]   Caching has been disabled for the task
+[        ] Skipping task ':flutter_webrtc:copyReleaseJniLibsProjectOnly' as it is up-to-date.
+[        ] work action resolve jni (project :flutter_webrtc) (Thread[Execution worker,5,main]) started.
+[        ] Resolve mutations for :jni:preBuild (Thread[Execution worker,5,main]) started.
+[        ] :jni:preBuild (Thread[Execution worker,5,main]) started.
+[        ] > Task :jni:preBuild UP-TO-DATE
+[        ] Skipping task ':jni:preBuild' as it has no actions.
+[        ] Resolve mutations for :jni:preReleaseBuild (Thread[included builds,5,main]) started.
+[        ] :jni:preReleaseBuild (Thread[included builds,5,main]) started.
+[        ] > Task :jni:preReleaseBuild UP-TO-DATE
+[        ] Skipping task ':jni:preReleaseBuild' as it has no actions.
+[        ] Resolve mutations for :jni:configureCMakeRelWithDebInfo[arm64-v8a] (Thread[included builds,5,main]) started.
+[        ] :jni:configureCMakeRelWithDebInfo[arm64-v8a] (Thread[included builds,5,main]) started.
+[  +99 ms] > Task :jni:configureCMakeRelWithDebInfo[arm64-v8a] FAILED
+[        ] Caching disabled for task ':jni:configureCMakeRelWithDebInfo[arm64-v8a]' because:
+[        ]   Build cache is disabled
+[        ]   Caching has been disabled for the task
+[        ] Task ':jni:configureCMakeRelWithDebInfo[arm64-v8a]' is not up-to-date because:
+[        ]   Task.upToDateWhen is false.
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : Start JSON generation. Platform version: 21 min SDK version: arm64-v8a
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : rebuilding JSON /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/android_gradle_build.json due to:
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : - no fingerprint file, will remove stale configuration folder
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : removing stale contents from '/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a'
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : created folder '/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a'
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : executing cmake /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake \
+[        ]   -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src \
+[        ]   -DCMAKE_SYSTEM_NAME=Android \
+[        ]   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+[        ]   -DCMAKE_SYSTEM_VERSION=21 \
+[        ]   -DANDROID_PLATFORM=android-21 \
+[        ]   -DANDROID_ABI=arm64-v8a \
+[        ]   -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+[        ]   -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]   -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]   -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake \
+[        ]   -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja \
+[        ]   -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]   -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+[        ]   -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a \
+[        ]   -GNinja
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake \
+[        ]   -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src \
+[        ]   -DCMAKE_SYSTEM_NAME=Android \
+[        ]   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+[        ]   -DCMAKE_SYSTEM_VERSION=21 \
+[        ]   -DANDROID_PLATFORM=android-21 \
+[        ]   -DANDROID_ABI=arm64-v8a \
+[        ]   -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+[        ]   -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]   -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]   -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake \
+[        ]   -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja \
+[        ]   -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]   -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+[        ]   -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a \
+[        ]   -GNinja
+[        ] Starting process 'command '/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake''. Working directory: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android Command: /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=21 -DANDROID_PLATFORM=android-21 -DANDROID_ABI=arm64-v8a -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a -DCMAKE_BUILD_TYPE=RelWithDebInfo -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a -GNinja
+[        ] Successfully started process 'command '/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake''
+[        ] C/C++: CMake Error at /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+[        ] C/C++:   The C compiler
+[        ] C/C++:     "/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+[        ] C/C++:   is not able to compile a simple test program.
+[        ] C/C++:   It fails with the following output:
+[        ] C/C++:     Change Dir: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp
+[        ] C/C++:     
+[        ] C/C++:     Run Build Command(s):/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja cmTC_d2760 && [1/2] Building C object CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o
+[        ] C/C++:     FAILED: CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o 
+[        ] C/C++:     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -o CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o -c /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp/testCCompiler.c
+[        ] C/C++:     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang: 1: clang-19: not found
+[        ] C/C++:     ninja: build stopped: subcommand failed.
+[        ] C/C++:     
+[        ] C/C++:     
+[        ] C/C++:   
+[        ] C/C++:   CMake will not be able to correctly generate this project.
+[        ] C/C++: Call Stack (most recent call first):
+[        ] C/C++:   CMakeLists.txt:8 (project)
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : Received process result: 1
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : JSON generation completed with problem. Exception: com.android.ide.common.process.ProcessException: -- The C compiler identification is unknown
+[        ] -- Detecting C compiler ABI info
+[        ] -- Detecting C compiler ABI info - failed
+[        ] -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+[        ] -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - broken
+[        ] -- Configuring incomplete, errors occurred!
+[        ] See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeOutput.log".
+[        ] See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeError.log".
+[        ] C++ build system [configure] failed while executing:
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake \
+[        ]       -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src \
+[        ]       -DCMAKE_SYSTEM_NAME=Android \
+[        ]       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+[        ]       -DCMAKE_SYSTEM_VERSION=21 \
+[        ]       -DANDROID_PLATFORM=android-21 \
+[        ]       -DANDROID_ABI=arm64-v8a \
+[        ]       -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+[        ]       -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]       -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]       -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake \
+[        ]       -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja \
+[        ]       -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]       -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]       -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+[        ]       -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a \
+[        ]       -GNinja
+[        ]   from /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android
+[        ] CMake Error at /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+[        ]   The C compiler
+[        ]     "/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+[        ]   is not able to compile a simple test program.
+[        ]   It fails with the following output:
+[        ]     Change Dir: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp
+[        ]     Run Build Command(s):/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja cmTC_d2760 && [1/2] Building C object CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o
+[        ]     FAILED: CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o 
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -o CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o -c /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp/testCCompiler.c
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang: 1: clang-19: not found
+[        ]     ninja: build stopped: subcommand failed.
+[        ]   CMake will not be able to correctly generate this project.
+[        ] Call Stack (most recent call first):
+[        ]   CMakeLists.txt:8 (project)
+[        ] C/C++: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt release|arm64-v8a : Writing build model to /home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/logs/arm64-v8a/build_model.json
+[        ] Build 6337ba89-bc4e-4958-a112-145094defa2b is closed
+[  +40 ms] Build 073168e2-2e6a-4e53-8643-09997d80a850 is closed
+[        ] [Incubating] Problems report is available at: file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/reports/problems/problems-report.html
+[        ] FAILURE: Build failed with an exception.
+[        ] * What went wrong:
+[        ] Execution failed for task ':jni:configureCMakeRelWithDebInfo[arm64-v8a]'.
+[        ] > [CXX1429] error when building with cmake using /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt: -- The C compiler identification is unknown
+[        ]   -- Detecting C compiler ABI info
+[        ]   -- Detecting C compiler ABI info - failed
+[        ]   -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+[        ]   -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - broken
+[        ]   -- Configuring incomplete, errors occurred!
+[        ]   See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeOutput.log".
+[        ]   See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeError.log".
+[        ]   C++ build system [configure] failed while executing:
+[        ]       /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake \
+[        ]         -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src \
+[        ]         -DCMAKE_SYSTEM_NAME=Android \
+[        ]         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+[        ]         -DCMAKE_SYSTEM_VERSION=21 \
+[        ]         -DANDROID_PLATFORM=android-21 \
+[        ]         -DANDROID_ABI=arm64-v8a \
+[        ]         -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+[        ]         -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]         -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]         -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake \
+[        ]         -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja \
+[        ]         -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]         -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+[        ]         -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a \
+[        ]         -GNinja
+[        ]     from /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android
+[        ]   CMake Error at /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+[        ]     The C compiler
+[        ]       "/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+[        ]     is not able to compile a simple test program.
+[        ]     It fails with the following output:
+[        ]       Change Dir: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp
+[        ]       Run Build Command(s):/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja cmTC_d2760 && [1/2] Building C object CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o
+[        ]       FAILED: CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o 
+[        ]       /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -o CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o -c /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp/testCCompiler.c
+[        ]       /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang: 1: clang-19: not found
+[        ]       ninja: build stopped: subcommand failed.
+[        ]     CMake will not be able to correctly generate this project.
+[        ]   Call Stack (most recent call first):
+[        ]     CMakeLists.txt:8 (project) : com.android.ide.common.process.ProcessException: -- The C compiler identification is unknown
+[        ]   -- Detecting C compiler ABI info
+[        ]   -- Detecting C compiler ABI info - failed
+[        ]   -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+[        ]   -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - broken
+[        ]   -- Configuring incomplete, errors occurred!
+[        ]   See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeOutput.log".
+[        ]   See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeError.log".
+[        ]   C++ build system [configure] failed while executing:
+[        ]       /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake \
+[        ]         -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src \
+[        ]         -DCMAKE_SYSTEM_NAME=Android \
+[        ]         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+[        ]         -DCMAKE_SYSTEM_VERSION=21 \
+[        ]         -DANDROID_PLATFORM=android-21 \
+[        ]         -DANDROID_ABI=arm64-v8a \
+[        ]         -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+[        ]         -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]         -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]         -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake \
+[        ]         -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja \
+[        ]         -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]         -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+[        ]         -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a \
+[        ]         -GNinja
+[        ]     from /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android
+[        ]   CMake Error at /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+[        ]     The C compiler
+[        ]       "/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+[        ]     is not able to compile a simple test program.
+[        ]     It fails with the following output:
+[        ]       Change Dir: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp
+[        ]       Run Build Command(s):/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja cmTC_d2760 && [1/2] Building C object CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o
+[        ]       FAILED: CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o 
+[        ]       /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -o CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o -c /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp/testCCompiler.c
+[        ]       /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang: 1: clang-19: not found
+[        ]       ninja: build stopped: subcommand failed.
+[        ]     CMake will not be able to correctly generate this project.
+[        ]   Call Stack (most recent call first):
+[        ]     CMakeLists.txt:8 (project)
+[        ]   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:271)
+[   +1 ms]   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:98)
+[        ]   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:96)
+[        ]   	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:28)
+[        ]   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:96)
+[        ]   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:73)
+[        ]   	at com.android.build.gradle.tasks.CmakeQueryMetadataGenerator.executeProcess(CmakeFileApiMetadataGenerator.kt:55)
+[        ]   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:225)
+[        ]   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:225)
+[        ]   	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:28)
+[        ]   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configureOneAbi(ExternalNativeJsonGenerator.kt:225)
+[        ]   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configure(ExternalNativeJsonGenerator.kt:107)
+[        ]   	at com.android.build.gradle.tasks.ExternalNativeBuildJsonTask.doTaskAction(ExternalNativeBuildJsonTask.kt:76)
+[        ]   	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:71)
+[        ]   	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+[        ]   	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:72)
+[        ]   	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[        ]   	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[        ]   	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[        ]   	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[        ]   	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+[        ]   	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+[        ]   	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+[        ]   	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+[        ]   	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+[        ]   	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+[        ]   	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+[        ]   	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+[        ]   	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:110)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:64)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:61)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:61)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:47)
+[        ]   	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+[        ]   	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+[        ]   	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+[        ]   	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+[        ]   	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+[        ]   	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:70)
+[        ]   	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:40)
+[        ]   	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ]   	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:62)
+[        ]   	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:27)
+[        ]   	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+[        ]   	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+[        ]   	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+[        ]   	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+[        ]   	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ]   	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:192)
+[        ]   	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+[        ]   	at org.gradle.internal.Either$Right.fold(Either.java:176)
+[        ]   	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+[        ]   	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+[        ]   	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+[        ]   	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+[        ]   	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+[        ]   	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+[        ]   	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+[        ]   	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+[        ]   	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+[        ]   	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+[        ]   	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+[        ]   	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+[        ]   	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+[        ]   	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+[        ]   	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+[        ]   	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+[        ]   	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+[        ]   	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+[        ]   	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ]   	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:64)
+[        ]   	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:42)
+[        ]   	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:77)
+[        ]   	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:46)
+[        ]   	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:133)
+[        ]   	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:59)
+[        ]   	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+[        ]   	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+[        ]   	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+[        ]   	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+[        ]   	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+[        ]   	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+[        ]   	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ]   	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+[        ]   	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+[        ]   	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+[        ]   	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+[        ]   	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+[        ]   	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ]   	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ]   	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+[        ]   	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+[        ]   	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+[        ]   	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:44)
+[        ]   	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:31)
+[        ]   	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+[        ]   	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+[        ]   	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+[        ]   	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+[        ]   	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+[        ]   	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+[        ]   	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+[        ]   	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+[        ]   	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+[        ]   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+[        ]   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+[        ]   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ]   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+[        ]   	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+[        ]   	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+[        ]   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+[        ]   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+[        ]   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+[        ]   	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+[        ]   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+[        ]   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+[        ]   	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+[        ]   	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+[        ]   	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+[        ]   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
+[        ]   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
+[        ]   	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+[        ]   	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+[        ]   	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ]   	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ]   	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+[        ]   	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+[        ]   	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:276)
+[        ]   	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:187)
+[        ]   	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+[        ]   	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:187)
+[        ]   	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+[        ]   	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+[        ]   	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withLocksAcquired$0(DefaultWorkerLeaseService.java:269)
+[        ]   	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:42)
+[        ]   	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:267)
+[        ]   	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:259)
+[        ]   	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+[        ]   	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+[        ]   	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+[        ]   	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+[        ]   	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+[        ]   	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+[        ]   	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[        ]   	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[        ]   	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+[        ]   	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+[        ]   	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[        ]   	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[        ]   	at java.base/java.lang.Thread.run(Thread.java:840)
+[        ]   Caused by: com.android.ide.common.process.ProcessException: Error while executing process /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake with arguments {-H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=21 -DANDROID_PLATFORM=android-21 -DANDROID_ABI=arm64-v8a -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a -DCMAKE_BUILD_TYPE=RelWithDebInfo -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a -GNinja}
+[        ]   	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+[        ]   	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+[        ]   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:258)
+[        ]   	... 180 more
+[        ]   Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake'' finished with non-zero exit value 1
+[        ]   	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:454)
+[        ]   	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+[        ]   	... 181 more
+[        ] * Try:
+[        ] > Run with --debug option to get more log output.
+[        ] > Run with --scan to get full insights from a Build Scan (powered by Develocity).
+[        ] > Get more help at https://help.gradle.org.
+[        ] * Exception is:
+[        ] org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':jni:configureCMakeRelWithDebInfo[arm64-v8a]'.
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
+[        ] 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+[        ] 	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+[        ] 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+[        ] 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+[        ] 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+[        ] 	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+[        ] 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
+[        ] 	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+[        ] 	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+[        ] 	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:276)
+[        ] 	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:187)
+[        ] 	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+[        ] 	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:187)
+[        ] 	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+[        ] 	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withLocksAcquired$0(DefaultWorkerLeaseService.java:269)
+[        ] 	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:42)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:267)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:259)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+[        ] 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+[        ] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[        ] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[        ] 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+[        ] 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[        ] 	at java.base/java.lang.Thread.run(Thread.java:840)
+[        ] Caused by: com.android.builder.errors.EvalIssueException: [CXX1429] error when building with cmake using /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src/CMakeLists.txt: -- The C compiler identification is unknown
+[        ] -- Detecting C compiler ABI info
+[        ] -- Detecting C compiler ABI info - failed
+[        ] -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+[        ] -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - broken
+[        ] -- Configuring incomplete, errors occurred!
+[        ] See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeOutput.log".
+[        ] See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeError.log".
+[        ] C++ build system [configure] failed while executing:
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake \
+[        ]       -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src \
+[        ]       -DCMAKE_SYSTEM_NAME=Android \
+[        ]       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+[        ]       -DCMAKE_SYSTEM_VERSION=21 \
+[        ]       -DANDROID_PLATFORM=android-21 \
+[        ]       -DANDROID_ABI=arm64-v8a \
+[        ]       -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+[        ]       -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]       -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]       -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake \
+[        ]       -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja \
+[        ]       -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]       -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]       -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+[        ]       -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a \
+[        ]       -GNinja
+[        ]   from /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android
+[        ] CMake Error at /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+[        ]   The C compiler
+[        ]     "/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+[        ]   is not able to compile a simple test program.
+[        ]   It fails with the following output:
+[        ]     Change Dir: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp
+[        ]     Run Build Command(s):/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja cmTC_d2760 && [1/2] Building C object CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o
+[        ]     FAILED: CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o 
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -o CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o -c /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp/testCCompiler.c
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang: 1: clang-19: not found
+[        ]     ninja: build stopped: subcommand failed.
+[        ]   CMake will not be able to correctly generate this project.
+[        ] Call Stack (most recent call first):
+[        ]   CMakeLists.txt:8 (project) : com.android.ide.common.process.ProcessException: -- The C compiler identification is unknown
+[        ] -- Detecting C compiler ABI info
+[        ] -- Detecting C compiler ABI info - failed
+[        ] -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+[        ] -- Check for working C compiler: /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - broken
+[        ] -- Configuring incomplete, errors occurred!
+[        ] See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeOutput.log".
+[        ] See also "/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeError.log".
+[        ] C++ build system [configure] failed while executing:
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake \
+[        ]       -H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src \
+[        ]       -DCMAKE_SYSTEM_NAME=Android \
+[        ]       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+[        ]       -DCMAKE_SYSTEM_VERSION=21 \
+[        ]       -DANDROID_PLATFORM=android-21 \
+[        ]       -DANDROID_ABI=arm64-v8a \
+[        ]       -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+[        ]       -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]       -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 \
+[        ]       -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake \
+[        ]       -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja \
+[        ]       -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]       -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a \
+[        ]       -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+[        ]       -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a \
+[        ]       -GNinja
+[        ]   from /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android
+[        ] CMake Error at /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+[        ]   The C compiler
+[        ]     "/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+[        ]   is not able to compile a simple test program.
+[        ]   It fails with the following output:
+[        ]     Change Dir: /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp
+[        ]     Run Build Command(s):/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja cmTC_d2760 && [1/2] Building C object CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o
+[        ]     FAILED: CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o 
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -o CMakeFiles/cmTC_d2760.dir/testCCompiler.c.o -c /home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a/CMakeFiles/CMakeTmp/testCCompiler.c
+[        ]     /home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang: 1: clang-19: not found
+[        ]     ninja: build stopped: subcommand failed.
+[        ]   CMake will not be able to correctly generate this project.
+[        ] Call Stack (most recent call first):
+[        ]   CMakeLists.txt:8 (project)
+[        ] 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:271)
+[        ] 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:98)
+[        ] 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:96)
+[        ] 	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:28)
+[        ] 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:96)
+[        ] 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:73)
+[        ] 	at com.android.build.gradle.tasks.CmakeQueryMetadataGenerator.executeProcess(CmakeFileApiMetadataGenerator.kt:55)
+[        ] 	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:225)
+[        ] 	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:225)
+[        ] 	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:28)
+[        ] 	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configureOneAbi(ExternalNativeJsonGenerator.kt:225)
+[        ] 	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configure(ExternalNativeJsonGenerator.kt:107)
+[        ] 	at com.android.build.gradle.tasks.ExternalNativeBuildJsonTask.doTaskAction(ExternalNativeBuildJsonTask.kt:76)
+[        ] 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:71)
+[        ] 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+[        ] 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:72)
+[        ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[        ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[        ] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[        ] 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[        ] 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:110)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:64)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:61)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:61)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:47)
+[        ] 	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+[        ] 	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+[        ] 	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+[        ] 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+[        ] 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+[        ] 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:70)
+[        ] 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:40)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:62)
+[        ] 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+[        ] 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:192)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+[        ] 	at org.gradle.internal.Either$Right.fold(Either.java:176)
+[        ] 	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+[        ] 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+[        ] 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+[        ] 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+[        ] 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+[        ] 	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:64)
+[        ] 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:42)
+[        ] 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:77)
+[        ] 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:133)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:59)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+[        ] 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+[        ] 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+[        ] 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+[        ] 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+[        ] 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+[        ] 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ] 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+[        ] 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:44)
+[        ] 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:31)
+[        ] 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+[        ] 	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+[        ] 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+[        ] 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+[        ] 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+[        ] 	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+[        ] 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
+[        ] 	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+[        ] 	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+[        ] 	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:276)
+[        ] 	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:187)
+[        ] 	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+[        ] 	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:187)
+[        ] 	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+[        ] 	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withLocksAcquired$0(DefaultWorkerLeaseService.java:269)
+[        ] 	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:42)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:267)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:259)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+[        ] 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+[        ] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[        ] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[        ] 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+[        ] 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[        ] 	at java.base/java.lang.Thread.run(Thread.java:840)
+[        ] Caused by: com.android.ide.common.process.ProcessException: Error while executing process /home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake with arguments {-H/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/src -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=21 -DANDROID_PLATFORM=android-21 -DANDROID_ABI=arm64-v8a -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a -DANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 -DCMAKE_ANDROID_NDK=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358 -DCMAKE_TOOLCHAIN_FILE=/home/changer/.local/share/mini-voip-free/android-sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/ninja -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/changer/Desktop/flash/mini-voip-free/apps/mobile/build/jni/intermediates/cxx/RelWithDebInfo/6p50g491/obj/arm64-v8a -DCMAKE_BUILD_TYPE=RelWithDebInfo -B/home/changer/.pub-cache/hosted/pub.flutter-io.cn/jni-1.1.0/android/.cxx/RelWithDebInfo/6p50g491/arm64-v8a -GNinja}
+[        ] 	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+[        ] 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+[        ] 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:258)
+[        ] 	... 180 more
+[        ] Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/home/changer/.local/share/mini-voip-free/android-sdk/cmake/3.22.1/bin/cmake'' finished with non-zero exit value 1
+[        ] 	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:454)
+[        ] 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+[        ] 	... 181 more
+[        ] 	at com.android.builder.errors.IssueReporter.reportError(IssueReporter.kt:112)
+[        ] 	at com.android.builder.errors.IssueReporter.reportError$default(IssueReporter.kt:110)
+[        ] 	at com.android.build.gradle.internal.cxx.logging.IssueReporterLoggingEnvironment.log(IssueReporterLoggingEnvironment.kt:110)
+[        ] 	at com.android.build.gradle.internal.cxx.logging.ThreadLoggingEnvironment$Companion.reportFormattedErrorToCurrentLogger(LoggingEnvironment.kt:173)
+[        ] 	at com.android.build.gradle.internal.cxx.logging.LoggingEnvironmentKt.errorln(LoggingEnvironment.kt:55)
+[        ] 	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configure(ExternalNativeJsonGenerator.kt:111)
+[        ] 	at com.android.build.gradle.tasks.ExternalNativeBuildJsonTask.doTaskAction(ExternalNativeBuildJsonTask.kt:76)
+[        ] 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:71)
+[        ] 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+[        ] 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:72)
+[        ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[        ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[        ] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[        ] 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[        ] 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:110)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:64)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:61)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:61)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:47)
+[        ] 	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+[        ] 	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+[        ] 	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+[        ] 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+[        ] 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+[        ] 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:70)
+[        ] 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:40)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:62)
+[        ] 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+[        ] 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:192)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+[        ] 	at org.gradle.internal.Either$Right.fold(Either.java:176)
+[        ] 	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+[        ] 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+[        ] 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+[        ] 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+[        ] 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+[        ] 	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:64)
+[        ] 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:42)
+[        ] 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:77)
+[        ] 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:133)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:59)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+[        ] 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+[        ] 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+[        ] 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+[        ] 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+[        ] 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+[        ] 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+[        ] 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ] 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+[        ] 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:44)
+[        ] 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:31)
+[        ] 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+[        ] 	... 66 more
+[        ] BUILD FAILED in 1s
+[        ] Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+[        ] You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+[        ] For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+[        ] 12 actionable tasks: 3 executed, 9 up-to-date
+[   +2 ms] Running Gradle task 'assembleRelease'... (completed in 1,195ms)
+[        ] executing: /home/changer/.local/share/mini-voip-free/jdk-17.0.21+9/bin/java --version
+[  +22 ms] Exit code 0 from: /home/changer/.local/share/mini-voip-free/jdk-17.0.21+9/bin/java --version
+[        ] openjdk 17.0.21 2026-10-20
+           OpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)
+           OpenJDK 64-Bit Server VM Temurin-17.0.21+9 (build 17.0.21+9, mixed mode, sharing)
+[   +1 ms] "flutter apk" took 1,484ms.
+[   +2 ms] Gradle task assembleRelease failed with exit code 1
+[        ] 
+           #0      throwToolExit (package:flutter_tools/src/base/common.dart:34:3)
+           #1      AndroidGradleBuilder.buildGradleApp (package:flutter_tools/src/android/gradle.dart:653:7)
+           <asynchronous suspension>
+           #2      AndroidGradleBuilder.buildApk (package:flutter_tools/src/android/gradle.dart:246:5)
+           <asynchronous suspension>
+           #3      BuildApkCommand.runCommand (package:flutter_tools/src/commands/build_apk.dart:132:5)
+           <asynchronous suspension>
+           #4      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1663:27)
+           <asynchronous suspension>
+           #5      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #6      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+           <asynchronous suspension>
+           #7      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:496:9)
+           <asynchronous suspension>
+           #8      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #9      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:431:5)
+           <asynchronous suspension>
+           #10     FlutterCommandRunner.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:307:33)
+           <asynchronous suspension>
+           #11     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:104:11)
+           <asynchronous suspension>
+           #12     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #13     main (package:flutter_tools/executable.dart:103:3)
+           <asynchronous suspension>
+
+
+[        ] Running 1 shutdown hook
+[        ] Shutdown hooks complete
+[        ] exiting with code 1

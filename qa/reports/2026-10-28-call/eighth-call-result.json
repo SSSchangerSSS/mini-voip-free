@@ -1,0 +1,20 @@
+{
+  "caller": "101",
+  "callee": "102",
+  "answerButtonSeen": true,
+  "status": "PASS",
+  "secretValuesRecorded": false,
+  "answerAfterSeconds": 9.97,
+  "hangupTapped": true,
+  "validationScope": "Emulator SIP answer, shared PBX bridge, RTP packets in both directions, hangup",
+  "acousticAudio": "NOT_RUN",
+  "physicalDevice": "BLOCKED",
+  "reviewedAgainst": [
+    "eighth-call-bridge-live.txt",
+    "eighth-call-bridge-control.log",
+    "eighth-call-media-later.txt",
+    "eighth-call-media-live.txt",
+    "eighth-call-after-hangup.txt"
+  ],
+  "harnessCorrection": "Original helper defaulted status to FAIL even on success; reviewed actual bridge/media/hangup evidence. Original retained."
+}

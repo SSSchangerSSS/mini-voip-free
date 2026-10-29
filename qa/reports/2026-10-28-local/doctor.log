@@ -1,0 +1,18 @@
+BLOCKED dotnet SDK missing — Control build/test unavailable
+BLOCKED flutter missing — mobile build/test unavailable (CI covers unit tests)
+BLOCKED docker missing — server lifecycle commands unavailable
+PASS python3
+PASS lockfile present: toolchain.lock.json
+PASS lockfile present: global.json
+PASS lockfile present: apps/mobile/pubspec.yaml
+PASS lockfile present: services/control/src/Smi.Control/packages.lock.json
+BLOCKED deploy/secrets/ami missing — control will run but calls fail closed
+BLOCKED deploy/secrets/apns.p8 missing — push BLOCKED (PREFLIGHT B2/B3)
+BLOCKED deploy/secrets/fcm-service-account.json missing — push BLOCKED (PREFLIGHT B2/B3)
+WARN deploy/site.env missing (copy from deploy/site.env.example)
+PASS port 80 free
+PASS port 443 free
+PASS port 5038 free
+PASS port 5080 free
+PASS port 8088 free
+PASS clock: 2026-10-28T10:19:35Z (epoch 1793182775)

@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "scope": "Android 8/15 foreground emulator signaling, PBX bridge/RTP transport, and terminal cleanup; physical/acoustic/push excluded",
+  "scenarios": {
+    "eighth-call": {
+      "caller": "101",
+      "callee": "102",
+      "answerButtonSeen": true,
+      "status": "PASS",
+      "secretValuesRecorded": false,
+      "answerAfterSeconds": 9.97,
+      "hangupTapped": true,
+      "validationScope": "Emulator SIP answer, shared PBX bridge, RTP packets in both directions, hangup",
+      "acousticAudio": "NOT_RUN",
+      "physicalDevice": "BLOCKED",
+      "reviewedAgainst": [
+        "eighth-call-bridge-live.txt",
+        "eighth-call-bridge-control.log",
+        "eighth-call-media-later.txt",
+        "eighth-call-media-live.txt",
+        "eighth-call-after-hangup.txt"
+      ],
+      "harnessCorrection": "Original helper defaulted status to FAIL even on success; reviewed actual bridge/media/hangup evidence. Original retained."
+    },
+    "reverse-call-retry": {
+      "caller": "102",
+      "callee": "101",
+      "answerButtonSeen": true,
+      "status": "PASS",
+      "secretValuesRecorded": false,
+      "answerAfterSeconds": 8.6,
+      "hangupTapped": true,
+      "rtpInBothDirections": true,
+      "sharedBridge": true,
+      "channelsCleared": true,
+      "validationScope": "Emulator SIP answer, PBX bridge, RTP packets, hangup; acoustic audio NOT_RUN"
+    },
+    "decline-call-retry": {
+      "mode": "decline",
+      "status": "PASS",
+      "incomingSeen": true,
+      "secretValuesRecorded": false,
+      "channelsCleared": true,
+      "callerIdle": true,
+      "calleeIdle": true,
+      "elapsedSeconds": 22.34
+    },
+    "cancel-call": {
+      "mode": "cancel",
+      "status": "PASS",
+      "incomingSeen": true,
+      "secretValuesRecorded": false,
+      "channelsCleared": true,
+      "callerIdle": true,
+      "calleeIdle": true,
+      "elapsedSeconds": 29.83
+    },
+    "timeout-call": {
+      "mode": "timeout",
+      "status": "PASS",
+      "incomingSeen": true,
+      "secretValuesRecorded": false,
+      "serverAdmissionUtc": "2026-10-28T12:49:57Z",
+      "channelsGoneUtc": "2026-10-28T12:50:38.626454+00:00",
+      "serverPendingLifetimeSeconds": 41.63,
+      "deadlineWithinBounds": true,
+      "channelsCleared": true,
+      "callerIdle": true,
+      "calleeIdle": true,
+      "elapsedSeconds": 55.29
+    },
+    "delayed-ready-timeout": {
+      "mode": "timeout",
+      "status": "PASS",
+      "incomingSeen": true,
+      "secretValuesRecorded": false,
+      "validationScope": "Delayed callee readiness; original total setup deadline must remain unchanged",
+      "intentionalPauseAfterAdmissionSeconds": 15,
+      "serverAdmissionUtc": "2026-10-28T12:52:22Z",
+      "channelsGoneUtc": "2026-10-28T12:53:02.187330+00:00",
+      "serverPendingLifetimeSeconds": 40.19,
+      "deadlineWithinBounds": true,
+      "readyAfterAdmissionSeconds": 15.0,
+      "channelsCleared": true,
+      "callerIdle": true,
+      "calleeIdle": true,
+      "elapsedSeconds": 54.9
+    }
+  }
+}

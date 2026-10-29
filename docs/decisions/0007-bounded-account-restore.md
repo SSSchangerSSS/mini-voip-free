@@ -1,0 +1,13 @@
+# Bounded recovery of stored-account startup
+
+Date: 2026-10-29
+
+Observed: the first Android 15 startup showed a generic login error; reopening the same app, without credentials or data reset, authenticated and registered successfully. The old client ended restoration after any first failure and did not expose a stored-account retry. Historical logs did not identify the original exception, so do not claim an emulator or network root cause was proven.
+
+Keep the existing controller and protocol. Restore the same secure account/installation identity with at most three attempts and delays of 2 and 5 seconds for Socket/HTTP-client transport errors, timeouts and HTTP 502/503/504 only. Never retry authentication/binding/rate-limit errors, invalid TLS, unreadable credentials or unknown protocol/internal errors. Stop a failed SIP startup before a later attempt; stop retrying if cleanup fails. Do not extend any server call deadline or create a new call/installation ID. No plaintext fallback or trust bypass.
+
+Render a restoration progress page while work is running; on exhausted transient failure allow an explicit retry with the same secure account, without typing its password. Emit only fixed stage/category/retry diagnostics, never exception messages, identifiers, credentials, tokens or SIP packets. Version locks and wire identifiers stay unchanged. Tests cover bounded retries, identity preservation, permanent/TLS failures, unavailable store, failed SIP cleanup, coalescing/disposal, progress UI and explicit retry. Actual emulator restart/outage evidence is required separately; System UI ANRs remain an emulator/host issue until independently diagnosed.
+
+Follow-up actual evidence: one full API35 cold boot reproduced two api-login/network errors and recovered automatically on attempt3. A later guest reboot failed persistently: ConnectivityService advertised an IPv4 default route in LinkProperties, but the kernel routing tables had none; guest ping returned Network is unreachable while host HTTPS remained healthy. Reconnecting only the owned emulator Wi-Fi restored the kernel route and connectivity. The QA desktop launcher now waits for an installed IPv4 default route before opening the app and reconnects emulator Wi-Fi once if the route remains absent. It exits BLOCKED if recovery fails; it does not alter host addressing, add static guest routes, or bypass TLS. The app retains its bounded retry policy for ordinary outages.
+
+A regression test also exposed an unhandled asynchronous SIP-stop error during controller disposal; disposal now catches it and emits only a fixed diagnostic. The failed test and rerun are retained. SystemUI ANRs under software emulation remain separately reported.

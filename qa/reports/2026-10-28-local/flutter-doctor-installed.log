@@ -1,0 +1,48 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+[!] Flutter (Channel [user-branch], 3.47.8, on Ubuntu 24.10 6.11.0-8-generic, locale en_US.UTF-8) [30ms]
+    ! Flutter version 3.47.8 on channel [user-branch] at /home/changer/.local/share/mini-voip-free/flutter-source
+      Currently on an unknown channel. Run `flutter channel` to switch to an official channel.
+      If that doesn't fix the issue, try deleting the 'bin/cache/flutter.version.json' file in your Flutter SDK directory and then reinstall Flutter by following instructions at https://flutter.dev/setup.
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 737ba8f885 (5 days ago), 2026-10-22 21:37:31 -0700
+    • Engine revision cf636b1dfb
+    • Dart version 3.13.7
+    • DevTools version 2.60.0
+    • Pub download mirror https://pub.flutter-io.cn
+    • Flutter download mirror https://storage.flutter-io.cn
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration, enable-riscv64
+    • If those were intentional, you can disregard the above warnings; however it is recommended to use "git" directly to perform update checks and upgrades.
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 35.0.1) [6.1s]
+    • Android SDK at /home/changer/.local/share/mini-voip-free/android-sdk
+    • Emulator version 37.3.5.0 (build_id 16632760) (CL:N/A)
+    • Platform android-36, build-tools 35.0.1
+    • ANDROID_HOME = /home/changer/.local/share/mini-voip-free/android-sdk
+    • ANDROID_SDK_ROOT = /home/changer/.local/share/mini-voip-free/android-sdk
+    • Java binary at: /home/changer/.local/share/mini-voip-free/jdk-17.0.21+9/bin/java
+      This JDK is specified by the JAVA_HOME environment variable.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)
+    • All Android licenses accepted.
+
+[✗] Chrome - develop for the web (Cannot find Chrome executable at google-chrome) [5ms]
+    ! Cannot find Chrome. Try setting CHROME_EXECUTABLE to a Chrome executable.
+
+[✗] Linux toolchain - develop for Linux desktop [9ms]
+    ✗ clang++ is required for Linux development.
+      It is likely available from your distribution (e.g.: apt install clang), or can be downloaded from https://releases.llvm.org/
+    ✗ CMake is required for Linux development.
+      It is likely available from your distribution (e.g.: apt install cmake), or can be downloaded from https://cmake.org/download/
+    ✗ ninja is required for Linux development.
+      It is likely available from your distribution (e.g.: apt install ninja-build), or can be downloaded from https://github.com/ninja-build/ninja/releases
+    ✗ pkg-config is required for Linux development.
+      It is likely available from your distribution (e.g.: apt install pkg-config), or can be downloaded from https://www.freedesktop.org/wiki/Software/pkg-config/
+
+[✓] Connected device (2 available) [338ms]
+    • Android SDK built for x86 64 (mobile) • emulator-5554 • android-x64 • Android 8.0.0 (API 26) (emulator)
+    • Linux (desktop)                       • linux         • linux-x64   • Ubuntu 24.10 6.11.0-8-generic
+
+[✓] Network resources [1,690ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 3 categories.

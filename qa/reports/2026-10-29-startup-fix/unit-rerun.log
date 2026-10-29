@@ -1,0 +1,96 @@
+2026-10-29T05:36:37Z build wrapper regression tests (stubbed Flutter; no mobile runtime validation)
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.127s
+
+OK
+2026-10-29T05:36:37Z dotnet test (Control: state machine, slots, auth endpoints, crypto, normalization)
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Smi.Control -> /home/changer/Desktop/flash/mini-voip-free/services/control/src/Smi.Control/bin/Release/net10.0/Smi.Control.dll
+  Smi.Control.Tests -> /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll
+Test run for /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 1 s - Smi.Control.Tests.dll (net10.0)
+2026-10-29T05:36:41Z flutter test (mobile: normalization, event queue, wire models)
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart
+00:00 +0: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: unresponsive server has a bounded request deadline
+00:00 +1: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: JSON requests declare JSON rather than form/text content
+00:00 +2: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) accepts plain ASCII
+00:00 +3: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) converts Persian and Arabic-Indic digits
+00:00 +4: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) rejects invalid targets
+00:00 +5: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) rejects hidden direction marks (never partially interpreted)
+00:00 +6: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: transient startup retries keep installation/password and redact diagnostics
+00:00 +7: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: HTTP 401 never retries stored credentials
+SMI_STARTUP failure stage=api-login kind=api-401 retryable=false
+00:00 +8: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: HTTP 409 never retries stored credentials
+SMI_STARTUP failure stage=api-login kind=api-409 retryable=false
+00:00 +9: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: replays the Android JSON backlog without a type cast crash
+00:00 +9: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: HTTP 429 never retries stored credentials
+SMI_STARTUP failure stage=api-login kind=api-429 retryable=false
+00:00 +10: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: replays the Android JSON backlog without a type cast crash
+00:00 +10: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: invalid TLS never retries or exposes exception text
+SMI_STARTUP failure stage=api-login kind=tls retryable=false
+00:00 +11: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: replays the Android JSON backlog without a type cast crash
+00:00 +11: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: persistent outage stops after three attempts; explicit retry reuses account
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=3
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+00:00 +12: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: replays the Android JSON backlog without a type cast crash
+00:00 +13: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: temporary HTTP 503 recovers with the same stored identity
+SMI_STARTUP failure stage=api-login kind=api-503 retryable=true
+SMI_STARTUP retry attempt=2
+00:00 +14: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: accepts the contract list and safely handles malformed legacy JSON
+00:00 +15: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: registration timeout closes failed engine before retry
+SMI_STARTUP failure stage=sip-register kind=timeout retryable=true
+00:00 +16: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: registration timeout closes failed engine before retry
+SMI_STARTUP retry attempt=2
+00:00 +17: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: failed SIP cleanup prevents another startup engine
+SMI_STARTUP failure stage=sip-register kind=timeout retryable=true
+SMI_STARTUP cleanup failed; automatic retry stopped
+SMI_STARTUP SIP shutdown failed
+00:00 +18: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: fresh install and inaccessible store never invent or replace credentials
+SMI_STARTUP failure stage=account-read kind=native retryable=false
+00:00 +19: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: concurrent restores coalesce and dispose cancels backoff
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+00:00 +20: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: retry backoff shows restoring UI rather than a failed login form
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+00:01 +21: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: retry backoff shows restoring UI rather than a failed login form
+00:01 +22: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: retry backoff shows restoring UI rather than a failed login form
+00:01 +23: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: retry backoff shows restoring UI rather than a failed login form
+00:01 +24: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: saved-account retry button recovers without typing password
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=3
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+00:01 +25: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:02 +26: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:02 +27: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:02 +28: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:02 +29: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:02 +30: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:02 +31: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_handshake_test.dart: separate SIP credential is stored and configured; admission race preserves outgoing attempt
+00:02 +32: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_handshake_test.dart: foreground hint gates ready; matching INVITE does not answer before user intent
+00:02 +33: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: failed network login returns to error rather than leaving spinner active
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+00:02 +34: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: unavailable secure store is handled before any network request
+SMI_STARTUP failure stage=account-read kind=native retryable=false
+00:02 +35: All tests passed!
+2026-10-29T05:36:47Z contract validation
+PASS contracts validated (openapi.json, push.schema.json, native-events.schema.json)

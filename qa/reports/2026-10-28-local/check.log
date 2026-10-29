@@ -1,0 +1,23 @@
+PASS bash syntax: scripts/release/verify-release.sh
+PASS bash syntax: scripts/deploy/server-status.sh
+PASS bash syntax: scripts/deploy/server-logs.sh
+PASS bash syntax: scripts/deploy/server-init.sh
+PASS bash syntax: scripts/deploy/server-up.sh
+PASS bash syntax: scripts/deploy/backup.sh
+PASS bash syntax: scripts/deploy/install-server.sh
+PASS bash syntax: scripts/deploy/extension.sh
+PASS bash syntax: scripts/deploy/release-roll.sh
+PASS bash syntax: scripts/deploy/restore.sh
+PASS bash syntax: scripts/deploy/device-reset.sh
+PASS bash syntax: scripts/build/build-ios.sh
+PASS bash syntax: scripts/build/build-android.sh
+PASS bash syntax: scripts/build/apply-platform-overlay.sh
+PASS bash syntax: scripts/doctor/doctor.sh
+PASS bash syntax: scripts/doctor/check.sh
+PASS bash syntax: scripts/test/unit.sh
+PASS bash syntax: scripts/lib/common.sh
+PASS contracts validated (openapi.json, push.schema.json, native-events.schema.json)
+PASS yaml: deploy/compose.yaml
+PASS yaml: .github/workflows/android-build.yml
+PASS yaml: .github/workflows/release.yml
+PASS yaml: .github/workflows/ci.yml

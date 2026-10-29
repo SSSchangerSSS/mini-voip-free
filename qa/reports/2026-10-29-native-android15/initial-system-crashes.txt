@@ -1,0 +1,503 @@
+--------- beginning of crash
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: FATAL EXCEPTION: AsyncTask #1
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: Process: com.android.documentsui, PID: 3376
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.processWorkerExit(ThreadPoolExecutor.java:1033)
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1170)
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+10-29 07:20:25.158  3376  3428 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1119)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: binder:279_A
+10-29 07:20:25.159   279  3563 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9979)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:9401)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrash(ActivityManagerService.java:9294)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2668)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2721)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1406)
+10-29 07:20:25.159   279  3563 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1350)
+10-29 07:20:25.206  3230  3230 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:25.206  3230  3230 E AndroidRuntime: Process: com.android.launcher3, PID: 3230
+10-29 07:20:25.206  3230  3230 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: Process: com.android.traceur, PID: 4819
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1377)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at java.util.concurrent.Executors$DelegatedExecutorService.execute(Executors.java:715)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at com.android.traceur.TraceUtils.cleanupOlderFiles(TraceUtils.java:255)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at com.android.traceur.Receiver.onReceive(Receiver.java:76)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at android.app.ActivityThread.handleReceiver(ActivityThread.java:4930)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleReceiver(Unknown Source:0)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2527)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:109)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:317)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8934)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:591)
+10-29 07:20:32.730  4819  4819 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:911)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: binder:3753_3
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9979)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:9401)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrash(ActivityManagerService.java:9294)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2668)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2721)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1406)
+10-29 07:20:32.731  3753  3814 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1350)
+10-29 07:20:32.752  4848  4848 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:32.752  4848  4848 E AndroidRuntime: PID: 4848
+10-29 07:20:32.752  4848  4848 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:32.776  3685  3685 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 3685 (main), pid 3685 (main)
+10-29 07:20:32.804  4453  4453 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:32.804  4453  4453 E AndroidRuntime: Process: com.android.launcher3, PID: 4453
+10-29 07:20:32.804  4453  4453 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:32.852  4029  4029 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:32.852  4029  4029 E AndroidRuntime: Process: com.android.systemui, PID: 4029
+10-29 07:20:32.852  4029  4029 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:32.883  4862  4862 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-29 07:20:32.883  4862  4862 F DEBUG   : Build fingerprint: 'redroid/redroid_x86_64_only/redroid_x86_64_only:15/BP1A.250505.005.D1/eng.root:userdebug/test-keys'
+10-29 07:20:32.883  4862  4862 F DEBUG   : Revision: '0'
+10-29 07:20:32.883  4862  4862 F DEBUG   : ABI: 'x86_64'
+10-29 07:20:32.883  4862  4862 F DEBUG   : Timestamp: 2026-10-29 07:20:32.795566884+0000
+10-29 07:20:32.883  4862  4862 F DEBUG   : Process uptime: 9s
+10-29 07:20:32.883  4862  4862 F DEBUG   : Cmdline: zygote64
+10-29 07:20:32.883  4862  4862 F DEBUG   : pid: 3685, tid: 3685, name: main  >>> zygote64 <<<
+10-29 07:20:32.883  4862  4862 F DEBUG   : uid: 0
+10-29 07:20:32.883  4862  4862 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-29 07:20:32.883  4862  4862 F DEBUG   : Abort message: 'JNI FatalError called: (zygote) frameworks/base/core/jni/com_android_internal_os_ZygoteCommandBuffer.cpp:79: session socket read failed: Connection reset by peer'
+10-29 07:20:32.883  4862  4862 F DEBUG   :     rax 0000000000000000  rbx 0000000000000e65  rcx 00007c692f553624  rdx 0000000000000006
+10-29 07:20:32.883  4862  4862 F DEBUG   :     r8  00007ffcd34794a0  r9  00007ffcd34794a0  r10 00007ffcd3479460  r11 0000000000000217
+10-29 07:20:32.883  4862  4862 F DEBUG   :     r12 0000000000000068  r13 00000000000000a9  r14 0000000000000e65  r15 00007ffcd3479530
+10-29 07:20:32.883  4862  4862 F DEBUG   :     rdi 0000000000000e65  rsi 0000000000000e65
+10-29 07:20:32.883  4862  4862 F DEBUG   :     rbp 00007ffcd3479500  rsp 00007ffcd3479460  rip 00007c692f553624
+10-29 07:20:32.883  4862  4862 F DEBUG   : 21 total frames
+10-29 07:20:32.883  4862  4862 F DEBUG   : backtrace:
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #00 pc 0000000000059624  /apex/com.android.runtime/lib64/bionic/libc.so (abort+196) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #01 pc 0000000000970319  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+1609) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #02 pc 0000000000015ece  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+62) (BuildId: eb9654acbe224b5297231307015e3d64)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #03 pc 00000000000153c5  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+501) (BuildId: eb9654acbe224b5297231307015e3d64)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #04 pc 00000000007da29e  /apex/com.android.art/lib64/libart.so (art::JNI<true>::FatalError(_JNIEnv*, char const*)+206) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #05 pc 0000000000227398  /system/lib64/libandroid_runtime.so (android::zygote::ZygoteFailure(_JNIEnv*, char const*, _jstring*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+184) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #06 pc 00000000002389ea  /system/lib64/libandroid_runtime.so (android::com_android_internal_os_ZygoteCommandBuffer_nativeForkRepeatedly(_JNIEnv*, _jclass*, long, int, int, int, _jstring*)+3498) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #07 pc 0000000000813033  /system/framework/x86_64/boot-framework.oat (art_jni_trampoline+163) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #08 pc 0000000000209743  /apex/com.android.art/lib64/libart.so (nterp_helper+3667) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #09 pc 00000000002499e2  /system/framework/framework.jar (com.android.internal.os.ZygoteCommandBuffer.forkRepeatedly+18)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #10 pc 000000000079b6c4  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteConnection.processCommand+1444) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #11 pc 000000000079cfe6  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteServer.runSelectLoop+1990) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #12 pc 00000000007ab9b5  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteInit.main+2613) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #13 pc 0000000000212136  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+806) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #14 pc 000000000055582c  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+252) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #15 pc 0000000000966b66  /apex/com.android.art/lib64/libart.so (art::JValue art::InvokeWithVarArgs<_jmethodID*>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jmethodID*, __va_list_tag*)+518) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #16 pc 0000000000810c12  /apex/com.android.art/lib64/libart.so (art::JNI<true>::CallStaticVoidMethodV(_JNIEnv*, _jclass*, _jmethodID*, __va_list_tag*)+594) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #17 pc 00000000000e74be  /system/lib64/libandroid_runtime.so (_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+126) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #18 pc 000000000010ce86  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::start(char const*, android::Vector<android::String8> const&, bool)+966) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #19 pc 0000000000004708  /system/bin/app_process64 (main+1640) (BuildId: e3927c07b8bf3360ca821db20d2060d2)
+10-29 07:20:32.883  4862  4862 F DEBUG   :       #20 pc 0000000000054005  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+117) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:20:32.890  3685  3685 F libc    : failed to restore dumpable: Invalid argument
+10-29 07:20:40.718  5664  5818 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 5818 (RenderThread), pid 5664 (droid.launcher3)
+10-29 07:20:40.718  5664  5818 F libc    : failed to spawn debuggerd dispatch thread: Try again
+10-29 07:20:40.866  4903  6077 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 6077 (Dns_100_1000), pid 4903 (binder:4903_4)
+10-29 07:20:40.866  4903  6077 F libc    : failed to spawn debuggerd dispatch thread: Try again
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: main
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockControllerConnectorImpl.<init>(DeviceLockControllerConnectorImpl.java:223)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockServiceImpl.getDeviceLockControllerConnector(DeviceLockServiceImpl.java:201)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockServiceImpl.setDeviceLockControllerPackageEnabledState(DeviceLockServiceImpl.java:385)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockServiceImpl.lambda$enableDlcIfNeeded$0(DeviceLockServiceImpl.java:275)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockServiceImpl.$r8$lambda$dKrHN7pYx3b-tKQan-ommcODugY(Unknown Source:0)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockServiceImpl$$ExternalSyntheticLambda0.onDeviceStateRead(D8$$SyntheticClass:0)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockPersistentStore.lambda$readFinalizedState$1(DeviceLockPersistentStore.java:81)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.devicelock.DeviceLockPersistentStore$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:991)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:317)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.SystemServer.run(SystemServer.java:1005)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.server.SystemServer.main(SystemServer.java:683)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:591)
+10-29 07:20:48.435  6129  6129 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:889)
+10-29 07:20:48.504  6823  6823 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:48.504  6823  6823 E AndroidRuntime: Process: com.android.launcher3, PID: 6823
+10-29 07:20:48.504  6823  6823 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:48.539  6410  6410 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:48.539  6410  6410 E AndroidRuntime: Process: com.android.systemui, PID: 6410
+10-29 07:20:48.539  6410  6410 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:48.540  7172  7172 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:48.540  7172  7172 E AndroidRuntime: Process: com.android.devicelockcontroller, PID: 7172
+10-29 07:20:48.540  7172  7172 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:48.543  7167  7167 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:20:48.543  7167  7167 E AndroidRuntime: Process: com.android.keychain, PID: 7167
+10-29 07:20:48.543  7167  7167 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: FATAL EXCEPTION: binder:8297_4
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: Process: com.android.devicelockcontroller, PID: 8297
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1388)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at com.google.common.util.concurrent.Futures.submit(Futures.java:191)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at com.android.devicelockcontroller.policy.ProvisionStateControllerImpl.getState(ProvisionStateControllerImpl.java:106)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at com.android.devicelockcontroller.policy.ProvisionStateControllerImpl.onUserUnlocked(ProvisionStateControllerImpl.java:267)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at com.android.devicelockcontroller.policy.DevicePolicyControllerImpl.onUserUnlocked(DevicePolicyControllerImpl.java:470)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at com.android.devicelockcontroller.DeviceLockControllerService$1.onUserUnlocked(DeviceLockControllerService.java:126)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at com.android.devicelockcontroller.IDeviceLockControllerService$Stub.onTransact(IDeviceLockControllerService.java:215)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1411)
+10-29 07:20:56.807  8297  8329 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1350)
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: FATAL EXCEPTION: AsyncTask #1
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: Process: com.android.documentsui, PID: 8108
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.processWorkerExit(ThreadPoolExecutor.java:1033)
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1170)
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+10-29 07:20:57.369  8108  8143 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1119)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: binder:7279_1
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9979)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:9401)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrash(ActivityManagerService.java:9294)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2668)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2721)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1406)
+10-29 07:20:57.369  7279  7294 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1350)
+10-29 07:20:57.467  8128  8400 E AndroidRuntime: FATAL EXCEPTION: Worker-1
+10-29 07:20:57.467  8128  8400 E AndroidRuntime: Process: android.process.acore, PID: 8128
+10-29 07:20:57.467  8128  8400 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:05.799  8478  8545 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 8545 (binder:8478_3), pid 8478 (system_server)
+10-29 07:21:05.799  8478  8545 F libc    : failed to spawn debuggerd dispatch thread: Try again
+10-29 07:21:05.892  9184  9202 E AndroidRuntime: FATAL EXCEPTION: UiThreadHelper
+10-29 07:21:05.892  9184  9202 E AndroidRuntime: Process: com.android.launcher3, PID: 9184
+10-29 07:21:05.892  9184  9202 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:05.893  9502  9502 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:05.893  9502  9502 E AndroidRuntime: PID: 9502
+10-29 07:21:05.893  9502  9502 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:05.895  9501  9501 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:05.895  9501  9501 E AndroidRuntime: PID: 9501
+10-29 07:21:05.895  9501  9501 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:05.899  8755  8755 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:05.899  8755  8755 E AndroidRuntime: Process: com.android.systemui, PID: 8755
+10-29 07:21:05.899  8755  8755 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: Process: com.android.traceur, PID: 10639
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1386)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.SharedPreferencesImpl.startLoadFromDisk(SharedPreferencesImpl.java:148)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.SharedPreferencesImpl.<init>(SharedPreferencesImpl.java:139)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.ContextImpl.getSharedPreferences(ContextImpl.java:636)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.ContextImpl.getSharedPreferences(ContextImpl.java:610)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.content.ContextWrapper.getSharedPreferences(ContextWrapper.java:223)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.content.ContextWrapper.getSharedPreferences(ContextWrapper.java:223)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.preference.PreferenceManager.getDefaultSharedPreferences(PreferenceManager.java:545)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at com.android.traceur.Receiver.onReceive(Receiver.java:64)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.ActivityThread.handleReceiver(ActivityThread.java:4930)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleReceiver(Unknown Source:0)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2527)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:109)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:317)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8934)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:591)
+10-29 07:21:13.417 10639 10639 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:911)
+10-29 07:21:13.422 10671 10671 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 10671 (.quicksearchbox), pid 10671 (.quicksearchbox)
+10-29 07:21:13.499 10668 10668 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 10668 (ndroid.keychain), pid 10668 (ndroid.keychain)
+10-29 07:21:13.684 10683 10683 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-29 07:21:13.684 10683 10683 F DEBUG   : Build fingerprint: 'redroid/redroid_x86_64_only/redroid_x86_64_only:15/BP1A.250505.005.D1/eng.root:userdebug/test-keys'
+10-29 07:21:13.684 10683 10683 F DEBUG   : Revision: '0'
+10-29 07:21:13.684 10683 10683 F DEBUG   : ABI: 'x86_64'
+10-29 07:21:13.684 10683 10683 F DEBUG   : Timestamp: 2026-10-29 07:21:13.460503506+0000
+10-29 07:21:13.684 10683 10683 F DEBUG   : Process uptime: 1s
+10-29 07:21:13.684 10683 10683 F DEBUG   : Cmdline: zygote64
+10-29 07:21:13.684 10683 10683 F DEBUG   : pid: 10671, tid: 10671, name: .quicksearchbox  >>> zygote64 <<<
+10-29 07:21:13.684 10683 10683 F DEBUG   : uid: 10046
+10-29 07:21:13.684 10683 10683 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-29 07:21:13.684 10683 10683 F DEBUG   : Abort message: 'terminating due to uncaught exception of type NSt3__112system_errorE: thread constructor failed: Try again'
+10-29 07:21:13.684 10683 10683 F DEBUG   :     rax 0000000000000000  rbx 00000000000029af  rcx 000070e8f76d4624  rdx 0000000000000006
+10-29 07:21:13.684 10683 10683 F DEBUG   :     r8  0000000000000000  r9  0000000000000000  r10 00007ffea34c8220  r11 0000000000000203
+10-29 07:21:13.684 10683 10683 F DEBUG   :     r12 00007ffea34c83e0  r13 0000003000000008  r14 00000000000029af  r15 00007ffea34c82d0
+10-29 07:21:13.684 10683 10683 F DEBUG   :     rdi 00000000000029af  rsi 00000000000029af
+10-29 07:21:13.684 10683 10683 F DEBUG   :     rbp 00007ffea34c82c0  rsp 00007ffea34c8220  rip 000070e8f76d4624
+10-29 07:21:13.684 10683 10683 F DEBUG   : 39 total frames
+10-29 07:21:13.684 10683 10683 F DEBUG   : backtrace:
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #00 pc 0000000000059624  /apex/com.android.runtime/lib64/bionic/libc.so (abort+196) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #01 pc 0000000000077d3f  /apex/com.android.art/lib64/libc++.so (abort_message+287) (BuildId: 4e86ef546be249b77b83cf151d0c99ab54a151e3)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #02 pc 0000000000076b46  /apex/com.android.art/lib64/libc++.so (demangling_terminate_handler()+198) (BuildId: 4e86ef546be249b77b83cf151d0c99ab54a151e3)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #03 pc 0000000000076f67  /apex/com.android.art/lib64/libc++.so (std::__terminate(void (*)())+7) (BuildId: 4e86ef546be249b77b83cf151d0c99ab54a151e3)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #04 pc 00000000000799ca  /apex/com.android.art/lib64/libc++.so (__cxxabiv1::failed_throw(__cxxabiv1::__cxa_exception*) (.llvm.5132257128005637460)+26) (BuildId: 4e86ef546be249b77b83cf151d0c99ab54a151e3)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #05 pc 00000000000799ae  /apex/com.android.art/lib64/libc++.so (__cxa_throw+78) (BuildId: 4e86ef546be249b77b83cf151d0c99ab54a151e3)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #06 pc 000000000009ad1f  /apex/com.android.art/lib64/libc++.so (std::__1::__throw_system_error[abi:ne190000](std::__1::error_code, char const*)+159) (BuildId: 4e86ef546be249b77b83cf151d0c99ab54a151e3)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #07 pc 000000000009ac72  /apex/com.android.art/lib64/libc++.so (std::__1::__throw_system_error(int, char const*)+18) (BuildId: 4e86ef546be249b77b83cf151d0c99ab54a151e3)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #08 pc 000000000001e817  /apex/com.android.art/lib64/libperfetto_hprof.so (ArtPlugin_Initialize+887) (BuildId: 958f78f0bc5f6372abc3463ba442808b)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #09 pc 0000000000954df4  /apex/com.android.art/lib64/libart.so (art::Plugin::Load(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>*)+100) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #10 pc 0000000000984572  /apex/com.android.art/lib64/libart.so (art::Runtime::EnsurePluginLoaded(char const*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>*)+370) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #11 pc 0000000000980676  /apex/com.android.art/lib64/libart.so (art::Runtime::InitNonZygoteOrPostFork(_JNIEnv*, bool, bool, art::Runtime::NativeBridgeAction, char const*, bool)+3398) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #12 pc 000000000089fc20  /apex/com.android.art/lib64/libart.so (art::ZygoteHooks_nativePostForkChild(_JNIEnv*, _jclass*, long, int, unsigned char, unsigned char, _jstring*) (.__uniq.319397600600937055254755604402799901487)+7328) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #13 pc 00000000000481e3  /system/framework/x86_64/boot-core-libart.oat (art_jni_trampoline+163) (BuildId: 2c2c5cbc08d4350f764e72b949ceab45b7b0c967)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #14 pc 000000000001f551  /system/framework/x86_64/boot-core-libart.oat (dalvik.system.ZygoteHooks.postForkChild+129) (BuildId: 2c2c5cbc08d4350f764e72b949ceab45b7b0c967)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #15 pc 00000000007a64ae  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.Zygote.callPostForkChildHooks+46) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #16 pc 0000000000212136  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+806) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #17 pc 000000000055582c  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+252) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #18 pc 0000000000966b66  /apex/com.android.art/lib64/libart.so (art::JValue art::InvokeWithVarArgs<_jmethodID*>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jmethodID*, __va_list_tag*)+518) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #19 pc 0000000000810c12  /apex/com.android.art/lib64/libart.so (art::JNI<true>::CallStaticVoidMethodV(_JNIEnv*, _jclass*, _jmethodID*, __va_list_tag*)+594) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #20 pc 00000000000e74be  /system/lib64/libandroid_runtime.so (_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+126) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #21 pc 0000000000232e5a  /system/lib64/libandroid_runtime.so ((anonymous namespace)::SpecializeCommon(_JNIEnv*, unsigned int, unsigned int, _jintArray*, int, _jobjectArray*, long, long, long, int, _jstring*, _jstring*, bool, bool, _jstring*, _jstring*, bool, _jobjectArray*, _jobjectArray*, bool, bool, bool)+27130) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #22 pc 000000000022b0c1  /system/lib64/libandroid_runtime.so (android::com_android_internal_os_Zygote_nativeSpecializeAppProcess(_JNIEnv*, _jclass*, int, int, _jintArray*, int, _jobjectArray*, int, _jstring*, _jstring*, unsigned char, _jstring*, _jstring*, unsigned char, _jobjectArray*, _jobjectArray*, unsigned char, unsigned char, unsigned char)+241) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #23 pc 0000000000812ee9  /system/framework/x86_64/boot-framework.oat (art_jni_trampoline+441) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #24 pc 00000000002091ff  /apex/com.android.art/lib64/libart.so (nterp_helper+2319) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #25 pc 000000000024dca4  /system/framework/framework.jar (com.android.internal.os.Zygote.specializeAppProcess+0)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #26 pc 000000000020919c  /apex/com.android.art/lib64/libart.so (nterp_helper+2220) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #27 pc 000000000024d644  /system/framework/framework.jar (com.android.internal.os.Zygote.childMain+676)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #28 pc 000000000079b6eb  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteConnection.processCommand+1483) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #29 pc 000000000079cfe6  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteServer.runSelectLoop+1990) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #30 pc 00000000007ab9b5  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteInit.main+2613) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #31 pc 0000000000212136  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+806) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #32 pc 000000000055582c  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+252) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #33 pc 0000000000966b66  /apex/com.android.art/lib64/libart.so (art::JValue art::InvokeWithVarArgs<_jmethodID*>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jmethodID*, __va_list_tag*)+518) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.684 10683 10683 F DEBUG   :       #34 pc 0000000000810c12  /apex/com.android.art/lib64/libart.so (art::JNI<true>::CallStaticVoidMethodV(_JNIEnv*, _jclass*, _jmethodID*, __va_list_tag*)+594) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.685 10683 10683 F DEBUG   :       #35 pc 00000000000e74be  /system/lib64/libandroid_runtime.so (_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+126) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.685 10683 10683 F DEBUG   :       #36 pc 000000000010ce86  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::start(char const*, android::Vector<android::String8> const&, bool)+966) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.685 10683 10683 F DEBUG   :       #37 pc 0000000000004708  /system/bin/app_process64 (main+1640) (BuildId: e3927c07b8bf3360ca821db20d2060d2)
+10-29 07:21:13.685 10683 10683 F DEBUG   :       #38 pc 0000000000054005  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+117) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:21:13.775 10691 10691 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-29 07:21:13.775 10691 10691 F DEBUG   : Build fingerprint: 'redroid/redroid_x86_64_only/redroid_x86_64_only:15/BP1A.250505.005.D1/eng.root:userdebug/test-keys'
+10-29 07:21:13.775 10691 10691 F DEBUG   : Revision: '0'
+10-29 07:21:13.775 10691 10691 F DEBUG   : ABI: 'x86_64'
+10-29 07:21:13.775 10691 10691 F DEBUG   : Timestamp: 2026-10-29 07:21:13.705422127+0000
+10-29 07:21:13.775 10691 10691 F DEBUG   : Process uptime: 1s
+10-29 07:21:13.775 10691 10691 F DEBUG   : Cmdline: zygote64
+10-29 07:21:13.775 10691 10691 F DEBUG   : pid: 10668, tid: 10668, name: ndroid.keychain  >>> zygote64 <<<
+10-29 07:21:13.775 10691 10691 F DEBUG   : uid: 1000
+10-29 07:21:13.775 10691 10691 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-29 07:21:13.775 10691 10691 F DEBUG   : Abort message: 'pthread_create failed for signal catcher thread: Try again'
+10-29 07:21:13.775 10691 10691 F DEBUG   :     rax 0000000000000000  rbx 00000000000029ac  rcx 000070e8f76d4624  rdx 0000000000000006
+10-29 07:21:13.775 10691 10691 F DEBUG   :     r8  00007ffea34c8460  r9  00007ffea34c8460  r10 00007ffea34c8420  r11 0000000000000207
+10-29 07:21:13.775 10691 10691 F DEBUG   :     r12 000000000000000b  r13 0000000000000041  r14 00000000000029ac  r15 00007ffea34c84f0
+10-29 07:21:13.775 10691 10691 F DEBUG   :     rdi 00000000000029ac  rsi 00000000000029ac
+10-29 07:21:13.775 10691 10691 F DEBUG   :     rbp 00007ffea34c84c0  rsp 00007ffea34c8420  rip 000070e8f76d4624
+10-29 07:21:13.775 10691 10691 F DEBUG   : 33 total frames
+10-29 07:21:13.775 10691 10691 F DEBUG   : backtrace:
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #00 pc 0000000000059624  /apex/com.android.runtime/lib64/bionic/libc.so (abort+196) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #01 pc 0000000000970319  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+1609) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #02 pc 0000000000015ece  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+62) (BuildId: eb9654acbe224b5297231307015e3d64)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #03 pc 00000000000153c5  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+501) (BuildId: eb9654acbe224b5297231307015e3d64)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #04 pc 00000000009a8108  /apex/com.android.art/lib64/libart.so (art::SignalCatcher::SignalCatcher()+344) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #05 pc 0000000000980266  /apex/com.android.art/lib64/libart.so (art::Runtime::InitNonZygoteOrPostFork(_JNIEnv*, bool, bool, art::Runtime::NativeBridgeAction, char const*, bool)+2358) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #06 pc 000000000089fc7a  /apex/com.android.art/lib64/libart.so (art::ZygoteHooks_nativePostForkChild(_JNIEnv*, _jclass*, long, int, unsigned char, unsigned char, _jstring*) (.__uniq.319397600600937055254755604402799901487)+7418) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #07 pc 00000000000481e3  /system/framework/x86_64/boot-core-libart.oat (art_jni_trampoline+163) (BuildId: 2c2c5cbc08d4350f764e72b949ceab45b7b0c967)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #08 pc 000000000001f551  /system/framework/x86_64/boot-core-libart.oat (dalvik.system.ZygoteHooks.postForkChild+129) (BuildId: 2c2c5cbc08d4350f764e72b949ceab45b7b0c967)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #09 pc 00000000007a64ae  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.Zygote.callPostForkChildHooks+46) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #10 pc 0000000000212136  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+806) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #11 pc 000000000055582c  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+252) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #12 pc 0000000000966b66  /apex/com.android.art/lib64/libart.so (art::JValue art::InvokeWithVarArgs<_jmethodID*>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jmethodID*, __va_list_tag*)+518) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #13 pc 0000000000810c12  /apex/com.android.art/lib64/libart.so (art::JNI<true>::CallStaticVoidMethodV(_JNIEnv*, _jclass*, _jmethodID*, __va_list_tag*)+594) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #14 pc 00000000000e74be  /system/lib64/libandroid_runtime.so (_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+126) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #15 pc 0000000000232e5a  /system/lib64/libandroid_runtime.so ((anonymous namespace)::SpecializeCommon(_JNIEnv*, unsigned int, unsigned int, _jintArray*, int, _jobjectArray*, long, long, long, int, _jstring*, _jstring*, bool, bool, _jstring*, _jstring*, bool, _jobjectArray*, _jobjectArray*, bool, bool, bool)+27130) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #16 pc 000000000022b0c1  /system/lib64/libandroid_runtime.so (android::com_android_internal_os_Zygote_nativeSpecializeAppProcess(_JNIEnv*, _jclass*, int, int, _jintArray*, int, _jobjectArray*, int, _jstring*, _jstring*, unsigned char, _jstring*, _jstring*, unsigned char, _jobjectArray*, _jobjectArray*, unsigned char, unsigned char, unsigned char)+241) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #17 pc 0000000000812ee9  /system/framework/x86_64/boot-framework.oat (art_jni_trampoline+441) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #18 pc 00000000002091ff  /apex/com.android.art/lib64/libart.so (nterp_helper+2319) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #19 pc 000000000024dca4  /system/framework/framework.jar (com.android.internal.os.Zygote.specializeAppProcess+0)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #20 pc 000000000020919c  /apex/com.android.art/lib64/libart.so (nterp_helper+2220) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #21 pc 000000000024d644  /system/framework/framework.jar (com.android.internal.os.Zygote.childMain+676)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #22 pc 000000000079b6eb  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteConnection.processCommand+1483) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #23 pc 000000000079cfe6  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteServer.runSelectLoop+1990) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #24 pc 00000000007ab9b5  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteInit.main+2613) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #25 pc 0000000000212136  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+806) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #26 pc 000000000055582c  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+252) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #27 pc 0000000000966b66  /apex/com.android.art/lib64/libart.so (art::JValue art::InvokeWithVarArgs<_jmethodID*>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jmethodID*, __va_list_tag*)+518) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #28 pc 0000000000810c12  /apex/com.android.art/lib64/libart.so (art::JNI<true>::CallStaticVoidMethodV(_JNIEnv*, _jclass*, _jmethodID*, __va_list_tag*)+594) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #29 pc 00000000000e74be  /system/lib64/libandroid_runtime.so (_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+126) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #30 pc 000000000010ce86  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::start(char const*, android::Vector<android::String8> const&, bool)+966) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #31 pc 0000000000004708  /system/bin/app_process64 (main+1640) (BuildId: e3927c07b8bf3360ca821db20d2060d2)
+10-29 07:21:13.775 10691 10691 F DEBUG   :       #32 pc 0000000000054005  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+117) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:21:13.793 10668 10668 F libc    : failed to restore dumpable: Invalid argument
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: FATAL EXCEPTION: AsyncTask #1
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: Process: com.android.documentsui, PID: 10451
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.processWorkerExit(ThreadPoolExecutor.java:1033)
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1170)
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+10-29 07:21:14.028 10451 10488 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1119)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: binder:9607_8
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9979)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:9401)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrash(ActivityManagerService.java:9294)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2668)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2721)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1406)
+10-29 07:21:14.029  9607  9948 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1350)
+10-29 07:21:14.029   168   168 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 168 (adbd), pid 168 (adbd)
+10-29 07:21:14.029   168   168 F libc    : failed to spawn debuggerd dispatch thread: Try again
+10-29 07:21:14.070 10307 10332 E AndroidRuntime: FATAL EXCEPTION: launcher-loader
+10-29 07:21:14.070 10307 10332 E AndroidRuntime: Process: com.android.launcher3, PID: 10307
+10-29 07:21:14.070 10307 10332 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:14.080  9882  9882 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:14.080  9882  9882 E AndroidRuntime: Process: com.android.systemui, PID: 9882
+10-29 07:21:14.080  9882  9882 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:14.128 10485 10742 E AndroidRuntime: FATAL EXCEPTION: Worker-1
+10-29 07:21:14.128 10485 10742 E AndroidRuntime: Process: android.process.acore, PID: 10485
+10-29 07:21:14.128 10485 10742 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:21.634 11535 11712 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 11712 (RenderThread), pid 11535 (droid.launcher3)
+10-29 07:21:21.634 11535 11712 F libc    : failed to spawn debuggerd dispatch thread: Try again
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: Process: com.android.keychain, PID: 11910
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.app.IntentService.onCreate(IntentService.java:120)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at com.android.keychain.KeyChainService.onCreate(KeyChainService.java:160)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:5135)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleCreateService(Unknown Source:0)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2547)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:109)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:317)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8934)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:591)
+10-29 07:21:21.725 11910 11910 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:911)
+10-29 07:21:21.767 11930 11930 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 11930 (android.traceur), pid 11930 (android.traceur)
+10-29 07:21:21.883 11965 11965 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-29 07:21:21.883 11965 11965 F DEBUG   : Build fingerprint: 'redroid/redroid_x86_64_only/redroid_x86_64_only:15/BP1A.250505.005.D1/eng.root:userdebug/test-keys'
+10-29 07:21:21.883 11965 11965 F DEBUG   : Revision: '0'
+10-29 07:21:21.883 11965 11965 F DEBUG   : ABI: 'x86_64'
+10-29 07:21:21.883 11965 11965 F DEBUG   : Timestamp: 2026-10-29 07:21:21.814048933+0000
+10-29 07:21:21.883 11965 11965 F DEBUG   : Process uptime: 2s
+10-29 07:21:21.883 11965 11965 F DEBUG   : Cmdline: com.android.traceur
+10-29 07:21:21.883 11965 11965 F DEBUG   : pid: 11930, tid: 11930, name: android.traceur  >>> com.android.traceur <<<
+10-29 07:21:21.883 11965 11965 F DEBUG   : uid: 10031
+10-29 07:21:21.883 11965 11965 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-29 07:21:21.883 11965 11965 F DEBUG   : Abort message: 'pthread_create failed for Profile saver thread: Try again'
+10-29 07:21:21.883 11965 11965 F DEBUG   :     rax 0000000000000000  rbx 0000000000002e9a  rcx 000070cb3ff5a624  rdx 0000000000000006
+10-29 07:21:21.883 11965 11965 F DEBUG   :     r8  00007ffd86c5d1d0  r9  00007ffd86c5d1d0  r10 00007ffd86c5d190  r11 0000000000000207
+10-29 07:21:21.883 11965 11965 F DEBUG   :     r12 000000000000000b  r13 0000000000000041  r14 0000000000002e9a  r15 00007ffd86c5d260
+10-29 07:21:21.883 11965 11965 F DEBUG   :     rdi 0000000000002e9a  rsi 0000000000002e9a
+10-29 07:21:21.883 11965 11965 F DEBUG   :     rbp 00007ffd86c5d230  rsp 00007ffd86c5d190  rip 000070cb3ff5a624
+10-29 07:21:21.883 11965 11965 F DEBUG   : 33 total frames
+10-29 07:21:21.883 11965 11965 F DEBUG   : backtrace:
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #00 pc 0000000000059624  /apex/com.android.runtime/lib64/bionic/libc.so (abort+196) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #01 pc 0000000000970319  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+1609) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #02 pc 0000000000015ece  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+62) (BuildId: eb9654acbe224b5297231307015e3d64)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #03 pc 00000000000153c5  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+501) (BuildId: eb9654acbe224b5297231307015e3d64)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #04 pc 000000000072f36f  /apex/com.android.art/lib64/libart.so (art::ProfileSaver::Start(art::ProfileSaverOptions const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, art::jit::JitCodeCache*, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, art::AppInfo::CodeType)+2879) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #05 pc 000000000098165b  /apex/com.android.art/lib64/libart.so (art::Runtime::RegisterAppInfo(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int)+939) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #06 pc 000000000089a94e  /apex/com.android.art/lib64/libart.so (art::VMRuntime_registerAppInfo(_JNIEnv*, _jclass*, _jstring*, _jstring*, _jstring*, _jobjectArray*, int) (.__uniq.192290207011039899038504097525495887768)+1262) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #07 pc 0000000000047749  /system/framework/x86_64/boot-core-libart.oat (art_jni_trampoline+217) (BuildId: 2c2c5cbc08d4350f764e72b949ceab45b7b0c967)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #08 pc 00000000002b90a5  /system/framework/x86_64/boot-framework.oat (android.app.LoadedApk.registerAppInfoToArt+1893) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #09 pc 00000000002b6392  /system/framework/x86_64/boot-framework.oat (android.app.LoadedApk.createOrUpdateClassLoaderLocked+5426) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #10 pc 00000000002bb5ee  /system/framework/x86_64/boot-framework.oat (android.app.LoadedApk.getResources+782) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #11 pc 000000000026db20  /system/framework/x86_64/boot-framework.oat (android.app.ContextImpl.createAppContext+288) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #12 pc 000000000023534c  /system/framework/x86_64/boot-framework.oat (android.app.ActivityThread.handleBindApplication+3212) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #13 pc 000000000022f01e  /system/framework/x86_64/boot-framework.oat (android.app.ActivityThread$H.handleMessage+6302) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #14 pc 00000000004b2c2e  /system/framework/x86_64/boot-framework.oat (android.os.Handler.dispatchMessage+158) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #15 pc 00000000004e6949  /system/framework/x86_64/boot-framework.oat (android.os.Looper.loopOnce+921) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #16 pc 00000000004e64fb  /system/framework/x86_64/boot-framework.oat (android.os.Looper.loop+235) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #17 pc 000000000023dce6  /system/framework/x86_64/boot-framework.oat (android.app.ActivityThread.main+1478) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #18 pc 0000000000212136  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+806) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #19 pc 000000000055582c  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+252) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #20 pc 0000000000966045  /apex/com.android.art/lib64/libart.so (_jobject* art::InvokeMethod<(art::PointerSize)8>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jobject*, _jobject*, unsigned long)+2181) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #21 pc 00000000008c1d6a  /apex/com.android.art/lib64/libart.so (art::Method_invoke(_JNIEnv*, _jobject*, _jobject*, _jobjectArray*) (.__uniq.165753521025965369065708152063621506277)+42) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #22 pc 00000000002dc07f  /system/framework/x86_64/boot.oat (art_jni_trampoline+127) (BuildId: bd8555bb1c872a5022937bb1cb6f57944a4d1750)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #23 pc 00000000007a4a65  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run+117) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #24 pc 00000000007aba07  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteInit.main+2695) (BuildId: 5dec53c1b6a077ef6950296b81a3ba7caa124d22)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #25 pc 0000000000212136  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+806) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #26 pc 000000000055582c  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+252) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #27 pc 0000000000966b66  /apex/com.android.art/lib64/libart.so (art::JValue art::InvokeWithVarArgs<_jmethodID*>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jmethodID*, __va_list_tag*)+518) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #28 pc 0000000000810c12  /apex/com.android.art/lib64/libart.so (art::JNI<true>::CallStaticVoidMethodV(_JNIEnv*, _jclass*, _jmethodID*, __va_list_tag*)+594) (BuildId: fe820682873062d5bf37c37322b483b7)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #29 pc 00000000000e74be  /system/lib64/libandroid_runtime.so (_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+126) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #30 pc 000000000010ce86  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::start(char const*, android::Vector<android::String8> const&, bool)+966) (BuildId: 566052f6a150e65b628c8a762c78f789)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #31 pc 0000000000004708  /system/bin/app_process64 (main+1640) (BuildId: e3927c07b8bf3360ca821db20d2060d2)
+10-29 07:21:21.883 11965 11965 F DEBUG   :       #32 pc 0000000000054005  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+117) (BuildId: d93f4a4da04caa56f6bd98cce0756f9f)
+10-29 07:21:21.975 12015 12015 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 12015 (ompute.services), pid 12015 (ompute.services)
+10-29 07:21:21.975 12015 12015 F libc    : failed to spawn debuggerd dispatch thread: Try again
+10-29 07:21:22.024 12016 12016 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 12016 (ystem:dynsystem), pid 12016 (ystem:dynsystem)
+10-29 07:21:22.024 12016 12016 F libc    : failed to spawn debuggerd dispatch thread: Try again
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: FATAL EXCEPTION: AsyncTask #1
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: Process: com.android.documentsui, PID: 11686
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.processWorkerExit(ThreadPoolExecutor.java:1033)
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1170)
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+10-29 07:21:22.403 11686 11738 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1119)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: binder:10840_2
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9979)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:9401)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrash(ActivityManagerService.java:9294)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2668)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2721)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1406)
+10-29 07:21:22.404 10840 10856 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1350)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: Process: com.android.traceur, PID: 13145
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:965)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1377)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at java.util.concurrent.Executors$DelegatedExecutorService.execute(Executors.java:715)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at com.android.traceur.TraceUtils.cleanupOlderFiles(TraceUtils.java:255)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at com.android.traceur.Receiver.onReceive(Receiver.java:76)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at android.app.ActivityThread.handleReceiver(ActivityThread.java:4930)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleReceiver(Unknown Source:0)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2527)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:109)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:317)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8934)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:591)
+10-29 07:21:30.742 13145 13145 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:911)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: binder:12119_2
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at java.lang.Thread.nativeCreate(Native Method)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at java.lang.Thread.start(Thread.java:1083)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9979)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:9401)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.handleApplicationCrash(ActivityManagerService.java:9294)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2668)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2721)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1406)
+10-29 07:21:30.743 12119 12135 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1350)
+10-29 07:21:30.837 12818 12818 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:30.837 12818 12818 E AndroidRuntime: Process: com.android.launcher3, PID: 12818
+10-29 07:21:30.837 12818 12818 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:30.837 12640 12640 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:30.837 12640 12640 E AndroidRuntime: Process: com.android.settings, PID: 12640
+10-29 07:21:30.837 12640 12640 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:30.839 12395 12512 E AndroidRuntime: FATAL EXCEPTION: SysUiBg
+10-29 07:21:30.839 12395 12512 E AndroidRuntime: Process: com.android.systemui, PID: 12395
+10-29 07:21:30.839 12395 12512 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+10-29 07:21:30.848 12395 12395 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 07:21:30.848 12395 12395 E AndroidRuntime: Process: com.android.systemui, PID: 12395
+10-29 07:21:30.848 12395 12395 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause

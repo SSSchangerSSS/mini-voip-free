@@ -1,0 +1,3 @@
+EXTENSION_CREATED 102
+CONFIG_RENDERED /etc/asterisk/pjsip/accounts.conf (6 blocks)
+PJSIP_RELOAD_PENDING (AMI not connected; will be retried when AMI reconnects)

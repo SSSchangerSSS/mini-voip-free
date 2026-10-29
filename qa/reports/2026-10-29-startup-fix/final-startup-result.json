@@ -1,0 +1,23 @@
+{
+  "accountRestoreAndroid8": "PASS",
+  "accountRestoreAndroid15": "PASS",
+  "unattendedUsableUiAndroid15": "FAIL",
+  "installedApkSha256": "565ecc09c5f9f02c91aa52277bc9df47900aa5a9d9c75fdb63fdf37d0df0d335",
+  "passwordEntered": false,
+  "appDataCleared": false,
+  "bootAndInstallSeconds": {
+    "api26": 70.65,
+    "api35": 261.93
+  },
+  "evidence": [
+    "final-install-probe.log",
+    "final-api26-install.txt",
+    "final-api35-install.txt",
+    "final-api26-ready.png",
+    "final-api35-startup.png",
+    "final-api35-visible.png",
+    "final-contacts.txt"
+  ],
+  "interventions": "Quickstep ANR closed; SystemUI Wait then Close; same still-running Activity displayed via am start (Warning: intent delivered to currently running top-most instance). No force-stop or credentials for this startup recovery; final outage test later intentionally force-stops as a separate scenario.",
+  "limitations": "Quickstep/SystemUI OS ANRs remain. Initial final-APK call automation attempted through blocking dialogs twice (exit1), then checked incoming UI before it rendered (exit1); explicit screenshot-grounded answer succeeded."
+}

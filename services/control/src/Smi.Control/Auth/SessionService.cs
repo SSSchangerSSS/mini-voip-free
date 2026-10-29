@@ -1,11 +1,17 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Smi.Control.Database;
 
 namespace Smi.Control.Auth;
 
 public sealed record LoginRequest(string Extension, string Password, string InstallationId, string Platform);
-public sealed record LoginResult(string AccessToken, DateTime IdleExpiresAtUtc, string Extension,
-    int DeviceGeneration, string SipUri, string SipUsername, string WssUrl, int SetupTimeoutSeconds, DateTime ServerTime);
+public sealed record LoginResult(string AccessToken,
+    [property: JsonPropertyName("idleExpiresAt")] DateTime IdleExpiresAtUtc, string Extension,
+    int DeviceGeneration, string SipUri, string SipUsername, string SipPassword,
+    string WssUrl, int SetupTimeoutSeconds, DateTime ServerTime)
+{
+    public override string ToString() => $"LoginResult(extension={Extension}, credentials=REDACTED)";
+}
 public sealed record SessionInfo(string TokenHash, string InstallationId, string Extension,
     int DeviceGeneration, DateTime IdleExpiresAtUtc);
 
@@ -30,10 +36,10 @@ public sealed class SessionService
         using var c = _db.Open();
         using var tx = c.BeginTransaction(System.Data.IsolationLevel.Serializable);
 
-        (string Ext, bool Enabled, string Hash, string Salt, int Iterations)? ext = null;
-        using (var r = Db.Query(c, "SELECT Extension,Enabled,PasswordHash,PasswordSalt,Pbkdf2Iterations FROM Extensions WHERE Extension=@e", ("@e", extension)))
+        (string Ext, bool Enabled, string Hash, string Salt, int Iterations, string SipPassword)? ext = null;
+        using (var r = Db.Query(c, "SELECT Extension,Enabled,PasswordHash,PasswordSalt,Pbkdf2Iterations,SipSecret FROM Extensions WHERE Extension=@e", ("@e", extension)))
         {
-            if (r.Read()) ext = (r.GetString(0), r.GetInt64(1) == 1, r.GetString(2), r.GetString(3), (int)r.GetInt64(4));
+            if (r.Read()) ext = (r.GetString(0), r.GetInt64(1) == 1, r.GetString(2), r.GetString(3), (int)r.GetInt64(4), r.GetString(5));
         }
 
         if (ext is null || !ext.Value.Enabled || !Crypto.VerifyPassword(password, ext.Value.Hash, ext.Value.Salt, ext.Value.Iterations))
@@ -79,7 +85,7 @@ public sealed class SessionService
 
         tx.Commit();
         return (new LoginResult(token, idleExpiry, extension, generation,
-            $"sip:{extension}@{_cfg.SipRealm}", extension, _cfg.WssUrl, _cfg.SetupTimeoutSeconds, nowUtc), null);
+            $"sip:{extension}@{_cfg.SipRealm}", extension, ext.Value.SipPassword, _cfg.WssUrl, _cfg.SetupTimeoutSeconds, nowUtc), null);
     }
 
     public SessionInfo? Validate(string token, DateTime nowUtc)

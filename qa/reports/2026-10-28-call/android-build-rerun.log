@@ -1,0 +1,51 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleRelease'...                        
+WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): flutter_webrtc
+Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
+
+Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
+If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing
+an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
+
+If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+-DSMI_TRUSTED_CA_PEM=-----BEGIN%20CERTIFICATE-----%0AMIIBozCCAUqgAwIBAgIRAIN0Tjnr7/o9qnvRX4+Kl5MwCgYIKoZIzj0EAwIwMDEu%0AMCwGA1UEAxMlQ2FkZHkgTG9jYWwgQXV0aG9yaXR5IC0gMjAyNiBFQ0MgUm9vdDAe%0AFw0yNjEwMjgxMDU0MDRaFw0zNjA5MDUxMDU0MDRaMDAxLjAsBgNVBAMTJUNhZGR5%0AIExvY2FsIEF1dGhvcml0eSAtIDIwMjYgRUNDIFJvb3QwWTATBgcqhkjOPQIBBggq%0AhkjOPQMBBwNCAATuYw8bIvqBlACK0kW+yeJi8etaBb3dFncpemIaSyZ5Dl89/SqG%0ALxe9rqFCyiPpNBKZH91rWkvbbhT5J1VRIR8Yo0UwQzAOBgNVHQ8BAf8EBAMCAQYw%0AEgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUzB7DUuwIsbqw/r1twJEPov69%0AD1cwCgYIKoZIzj0EAwIDRwAwRAIgCfPZf5WgwlN0iMyMuXJ5peuzWzVq6dSNRqXa%0As4hMnV0CIAyuijcBsjkcxat6RghumJIMh/80Zhuw7JQ9WcjgKZEK%0A-----END%20CERTIFICATE-----%0A: Error: Error when reading '-DSMI_TRUSTED_CA_PEM=-----BEGIN%20CERTIFICATE-----%0AMIIBozCCAUqgAwIBAgIRAIN0Tjnr7/o9qnvRX4+Kl5MwCgYIKoZIzj0EAwIwMDEu%0AMCwGA1UEAxMlQ2FkZHkgTG9jYWwgQXV0aG9yaXR5IC0gMjAyNiBFQ0MgUm9vdDAe%0AFw0yNjEwMjgxMDU0MDRaFw0zNjA5MDUxMDU0MDRaMDAxLjAsBgNVBAMTJUNhZGR5%0AIExvY2FsIEF1dGhvcml0eSAtIDIwMjYgRUNDIFJvb3QwWTATBgcqhkjOPQIBBggq%0AhkjOPQMBBwNCAATuYw8bIvqBlACK0kW+yeJi8etaBb3dFncpemIaSyZ5Dl89/SqG%0ALxe9rqFCyiPpNBKZH91rWkvbbhT5J1VRIR8Yo0UwQzAOBgNVHQ8BAf8EBAMCAQYw%0AEgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUzB7DUuwIsbqw/r1twJEPov69%0AD1cwCgYIKoZIzj0EAwIDRwAwRAIgCfPZf5WgwlN0iMyMuXJ5peuzWzVq6dSNRqXa%0As4hMnV0CIAyuijcBsjkcxat6RghumJIMh/80Zhuw7JQ9WcjgKZEK%0A-----END%20CERTIFICATE-----%0A': No such file or directory
+-DSMI_TRUSTED_CA_PEM=-----BEGIN%20CERTIFICATE-----%0AMIIBozCCAUqgAwIBAgIRAIN0Tjnr7/o9qnvRX4+Kl5MwCgYIKoZIzj0EAwIwMDEu%0AMCwGA1UEAxMlQ2FkZHkgTG9jYWwgQXV0aG9yaXR5IC0gMjAyNiBFQ0MgUm9vdDAe%0AFw0yNjEwMjgxMDU0MDRaFw0zNjA5MDUxMDU0MDRaMDAxLjAsBgNVBAMTJUNhZGR5%0AIExvY2FsIEF1dGhvcml0eSAtIDIwMjYgRUNDIFJvb3QwWTATBgcqhkjOPQIBBggq%0AhkjOPQMBBwNCAATuYw8bIvqBlACK0kW+yeJi8etaBb3dFncpemIaSyZ5Dl89/SqG%0ALxe9rqFCyiPpNBKZH91rWkvbbhT5J1VRIR8Yo0UwQzAOBgNVHQ8BAf8EBAMCAQYw%0AEgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUzB7DUuwIsbqw/r1twJEPov69%0AD1cwCgYIKoZIzj0EAwIDRwAwRAIgCfPZf5WgwlN0iMyMuXJ5peuzWzVq6dSNRqXa%0As4hMnV0CIAyuijcBsjkcxat6RghumJIMh/80Zhuw7JQ9WcjgKZEK%0A-----END%20CERTIFICATE-----%0A: Error: No 'main' method found.
+Try adding a method named 'main' to your program.
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildRelease'.
+> Process 'command '/home/changer/.local/share/mini-voip-free/flutter-source/bin/flutter'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+Running Gradle task 'assembleRelease'...                         2,456ms
+Gradle task assembleRelease failed with exit code 1

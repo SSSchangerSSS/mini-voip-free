@@ -1,0 +1,20 @@
+{
+  "https_readiness": {
+    "status": 200,
+    "body": {
+      "db": "ok",
+      "ami": "ok"
+    }
+  },
+  "certificate_ip_san_validated": true,
+  "wss": {
+    "statusLine": "HTTP/1.1 101 Switching Protocols",
+    "sipSubprotocol": true
+  },
+  "untrusted_ca_rejected": true,
+  "internal_tcp_ports": {
+    "5038": "PASS: LAN connection refused/timed out",
+    "5080": "PASS: LAN connection refused/timed out",
+    "8088": "PASS: LAN connection refused/timed out"
+  }
+}

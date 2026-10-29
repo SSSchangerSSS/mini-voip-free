@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # server logs — container logs; optional call-id correlation grep (spec 14.2).
 set -euo pipefail
-source "$(cd "$(dirname "${BASH_SOURCE[0]}")/../lib/common.sh")"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/common.sh"
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 DEPLOY="$ROOT/deploy"
 service="${1:-}"
 call_id=""

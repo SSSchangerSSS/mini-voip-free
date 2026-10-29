@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
@@ -62,8 +63,19 @@ class NativeCallBridge {
           {'nativeCallUuid': nativeCallUuid, 'speakerOn': speakerOn});
 
   Future<List<NativeEvent>> getPendingEvents() async {
-    final res = await _methods.invokeMethod<List<Object?>>('getPendingEvents');
-    return (res ?? const [])
+    final res = await _methods.invokeMethod<Object?>('getPendingEvents');
+    // Older Android adapters persisted/returned a JSON array rather than a
+    // StandardMessageCodec list. Accept it while replaying existing installs.
+    Object? entries = res;
+    if (entries is String) {
+      try {
+        entries = jsonDecode(entries);
+      } on FormatException {
+        return const [];
+      }
+    }
+    if (entries is! List) return const [];
+    return entries
         .map(NativeEvent.tryParse)
         .whereType<NativeEvent>()
         .toList();
@@ -116,6 +128,11 @@ class NativeEvent {
 
   static NativeEvent? tryParse(Object? payload) {
     if (payload is! Map) return null;
+    // Replay metadata persisted by the original Android adapter. Top-level
+    // contract fields take precedence over legacy nested fields.
+    if (payload['payload'] is Map) {
+      payload = {...payload['payload'] as Map, ...payload};
+    }
     final typeName = payload['type'];
     if (typeName is! String) return null;
     final NativeEventType type;
@@ -138,7 +155,10 @@ class NativeEvent {
           : null,
       expiresAt: payload['expiresAt'] is String
           ? DateTime.tryParse(payload['expiresAt'] as String)
-          : null,
+          : payload['expiresAtEpoch'] is int
+              ? DateTime.fromMillisecondsSinceEpoch(
+                  (payload['expiresAtEpoch'] as int) * 1000, isUtc: true)
+              : null,
       pushToken: payload['pushToken'] is String ? payload['pushToken'] as String : null,
     );
   }

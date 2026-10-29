@@ -1,0 +1,1 @@
+ERROR SqliteException: SQLite Error 8: 'attempt to write a readonly database'.

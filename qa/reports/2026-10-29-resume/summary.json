@@ -1,0 +1,43 @@
+{
+  "observedAtUtc": "2026-10-29T04:58:09.813936+00:00",
+  "functionalObservationStatus": "PASS",
+  "scope": "One post-reboot foreground emulator call, shared PBX bridge/RTP, mute UI and >=60s connected stability, speaker UI toggle, hangup/idle",
+  "firstAndroid15RestoreStatus": "FAIL",
+  "android15ReopenWithoutCredentialsStatus": "PASS",
+  "cleanAutomationCompletionStatus": "FAIL",
+  "automationNotes": [
+    "Initial UiAutomator mute query timed out; original log retained; switched to coordinates reviewed from a fresh screenshot.",
+    "End-stage artifacts reported PASS and were independently verified, but execution tool returned exit 143. Do not claim a clean complete automation run."
+  ],
+  "physicalAudioStatus": "BLOCKED",
+  "pushAndLockScreenStatus": "BLOCKED",
+  "stages": {
+    "start": {
+      "status": "PASS",
+      "answerButtonTapped": true,
+      "sharedBridgeAndBidirectionalRtp": true,
+      "scope": "Emulator call signaling and RTP transport; acoustic audio NOT_RUN",
+      "observedAtUtc": "2026-10-29T04:47:37.254668+00:00"
+    },
+    "mute": {
+      "status": "PASS",
+      "muteRequestedAtEpoch": 1793249476.0611548,
+      "scope": "Visually grounded mute tap; screenshot retained, audible effect NOT_RUN",
+      "observedAtUtc": "2026-10-29T04:51:16.061167+00:00"
+    },
+    "controls": {
+      "status": "PASS",
+      "muteIntervalSeconds": 74.72,
+      "bothLegsStillUp": true,
+      "rtpRows": 2,
+      "scope": "60s+ mute stability, unmute and speaker UI controls; physical audio routing NOT_RUN",
+      "observedAtUtc": "2026-10-29T04:53:57.747925+00:00"
+    },
+    "end": {
+      "status": "PASS",
+      "channelsCleared": true,
+      "scope": "Caller hangup; UI screenshots retained",
+      "observedAtUtc": "2026-10-29T04:55:15.171225+00:00"
+    }
+  }
+}

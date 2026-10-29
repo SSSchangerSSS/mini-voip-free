@@ -1,0 +1,4 @@
+     0xc000fa "Mini VoIP | Android 15 | 102": ("mutter-x11-frames" "mutter-x11-frames")  482x759+369+-23  +369+-23
+        0x2000033 "Mini VoIP | Android 15 | 102": ("scrcpy" "scrcpy")  360x600+61+92  +430+69
+     0xc000df "Mini VoIP | Android 8 | 101": ("mutter-x11-frames" "mutter-x11-frames")  482x759+5+-23  +5+-23
+        0x1c00033 "Mini VoIP | Android 8 | 101": ("scrcpy" "scrcpy")  360x600+61+92  +66+69

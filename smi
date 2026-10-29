@@ -10,7 +10,12 @@ source "$ROOT/scripts/lib/common.sh"
 
 cmd="${1:-}"
 sub="${2:-}"
-shift 2>/dev/null || true
+case "$cmd" in
+  test|build|server|extension|device)
+    if [ "$#" -ge 2 ]; then shift 2; else shift "$#"; fi
+    ;;
+  *) [ "$#" -eq 0 ] || shift ;;
+esac
 
 usage() {
   cat <<'EOF'
@@ -40,7 +45,7 @@ case "$cmd" in
     ;;
   test)
     case "$sub" in
-      unit)        exec bash "$ROOT/scripts/test/unit.sh" "${@/--json/}" ;;
+      unit)        exec bash "$ROOT/scripts/test/unit.sh" "$@" ;;
       integration) fail_blocked "integration suite requires a live PBX + real devices (P2). Current env does not satisfy the gate." ;;
       ""|*)        usage; exit 2 ;;
     esac

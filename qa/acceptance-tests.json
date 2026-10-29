@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-10-29",
   "note": "All rows start NOT_RUN. BLOCKED is never PASS. N/A requires recorded scope reason + employer confirmation (spec 15.2).",
   "tests": [
     {
@@ -8,9 +8,9 @@
       "scenario": "login صحیح و نادرست",
       "expected": "ورود واقعی؛ خطای عمومی امن بدون افشای حساب",
       "level": "خودکار",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-29-startup-fix/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-29T05:39:48.436541+00:00",
       "commit": null
     },
     {
@@ -28,9 +28,9 @@
       "scenario": "ورودی فارسی، عربی و نامعتبر",
       "expected": "تبدیل ۱۰۲ و ١٠٢؛ رد URI/header injection",
       "level": "خودکار",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-28-call/unit-final.log",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -38,9 +38,9 @@
       "scenario": "ورود دستگاه دوم",
       "expected": "409؛ عدم takeover دستگاه قبلی",
       "level": "خودکار",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-28-call/unit-final.log",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -48,10 +48,10 @@
       "scenario": "reset دستگاه",
       "expected": "نسل/token/رمز قبلی نامعتبر؛ دستگاه تازه قابل‌استفاده",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T06",
@@ -68,19 +68,19 @@
       "scenario": "تماس foreground دوطرفه",
       "expected": "Android→iOS و iOS→Android؛ صوت دوطرفه و پایان صحیح",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T08",
       "scenario": "تماس هم‌پلتفرم",
       "expected": "Android→Android و iOS→iOS؛ با دو دستگاه یا تست مستقل واقعی",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-call/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -88,10 +88,10 @@
       "scenario": "تماس خروجی تکراری با چند tap",
       "expected": "فقط یک attempt/INVITE/slot",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T10",
@@ -108,9 +108,9 @@
       "scenario": "میوت حداقل ۶۰ ثانیه",
       "expected": "قطع صدای ارسال، ادامه تماس و بازگشت درست",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-29-native-android15/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-29T07:49:48.317205+00:00",
       "commit": null
     },
     {
@@ -118,9 +118,9 @@
       "scenario": "بلندگو/receiver و مسیر عادی headset",
       "expected": "کنترل درست، بدون crash یا میکروفون مانده",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-29-native-android15/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-29T07:49:48.317219+00:00",
       "commit": null
     },
     {
@@ -128,109 +128,109 @@
       "scenario": "قفل صفحه حین مکالمه",
       "expected": "مکالمه ادامه یابد؛ Activity مالک عمر تماس نباشد",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T14",
       "scenario": "incoming پس از ۳۰ دقیقه قفل",
       "expected": "رابط native، پاسخ از قفل و صدای دوطرفه روی هر OS",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T15",
       "scenario": "incoming پس از دو ساعت بیکاری",
       "expected": "بدون بازکردن قبلی اپ در همان بازه؛ نتیجه و تأخیر ثبت شود",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T16",
       "scenario": "cold start پس از kill توسط OS",
       "expected": "رخداد native گم نشود؛ startup و صدا در Release موفق",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T17",
       "scenario": "Android Doze",
       "expected": "اعلان واقعی و تماس مطابق قواعد سیستم؛ trace دریافت",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T18",
       "scenario": "Android Force Stop",
       "expected": "عدم ادعای بیدارسازی؛ بازیابی پس از بازشدن دستی",
       "level": "دستگاه/محدودیت",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T19",
       "scenario": "Focus/DND یا notification permission خاموش",
       "expected": "احترام به تنظیم کاربر؛ وضعیت روشن و بدون bypass",
       "level": "دستگاه/محدودیت",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T20",
       "scenario": "پاسخ قبل از رسیدن INVITE",
       "expected": "intent حفظ، answer دقیقاً یک بار، بدون outgoing جدید",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T21",
       "scenario": "رد پیش از REGISTER/INVITE",
       "expected": "تماس سرور پایان یابد؛ دیررس‌ها زنده‌اش نکنند",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T22",
       "scenario": "caller cancel پیش از Push receipt",
       "expected": "terminal؛ stale Push اتصال ایجاد نکند",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T23",
       "scenario": "caller cancel هنگام زنگ",
       "expected": "CANCEL/UI cleanup و عدم زنگ مانده",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-call/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -238,19 +238,19 @@
       "scenario": "پاسخ هم‌زمان با cancel",
       "expected": "یک نتیجه نهایی؛ بدون ghost bridge یا slot",
       "level": "race + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T25",
       "scenario": "پایان timeout",
       "expected": "مهلت کل ۴۰ ثانیه؛ timeout بعد از ready از نو شروع نشود",
       "level": "خودکار/PBX",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-28-call/delayed-ready-timeout-result.json",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -258,20 +258,20 @@
       "scenario": "Push با تأخیر بیش از deadline",
       "expected": "عدم اتصال تماس منقضی؛ پایان UI مطابق قواعد CallKit",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T27",
       "scenario": "Push تکراری و event تکراری",
       "expected": "یک UUID/UI/INVITE؛ بدون mic/session تکراری",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T28",
@@ -298,30 +298,30 @@
       "scenario": "contact قدیمی و غیرقابل‌دسترسی",
       "expected": "Dial صرفاً با contact انجام نشود؛ ready همان تماس لازم",
       "level": "PBX + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T31",
       "scenario": "اپ مقصد بدون اینترنت",
       "expected": "نتیجه timeout/unavailable؛ خطای کنترل‌شده و آزادشدن slot",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T32",
       "scenario": "APNs/FCM token باطل یا چرخش token",
       "expected": "invalidate فقط نسل درست؛ token تازه حذف نشود",
       "level": "خودکار + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T33",
@@ -348,19 +348,19 @@
       "scenario": "restart Control در Pending/Connected",
       "expected": "بدون busy دائمی و بدون قطع بی‌دلیل رسانه متصل",
       "level": "PBX + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T36",
       "scenario": "restart Asterisk",
       "expected": "پایان قابل‌فهم؛ ثبت مجدد و تماس بعدی موفق",
       "level": "PBX + دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-call/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -368,29 +368,29 @@
       "scenario": "تغییر Wi-Fi/دیتا در تماس",
       "expected": "recovery یا پایان روشن تا مهلت؛ عدم اتصال شبح",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T38",
       "scenario": "foreground/lock روی Wi-Fi شرکت و شبکه بیرونی",
       "expected": "خروج از فرض LAN؛ WSS و صوت واقعی",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T39",
       "scenario": "IDOR و callId جعلی",
       "expected": "ناتوانی در خواندن/رد/قطع/ready تماس دیگران",
       "level": "امنیت خودکار",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-28-call/unit-final.log",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -429,8 +429,8 @@
       "expected": "نبود کلید سرور، رمز واقعی و backdoor تست",
       "level": "CI/security",
       "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "evidence": "qa/reports/2026-10-28-call/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
       "commit": null
     },
     {
@@ -458,10 +458,10 @@
       "scenario": "حداقل ۱۰۰ چرخه تماس/پایان",
       "expected": "عدم رشد ماندگار channel/track/slot و خطای cleanup",
       "level": "خودکار + نمونه دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T47",
@@ -498,30 +498,30 @@
       "scenario": "Android signed APK و upgrade روی نصب قبلی",
       "expected": "امضای ثابت، حفظ حساب، FCM/صوت واقعی",
       "level": "انتشار/دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T51",
       "scenario": "iOS archive/TestFlight واقعی",
       "expected": "امضا/entitlement/APNs production صحیح و تماس قفل",
       "level": "انتشار/دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T52",
       "scenario": "انتشار پایدار iOS",
       "expected": "لینک واقعی توزیع موردتأیید؛ TestFlight جای آن نیست",
       "level": "انتشار/وابسته به حساب",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T53",
@@ -548,9 +548,9 @@
       "scenario": "reboot گوشی و unlock اولیه",
       "expected": "بازیابی token/حساب؛ رفتار قبل از unlock مستند",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-29-native-android15/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-29T07:49:48.317223+00:00",
       "commit": null
     },
     {
@@ -588,20 +588,20 @@
       "scenario": "app/system phone interruption",
       "expected": "پایان/مدیریت سیستم بدون ضبط پنهان و audio session گیرکرده",
       "level": "دستگاه",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     },
     {
       "id": "T60",
       "scenario": "تطبیق tag، commit، checksum و گزارش‌ها",
       "expected": "همان باینری آزموده‌شده انتشار یابد",
       "level": "انتشار",
-      "status": "NOT_RUN",
-      "evidence": null,
-      "lastRunAtUtc": null,
-      "commit": null
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
+      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
+      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
     }
   ]
 }

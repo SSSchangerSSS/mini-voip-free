@@ -1,0 +1,4 @@
+QA_NETWORK IPv4 default route ready
+Starting: Intent { cmp=app.minivoipfree/.MainActivity }
+/home/changer/.local/share/mini-voip-free/scrcpy-linux-x86_64-v5.0.1/scrcpy-server: 1 file pushed, 0 skipped. 6.4 MB/s (733930 bytes in 0.110s)
+[server] INFO: Device: [unknown] Android Android SDK built for x86_64 (Android 8.0.0)

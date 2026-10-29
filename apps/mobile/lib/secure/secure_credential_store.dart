@@ -11,6 +11,7 @@ class SecureCredentialStore {
   static const _kDomain = 'smi.domain';
   static const _kExtension = 'smi.extension';
   static const _kPassword = 'smi.password';
+  static const _kSipPassword = 'smi.sipPassword';
   static const _kInstallationId = 'smi.installationId';
   static const _kToken = 'smi.accessToken';
 
@@ -24,12 +25,14 @@ class SecureCredentialStore {
     required String domain,
     required String extension,
     required String password,
+    required String sipPassword,
     required String installationId,
     String? accessToken,
   }) async {
     await _bridge.secureWrite(_kDomain, domain);
     await _bridge.secureWrite(_kExtension, extension);
     await _bridge.secureWrite(_kPassword, password);
+    await _bridge.secureWrite(_kSipPassword, sipPassword);
     await _bridge.secureWrite(_kInstallationId, installationId);
     if (accessToken != null) await _bridge.secureWrite(_kToken, accessToken);
   }
@@ -42,11 +45,12 @@ class SecureCredentialStore {
     }
   }
 
-  Future<({String domain, String extension, String password, String installationId, String? token})?>
+  Future<({String domain, String extension, String password, String? sipPassword, String installationId, String? token})?>
       load() async {
     final domain = await _bridge.secureRead(_kDomain);
     final ext = await _bridge.secureRead(_kExtension);
     final pass = await _bridge.secureRead(_kPassword);
+    final sipPassword = await _bridge.secureRead(_kSipPassword);
     final inst = await _bridge.secureRead(_kInstallationId);
     final token = await _bridge.secureRead(_kToken);
     if (domain == null || ext == null || pass == null || inst == null) return null;
@@ -54,6 +58,7 @@ class SecureCredentialStore {
       domain: domain,
       extension: ext,
       password: pass,
+      sipPassword: sipPassword,
       installationId: inst,
       token: token,
     );
@@ -64,6 +69,7 @@ class SecureCredentialStore {
   Future<void> wipe() async {
     await _bridge.secureDelete(_kToken);
     await _bridge.secureDelete(_kPassword);
+    await _bridge.secureDelete(_kSipPassword);
     await _bridge.secureDelete(_kExtension);
     await _bridge.secureDelete(_kInstallationId);
     await _bridge.secureDelete(_kDomain);

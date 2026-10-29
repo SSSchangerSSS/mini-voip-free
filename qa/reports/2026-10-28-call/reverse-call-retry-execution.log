@@ -1,0 +1,12 @@
+
+                                             ...........Receive......... .........Transmit..........
+ BridgeId ChannelId ........ UpTime.. Codec.   Count    Lost Pct  Jitter   Count    Lost Pct  Jitter RTT....
+ ===========================================================================================================
+
+ 00ad3820 101-00000001       00:01:02 ulaw     1108       0    0   0.080    416       0    0   0.032   0.048
+ 00ad3820 102-00000000       00:01:02 ulaw      416       0    0   0.029   1108       0    0   0.073   0.156
+
+Objects found: 2
+
+
+{"caller": "102", "callee": "101", "answerButtonSeen": true, "status": "PASS", "secretValuesRecorded": false, "answerAfterSeconds": 8.6, "hangupTapped": true, "rtpInBothDirections": true, "sharedBridge": true, "channelsCleared": true, "validationScope": "Emulator SIP answer, PBX bridge, RTP packets, hangup; acoustic audio NOT_RUN"}

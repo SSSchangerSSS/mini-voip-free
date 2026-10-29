@@ -108,6 +108,7 @@ app.MapPost("/api/v1/sessions", async (HttpContext ctx, JsonElement body, Sessio
         return ApiError.Problem(ctx, 401, "INVALID_CREDENTIALS");
     }
     LoginThrottle.Reset(ip, ext);
+    ctx.Response.Headers.CacheControl = "no-store";
     return Results.Ok(result);
 });
 
@@ -180,7 +181,7 @@ app.MapGet("/api/v1/calls/current", (HttpContext ctx, CallStore calls, string? a
     CallRow? call = attemptId is not null
         ? calls.GetByAttemptIdFor(s.Extension, attemptId)   // same attempt allowed even if terminal (retention)
         : calls.GetCurrentFor(s.Extension);
-    return call is null ? Results.Json<object?>(null) : Results.Ok(call);
+    return call is null ? Results.Json<object?>(null) : Results.Ok(CallStateResponse.From(call));
 });
 
 app.MapGet("/api/v1/calls/{callId}", (HttpContext ctx, string callId, CallStore calls) =>
@@ -188,7 +189,7 @@ app.MapGet("/api/v1/calls/{callId}", (HttpContext ctx, string callId, CallStore 
     if (ctx.Items["smi.session"] is not SessionInfo s) return ApiError.Problem(ctx, 401, "SESSION_EXPIRED");
     var call = calls.GetById(callId);
     if (call is null || !call.IsParty(s.Extension)) return ApiError.Problem(ctx, 404, "CALL_NOT_FOUND");
-    return Results.Ok(call);
+    return Results.Ok(CallStateResponse.From(call));
 });
 
 app.MapPost("/api/v1/calls/{callId}/ready", async (HttpContext ctx, string callId, JsonElement body, CallStore calls, AmiCallCoordinator coordinator, SmiConfig c) =>
@@ -206,7 +207,7 @@ app.MapPost("/api/v1/calls/{callId}/ready", async (HttpContext ctx, string callI
     // first ready for a live call gates the dial; repeated ready must not create a second call (spec 5.2)
     if (error is null && call.State == CallState.Pending && call.DeviceReadyAtUtc is not null)
         await coordinator.AllowDialAsync(call);
-    return Results.Ok(calls.GetById(callId));
+    return Results.Ok(CallStateResponse.From(calls.GetById(callId)));
 });
 
 app.MapPost("/api/v1/calls/{callId}/accept", (HttpContext ctx, string callId, CallStore calls) =>
@@ -220,7 +221,7 @@ app.MapPost("/api/v1/calls/{callId}/accept", (HttpContext ctx, string callId, Ca
     if (error == "CALL_EXPIRED") return ApiError.Problem(ctx, 410, "CALL_EXPIRED", call.CallId);
     if (error == "CALL_ENDED") return ApiError.Problem(ctx, 410, "CALL_ENDED", call.CallId);
     if (error == "INVALID_TRANSITION") return ApiError.Problem(ctx, 409, "INVALID_TRANSITION", call.CallId);
-    return Results.Ok(call);
+    return Results.Ok(CallStateResponse.From(call));
 });
 
 app.MapPost("/api/v1/calls/{callId}/decline", async (HttpContext ctx, string callId, CallStore calls, AmiCallCoordinator coordinator) =>
@@ -232,9 +233,9 @@ app.MapPost("/api/v1/calls/{callId}/decline", async (HttpContext ctx, string cal
     var (call, error) = calls.Decline(callId, s.Extension, DateTime.UtcNow);
     if (call is null) return ApiError.Problem(ctx, 404, "CALL_NOT_FOUND");
     if (error == "INVALID_TRANSITION") return ApiError.Problem(ctx, 409, "INVALID_TRANSITION", call.CallId);
-    if (error is null && call.State != CallState.Ended)
+    if (error is null)
         await coordinator.EndViaPbxAsync(call, 21); // reject before/around INVITE — server-terminated
-    return Results.Ok(calls.GetById(callId));
+    return Results.Ok(CallStateResponse.From(calls.GetById(callId)));
 });
 
 app.MapPost("/api/v1/calls/{callId}/end", async (HttpContext ctx, string callId, CallStore calls, AmiCallCoordinator coordinator) =>
@@ -246,8 +247,8 @@ app.MapPost("/api/v1/calls/{callId}/end", async (HttpContext ctx, string callId,
     // API end is the coordination/backstop path; the SIP CANCEL/BYE path is primary (spec 5.2 step 16).
     // 202 = accepted for PBX determination.
     var fresh = calls.GetById(callId);
-    if (fresh is not null && fresh.State != CallState.Ended) await coordinator.EndViaPbxAsync(fresh, 16);
-    return Results.Accepted($"/api/v1/calls/{callId}", fresh);
+    if (error is null && fresh is not null) await coordinator.EndViaPbxAsync(fresh, 16);
+    return Results.Accepted($"/api/v1/calls/{callId}", CallStateResponse.From(fresh));
 });
 
 app.Run();

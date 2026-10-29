@@ -1,0 +1,17 @@
+{
+  "mode": "timeout",
+  "status": "PASS",
+  "incomingSeen": true,
+  "secretValuesRecorded": false,
+  "validationScope": "Delayed callee readiness; original total setup deadline must remain unchanged",
+  "intentionalPauseAfterAdmissionSeconds": 15,
+  "serverAdmissionUtc": "2026-10-28T12:52:22Z",
+  "channelsGoneUtc": "2026-10-28T12:53:02.187330+00:00",
+  "serverPendingLifetimeSeconds": 40.19,
+  "deadlineWithinBounds": true,
+  "readyAfterAdmissionSeconds": 15.0,
+  "channelsCleared": true,
+  "callerIdle": true,
+  "calleeIdle": true,
+  "elapsedSeconds": 54.9
+}

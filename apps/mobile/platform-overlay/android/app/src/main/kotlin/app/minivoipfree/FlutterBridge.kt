@@ -43,12 +43,21 @@ class FlutterBridgeImpl {
     }
 
     fun dispatchIfAlive(type: String, payload: JSONObject) {
-        val e = JSONObject()
-            .put("eventId", "evt-${System.nanoTime()}")
-            .put("type", type)
-            .put("nativeTimestamp", System.currentTimeMillis())
-            .put("payload", payload)
-        methodSink?.invokeMethod("nativeEvent", e.toString())
+        // Dart listens on EventChannel, not a nativeEvent MethodChannel call.
+        // StandardMessageCodec supports maps; JSONObject is not codec-safe.
+        val event = mutableMapOf<String, Any?>(
+            "eventId" to "evt-${System.nanoTime()}",
+            "type" to type,
+            "nativeTimestamp" to java.time.Instant.now().toString(),
+        )
+        payload.keys().forEach { key ->
+            val value = payload.opt(key)
+            event[key] = if (value == JSONObject.NULL) null else value
+        }
+        // EventChannel platform messages must be delivered on the main thread.
+        android.os.Handler(android.os.Looper.getMainLooper()).post {
+            eventSink?.success(event)
+        }
     }
 
     companion object {

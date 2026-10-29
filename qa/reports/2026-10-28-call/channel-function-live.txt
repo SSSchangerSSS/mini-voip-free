@@ -1,0 +1,466 @@
+
+[1;35m  -= Info about Function 'CHANNEL' =- [0m
+
+[1;35m[Synopsis][0m
+[1;36mGets/sets various pieces of information about the channel. [0m
+
+[1;35m[Provided By][0m
+[1;36mfunc_channel[0m
+
+[1;35m[Since][0m
+[1;36m1.2.0[0m
+
+[1;35m[Description][0m
+[1;36mGets/sets various pieces of information about the channel, additional [1;32m<item>[1;36m
+may be available from the channel driver; see its documentation for details.
+Any [1;32m<item>[1;36m requested that is not available on the current channel will return
+an empty string.
+[1;37mExample:[1;36m Standard CHANNEL item examples
+
+ [1;37m; Push a hangup handler subroutine existing at dialplan
+ ; location default,s,1 onto the current channel
+ same => n,Set(CHANNEL(hangup_handler_push)=default,s,1)
+ ; Set the current tonezone to Germany (de)
+ same => n,Set(CHANNEL(tonezone)=de)
+ ; Set the allowed maximum number of forwarding attempts
+ same => n,Set(CHANNEL(max_forwards)=10)
+ ; If this channel is ejected from its next bridge, and if
+ ; the channel is not hung up, begin executing dialplan at
+ ; location default,after-bridge,1
+ same => n,Set(CHANNEL(after_bridge_goto)=default,after-bridge,1)
+ ; Log the current state of the channel
+ same => n,Log(NOTICE, This channel is: ${CHANNEL(state)})
+ [1;36m
+The following channel variables are available as special built-in dialplan
+channel variables. These variables cannot be set or modified and are read-only.
+[1;32m${CALLINGPRES}[1;36m: Caller ID presentation for incoming calls (PRI channels)
+[1;32m${CALLINGANI2}[1;36m: Caller ANI2 (PRI channels)
+[1;32m${CALLINGTON}[1;36m: Caller Type of Number (PRI channels)
+[1;32m${CALLINGTNS}[1;36m: Transit Network Selector (PRI channels)
+[1;32m${EXTEN}[1;36m: Current extension
+[1;32m${CONTEXT}[1;36m: Current context
+[1;32m${PRIORITY}[1;36m: Current priority
+[1;32m${CHANNEL}[1;36m: Current channel name
+[1;32m${UNIQUEID}[1;36m: Current call unique identifier
+[1;32m${HANGUPCAUSE}[1;36m: Asterisk cause of hangup (inbound/outbound)
+    [1;33mTechnology: PJSIP  Provided by: chan_pjsip[1;36m
+    [1;37mExample:[1;36m PJSIP specific CHANNEL examples
+
+     [1;37m; Log the current Call-ID
+ same => n,Log(NOTICE, ${CHANNEL(pjsip,call-id)})
+ ; Log the destination address of the audio stream
+ same => n,Log(NOTICE, ${CHANNEL(rtp,dest)})
+ ; Store the round-trip time associated with a
+ ; video stream in the CDR field video-rtt
+ same => n,Set(CDR(video-rtt)=${CHANNEL(rtcp,rtt,video)})
+ [1;36m[0m
+
+[1;35m[Syntax][0m
+[1;36mCHANNEL(item)[0m
+
+[1;35m[Arguments][0m
+[1;36m
+item
+    Standard items (provided by all channel technologies) are:
+    [1;34mamaflags[1;36m - R/W the Automatic Message Accounting (AMA) flags on the channel.
+    When read from a channel, the integer value will always be returned. When
+    written to a channel, both the string format or integer value is accepted.
+        [1;34m1[1;36m - [1;34m'OMIT'[1;36m
+        [1;34m2[1;36m - [1;34m'BILLING'[1;36m
+        [1;34m3[1;36m - [1;34m'DOCUMENTATION'[1;36m
+    [1;34maccountcode[1;36m - R/W the channel's account code.
+    [1;34madsicpe[1;36m - R/W The channel's support for ADSI (Analog Display Services
+    Interface) CPE.
+        [1;34mavailable[1;36m
+        [1;34moffhookonly[1;36m
+        [1;34munavailable[1;36m
+        [1;34munknown[1;36m
+    [1;34maudioreadformat[1;36m - R/O format currently being read.
+    [1;34maudionativeformat[1;36m - R/O format used natively for audio.
+    [1;34maudiowriteformat[1;36m - R/O format currently being written.
+    [1;34mdtmf_features[1;36m - R/W The channel's DTMF bridge features. May include one or
+    more of 'T' 'K' 'H' 'W' and 'X' in a similar manner to options in the
+    [1;34m'Dial'[1;36m application. When setting it, the features string must be all upper
+    case.
+    [1;34mcallgroup[1;36m - R/W numeric call pickup groups that this channel is a member.
+    [1;34mpickupgroup[1;36m - R/W numeric call pickup groups this channel can pickup.
+    [1;34mnamedcallgroup[1;36m - R/W named call pickup groups that this channel is a
+    member.
+    [1;34mnamedpickupgroup[1;36m - R/W named call pickup groups this channel can pickup.
+    [1;34mchanneltype[1;36m - R/O technology used for channel.
+    [1;34mcheckhangup[1;36m - R/O Whether the channel is hanging up (1/0)
+    [1;34mdigitdetect[1;36m - R/W Enable or disable DTMF detection on channel drivers that
+    support it.
+    If set on a DAHDI channel, this will only disable DTMF detection, not pulse
+    dialing detection. To disable pulse dialing, use the [1;34m'dialmode'[1;36m option.
+    On DAHDI channels, this will disable DSP if it is not needed for anything
+    else. This will prevent DTMF detection regardless of the [1;34m'dialmode'[1;36m
+    setting.
+    [1;34mfaxdetect[1;36m - R/W Enable or disable fax detection on channel drivers that
+    support it.
+    [1;34mafter_bridge_goto[1;36m - R/W the parseable goto string indicating where the
+    channel is expected to return to in the PBX after exiting the next bridge
+    it joins on the condition that it doesn't hang up. The parseable goto
+    string uses the same syntax as the [1;34m'Goto'[1;36m application.
+    [1;34mhangup_handler_pop[1;36m - W/O Replace the most recently added hangup handler
+    with a new hangup handler on the channel if supplied.  The assigned string
+    is passed to the Gosub application when the channel is hung up.  Any
+    optionally omitted context and exten are supplied by the channel pushing
+    the handler before it is pushed.
+    [1;34mhangup_handler_push[1;36m - W/O Push a hangup handler onto the channel hangup
+    handler stack.  The assigned string is passed to the Gosub application when
+    the channel is hung up.  Any optionally omitted context and exten are
+    supplied by the channel pushing the handler before it is pushed.
+    [1;34mhangup_handler_wipe[1;36m - W/O Wipe the entire hangup handler stack and replace
+    with a new hangup handler on the channel if supplied.  The assigned string
+    is passed to the Gosub application when the channel is hung up.  Any
+    optionally omitted context and exten are supplied by the channel pushing
+    the handler before it is pushed.
+    [1;34monhold[1;36m - R/O Whether or not the channel is onhold. (1/0)
+    [1;34mlanguage[1;36m - R/W language for sounds played.
+    [1;34mmusicclass[1;36m - R/W class (from musiconhold.conf) for hold music.
+    [1;34mname[1;36m - The name of the channel
+    [1;34mparkinglot[1;36m - R/W parkinglot for parking.
+    [1;34mrelaxdtmf[1;36m - W/O Enable or disable relaxed DTMF detection for channel
+    drivers that support it, overriding any setting previously defaulted by the
+    channel driver.
+    [1;34mrxgain[1;36m - R/W set rxgain level on channel drivers that support it.
+    [1;34msecure_bridge_signaling[1;36m - Whether or not channels bridged to this channel
+    require secure signaling (1/0)
+    [1;34msecure_bridge_media[1;36m - Whether or not channels bridged to this channel
+    require secure media (1/0)
+    [1;34mstate[1;36m - R/O state of the channel
+    [1;34mtdd[1;36m - R/W Enable or disable TDD mode on channel drivers that support it.
+    When reading this option, 1 indicates TDD mode enabled, 0 indicates TDD
+    mode disabled, and [1;34m'mate'[1;36m indicates TDD mate mode.
+    [1;34mtonezone[1;36m - R/W zone for indications played
+    [1;34mtransfercapability[1;36m - R/W ISDN Transfer Capability, one of:
+        [1;34mSPEECH[1;36m
+        [1;34mDIGITAL[1;36m
+        [1;34mRESTRICTED_DIGITAL[1;36m
+        [1;34m3K1AUDIO[1;36m
+        [1;34mDIGITAL_W_TONES[1;36m
+        [1;34mVIDEO[1;36m
+    [1;34mtxgain[1;36m - R/W set txgain level on channel drivers that support it.
+    [1;34mvideonativeformat[1;36m - R/O format used natively for video
+    [1;34mhangupsource[1;36m - R/W returns the channel responsible for hangup.
+    [1;34mappname[1;36m - R/O returns the internal application name.
+    [1;34mappdata[1;36m - R/O returns the application data if available.
+    [1;34mexten[1;36m - R/O returns the extension for an outbound channel.
+    [1;34mcontext[1;36m - R/O returns the context for an outbound channel.
+    [1;34mlastexten[1;36m - R/O returns the last unique extension for an outbound channel.
+    [1;34mlastcontext[1;36m - R/O returns the last unique context for an outbound channel.
+    [1;34mchanname[1;36m - R/O returns the channel name for an outbound channel.
+    [1;34muniqueid[1;36m - R/O returns the channel uniqueid.
+    [1;34mlinkedid[1;36m - R/O returns the linkedid if available, otherwise returns the
+    uniqueid.
+    [1;34mtenantid[1;36m - R/W The channel tenantid.
+    [1;34mmax_forwards[1;36m - R/W The maximum number of forwards allowed.
+    [1;34mcallid[1;36m - R/O Call identifier log tag associated with the channel e.g.,
+    [1;34m'[C-00000000]'[1;36m.
+        [1;33mTechnology: DAHDI  Provided by: chan_dahdi[1;36m
+        [1;34mdahdi_channel[1;36m - R/O DAHDI channel related to this channel.
+        [1;34mdahdi_span[1;36m - R/O DAHDI span related to this channel.
+        [1;34mdahdi_group[1;36m - R/O DAHDI logical group related to this channel.
+        [1;34mdahdi_type[1;36m - R/O DAHDI channel type, one of:
+            [1;34manalog[1;36m
+            [1;34mmfc/r2[1;36m
+            [1;34mpri[1;36m
+            [1;34mpseudo[1;36m
+            [1;34mss7[1;36m
+        [1;34mkeypad_digits[1;36m - R/O PRI Keypad digits that came in with the SETUP
+        message.
+        [1;34mreversecharge[1;36m - R/O PRI Reverse Charging Indication, one of:
+            [1;34m-1[1;36m - None
+            [1;34m 1[1;36m - Reverse Charging Requested
+        [1;34mno_media_path[1;36m - R/O PRI Nonzero if the channel has no B channel. The
+        channel is either on hold or a call waiting call.
+        [1;34mbuffers[1;36m - W/O Change the channel's buffer policy (for the current call
+        only)
+        This option takes two arguments:
+        	Number of buffers,
+        	Buffer policy being one of:
+        	    [1;34m'full'[1;36m
+        	    [1;34m'immediate'[1;36m
+        	    [1;34m'half'[1;36m
+        [1;34mechocan_mode[1;36m - W/O Change the configuration of the active echo
+        canceller on the channel (if any), for the current call only.
+        Possible values are:
+        	[1;34m'on'[1;36m	Normal mode (the echo canceller is actually reinitialized)
+        	[1;34m'off'[1;36m	Disabled
+        	[1;34m'fax'[1;36m	FAX/data mode (NLP disabled if possible, otherwise completely
+        	disabled)
+        	[1;34m'voice'[1;36m	Voice mode (returns from FAX mode, reverting the changes that
+        	were made)
+        [1;34mdialmode[1;36m - R/W Pulse and tone dialing mode of the channel.
+        Disabling tone dialing using this option will not automatically disable
+        the DSP used for DTMF detection. To do that, also set the [1;34m'digitdetect'[1;36m
+        option. If digit detection is disabled, DTMF will not be detected,
+        regardless of the [1;34m'dialmode'[1;36m setting. The [1;34m'digitdetect'[1;36m setting has no
+        impact on pulse dialing detection.
+        If set, overrides the setting in [1;34m'chan_dahdi.conf'[1;36m for that channel.
+        The [1;34m'dialmode'[1;36m setting applies to the DAHDI channel as a whole, but is
+        reset for each call, so modifications made using the [1;34m'CHANNEL'[1;36m function
+        apply temporarily per-call. The [1;34m'digitdetect'[1;36m setting applies to the
+        entire DAHDI channel, so any changes made to this setting will affect
+        all calls concurrently on the same DAHDI channel. [1;34m'digitdetect'[1;36m is
+        reset once all calls on the line have cleared.
+            [1;34mboth[1;36m
+            [1;34mpulse[1;36m
+            [1;34mdtmf[1;36m
+            [1;34mtone[1;36m
+            [1;34mnone[1;36m
+        [1;34mwaitfordialtone[1;36m - W/O Duration in ms for which to wait for dial tone on
+        the current call.
+        This setting is will temporarily override the [1;34m'waitfordialtone'[1;36m setting
+        in [1;34m'chan_dahdi.conf'[1;36m (typically if that setting is disabled). You must
+        call this in a pre-dial handler when making a call on an analog trunk
+        (e.g. FXS-signalled interface).
+        This allows, for example, being able to barge in on an in-use trunk, if
+        dialed specifically, but allows skipping the trunk when routing calls
+        if dial tone is not present on a channel.
+        This setting will only apply to the current (next) call made on the
+        DAHDI channel, and will not persist for future calls.
+        Please keep in mind that due to the way that chan_dahdi implements dial
+        tone detection, DTMF digits on an in-use channel will temporarily relay
+        to any other channels attempting to use the channel for a call.
+        However, voice transmission will not leak.
+        [1;33mTechnology: IAX  Provided by: chan_iax2[1;36m
+        [1;34mosptoken[1;36m - R/O Get the peer's osptoken.
+        [1;34mpeerip[1;36m - R/O Get the peer's ip address.
+        [1;34mpeername[1;36m - R/O Get the peer's username.
+        [1;34mauth_method[1;36m - R/O Get the authentication method used for the call.
+            [1;34mnone[1;36m
+            [1;34mplaintext[1;36m
+            [1;34mMD5[1;36m
+            [1;34mRSA[1;36m
+        [1;34msecure_signaling[1;36m - R/O Get if the IAX channel is secured (encryption
+        used for the call).
+        Because IAX encryption applies to both signaling and media, this
+        setting provides the same value as [1;34m'secure_media'[1;36m.
+        [1;34msecure_media[1;36m - R/O Get if the IAX channel is secured (encryption used
+        for the call).
+        Because IAX encryption applies to both signaling and media, this
+        setting provides the same value as [1;34m'secure_signaling'[1;36m.
+        [1;33mTechnology: OOH323  Provided by: chan_ooh323[1;36m
+        [1;34mfaxdetect[1;36m - R/W Fax Detect
+        Returns 0 or 1
+        Write yes or no
+        [1;34mt38support[1;36m - R/W t38support
+        Returns 0 or 1
+        Write yes or no
+        [1;34mh323id_url[1;36m - R/O Returns caller URL
+        [1;34mcaller_h323id[1;36m - R/O Returns caller h323id
+        [1;34mcaller_dialeddigits[1;36m - R/O Returns caller dialed digits
+        [1;34mcaller_email[1;36m - R/O Returns caller email
+        [1;34mcallee_email[1;36m - R/O Returns callee email
+        [1;34mcallee_dialeddigits[1;36m - R/O Returns callee dialed digits
+        [1;34mcaller_url[1;36m - R/O Returns caller URL
+        [1;34mmax_forwards[1;36m - R/W Get or set the maximum number of call forwards for
+        this channel. This number describes the number of times a call may be
+        forwarded by this channel before the call fails. "Forwards" in this
+        case refers to redirects by phones as well as calls to local channels.
+        Note that this has no relation to the SIP Max-Forwards header. 
+        [1;33mTechnology: PJSIP  Provided by: chan_pjsip[1;36m
+        [1;34mrtp[1;36m - R/O Retrieve media related information.
+
+type
+                When [1;32m<rtp>[1;36m is specified, the [1;34m'type'[1;36m parameter must be provided.
+                It specifies which RTP parameter to read.
+                [1;34msrc[1;36m - Retrieve the local address for RTP.
+                [1;34mdest[1;36m - Retrieve the remote address for RTP.
+                [1;34mdirect[1;36m - If direct media is enabled, this address is the remote
+                address used for RTP.
+                [1;34msecure[1;36m - Whether or not the media stream is encrypted.
+                    [1;34m0[1;36m - The media stream is not encrypted.
+                    [1;34m1[1;36m - The media stream is encrypted.
+                [1;34mhold[1;36m - Whether or not the media stream is currently restricted
+                due to a call hold.
+                    [1;34m0[1;36m - The media stream is not held.
+                    [1;34m1[1;36m - The media stream is held.
+
+media_type
+                When [1;32m<rtp>[1;36m is specified, the [1;34m'media_type'[1;36m parameter may be
+                provided. It specifies which media stream the chosen RTP
+                parameter should be retrieved from.
+                [1;34maudio[1;36m - Retrieve information from the audio media stream.
+                [1;33mNOTE:[1;36m If not specified, [1;34m'audio'[1;36m is used by default.
+                [1;34mvideo[1;36m - Retrieve information from the video media stream.
+        [1;34mrtcp[1;36m - R/O Retrieve RTCP statistics.
+
+statistic
+                When [1;32m<rtcp>[1;36m is specified, the [1;34m'statistic'[1;36m parameter must be
+                provided. It specifies which RTCP statistic parameter to read.
+                [1;34mall[1;36m - Retrieve a summary of all RTCP statistics.
+                The following data items are returned in a semi-colon
+                delineated list:
+                    [1;34mssrc[1;36m - Our Synchronization Source identifier
+                    [1;34mthemssrc[1;36m - Their Synchronization Source identifier
+                    [1;34mlp[1;36m - Our lost packet count
+                    [1;34mrxjitter[1;36m - Received packet jitter
+                    [1;34mrxcount[1;36m - Received packet count
+                    [1;34mtxjitter[1;36m - Transmitted packet jitter
+                    [1;34mtxcount[1;36m - Transmitted packet count
+                    [1;34mrlp[1;36m - Remote lost packet count
+                    [1;34mrtt[1;36m - Round trip time
+                    [1;34mtxmes[1;36m - Transmitted Media Experience Score
+                    [1;34mrxmes[1;36m - Received Media Experience Score
+                [1;34mall_jitter[1;36m - Retrieve a summary of all RTCP Jitter statistics.
+                The following data items are returned in a semi-colon
+                delineated list:
+                    [1;34mminrxjitter[1;36m - Our minimum jitter
+                    [1;34mmaxrxjitter[1;36m - Our max jitter
+                    [1;34mavgrxjitter[1;36m - Our average jitter
+                    [1;34mstdevrxjitter[1;36m - Our jitter standard deviation
+                    [1;34mreported_minjitter[1;36m - Their minimum jitter
+                    [1;34mreported_maxjitter[1;36m - Their max jitter
+                    [1;34mreported_avgjitter[1;36m - Their average jitter
+                    [1;34mreported_stdevjitter[1;36m - Their jitter standard deviation
+                [1;34mall_loss[1;36m - Retrieve a summary of all RTCP packet loss
+                statistics.
+                The following data items are returned in a semi-colon
+                delineated list:
+                    [1;34mminrxlost[1;36m - Our minimum lost packets
+                    [1;34mmaxrxlost[1;36m - Our max lost packets
+                    [1;34mavgrxlost[1;36m - Our average lost packets
+                    [1;34mstdevrxlost[1;36m - Our lost packets standard deviation
+                    [1;34mreported_minlost[1;36m - Their minimum lost packets
+                    [1;34mreported_maxlost[1;36m - Their max lost packets
+                    [1;34mreported_avglost[1;36m - Their average lost packets
+                    [1;34mreported_stdevlost[1;36m - Their lost packets standard deviation
+                [1;34mall_rtt[1;36m - Retrieve a summary of all RTCP round trip time
+                information.
+                The following data items are returned in a semi-colon
+                delineated list:
+                    [1;34mminrtt[1;36m - Minimum round trip time
+                    [1;34mmaxrtt[1;36m - Maximum round trip time
+                    [1;34mavgrtt[1;36m - Average round trip time
+                    [1;34mstdevrtt[1;36m - Standard deviation round trip time
+                [1;34mall_mes[1;36m - Retrieve a summary of all RTCP Media Experience Score
+                information.
+                The following data items are returned in a semi-colon
+                delineated list:
+                    [1;34mminmes[1;36m - Minimum MES based on us analysing received
+                    packets.
+                    [1;34mmaxmes[1;36m - Maximum MES based on us analysing received
+                    packets.
+                    [1;34mavgmes[1;36m - Average MES based on us analysing received
+                    packets.
+                    [1;34mstdevmes[1;36m - Standard deviation MES based on us analysing
+                    received packets.
+                    [1;34mreported_minmes[1;36m - Minimum MES based on data we get in
+                    Sender and Receiver Reports sent by the remote end
+                    [1;34mreported_maxmes[1;36m - Maximum MES based on data we get in
+                    Sender and Receiver Reports sent by the remote end
+                    [1;34mreported_avgmes[1;36m - Average MES based on data we get in
+                    Sender and Receiver Reports sent by the remote end
+                    [1;34mreported_stdevmes[1;36m - Standard deviation MES based on data we
+                    get in Sender and Receiver Reports sent by the remote end
+                [1;34mtxcount[1;36m - Transmitted packet count
+                [1;34mrxcount[1;36m - Received packet count
+                [1;34mtxjitter[1;36m - Transmitted packet jitter
+                [1;34mrxjitter[1;36m - Received packet jitter
+                [1;34mremote_maxjitter[1;36m - Their max jitter
+                [1;34mremote_minjitter[1;36m - Their minimum jitter
+                [1;34mremote_normdevjitter[1;36m - Their average jitter
+                [1;34mremote_stdevjitter[1;36m - Their jitter standard deviation
+                [1;34mlocal_maxjitter[1;36m - Our max jitter
+                [1;34mlocal_minjitter[1;36m - Our minimum jitter
+                [1;34mlocal_normdevjitter[1;36m - Our average jitter
+                [1;34mlocal_stdevjitter[1;36m - Our jitter standard deviation
+                [1;34mtxploss[1;36m - Transmitted packet loss
+                [1;34mrxploss[1;36m - Received packet loss
+                [1;34mremote_maxrxploss[1;36m - Their max lost packets
+                [1;34mremote_minrxploss[1;36m - Their minimum lost packets
+                [1;34mremote_normdevrxploss[1;36m - Their average lost packets
+                [1;34mremote_stdevrxploss[1;36m - Their lost packets standard deviation
+                [1;34mlocal_maxrxploss[1;36m - Our max lost packets
+                [1;34mlocal_minrxploss[1;36m - Our minimum lost packets
+                [1;34mlocal_normdevrxploss[1;36m - Our average lost packets
+                [1;34mlocal_stdevrxploss[1;36m - Our lost packets standard deviation
+                [1;34mrtt[1;36m - Round trip time
+                [1;34mmaxrtt[1;36m - Maximum round trip time
+                [1;34mminrtt[1;36m - Minimum round trip time
+                [1;34mnormdevrtt[1;36m - Average round trip time
+                [1;34mstdevrtt[1;36m - Standard deviation round trip time
+                [1;34mlocal_ssrc[1;36m - Our Synchronization Source identifier
+                [1;34mremote_ssrc[1;36m - Their Synchronization Source identifier
+                [1;34mtxmes[1;36m -  Current MES based on us analyzing rtt, jitter and loss
+                in the actual received RTP stream received from the remote end.
+                I.E.  This is the MES for the incoming audio stream. 
+                [1;34mrxmes[1;36m -  Current MES based on rtt and the jitter and loss
+                values in RTCP sender and receiver reports we receive from the
+                remote end. I.E.  This is the MES for the outgoing audio
+                stream. 
+                [1;34mremote_maxmes[1;36m - Max MES based on data we get in Sender and
+                Receiver Reports sent by the remote end
+                [1;34mremote_minmes[1;36m - Min MES based on data we get in Sender and
+                Receiver Reports sent by the remote end
+                [1;34mremote_normdevmes[1;36m - Average MES based on data we get in Sender
+                and Receiver Reports sent by the remote end
+                [1;34mremote_stdevmes[1;36m - Standard deviation MES based on data we get
+                in Sender and Receiver Reports sent by the remote end
+                [1;34mlocal_maxmes[1;36m - Max MES based on us analyzing the received RTP
+                stream
+                [1;34mlocal_minmes[1;36m - Min MES based on us analyzing the received RTP
+                stream
+                [1;34mlocal_normdevmes[1;36m - Average MES based on us analyzing the
+                received RTP stream
+                [1;34mlocal_stdevmes[1;36m - Standard deviation MES based on us analyzing
+                the received RTP stream
+
+media_type
+                When [1;32m<rtcp>[1;36m is specified, the [1;34m'media_type'[1;36m parameter may be
+                provided. It specifies which media stream the chosen RTCP
+                parameter should be retrieved from.
+                [1;34maudio[1;36m - Retrieve information from the audio media stream.
+                [1;33mNOTE:[1;36m If not specified, [1;34m'audio'[1;36m is used by default.
+                [1;34mvideo[1;36m - Retrieve information from the video media stream.
+        [1;34mendpoint[1;36m - R/O The name of the endpoint associated with this channel.
+        Use the [1;32m<PJSIP_ENDPOINT>[1;36m function to obtain further endpoint related
+        information.
+        [1;34mcontact[1;36m - R/O The name of the contact associated with this channel. Use
+        the [1;32m<PJSIP_CONTACT>[1;36m function to obtain further contact related
+        information. Note this may not be present and if so is only available
+        on outgoing legs.
+        [1;34maor[1;36m - R/O The name of the AOR associated with this channel. Use the
+        [1;32m<PJSIP_AOR>[1;36m function to obtain further AOR related information. Note
+        this may not be present and if so is only available on outgoing legs.
+        [1;34mpjsip[1;36m - R/O Obtain information about the current PJSIP channel and its
+        session.
+
+type
+                When [1;32m<pjsip>[1;36m is specified, the [1;34m'type'[1;36m parameter must be
+                provided. It specifies which signalling parameter to read.
+                [1;34mcall-id[1;36m - The SIP call-id.
+                [1;34msecure[1;36m - Whether or not the signalling uses a secure transport.
+                    [1;34m0[1;36m - The signalling uses a non-secure transport.
+                    [1;34m1[1;36m - The signalling uses a secure transport.
+                [1;34mtarget_uri[1;36m - The contact URI where requests are sent.
+                [1;34mlocal_uri[1;36m - The local URI.
+                [1;34mlocal_tag[1;36m - Tag in From header
+                [1;34mremote_uri[1;36m - The remote URI.
+                [1;34mremote_tag[1;36m - Tag in To header
+                [1;34mrequest_uri[1;36m - The request URI of the incoming [1;34m'INVITE'[1;36m
+                associated with the creation of this channel.
+                [1;34mt38state[1;36m - The current state of any T.38 fax on this channel.
+                    [1;34mDISABLED[1;36m - T.38 faxing is disabled on this channel.
+                    [1;34mLOCAL_REINVITE[1;36m - Asterisk has sent a [1;34m're-INVITE'[1;36m to the
+                    remote end to initiate a T.38 fax.
+                    [1;34mREMOTE_REINVITE[1;36m - The remote end has sent a [1;34m're-INVITE'[1;36m to
+                    Asterisk to initiate a T.38 fax.
+                    [1;34mENABLED[1;36m - A T.38 fax session has been enabled.
+                    [1;34mREJECTED[1;36m - A T.38 fax session was attempted but was
+                    rejected.
+                [1;34mlocal_addr[1;36m - On inbound calls, the full IP address and port
+                number that the [1;34m'INVITE'[1;36m request was received on. On outbound
+                calls, the full IP address and port number that the [1;34m'INVITE'[1;36m
+                request was transmitted from.
+                [1;34mremote_addr[1;36m - On inbound calls, the full IP address and port
+                number that the [1;34m'INVITE'[1;36m request was received from. On outbound
+                calls, the full IP address and port number that the [1;34m'INVITE'[1;36m
+                request was transmitted to.[0m
+
+[1;35m[See Also][0m
+[1;36mNot available[0m
+

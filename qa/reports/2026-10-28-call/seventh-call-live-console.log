@@ -1,0 +1,46 @@
+    -- Executing [102@smi-internal:1] NoOp("PJSIP/101-00000004", "SMI inbound: caller=101 callee=102") in new stack
+changer*CLI>     -- Executing [102@smi-internal:2] Goto("PJSIP/101-00000004", "smi-call,102,1") in new stack
+    -- Goto (smi-call,102,1)
+    -- Executing [102@smi-call:1] Set("PJSIP/101-00000004", "SMI_CALLER=101") in new stack
+    -- Executing [102@smi-call:2] GotoIf("PJSIP/101-00000004", "0?smi-reject,self,1") in new stack
+    -- Executing [102@smi-call:3] GotoIf("PJSIP/101-00000004", "0?smi-reject,unavailable,1") in new stack
+    -- Executing [102@smi-call:4] Set("PJSIP/101-00000004", "SMI_ADMITTED=0") in new stack
+    -- Executing [102@smi-call:5] Set("PJSIP/101-00000004", "SMI_DIAL_ALLOWED=0") in new stack
+    -- Executing [102@smi-call:6] Set("PJSIP/101-00000004", "__SMI_CALLEE=102") in new stack
+    -- Executing [102@smi-call:7] Set("PJSIP/101-00000004", "SMI_DEADLINE_EPOCH=0") in new stack
+    -- Executing [102@smi-call:8] Set("PJSIP/101-00000004", "SMI_REJECT_CAUSE=0") in new stack
+    -- Executing [102@smi-call:9] Set("PJSIP/101-00000004", "CHANNEL(hangup_handler_push)=smi-hangup,s,1") in new stack
+    -- Executing [102@smi-call:10] Set("PJSIP/101-00000004", "SMI_ATTEMPT_ID=04cdd894-3124-4ef8-8385-2e0805da3f49") in new stack
+    -- Executing [102@smi-call:11] UserEvent("PJSIP/101-00000004", "SMICallRequested,SchemaVersion: 1,PbxUniqueId: 1793190959.4,Channel: PJSIP/101-00000004,CallerEndpoint: 101,Callee: 102,AttemptId: 04cdd894-3124-4ef8-8385-2e0805da3f49") in new stack
+    -- Executing [102@smi-call:12] WaitForCondition("PJSIP/101-00000004", "#,#["#{SMI_ADMITTED}" != "0"],3,0.05") in new stack
+changer*CLI>     -- Executing [102@smi-call:13] GotoIf("PJSIP/101-00000004", "0?smi-reject,by-cause,1") in new stack
+    -- Executing [102@smi-call:14] Ringing("PJSIP/101-00000004", "") in new stack
+    -- Executing [102@smi-call:15] Set("PJSIP/101-00000004", "SMI_REMAINING=40") in new stack
+    -- Executing [102@smi-call:16] GotoIf("PJSIP/101-00000004", "0?smi-reject,expired,1") in new stack
+    -- Executing [102@smi-call:17] WaitForCondition("PJSIP/101-00000004", "#,#["#{SMI_DIAL_ALLOWED}" = "1"],40,0.05") in new stack
+changer*CLI>     -- Executing [102@smi-call:18] GotoIf("PJSIP/101-00000004", "0?smi-reject,by-cause,1") in new stack
+    -- Executing [102@smi-call:19] Set("PJSIP/101-00000004", "SMI_REMAINING=40") in new stack
+    -- Executing [102@smi-call:20] Dial("PJSIP/101-00000004", "PJSIP/102,40,b(smi-predial^s^1)") in new stack
+changer*CLI>     -- PJSIP/102-00000005 Internal Gosub(smi-predial,s,1) start
+    -- Executing [s@smi-predial:1] Set("PJSIP/102-00000005", "PJSIP_HEADER(add,X-SMI-Call-ID)=") in new stack
+changer*CLI>     -- Executing [s@smi-predial:2] UserEvent("PJSIP/102-00000005", "SMICallDialing,SchemaVersion: 1,PbxUniqueId: 1793190959.5,Channel: PJSIP/102-00000005,CallId: ,Callee: ") in new stack
+changer*CLI>     -- Executing [s@smi-predial:3] Return("PJSIP/102-00000005", "") in new stack
+changer*CLI>   == Spawn extension (smi-internal, 102, 1) exited non-zero on 'PJSIP/102-00000005'
+    -- PJSIP/102-00000005 Internal Gosub(smi-predial,s,1) complete GOSUB_RETVAL=
+changer*CLI>     -- Called PJSIP/102
+changer*CLI>     -- PJSIP/102-00000005 is ringing
+changer*CLI>     -- No one is available to answer at this time (1:0/0/0)
+    -- Executing [102@smi-call:21] Goto("PJSIP/101-00000004", "smi-finish,report,1") in new stack
+    -- Goto (smi-finish,report,1)
+    -- Executing [report@smi-finish:1] NoOp("PJSIP/101-00000004", "SMI dial result: DIALSTATUS=NOANSWER HANGUPCAUSE=19") in new stack
+    -- Executing [report@smi-finish:2] UserEvent("PJSIP/101-00000004", "SMICallFinished,SchemaVersion: 1,PbxUniqueId: 1793190959.4,Channel: PJSIP/101-00000004,CallId: ,CallerEndpoint: 101,Callee: ,DialStatus: NOANSWER,HangupCause: 19") in new stack
+    -- Executing [report@smi-finish:3] Hangup("PJSIP/101-00000004", "") in new stack
+  == Spawn extension (smi-finish, report, 3) exited non-zero on 'PJSIP/101-00000004'
+    -- PJSIP/101-00000004 Internal Gosub(smi-hangup,s,1) start
+    -- Executing [s@smi-hangup:1] UserEvent("PJSIP/101-00000004", "SMICallFinished,SchemaVersion: 1,PbxUniqueId: 1793190959.4,Channel: PJSIP/101-00000004,CallId: ,Callee: ,DialStatus: NOANSWER,HangupCause: 19") in new stack
+    -- Executing [s@smi-hangup:2] Return("PJSIP/101-00000004", "") in new stack
+  == Spawn extension (smi-finish, report, 3) exited non-zero on 'PJSIP/101-00000004'
+    -- PJSIP/101-00000004 Internal Gosub(smi-hangup,s,1) complete GOSUB_RETVAL=
+changer*CLI>     -- Remote UNIX connection
+    -- Remote UNIX connection disconnected
+changer*CLI> 

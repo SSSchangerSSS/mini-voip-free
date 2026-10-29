@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "First observed startup after PC shutdown; saved account automatically restored, UI ready and real PBX SIP contact; no manual credential entry",
+  "api": 26,
+  "extension": "101",
+  "evidence": [
+    "api26-restored-contact.txt",
+    "api26-launch.log"
+  ]
+}

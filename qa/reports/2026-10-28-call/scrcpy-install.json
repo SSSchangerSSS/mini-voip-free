@@ -1,0 +1,16 @@
+{
+  "version": "5.0.1",
+  "sha256": "9f969d30cc574816077edecda65719c1c70b0aee1df1ba5fa00779ac07b8fd6e",
+  "publisherDigestMatched": true,
+  "attempts": [
+    {
+      "url": "https://mirrors.cloud.tencent.com/github-release/Genymobile/scrcpy/v5.0.1/scrcpy-linux-x86_64-v5.0.1.tar.gz",
+      "status": "FAIL",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://github.com/Genymobile/scrcpy/releases/download/v5.0.1/scrcpy-linux-x86_64-v5.0.1.tar.gz",
+      "status": "PASS"
+    }
+  ]
+}

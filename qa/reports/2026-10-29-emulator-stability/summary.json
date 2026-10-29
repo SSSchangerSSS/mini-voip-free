@@ -1,0 +1,16 @@
+{
+  "sdkCpuMirrorAB": "PASS",
+  "sdkNativeHostInitial": "FAIL",
+  "sdkNativeHostAot": "FAIL",
+  "sdkNativeSwiftshaderOneCoreAot": "FAIL",
+  "api26NativeStartup": "PASS",
+  "redroidOfficialDigestDownload": "PASS",
+  "redroidContainerCreation": "PASS",
+  "redroidRuntime": "BLOCKED",
+  "redroidUiAndReboots": "NOT_RUN",
+  "redroidCall": "NOT_RUN",
+  "binderPrerequisiteProbeExitCode": 3,
+  "checkExitCode": 0,
+  "composeConfigExitCode": 0,
+  "productApkChanged": false
+}

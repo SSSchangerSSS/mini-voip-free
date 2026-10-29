@@ -78,11 +78,13 @@ class _CallPageState extends State<CallPage> {
                   children: [
                     _roundButton(
                       icon: Icons.call_end,
+                      label: 'رد تماس',
                       color: Colors.red,
                       onTap: c.declineIncoming,
                     ),
                     _roundButton(
                       icon: Icons.call,
+                      label: 'پاسخ',
                       color: Colors.green,
                       onTap: c.answerIncoming,
                     ),
@@ -111,6 +113,8 @@ class _CallPageState extends State<CallPage> {
                 ),
               ] else ...[
                 const CircularProgressIndicator(color: Colors.white70),
+                const SizedBox(height: 20),
+                _roundButton(icon: Icons.call_end, color: Colors.red, onTap: c.hangUp),
               ],
               const Spacer(flex: 2),
             ],
@@ -123,14 +127,20 @@ class _CallPageState extends State<CallPage> {
   Widget _roundButton({
     required IconData icon,
     required Color color,
+    String? label,
     required VoidCallback? onTap,
   }) {
-    return GestureDetector(
+    return Semantics(
+      label: label ?? (icon == Icons.call_end ? 'قطع تماس' : icon == Icons.mic || icon == Icons.mic_off ? 'میوت' : 'بلندگو'),
+      button: true,
+      enabled: onTap != null,
+      child: GestureDetector(
       onTap: onTap,
       child: CircleAvatar(
         radius: 34,
         backgroundColor: color,
         child: Icon(icon, color: Colors.white, size: 32),
+      ),
       ),
     );
   }

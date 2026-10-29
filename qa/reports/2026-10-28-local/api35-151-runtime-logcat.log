@@ -1,0 +1,133 @@
+--------- beginning of main
+10-28 14:45:30.201   338   338 D AndroidRuntime: >>>>>> START com.android.internal.os.ZygoteInit uid 0 <<<<<<
+10-28 14:45:31.062   338   338 I AndroidRuntime: Using default boot image
+10-28 14:45:31.062   338   338 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:46:31.250   847   847 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-28 14:49:09.950  1922  1959 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+10-28 14:49:24.203  2012  2012 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:49:24.422  2012  2012 I AndroidRuntime: Using default boot image
+10-28 14:49:24.423  2012  2012 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:49:28.727  2012  2012 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:49:33.633  2012  2012 D AndroidRuntime: Shutting down VM
+10-28 14:49:41.378  2133  2133 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:49:41.644  2133  2133 I AndroidRuntime: Using default boot image
+10-28 14:49:41.644  2133  2133 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:49:42.347  1922  2139 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+10-28 14:49:45.881  2133  2133 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:49:50.969  2133  2133 D AndroidRuntime: Shutting down VM
+10-28 14:49:58.368  2216  2216 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:49:58.501  2216  2216 I AndroidRuntime: Using default boot image
+10-28 14:49:58.501  2216  2216 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:50:01.410  2216  2216 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:50:03.821  2216  2216 D AndroidRuntime: Shutting down VM
+10-28 14:50:12.435  2315  2315 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:50:12.655  2315  2315 I AndroidRuntime: Using default boot image
+10-28 14:50:12.655  2315  2315 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:50:15.450  2315  2315 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:50:16.993  2315  2315 D AndroidRuntime: Shutting down VM
+10-28 14:50:23.522  2350  2350 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:50:23.660  2350  2350 I AndroidRuntime: Using default boot image
+10-28 14:50:23.660  2350  2350 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:50:26.125  2350  2350 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:50:27.902  2350  2350 D AndroidRuntime: Shutting down VM
+10-28 14:50:35.900  2385  2385 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:50:36.070  2385  2385 I AndroidRuntime: Using default boot image
+10-28 14:50:36.070  2385  2385 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:50:39.668  2385  2385 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:50:41.263  2385  2385 D AndroidRuntime: Shutting down VM
+10-28 14:50:48.000  2428  2428 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:50:48.133  2428  2428 I AndroidRuntime: Using default boot image
+10-28 14:50:48.134  2428  2428 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:50:51.305  2428  2428 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:50:52.956  2428  2428 D AndroidRuntime: Shutting down VM
+10-28 14:51:00.348  2535  2535 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:51:00.474  2535  2535 I AndroidRuntime: Using default boot image
+10-28 14:51:00.475  2535  2535 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:51:03.372  2535  2535 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:51:05.134  2535  2535 D AndroidRuntime: Shutting down VM
+10-28 14:51:12.601  2590  2590 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:51:12.750  2590  2590 I AndroidRuntime: Using default boot image
+10-28 14:51:12.751  2590  2590 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:51:16.923  2590  2590 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:51:21.902  2614  2614 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:51:21.935  2590  2590 D AndroidRuntime: Shutting down VM
+10-28 14:51:22.130  2614  2614 I AndroidRuntime: Using default boot image
+10-28 14:51:22.131  2614  2614 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:51:25.718  2614  2614 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:51:29.080  2614  2614 D AndroidRuntime: Shutting down VM
+10-28 14:51:29.681  2666  2666 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:51:29.825  2666  2666 I AndroidRuntime: Using default boot image
+10-28 14:51:29.825  2666  2666 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:51:34.476  2666  2666 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:51:37.126  2666  2666 D AndroidRuntime: Shutting down VM
+10-28 14:51:44.345  2749  2749 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:51:44.554  2749  2749 I AndroidRuntime: Using default boot image
+10-28 14:51:44.562  2749  2749 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:51:47.773  2749  2749 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:51:49.662  2749  2749 D AndroidRuntime: Shutting down VM
+10-28 14:51:58.013  2779  2779 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:51:58.202  2779  2779 I AndroidRuntime: Using default boot image
+10-28 14:51:58.202  2779  2779 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:52:01.581  2779  2779 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:52:04.045  2779  2779 D AndroidRuntime: Shutting down VM
+10-28 14:52:11.236  2836  2836 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:52:11.375  2836  2836 I AndroidRuntime: Using default boot image
+10-28 14:52:11.375  2836  2836 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:52:14.570  2836  2836 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:52:16.494  2836  2836 D AndroidRuntime: Shutting down VM
+10-28 14:52:25.602  2880  2880 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:52:25.893  2880  2880 I AndroidRuntime: Using default boot image
+10-28 14:52:25.894  2880  2880 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:52:26.462  2884  2884 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:52:26.715  2884  2884 I AndroidRuntime: Using default boot image
+10-28 14:52:26.716  2884  2884 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:52:30.500  2884  2884 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:52:30.959  2880  2880 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:52:31.198  2880  2880 D AndroidRuntime: Shutting down VM
+--------- beginning of crash
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: FATAL EXCEPTION: main
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: PID: 2880
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: java.lang.IllegalStateException: UiAutomationService android.accessibilityservice.IAccessibilityServiceClient$Stub$Proxy@b21ccfcalready registered!
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3250)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3226)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3209)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3151)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.view.accessibility.IAccessibilityManager$Stub$Proxy.registerUiTestAutomationService(IAccessibilityManager.java:1098)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.app.UiAutomationConnection.registerUiTestAutomationServiceLocked(UiAutomationConnection.java:651)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.app.UiAutomationConnection.connect(UiAutomationConnection.java:119)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.app.UiAutomation.connectWithTimeout(UiAutomation.java:385)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.app.UiAutomation.connect(UiAutomation.java:330)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at com.android.uiautomator.core.UiAutomationShellWrapper.connect(UiAutomationShellWrapper.java:36)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at com.android.commands.uiautomator.DumpCommand.run(DumpCommand.java:78)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:369)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at com.android.server.accessibility.UiAutomationManager.registerUiTestAutomationServiceLocked(UiAutomationManager.java:109)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at com.android.server.accessibility.AccessibilityManagerService.registerUiTestAutomationService(AccessibilityManagerService.java:1489)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.view.accessibility.IAccessibilityManager$Stub.onTransact(IAccessibilityManager.java:546)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:1444)
+10-28 14:52:31.213  2880  2880 E AndroidRuntime: 
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: Error reporting crash
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:586)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.os.IServiceManager$Stub$Proxy.checkService(IServiceManager.java:441)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.os.ServiceManagerProxy.getService(ServiceManagerNative.java:63)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.os.ServiceManager.rawGetService(ServiceManager.java:428)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.os.ServiceManager.getService(ServiceManager.java:175)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5692)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5689)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.util.Singleton.get(Singleton.java:44)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at android.app.ActivityManager.getService(ActivityManager.java:5680)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:170)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+10-28 14:52:31.229  2880  2880 E AndroidRuntime: 	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)
+10-28 14:52:33.377  2884  2884 D AndroidRuntime: Shutting down VM
+10-28 14:52:48.079  2967  2967 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:52:48.272  2967  2967 I AndroidRuntime: Using default boot image
+10-28 14:52:48.273  2967  2967 I AndroidRuntime: Leaving lock profiling enabled
+10-28 14:52:51.517  2967  2967 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:52:54.932  2967  2967 D AndroidRuntime: Shutting down VM

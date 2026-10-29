@@ -1,0 +1,2 @@
+10-29 09:11:42.532   565  1093 I am_anr  : [0,847,com.android.systemui,818462221,Process ProcessRecord{893b1d8 847:com.android.systemui/u0a121} failed to complete startup]
+10-29 09:12:46.011   565  1443 I am_anr  : [0,1170,com.android.launcher3,885767749,executing service com.android.launcher3/com.android.quickstep.TouchInteractionService, waited 21045ms]

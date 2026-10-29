@@ -1,0 +1,15 @@
+2026-10-28T12:15:01Z info: Microsoft.AspNetCore.Hosting.Diagnostics[1] Request starting HTTP/1.1 POST http://192.168.1.151/api/v1/sessions - application/json 150
+2026-10-28T12:15:01Z info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0] Executing endpoint 'HTTP: POST /api/v1/sessions'
+2026-10-28T12:15:01Z info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1] Setting HTTP status code 200.
+2026-10-28T12:15:01Z info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3] Writing value of type 'LoginResult' as Json.
+2026-10-28T12:15:01Z info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1] Executed endpoint 'HTTP: POST /api/v1/sessions'
+2026-10-28T12:15:01Z info: Microsoft.AspNetCore.Hosting.Diagnostics[2] Request finished HTTP/1.1 POST http://192.168.1.151/api/v1/sessions - 200 - application/json;+charset=utf-8 120.7097ms
+2026-10-28T12:15:02Z info: Microsoft.AspNetCore.Hosting.Diagnostics[1] Request starting HTTP/1.1 PUT http://192.168.1.151/api/v1/devices/current/push - application/json 56
+2026-10-28T12:15:02Z info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0] Executing endpoint 'HTTP: PUT /api/v1/devices/current/push'
+2026-10-28T12:15:02Z info: Microsoft.AspNetCore.Http.Result.NoContentResult[1] Setting HTTP status code 204.
+2026-10-28T12:15:02Z info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1] Executed endpoint 'HTTP: PUT /api/v1/devices/current/push'
+2026-10-28T12:15:02Z info: Microsoft.AspNetCore.Hosting.Diagnostics[2] Request finished HTTP/1.1 PUT http://192.168.1.151/api/v1/devices/current/push - 204 - - 16.9922ms
+2026-10-28T12:15:03Z info: Microsoft.AspNetCore.Hosting.Diagnostics[1] Request starting HTTP/1.1 GET http://192.168.1.151/api/v1/calls/current - application/json -
+2026-10-28T12:15:03Z info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0] Executing endpoint 'HTTP: GET /api/v1/calls/current'
+2026-10-28T12:15:03Z info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1] Executed endpoint 'HTTP: GET /api/v1/calls/current'
+2026-10-28T12:15:03Z info: Microsoft.AspNetCore.Hosting.Diagnostics[2] Request finished HTTP/1.1 GET http://192.168.1.151/api/v1/calls/current - 200 0 - 2.9673ms

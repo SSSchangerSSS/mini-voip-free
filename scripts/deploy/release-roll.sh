@@ -2,9 +2,9 @@
 # upgrade/rollback — drain-first flow (spec 14.4): stop admissions, wait for calls,
 # backup BEFORE any migration, apply, smoke, report. Forced cut-off needs --force.
 set -euo pipefail
-source "$(cd "$(dirname "${BASH_SOURCE[0]}")/../lib/common.sh")"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/common.sh"
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 DEPLOY="$ROOT/deploy"
 mode="${1:-}"; shift || true
 

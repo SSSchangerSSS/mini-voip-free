@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "extension": "103",
+  "device": "127.0.0.1:5565",
+  "credentialSource": "Ignored mode600 file, value not recorded",
+  "sipRegistered": true
+}

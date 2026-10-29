@@ -1,0 +1,13 @@
+{
+  "caller": "102",
+  "callee": "101",
+  "answerButtonSeen": true,
+  "status": "PASS",
+  "secretValuesRecorded": false,
+  "answerAfterSeconds": 8.6,
+  "hangupTapped": true,
+  "rtpInBothDirections": true,
+  "sharedBridge": true,
+  "channelsCleared": true,
+  "validationScope": "Emulator SIP answer, PBX bridge, RTP packets, hangup; acoustic audio NOT_RUN"
+}

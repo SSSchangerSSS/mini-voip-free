@@ -59,6 +59,12 @@ public class SessionEndpointTests : IClassFixture<ControlApiFixture>
         Assert.Equal(40, body.GetProperty("setupTimeoutSeconds").GetInt32());
         Assert.True(body.GetProperty("accessToken").GetString()!.Length >= 40);
         Assert.Equal("sip:111@test.local", body.GetProperty("sipUri").GetString());
+        Assert.True(body.TryGetProperty("idleExpiresAt", out var expiry));
+        Assert.True(DateTime.TryParse(expiry.GetString(), out _));
+        Assert.False(body.TryGetProperty("idleExpiresAtUtc", out _));
+        Assert.Equal("sipsecret", body.GetProperty("sipPassword").GetString());
+        Assert.NotEqual(ControlApiFixture.DefaultPassword, body.GetProperty("sipPassword").GetString());
+        Assert.Contains("no-store", res.Headers.CacheControl!.ToString());
     }
 
     [Fact]
@@ -104,12 +110,19 @@ public class SessionEndpointTests : IClassFixture<ControlApiFixture>
         var hStranger = _fx.Factory.CreateClient();
         hStranger.DefaultRequestHeaders.Authorization = new("Bearer", stranger.Token);
 
+        foreach (var route in new[] { $"/api/v1/calls/{callId}", "/api/v1/calls/current" })
+        {
+            var (response, value) = AsJson(await hCallee.GetAsync(route));
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            AssertCallContract(value, callId);
+        }
         Assert.Equal(HttpStatusCode.NotFound, (await hStranger.GetAsync($"/api/v1/calls/{callId}")).StatusCode);
         Assert.Equal(HttpStatusCode.Forbidden, (await hCaller.PostAsync($"/api/v1/calls/{callId}/ready", Json(new { deviceGeneration = 1 }))).StatusCode);
 
         var (ok, body) = AsJson(await hCallee.PostAsync($"/api/v1/calls/{callId}/accept", Json(new { })));
         Assert.Equal(HttpStatusCode.OK, ok.StatusCode);
         Assert.Equal("Connecting", body.GetProperty("state").GetString());
+        AssertCallContract(body, callId);
 
         // Ended is terminal: another accept after decline stays terminal (T41)
         await hCallee.PostAsync($"/api/v1/calls/{callId}/decline", Json(new { }));
@@ -122,6 +135,20 @@ public class SessionEndpointTests : IClassFixture<ControlApiFixture>
         var secondCall = _fx.CreateCallDirect("111", "112");
         Assert.NotEqual(callId, secondCall);
         _fx.EndAllCalls(); // fixture hygiene: leave no live slots for sibling tests
+    }
+
+    private static void AssertCallContract(JsonElement body, string callId)
+    {
+        Assert.Equal(callId, body.GetProperty("callId").GetString());
+        Assert.Equal("111", body.GetProperty("caller").GetString());
+        Assert.Equal("112", body.GetProperty("callee").GetString());
+        Assert.True(body.GetProperty("deviceGeneration").GetInt32() >= 1);
+        foreach (var field in new[] { "createdAt", "expiresAt", "serverTime" })
+            Assert.True(DateTime.TryParse(body.GetProperty(field).GetString(), out _));
+        foreach (var field in new[] { "acceptedAt", "connectedAt", "endedAt", "endReason" })
+            Assert.True(body.TryGetProperty(field, out _));
+        foreach (var field in new[] { "callerExt", "calleeExt", "deadlineUtc", "channelName", "pbxInstanceId", "pbxUniqueId" })
+            Assert.False(body.TryGetProperty(field, out _));
     }
 
     [Fact]

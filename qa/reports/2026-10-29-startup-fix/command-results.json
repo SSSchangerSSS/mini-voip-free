@@ -1,0 +1,59 @@
+{
+  "unit": {
+    "exitCode": 0,
+    "counts": {
+      "Control": 45,
+      "Flutter": 35,
+      "wrapper": 8
+    },
+    "evidence": "unit-rerun.log"
+  },
+  "analyze": {
+    "exitCode": 0,
+    "evidence": "analyze-clean-final.log"
+  },
+  "cleanReleaseBuild": {
+    "exitCode": 0,
+    "evidence": "android-build-clean.log"
+  },
+  "launcherRegression": {
+    "exitCode": 0,
+    "evidence": "network-launcher-regression.log"
+  },
+  "finalInstallProbe": {
+    "exitCode": 0,
+    "evidence": "final-install-probe.log"
+  },
+  "finalCallUiProbes": {
+    "exitCodes": [
+      1,
+      1,
+      1
+    ],
+    "evidence": [
+      "final-call-start-initial.log",
+      "final-call-start-rerun.log",
+      "final-call-start-confirmed.log"
+    ]
+  },
+  "finalCallHangup": {
+    "exitCode": 0,
+    "evidence": "final-call-end.log"
+  },
+  "check": {
+    "exitCode": 0,
+    "evidence": "check.log"
+  },
+  "finalShortOutage": {
+    "exitCode": 0,
+    "evidence": "final-outage/short-probe.log"
+  },
+  "finalPersistentOutage": {
+    "exitCode": 0,
+    "evidence": "final-outage/persistent-probe.log"
+  },
+  "finalApkSignature": {
+    "exitCode": 0,
+    "evidence": "apk-signature-final.txt"
+  }
+}

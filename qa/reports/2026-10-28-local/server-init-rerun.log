@@ -1,0 +1,11 @@
+PASS installed pjsip.conf
+PASS installed extensions.conf
+PASS installed http.conf
+PASS installed manager.conf
+PASS installed rtp.conf
+PASS installed modules.conf
+PASS manager.d/smi-control.conf rendered from secret (value never printed)
+WARN created EMPTY apns.p8 — push stays BLOCKED until the employer secret is provided
+WARN created EMPTY fcm-service-account.json — push stays BLOCKED until the employer secret is provided
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+PASS server init complete for domain 192.168.1.151 — next: ./smi server up

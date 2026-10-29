@@ -1,0 +1,15 @@
+{
+  "status": "FAIL",
+  "api": 35,
+  "extension": "102",
+  "observations": [
+    "System UI ANR dialog",
+    "Application login error after automatic restore",
+    "No 102 PBX contact at observation"
+  ],
+  "evidence": [
+    "api35-first-start-failure.png",
+    "api35-launch.log"
+  ],
+  "cause": "Not proven; do not infer an app or emulator root cause from the generic login error"
+}

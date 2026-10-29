@@ -1,0 +1,6 @@
+Starting: Intent { cmp=app.minivoipfree/.MainActivity }
+Status: timeout
+LaunchState: UNKNOWN (-1)
+Activity: app.minivoipfree/.MainActivity
+WaitTime: 16064
+Complete

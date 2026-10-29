@@ -1,0 +1,7 @@
+connection.id:                          netplan-ens33
+connection.uuid:                        14f59568-5076-387a-aef6-10adfcca2e26
+connection.autoconnect:                 yes
+ipv4.method:                            auto
+ipv4.addresses:                         --
+ipv4.gateway:                           --
+ipv4.dns:                               --

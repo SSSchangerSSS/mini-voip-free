@@ -1,0 +1,1 @@
+["/init","qemu=1","androidboot.hardware=redroid"] "layers" ["sha256:fd1dceef195af1c7149d8663165c4a5b88c728d4c6cb0b35f22a84d454c57b2c"]

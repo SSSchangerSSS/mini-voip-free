@@ -1,0 +1,10 @@
+{
+  "mode": "decline",
+  "status": "FAIL",
+  "incomingSeen": true,
+  "secretValuesRecorded": false,
+  "channelsCleared": false,
+  "callerIdle": true,
+  "calleeIdle": true,
+  "elapsedSeconds": 28.96
+}

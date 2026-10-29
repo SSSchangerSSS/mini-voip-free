@@ -1,0 +1,18 @@
+{
+  "tag": "native2",
+  "status": "FAIL",
+  "pid": 38192,
+  "passwordEntered": false,
+  "appDataWiped": false,
+  "anrDialogDismissed": false,
+  "bootReadySeconds": 196.48,
+  "bootAnrEvents": 2,
+  "launchProcedure": "Observed standard desktop launcher; probe did not launch/restart/dismiss dialogs",
+  "sipRegistered": true,
+  "registrationObservedSeconds": 253.4,
+  "totalAnrEvents": 5,
+  "screenReviewRequired": true,
+  "screenReviewed": true,
+  "appRenderUsable": false,
+  "note": "Host GPU compatibility warning retained; followup screenshot showed incomplete Flutter rendering. Host GPU profile rejected."
+}

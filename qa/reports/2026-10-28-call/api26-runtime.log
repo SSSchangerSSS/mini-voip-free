@@ -1,0 +1,89 @@
+--------- beginning of main
+--------- beginning of system
+10-28 14:55:10.763  1478  1478 D AndroidRuntime: >>>>>> START com.android.internal.os.ZygoteInit uid 0 <<<<<<
+10-28 14:55:12.173  1479  1479 D AndroidRuntime: >>>>>> START com.android.internal.os.ZygoteInit uid 0 <<<<<<
+10-28 14:56:39.182  2707  2707 I flutter : [IMPORTANT:flutter/shell/common/shell.cc(528)] [Action Required]: Impeller opt-out deprecated.
+10-28 14:56:39.182  2707  2707 I flutter :     The application opted out of Impeller by either using the
+10-28 14:56:39.182  2707  2707 I flutter :     `--no-enable-impeller` flag or the
+10-28 14:56:39.182  2707  2707 I flutter :     `io.flutter.embedding.android.EnableImpeller` `AndroidManifest.xml` entry.
+10-28 14:56:39.182  2707  2707 I flutter :     These options are going to go away in an upcoming Flutter release. Remove
+10-28 14:56:39.182  2707  2707 I flutter :     the explicit opt-out. If you need to opt-out, please report a bug describing
+10-28 14:56:39.182  2707  2707 I flutter :     the issue.
+10-28 14:56:39.182  2707  2707 I flutter : 
+10-28 14:56:39.182  2707  2707 I flutter :     https://github.com/flutter/flutter/issues/new?template=02_bug.yml
+10-28 14:56:39.182  2707  2707 I flutter : 
+10-28 14:56:43.763  2736  2736 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:56:44.421  2736  2736 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:56:45.802  2736  2736 D AndroidRuntime: Shutting down VM
+10-28 14:56:47.315  2758  2758 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:56:47.611  2758  2758 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 14:56:47.688  2758  2758 D AndroidRuntime: Shutting down VM
+10-28 14:56:50.559  2771  2771 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 14:56:50.870  2771  2771 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 14:56:52.161  2771  2771 D AndroidRuntime: Shutting down VM
+10-28 14:58:49.059  2810  2810 I flutter : [IMPORTANT:flutter/shell/common/shell.cc(528)] [Action Required]: Impeller opt-out deprecated.
+10-28 14:58:49.059  2810  2810 I flutter :     The application opted out of Impeller by either using the
+10-28 14:58:49.059  2810  2810 I flutter :     `--no-enable-impeller` flag or the
+10-28 14:58:49.059  2810  2810 I flutter :     `io.flutter.embedding.android.EnableImpeller` `AndroidManifest.xml` entry.
+10-28 14:58:49.059  2810  2810 I flutter :     These options are going to go away in an upcoming Flutter release. Remove
+10-28 14:58:49.059  2810  2810 I flutter :     the explicit opt-out. If you need to opt-out, please report a bug describing
+10-28 14:58:49.059  2810  2810 I flutter :     the issue.
+10-28 14:58:49.059  2810  2810 I flutter : 
+10-28 14:58:49.059  2810  2810 I flutter :     https://github.com/flutter/flutter/issues/new?template=02_bug.yml
+10-28 14:58:49.059  2810  2810 I flutter : 
+10-28 15:19:05.765  2886  2886 I flutter : [IMPORTANT:flutter/shell/common/shell.cc(528)] [Action Required]: Impeller opt-out deprecated.
+10-28 15:19:05.765  2886  2886 I flutter :     The application opted out of Impeller by either using the
+10-28 15:19:05.765  2886  2886 I flutter :     `--no-enable-impeller` flag or the
+10-28 15:19:05.765  2886  2886 I flutter :     `io.flutter.embedding.android.EnableImpeller` `AndroidManifest.xml` entry.
+10-28 15:19:05.765  2886  2886 I flutter :     These options are going to go away in an upcoming Flutter release. Remove
+10-28 15:19:05.765  2886  2886 I flutter :     the explicit opt-out. If you need to opt-out, please report a bug describing
+10-28 15:19:05.765  2886  2886 I flutter :     the issue.
+10-28 15:19:05.765  2886  2886 I flutter : 
+10-28 15:19:05.765  2886  2886 I flutter :     https://github.com/flutter/flutter/issues/new?template=02_bug.yml
+10-28 15:19:05.765  2886  2886 I flutter : 
+10-28 15:19:54.184  2920  2920 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:19:54.563  2920  2920 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 15:19:55.946  2920  2920 D AndroidRuntime: Shutting down VM
+10-28 15:19:56.929  2936  2936 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:19:57.369  2936  2936 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 15:19:57.482  2936  2936 D AndroidRuntime: Shutting down VM
+10-28 15:19:59.602  2946  2946 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:00.267  2946  2946 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 15:20:01.976  2946  2946 D AndroidRuntime: Shutting down VM
+10-28 15:20:03.032  2963  2963 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:03.324  2963  2963 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 15:20:03.349  2963  2963 D AndroidRuntime: Shutting down VM
+10-28 15:20:04.405  2973  2973 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:04.744  2973  2973 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 15:20:06.066  2973  2973 D AndroidRuntime: Shutting down VM
+10-28 15:20:07.214  2987  2987 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:07.664  2987  2987 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 15:20:07.824  2987  2987 D AndroidRuntime: Shutting down VM
+10-28 15:20:09.823  2997  2997 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:10.140  2997  2997 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 15:20:12.497  2997  2997 D AndroidRuntime: Shutting down VM
+10-28 15:20:13.354  3007  3007 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:13.669  3007  3007 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 15:20:13.720  3007  3007 D AndroidRuntime: Shutting down VM
+10-28 15:20:14.739  3017  3017 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:15.091  3017  3017 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 15:20:16.453  3017  3017 D AndroidRuntime: Shutting down VM
+10-28 15:20:17.428  3032  3032 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:17.755  3032  3032 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-28 15:20:17.822  3032  3032 D AndroidRuntime: Shutting down VM
+10-28 15:20:19.250  2886  2886 E flutter : [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Null check operator used on a null value
+10-28 15:20:19.250  2886  2886 E flutter : #0      SIPUAHelper.start (package:sip_ua/src/sip_ua_helper.dart:166)
+10-28 15:20:19.250  2886  2886 E flutter : #1      SipAdapter.start (package:smi_phone/sip/sip_adapter.dart:60)
+10-28 15:20:19.250  2886  2886 E flutter : #2      CallController._startEngine (package:smi_phone/call/call_controller.dart:213)
+10-28 15:20:19.250  2886  2886 E flutter : <asynchronous suspension>
+10-28 15:20:19.250  2886  2886 E flutter : #3      CallController.signIn (package:smi_phone/call/call_controller.dart:132)
+10-28 15:20:19.250  2886  2886 E flutter : <asynchronous suspension>
+10-28 15:20:19.250  2886  2886 E flutter : #4      _LoginPageState._submit (package:smi_phone/ui/login_page.dart:62)
+10-28 15:20:19.250  2886  2886 E flutter : <asynchronous suspension>
+10-28 15:20:19.250  2886  2886 E flutter : 
+10-28 15:20:24.234  3046  3046 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:24.825  3046  3046 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 15:20:26.423  3046  3046 D AndroidRuntime: Shutting down VM
+10-28 15:20:32.970  3061  3061 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-28 15:20:33.499  3061  3061 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-28 15:20:35.567  3061  3061 D AndroidRuntime: Shutting down VM

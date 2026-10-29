@@ -206,7 +206,7 @@
       },
       "LoginResponse": {
         "type": "object",
-        "required": ["accessToken", "idleExpiresAt", "extension", "deviceGeneration", "sipUri", "sipUsername", "wssUrl", "setupTimeoutSeconds", "serverTime"],
+        "required": ["accessToken", "idleExpiresAt", "extension", "deviceGeneration", "sipUri", "sipUsername", "sipPassword", "wssUrl", "setupTimeoutSeconds", "serverTime"],
         "properties": {
           "accessToken": { "type": "string", "description": "opaque 256-bit random token; shown once" },
           "idleExpiresAt": { "type": "string", "format": "date-time" },
@@ -214,6 +214,7 @@
           "deviceGeneration": { "type": "integer" },
           "sipUri": { "type": "string" },
           "sipUsername": { "type": "string" },
+          "sipPassword": { "type": "string", "writeOnly": false, "description": "Private SIP credential; HTTPS login only, secure-store only, never log/cache" },
           "wssUrl": { "type": "string" },
           "setupTimeoutSeconds": { "type": "integer" },
           "serverTime": { "type": "string", "format": "date-time" }

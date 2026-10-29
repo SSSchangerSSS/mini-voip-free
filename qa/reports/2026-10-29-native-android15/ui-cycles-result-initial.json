@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "cycles": [
+    {
+      "homeReturnReady": true,
+      "notificationsOpenedAndBack": true,
+      "procedureSeconds": 3.38
+    },
+    {
+      "homeReturnReady": true,
+      "notificationsOpenedAndBack": true,
+      "procedureSeconds": 3.4
+    },
+    {
+      "homeReturnReady": true,
+      "notificationsOpenedAndBack": true,
+      "procedureSeconds": 3.5
+    }
+  ],
+  "anrDialogsDismissed": false,
+  "anrOrCrashEvents": 0
+}

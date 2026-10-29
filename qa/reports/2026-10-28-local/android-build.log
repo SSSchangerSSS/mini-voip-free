@@ -1,0 +1,110 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
++ args 2.7.0
++ async 2.13.1
++ bloc 9.2.1
++ boolean_selector 2.1.2
+* characters 1.4.1 (was 1.4.1) (from direct dependency to transitive dependency)
++ clock 1.1.3
++ code_assets 2.1.0
+* collection 1.19.1 (was 1.19.1) (from direct dependency to transitive dependency)
++ crypto 3.0.8
++ dart_webrtc 1.8.2
++ fake_async 1.3.3
++ ffi 2.2.0
++ fixnum 1.1.1
++ flutter 0.0.0 from sdk flutter
++ flutter_lints 6.0.0
++ flutter_test 0.0.0 from sdk flutter
++ flutter_webrtc 1.6.3
++ hooks 2.2.0
++ http 1.6.0
++ http_parser 4.1.2
++ intl 0.20.3
++ jni 1.1.0
++ jni_flutter 1.0.4+1
++ jni_util 1.0.0
++ leak_tracker 11.0.2
++ leak_tracker_flutter_testing 3.0.10
++ leak_tracker_testing 3.0.2
++ lints 6.1.0
++ lists 1.0.1
++ logger 2.8.0
++ logging 1.3.0
++ matcher 0.12.20
+* material_color_utilities 0.13.0 (was 0.13.0) (from direct dependency to transitive dependency) (0.13.1 available)
+* meta 1.19.0 (was 1.18.3) (from direct dependency to transitive dependency)
++ objective_c 9.6.2
++ package_config 3.0.0
++ path 1.9.1
++ path_provider 2.1.6
++ path_provider_android 2.3.1
++ path_provider_foundation 2.6.0
++ path_provider_linux 2.2.2
++ path_provider_platform_interface 2.1.3
++ path_provider_windows 2.3.0
++ platform 3.2.0
++ plugin_platform_interface 2.1.8
++ pub_semver 2.2.1
++ random_string 2.3.1
++ record_use 1.1.1
++ sdp_transform 0.3.2 (0.4.0 available)
++ sip_ua 1.1.0
++ sky_engine 0.0.0 from sdk flutter
++ source_span 1.10.2
++ stack_trace 1.12.2
++ stream_channel 2.1.4
++ string_scanner 1.4.1
++ synchronized 3.5.0
++ term_glyph 1.2.2
++ test_api 0.7.12 (0.7.15 available)
++ text 0.2.0 (1.0.0 available)
++ typed_data 1.4.0
++ uuid 4.6.0
+* vector_math 2.4.4 (was 2.4.0) (from direct dependency to transitive dependency)
++ vm_service 15.4.0
++ web 1.1.2
++ webrtc_interface 1.5.1
++ xdg_directories 1.1.0
++ yaml 3.1.4
+Changed 67 dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+[1/1] Android SDK
+  ├─ [1/6] android-arm-profile/linux-x64                           951ms
+  ├─ [2/6] android-arm-release/linux-x64                           820ms
+  ├─ [3/6] android-arm64-profile/linux-x64                         623ms
+  ├─ [4/6] android-arm64-release/linux-x64                       1,679ms
+  ├─ [5/6] android-x64-profile/linux-x64                           720ms
+  └─ [6/6] android-x64-release/linux-x64                           658ms
+Running Gradle task 'assembleRelease'...                        
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':gradle:compileKotlin'.
+> Could not resolve all files for configuration ':gradle:compileClasspath'.
+   > Could not find androidx.annotation:annotation-jvm:1.9.1.
+     Searched in the following locations:
+       - https://dl.google.com/dl/android/maven2/androidx/annotation/annotation-jvm/1.9.1/annotation-jvm-1.9.1.pom
+       - https://repo.maven.apache.org/maven2/androidx/annotation/annotation-jvm/1.9.1/annotation-jvm-1.9.1.pom
+     Required by:
+         project ':gradle'
+   > Could not find com.android.tools.build:gradle:8.11.1.
+     Searched in the following locations:
+       - https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/8.11.1/gradle-8.11.1.pom
+       - https://repo.maven.apache.org/maven2/com/android/tools/build/gradle/8.11.1/gradle-8.11.1.pom
+     Required by:
+         project ':gradle'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2m 12s
+Running Gradle task 'assembleRelease'...                          132.8s
+Gradle task assembleRelease failed with exit code 1

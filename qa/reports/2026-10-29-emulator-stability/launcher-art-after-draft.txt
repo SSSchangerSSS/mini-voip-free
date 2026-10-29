@@ -1,0 +1,4 @@
+[com.android.launcher3]
+  path: /system_ext/priv-app/Launcher3QuickStep/Launcher3QuickStep.apk
+    x86_64: [status=verify] [reason=prebuilt] [primary-abi]
+      [location is /system_ext/priv-app/Launcher3QuickStep/oat/x86_64/Launcher3QuickStep.odex]

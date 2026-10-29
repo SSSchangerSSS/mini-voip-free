@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "Stored account restored after explicitly reopening app, without entering credentials; real login HTTP200 and PBX contact 102",
+  "firstBootRestore": "FAIL",
+  "extension": "102",
+  "evidence": [
+    "both-contacts.txt",
+    "api35-reopened-ready.png"
+  ]
+}

@@ -1,0 +1,24 @@
+Couldn't find manager DBDel in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBDel in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBDelTree in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBDelTree in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+PBX UUID: d0bdcbad-7ef2-48a3-8ff5-f4e1fb0666c2
+Cannot update type 'declined_message_types' in module 'stasis' because it has no existing documentation! If this module was recently built, run 'xmldoc reload' to refresh documentation, then load the module again
+[0mUnable to open specified master config file '/etc/asterisk/asterisk.conf', using built-in defaults
+Unable to create socket file directory.  Remote consoles will not be able to connect! (No such device or address)
+Unable to chown run directory to 1001 (asterisk)
+Unable to open pid file '/var/run/asterisk/asterisk.pid': No such file or directory
+Stasis initialization failed.  ASTERISK EXITING!
+[0mCouldn't find manager DBGet in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBGet in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBGetTree in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBGetTree in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBPut in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBPut in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBDel in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBDel in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBDelTree in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+Couldn't find manager DBDelTree in XML documentation If this module was recently built, run 'xmldoc reload' to refresh documentation
+PBX UUID: d0bdcbad-7ef2-48a3-8ff5-f4e1fb0666c2
+Cannot update type 'declined_message_types' in module 'stasis' because it has no existing documentation! If this module was recently built, run 'xmldoc reload' to refresh documentation, then load the module again
+[0m

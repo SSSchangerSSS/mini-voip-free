@@ -173,7 +173,7 @@ public sealed class CallStore
         var call = Read(c, callId);
         if (call is null || call.CalleeExt != calleeExt) return (null, "CALL_NOT_FOUND");
         if (call.State == CallState.Connected) return (call, "INVALID_TRANSITION"); // use end
-        if (call.State == CallState.Ended) return (call, null);
+        if (call.State == CallState.Ended) return (call, "CALL_ENDED");
         EndTx(c, call, EndReason.Declined, nowUtc, false);
         tx.Commit();
         return (Read(c, callId), null);
@@ -186,7 +186,7 @@ public sealed class CallStore
         using var tx = c.BeginTransaction(System.Data.IsolationLevel.Serializable);
         var call = Read(c, callId);
         if (call is null || !call.IsParty(requesterExt)) return (null, "CALL_NOT_FOUND");
-        if (call.State == CallState.Ended) return (call, null);
+        if (call.State == CallState.Ended) return (call, "CALL_ENDED");
         var updated = Exec(c, "UPDATE Calls SET EndRequestedAtUtc=@t WHERE CallId=@id AND EndRequestedAtUtc IS NULL",
             ("@t", nowUtc.ToString("o")), ("@id", callId));
         EndTx(c, call, reason, nowUtc, callerCancelled: reason == EndReason.CallerCancelled && call.CallerExt == requesterExt);

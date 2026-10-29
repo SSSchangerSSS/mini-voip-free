@@ -1,0 +1,10 @@
+{
+  "sha256": "565ecc09c5f9f02c91aa52277bc9df47900aa5a9d9c75fdb63fdf37d0df0d335",
+  "restoreFeatureMarkersPresent": {
+    "arm64-v8a": true,
+    "armeabi-v7a": true,
+    "x86_64": true
+  },
+  "status": "PASS",
+  "scope": "Restoration diagnostics and Persian progress/retry UI only; not a proof every source branch survives AOT tree shaking. Initial check expected an unreachable disposal diagnostic and failed; preserved separately."
+}

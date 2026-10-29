@@ -1,0 +1,1 @@
+pids=4096 memory=2684354560 nanoCpu=2000000000 privileged=true ports={"5555/tcp":[{"HostIp":"127.0.0.1","HostPort":"5565"}]}

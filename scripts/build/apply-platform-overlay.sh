@@ -24,7 +24,6 @@ NO_PUSH=0
 [ "${1:-}" = "--android-no-push" ] && NO_PUSH=1
 
 [ -d "$ROOT/apps/mobile/android" ] || { echo "ERROR apps/mobile/android missing — run flutter create first (see platform-overlay/README.md)"; exit 2; }
-[ -d "$ROOT/apps/mobile/ios" ] || { echo "ERROR apps/mobile/ios missing — run flutter create first"; exit 2; }
 
 echo "Applying Android overlay… (no-push mode: $NO_PUSH)"
 mkdir -p "$ANDROID_APP/src/main/kotlin/app/minivoipfree"
@@ -49,11 +48,15 @@ else
   cp -v "$OVERLAY"/android/app/src/main/kotlin/app/minivoipfree/*.kt "$ANDROID_APP/src/main/kotlin/app/minivoipfree/"
 fi
 
-echo "Applying iOS overlay…"
-cp -v "$OVERLAY/ios/Runner/AppDelegate.swift" "$IOS_RUNNER/AppDelegate.swift"
-cp -v "$OVERLAY/ios/Runner/SmiCallProvider.swift" "$IOS_RUNNER/SmiCallProvider.swift"
-cp -v "$OVERLAY/ios/Runner/Info.plist" "$IOS_RUNNER/Info.plist"
-cp -v "$OVERLAY/ios/Runner/Runner.entitlements" "$IOS_RUNNER/Runner.entitlements"
+if [ -d "$IOS_RUNNER" ]; then
+  echo "Applying iOS overlay…"
+  cp -v "$OVERLAY/ios/Runner/AppDelegate.swift" "$IOS_RUNNER/AppDelegate.swift"
+  cp -v "$OVERLAY/ios/Runner/SmiCallProvider.swift" "$IOS_RUNNER/SmiCallProvider.swift"
+  cp -v "$OVERLAY/ios/Runner/Info.plist" "$IOS_RUNNER/Info.plist"
+  cp -v "$OVERLAY/ios/Runner/Runner.entitlements" "$IOS_RUNNER/Runner.entitlements"
+else
+  echo "NOT_RUN iOS overlay: iOS platform has not been generated (Android build is independent)"
+fi
 
 echo "Overlay applied. Next: flutter pub get && flutter analyze"
 echo "NOTE: android/app/build.gradle.kts needs google-services applied ONLY when"

@@ -1,0 +1,2 @@
+Performing Streamed Install
+adb: failed to install artifacts/android/mini-voip-free-192.168.1.151-local.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Package app.minivoipfree signatures do not match the previously installed version; ignoring!]

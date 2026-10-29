@@ -1,0 +1,10 @@
+
+                                             ...........Receive......... .........Transmit..........
+ BridgeId ChannelId ........ UpTime.. Codec.   Count    Lost Pct  Jitter   Count    Lost Pct  Jitter RTT....
+ ===========================================================================================================
+
+ PJSIP/101-00000006 not valid
+ PJSIP/102-00000007 not valid
+
+Objects found: 2
+

@@ -14,6 +14,7 @@ dependencies:
   sip_ua: 1.1.0
   flutter_webrtc: 1.6.3
   http: 1.6.0
+  logger: 2.8.0
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,10 @@
+[
+  {
+    "label": "both scrcpy mirrors open, app idle",
+    "hostCpuPercent": 107.91
+  },
+  {
+    "label": "API35 scrcpy closed, API26 unchanged",
+    "hostCpuPercent": 34.08
+  }
+]

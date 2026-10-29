@@ -5,6 +5,10 @@ analyzer:
     # keep the build honest: no silent ignores
     unused_import: warning
     dead_code: warning
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
 
 linter:
   rules:

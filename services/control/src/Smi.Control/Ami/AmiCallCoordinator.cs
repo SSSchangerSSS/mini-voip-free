@@ -89,7 +89,7 @@ public sealed class AmiCallCoordinator : BackgroundService
             {
                 if (call.ChannelName is not null)
                 {
-                    var probe = await _ami.GetVar(call.ChannelName, "__SMI_CALL_ID", ct);
+                    var probe = await _ami.GetVar(call.ChannelName, "SMI_CALL_ID", ct);
                     if (probe is null) _calls.EndWithReason(call.CallId, EndReason.ServerRestart, now);
                     else if (now > call.DeadlineUtc) _calls.EndWithReason(call.CallId, EndReason.Expired, now);
                 }
@@ -150,6 +150,14 @@ public sealed class AmiCallCoordinator : BackgroundService
             case AdmissionResult.Created:
                 var call = outcome.Call!;
                 await WriteCallVarsAsync(call);
+                // Foreground wake hint over the already registered SIP socket.
+                // No credentials/call state in the hint; callee still validates
+                // /calls/current and must pass the existing /ready gate.
+                await _ami.SendAction(new Dictionary<string, string>
+                {
+                    ["Action"] = "MessageSend", ["Destination"] = $"pjsip:{call.CalleeExt}",
+                    ["From"] = "sip:smi@localhost", ["Body"] = "smi-call",
+                }, CancellationToken.None);
                 var sent = await _push.SendIncomingCallAsync(call);
                 if (sent) _calls.MarkPushSent(call.CallId, DateTime.UtcNow);
                 _log.LogInformation("call {CallId} {Caller}->{Callee} admitted, push={Push}", call.CallId, call.CallerExt, call.CalleeExt, sent);

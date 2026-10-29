@@ -1,0 +1,7 @@
+docker.1ms.run/redroid/redroid@sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3: Pulling from redroid/redroid
+7719e5442aee: Pulling fs layer
+7719e5442aee: Download complete
+7719e5442aee: Pull complete
+Digest: sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3
+Status: Downloaded newer image for docker.1ms.run/redroid/redroid@sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3
+docker.1ms.run/redroid/redroid@sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3

@@ -1,0 +1,4 @@
+EXTENSION_CREATED 198
+CONFIG_RENDERED /etc/asterisk/pjsip/accounts.conf (9 blocks)
+PJSIP_RELOAD_PENDING (AMI not connected; will be retried when AMI reconnects)
+Module 'res_pjsip.so' reloaded successfully.

@@ -1,0 +1,8 @@
+
+Transport:  <TransportId........>  <Type>  <cos>  <tos>  <BindAddress....................>
+==========================================================================================
+
+Transport:  transport-loopback-udp     udp      0      0  127.0.0.1:5060
+
+Objects found: 1
+

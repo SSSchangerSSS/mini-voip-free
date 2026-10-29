@@ -1,0 +1,14 @@
+Applying Android overlay… (no-push mode: 1)
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/FlutterBridge.kt' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/src/main/kotlin/app/minivoipfree/FlutterBridge.kt'
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/MainActivity.kt' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/src/main/kotlin/app/minivoipfree/MainActivity.kt'
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiCallStore.kt' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiCallStore.kt'
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiTelecomCallService.kt' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiTelecomCallService.kt'
+manifest written with FCM receiver stripped: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/src/main/AndroidManifest.xml
+Applying iOS overlay…
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/ios/Runner/AppDelegate.swift' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/ios/Runner/AppDelegate.swift'
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/ios/Runner/SmiCallProvider.swift' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/ios/Runner/SmiCallProvider.swift'
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/ios/Runner/Info.plist' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/ios/Runner/Info.plist'
+'/home/changer/Desktop/flash/mini-voip-free/apps/mobile/platform-overlay/ios/Runner/Runner.entitlements' -> '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/ios/Runner/Runner.entitlements'
+Overlay applied. Next: flutter pub get && flutter analyze
+NOTE: android/app/build.gradle.kts needs google-services applied ONLY when
+google-services.json exists (employer input B3) — see PREFLIGHT.md.

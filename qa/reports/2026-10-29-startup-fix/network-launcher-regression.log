@@ -1,0 +1,4 @@
+QA_NETWORK missing IPv4 default route; reconnecting emulator Wi-Fi once
+QA_NETWORK IPv4 default route ready
+Starting: Intent { cmp=app.minivoipfree/.MainActivity }
+Display already running for emulator-5556

@@ -1,0 +1,30 @@
+2026-10-28T10:22:48Z dotnet test (Control: state machine, slots, auth endpoints, crypto, normalization)
+
+Welcome to .NET 10.0!
+---------------------
+SDK Version: 10.0.403
+
+----------------
+Installed an ASP.NET Core HTTPS development certificate.
+To trust the certificate, run 'dotnet dev-certs https --trust'
+Learn about HTTPS: https://aka.ms/dotnet-https
+
+----------------
+Write your first app: https://aka.ms/dotnet-hello-world
+Find out what's new: https://aka.ms/dotnet-whats-new
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+  Determining projects to restore...
+  Restored /home/changer/Desktop/flash/mini-voip-free/services/control/src/Smi.Control/Smi.Control.csproj (in 14.55 sec).
+  Restored /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/Smi.Control.Tests.csproj (in 14.7 sec).
+  Smi.Control -> /home/changer/Desktop/flash/mini-voip-free/services/control/src/Smi.Control/bin/Release/net10.0/Smi.Control.dll
+  Smi.Control.Tests -> /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll
+Test run for /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    42, Skipped:     0, Total:    42, Duration: 1 s - Smi.Control.Tests.dll (net10.0)
+WARN flutter SDK not found — mobile unit tests NOT_RUN here (CI runs them)
+2026-10-28T10:23:08Z contract validation
+PASS contracts validated (openapi.json, push.schema.json, native-events.schema.json)

@@ -1,0 +1,7 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Analyzing mobile...                                             
+
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/call/call_controller.dart:108:80 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/call/call_controller.dart:127:40 • curly_braces_in_flow_control_structures
+
+2 issues found. (ran in 4.6s)

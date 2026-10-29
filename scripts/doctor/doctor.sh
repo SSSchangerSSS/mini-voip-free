@@ -46,7 +46,7 @@ else
   blocked "deploy/secrets/ami missing — control will run but calls fail closed"
 fi
 for s in apns.p8 fcm-service-account.json; do
-  [ -f "$ROOT/deploy/secrets/$s" ] && pass "deploy/secrets/$s present" || blocked "deploy/secrets/$s missing — push BLOCKED (PREFLIGHT B2/B3)"
+  [ -s "$ROOT/deploy/secrets/$s" ] && pass "deploy/secrets/$s present (provider validation still required)" || blocked "deploy/secrets/$s missing or empty — push BLOCKED (PREFLIGHT B2/B3)"
 done
 
 # site config

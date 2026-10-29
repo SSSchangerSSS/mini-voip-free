@@ -1,0 +1,51 @@
+# Local LAN profile: internal CA; clients must trust its root certificate.
+# Keep OS certificate verification enabled. This is not a public deployment.
+#
+# mini-voip-free — Caddyfile (spec 2.1: Caddy is the TLS edge only, zero business logic)
+#
+# Exposure contract (spec 2.3): ONLY these routes reach the internet.
+#   /api/v1/*  /health/*   → Control API (127.0.0.1:5080, HTTP)
+#   /ws  (exact path)      → Asterisk built-in HTTP/WS (127.0.0.1:8088)
+# Everything else answers 404. AMI (5038) and SIP 5060 are never proxied.
+#
+# The WebSocket upgrade and the `sip` subprotocol must pass through — verified live in P2.
+# Certificates are issued by Caddy's local CA. Install its public root on test clients.
+
+{
+	servers {
+		protocols h1 h2
+	}
+}
+
+{$SMI_DOMAIN}:443 {
+	tls internal
+	encode zstd gzip
+
+	# security headers; native apps do not need open CORS (spec 11.1)
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		-Server
+	}
+
+	@api path /api/v1/* /health/* /health
+	handle @api {
+		reverse_proxy 127.0.0.1:5080
+	}
+
+	@ws path /ws
+	handle @ws {
+		reverse_proxy 127.0.0.1:8088
+	}
+
+	handle {
+		respond "Not Found" 404
+	}
+}
+
+http://{$SMI_DOMAIN:localhost}:80 {
+	# LAN HTTP serves only a redirect; credentials and API traffic require HTTPS.
+	redir https://{host}{uri} permanent
+}

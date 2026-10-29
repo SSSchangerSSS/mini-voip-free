@@ -1,0 +1,7 @@
+ Container smi-qa-android15  Running
+Installed APK matches; preserving the running app and account
+Starting: Intent { cmp=app.minivoipfree/.MainActivity }
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+QA Android15 boot/API/install/launch completed; account/UI/call validation is separate
+/home/changer/.local/share/mini-voip-free/scrcpy-linux-x86_64-v5.0.1/scrcpy-server: 1 file pushed, 0 skipped. 300.3 MB/s (733930 bytes in 0.002s)
+[server] INFO: Device: [redroid] redroid redroid15_x86_64_only (Android 15)

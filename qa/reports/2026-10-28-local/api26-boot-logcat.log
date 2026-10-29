@@ -1,0 +1,168 @@
+--------- beginning of main
+10-28 14:05:29.853  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Nassau.ogg; assuming invalid
+10-28 14:05:29.858  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/NewPlayer.ogg; assuming invalid
+10-28 14:05:29.863  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/No_Limits.ogg; assuming invalid
+10-28 14:05:29.867  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Noises1.ogg; assuming invalid
+10-28 14:05:29.871  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Noises2.ogg; assuming invalid
+10-28 14:05:29.874  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Noises3.ogg; assuming invalid
+10-28 14:05:29.880  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/OrganDub.ogg; assuming invalid
+10-28 14:05:29.884  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Orion.ogg; assuming invalid
+10-28 14:05:29.895  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/PERSEUS.ogg; assuming invalid
+10-28 14:05:29.917  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Paradise_Island.ogg; assuming invalid
+10-28 14:05:29.932  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Pegasus.ogg; assuming invalid
+10-28 14:05:29.936  1503  1503 E MetadataRetrieverClient: failed to extract an album art
+10-28 14:05:29.944  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Perseus.ogg; assuming invalid
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: Error inserting title_key=G1KM1QM parent=71 is_music=false title=Perseus _size=236343 duration=10170 bucket_id=293500348 is_alarm=false album_artist=null media_type=2 storage_id=0 is_notification=false track=0 bucket_display_name=ringtones _data=/system/media/audio/ringtones/Perseus.ogg is_drm=false _display_name=Perseus.ogg composer=null format=47362 is_ringtone=true artist_id=1 is_podcast=false date_added=1793183729 date_modified=1533322091 mime_type=application/ogg album_id=4
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.nativeExecuteForLastInsertedRowId(Native Method)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.executeForLastInsertedRowId(SQLiteConnection.java:782)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteSession.executeForLastInsertedRowId(SQLiteSession.java:788)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteStatement.executeInsert(SQLiteStatement.java:86)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.insertWithOnConflict(SQLiteDatabase.java:1474)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.insert(SQLiteDatabase.java:1343)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.insertFile(MediaProvider.java:2261)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.insertInternal(MediaProvider.java:2494)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.bulkInsert(MediaProvider.java:1867)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.content.ContentProvider$Transport.bulkInsert(ContentProvider.java:282)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.content.ContentProviderClient.bulkInsert(ContentProviderClient.java:290)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.media.MediaInserter.flush(MediaInserter.java:91)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.media.MediaInserter.flushAll(MediaInserter.java:74)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.media.MediaScanner.scanDirectories(MediaScanner.java:1356)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.scan(MediaScannerService.java:82)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.-wrap1(Unknown Source:0)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService$ServiceHandler.handleMessage(MediaScannerService.java:252)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.os.Handler.dispatchMessage(Handler.java:105)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at android.os.Looper.loop(Looper.java:164)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.run(MediaScannerService.java:161)
+10-28 14:05:29.946  2358  2742 E SQLiteDatabase: 	at java.lang.Thread.run(Thread.java:764)
+10-28 14:05:29.957  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Playa.ogg; assuming invalid
+10-28 14:05:29.962  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Pyxis.ogg; assuming invalid
+10-28 14:05:29.966  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Rasalas.ogg; assuming invalid
+10-28 14:05:29.969  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Revelation.ogg; assuming invalid
+10-28 14:05:29.973  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Rigel.ogg; assuming invalid
+10-28 14:05:29.977  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Ring_Classic_02.ogg; assuming invalid
+10-28 14:05:29.981  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Ring_Digital_02.ogg; assuming invalid
+10-28 14:05:29.985  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Ring_Synth_02.ogg; assuming invalid
+10-28 14:05:29.989  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Ring_Synth_04.ogg; assuming invalid
+10-28 14:05:29.992  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Road_Trip.ogg; assuming invalid
+10-28 14:05:29.996  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/RomancingTheTone.ogg; assuming invalid
+10-28 14:05:29.998  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Safari.ogg; assuming invalid
+10-28 14:05:30.002  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Savannah.ogg; assuming invalid
+10-28 14:05:30.007  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Scarabaeus.ogg; assuming invalid
+10-28 14:05:30.013  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Sceptrum.ogg; assuming invalid
+10-28 14:05:30.016  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Seville.ogg; assuming invalid
+10-28 14:05:30.019  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Shes_All_That.ogg; assuming invalid
+10-28 14:05:30.027  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/SilkyWay.ogg; assuming invalid
+10-28 14:05:30.031  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/SitarVsSitar.ogg; assuming invalid
+10-28 14:05:30.034  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Solarium.ogg; assuming invalid
+10-28 14:05:30.037  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/SpringyJalopy.ogg; assuming invalid
+10-28 14:05:30.040  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Steppin_Out.ogg; assuming invalid
+10-28 14:05:30.052  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Terminated.ogg; assuming invalid
+10-28 14:05:30.061  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Testudo.ogg; assuming invalid
+10-28 14:05:30.066  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Themos.ogg; assuming invalid
+10-28 14:05:30.069  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Third_Eye.ogg; assuming invalid
+10-28 14:05:30.072  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Thunderfoot.ogg; assuming invalid
+10-28 14:05:30.076  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/TwirlAway.ogg; assuming invalid
+10-28 14:05:30.078  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/URSAMINOR.ogg; assuming invalid
+10-28 14:05:30.082  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/UrsaMinor.ogg; assuming invalid
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: Error inserting title_key=QKM)A9CEK parent=71 is_music=false title=UrsaMinor _size=185005 duration=12800 bucket_id=293500348 is_alarm=false album_artist=null media_type=2 storage_id=0 is_notification=false track=0 bucket_display_name=ringtones _data=/system/media/audio/ringtones/UrsaMinor.ogg is_drm=false _display_name=UrsaMinor.ogg composer=null format=47362 is_ringtone=true artist_id=1 is_podcast=false date_added=1793183730 date_modified=1533322091 mime_type=application/ogg album_id=4
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.nativeExecuteForLastInsertedRowId(Native Method)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.executeForLastInsertedRowId(SQLiteConnection.java:782)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteSession.executeForLastInsertedRowId(SQLiteSession.java:788)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteStatement.executeInsert(SQLiteStatement.java:86)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.insertWithOnConflict(SQLiteDatabase.java:1474)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.insert(SQLiteDatabase.java:1343)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.insertFile(MediaProvider.java:2261)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.insertInternal(MediaProvider.java:2494)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.bulkInsert(MediaProvider.java:1867)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.content.ContentProvider$Transport.bulkInsert(ContentProvider.java:282)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.content.ContentProviderClient.bulkInsert(ContentProviderClient.java:290)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.media.MediaInserter.flush(MediaInserter.java:91)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.media.MediaInserter.flushAll(MediaInserter.java:74)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.media.MediaScanner.scanDirectories(MediaScanner.java:1356)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.scan(MediaScannerService.java:82)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.-wrap1(Unknown Source:0)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService$ServiceHandler.handleMessage(MediaScannerService.java:252)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.os.Handler.dispatchMessage(Handler.java:105)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at android.os.Looper.loop(Looper.java:164)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.run(MediaScannerService.java:161)
+10-28 14:05:30.083  2358  2742 E SQLiteDatabase: 	at java.lang.Thread.run(Thread.java:764)
+10-28 14:05:30.086  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/VeryAlarmed.ogg; assuming invalid
+10-28 14:05:30.090  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Vespa.ogg; assuming invalid
+10-28 14:05:30.093  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/World.ogg; assuming invalid
+10-28 14:05:30.098  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/Zeta.ogg; assuming invalid
+10-28 14:05:30.100  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ringtones/hydra.ogg; assuming invalid
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: Error inserting title_key=7Y/K) parent=71 is_music=false title=Hydra _size=22962 duration=5000 bucket_id=293500348 is_alarm=false album_artist=null media_type=2 storage_id=0 is_notification=false track=2 bucket_display_name=ringtones _data=/system/media/audio/ringtones/hydra.ogg is_drm=false _display_name=hydra.ogg composer=null format=47362 is_ringtone=true artist_id=2 is_podcast=false date_added=1793183730 date_modified=1533322091 mime_type=application/ogg album_id=4
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.nativeExecuteForLastInsertedRowId(Native Method)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.executeForLastInsertedRowId(SQLiteConnection.java:782)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteSession.executeForLastInsertedRowId(SQLiteSession.java:788)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteStatement.executeInsert(SQLiteStatement.java:86)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.insertWithOnConflict(SQLiteDatabase.java:1474)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.insert(SQLiteDatabase.java:1343)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.insertFile(MediaProvider.java:2261)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.insertInternal(MediaProvider.java:2494)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaProvider.bulkInsert(MediaProvider.java:1867)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.content.ContentProvider$Transport.bulkInsert(ContentProvider.java:282)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.content.ContentProviderClient.bulkInsert(ContentProviderClient.java:290)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.media.MediaInserter.flush(MediaInserter.java:91)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.media.MediaInserter.flushAll(MediaInserter.java:74)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.media.MediaScanner.scanDirectories(MediaScanner.java:1356)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.scan(MediaScannerService.java:82)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.-wrap1(Unknown Source:0)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService$ServiceHandler.handleMessage(MediaScannerService.java:252)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.os.Handler.dispatchMessage(Handler.java:105)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at android.os.Looper.loop(Looper.java:164)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at com.android.providers.media.MediaScannerService.run(MediaScannerService.java:161)
+10-28 14:05:30.102  2358  2742 E SQLiteDatabase: 	at java.lang.Thread.run(Thread.java:764)
+10-28 14:05:30.116  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/Dock.ogg; assuming invalid
+10-28 14:05:30.122  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/Effect_Tick.ogg; assuming invalid
+10-28 14:05:30.129  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/KeypressDelete.ogg; assuming invalid
+10-28 14:05:30.140  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/KeypressInvalid.ogg; assuming invalid
+10-28 14:05:30.146  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/KeypressReturn.ogg; assuming invalid
+10-28 14:05:30.151  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/KeypressSpacebar.ogg; assuming invalid
+10-28 14:05:30.156  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/KeypressStandard.ogg; assuming invalid
+10-28 14:05:30.161  1503  2749 E MetadataRetrieverClient: failed to extract an album art
+10-28 14:05:30.162  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/Lock.ogg; assuming invalid
+10-28 14:05:30.172  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/LowBattery.ogg; assuming invalid
+10-28 14:05:30.176  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/Trusted.ogg; assuming invalid
+10-28 14:05:30.180  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/Undock.ogg; assuming invalid
+10-28 14:05:30.183  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/Unlock.ogg; assuming invalid
+10-28 14:05:30.189  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/VideoRecord.ogg; assuming invalid
+10-28 14:05:30.193  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/VideoStop.ogg; assuming invalid
+10-28 14:05:30.198  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/WirelessChargingStarted.ogg; assuming invalid
+10-28 14:05:30.202  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/camera_click.ogg; assuming invalid
+10-28 14:05:30.206  2358  2742 W MediaProvider: Missing volume for /system/media/audio/ui/camera_focus.ogg; assuming invalid
+10-28 14:05:30.218  2358  2742 V MediaProvider: pruneThumbnails 
+10-28 14:05:30.226  2358  2742 V MediaProvider: /pruneDeadThumbnailFiles... 
+10-28 14:05:30.297  2358  2742 V MediaProvider: pruneThumbnails 
+10-28 14:05:30.300  2358  2742 V MediaProvider: /pruneDeadThumbnailFiles... 
+10-28 14:05:33.162  1654  1756 D SntpClient: request time failed: java.net.SocketTimeoutException: Poll timed out
+--------- beginning of system
+10-28 14:05:38.302  1654  1654 I ActivityManager: Killing 2518:com.android.quicksearchbox/u0a52 (adj 906): empty #17
+10-28 14:05:38.304  1654  1654 I ActivityManager: Killing 2387:com.android.launcher3:wallpaper_chooser/u0a14 (adj 906): empty #18
+10-28 14:05:38.305  1401  1401 E lowmemorykiller: Error writing /proc/2518/oom_score_adj; errno=22
+10-28 14:05:38.315  1654  1654 I ActivityManager: Killing 2164:android.ext.services/u0a13 (adj 906): empty #19
+10-28 14:05:38.323  1654  1668 E memtrack: Couldn't load memtrack module
+10-28 14:05:38.328  1654  1668 W android.os.Debug: failed to get memory consumption info: -1
+10-28 14:05:38.389  1654  1668 E memtrack: Couldn't load memtrack module
+10-28 14:05:38.389  1654  1668 W android.os.Debug: failed to get memory consumption info: -1
+10-28 14:05:38.422  1654  1668 E memtrack: Couldn't load memtrack module
+10-28 14:05:38.422  1654  1668 W android.os.Debug: failed to get memory consumption info: -1
+10-28 14:05:38.454  1654  1668 E memtrack: Couldn't load memtrack module
+10-28 14:05:38.454  1654  1668 W android.os.Debug: failed to get memory consumption info: -1
+10-28 14:05:38.479  1654  1668 E memtrack: Couldn't load memtrack module
+10-28 14:05:38.479  1654  1668 W android.os.Debug: failed to get memory consumption info: -1
+10-28 14:05:38.663  1654  2772 I BackgroundDexOptService: Pinning optimized code {}
+10-28 14:05:41.277  1654  1919 D WificondControl: Scan result ready event
+10-28 14:05:44.266  2569  2632 D InitAlarmsService: Clearing and rescheduling alarms.
+10-28 14:05:44.271  1654  1668 E memtrack: Couldn't load memtrack module
+10-28 14:05:44.271  1654  1668 W android.os.Debug: failed to get memory consumption info: -1
+10-28 14:05:48.216  2778  2778 E Parcel  : Reading a NULL string not supported here.
+10-28 14:05:48.336  2778  2778 I chatty  : uid=2000(shell) service identical 11 lines
+10-28 14:05:48.337  2778  2778 E Parcel  : Reading a NULL string not supported here.
+10-28 14:05:48.351  1332  1332 E SELinux : avc:  denied  { find } for service=netd pid=2778 uid=2000 scontext=u:r:shell:s0 tcontext=u:object_r:netd_service:s0 tclass=service_manager
+10-28 14:05:48.367  2778  2778 W service : type=1400 audit(0.0:34): avc: denied { call } for scontext=u:r:shell:s0 tcontext=u:r:wificond:s0 tclass=binder permissive=0
+10-28 14:05:48.382  1332  1332 E SELinux : avc:  denied  { find } for service=android.service.gatekeeper.IGateKeeperService pid=2778 uid=2000 scontext=u:r:shell:s0 tcontext=u:object_r:gatekeeper_service:s0 tclass=service_manager
+10-28 14:05:48.392  1332  1332 E SELinux : avc:  denied  { find } for service=installd pid=2778 uid=2000 scontext=u:r:shell:s0 tcontext=u:object_r:installd_service:s0 tclass=service_manager

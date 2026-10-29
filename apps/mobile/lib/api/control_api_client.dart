@@ -10,6 +10,7 @@ import 'api_models.dart';
 /// domain at login; path/version are fixed.
 class ControlApiClient {
   final http.Client _http;
+  final Duration requestTimeout;
   String? _token;
 
   /// Set at sign-in / restore from the secure store. The domain is user input;
@@ -17,7 +18,8 @@ class ControlApiClient {
   String domain;
   Uri get baseUri => Uri.parse('https://$domain/api/v1');
 
-  ControlApiClient({required this.domain, http.Client? client})
+  ControlApiClient({required this.domain, http.Client? client,
+      this.requestTimeout = const Duration(seconds: 15)})
       : _http = client ?? http.Client();
 
   void setToken(String? token) => _token = token;
@@ -27,6 +29,7 @@ class ControlApiClient {
   Map<String, String> _headers({bool auth = true, String? idempotencyKey}) {
     final h = <String, String>{
       'Accept': 'application/json',
+      'Content-Type': 'application/json',
       'Idempotency-Key': ?idempotencyKey, // null-aware value: entry omitted when key absent
       if (auth && _token != null) 'Authorization': 'Bearer $_token',
     };
@@ -65,7 +68,7 @@ class ControlApiClient {
         'installationId': installationId,
         'platform': platform,
       }),
-    );
+    ).timeout(requestTimeout);
     if (res.statusCode != 200) throw _problem(res);
     return LoginResult.fromJson(
         jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
@@ -73,7 +76,7 @@ class ControlApiClient {
 
   Future<MeResponse> me() async {
     final res = await _http.get(baseUri.replace(path: '${baseUri.path}/me'),
-        headers: _headers());
+        headers: _headers()).timeout(requestTimeout);
     if (res.statusCode != 200) throw _problem(res);
     return MeResponse.fromJson(
         jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
@@ -92,7 +95,7 @@ class ControlApiClient {
         'token': token,
         'environment': environment,
       }),
-    );
+    ).timeout(requestTimeout);
     if (res.statusCode != 204) throw _problem(res);
   }
 
@@ -101,7 +104,7 @@ class ControlApiClient {
       path: '${baseUri.path}/calls/current',
       queryParameters: attemptId == null ? null : {'attemptId': attemptId},
     );
-    final res = await _http.get(uri, headers: _headers());
+    final res = await _http.get(uri, headers: _headers()).timeout(requestTimeout);
     if (res.statusCode != 200) throw _problem(res);
     final text = utf8.decode(res.bodyBytes);
     if (text == 'null' || text.isEmpty) return null;
@@ -114,7 +117,7 @@ class ControlApiClient {
       baseUri.replace(path: '${baseUri.path}/calls/$callId/$path'),
       headers: _headers(idempotencyKey: idempotencyKey),
       body: jsonEncode(body ?? const <String, dynamic>{}),
-    );
+    ).timeout(requestTimeout);
     if (res.statusCode == 200 || res.statusCode == 202) {
       return CallDto.fromJson(
           jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
@@ -125,7 +128,7 @@ class ControlApiClient {
   Future<void> logout() async {
     final res = await _http.delete(
         baseUri.replace(path: '${baseUri.path}/sessions/current'),
-        headers: _headers());
+        headers: _headers()).timeout(requestTimeout);
     if (res.statusCode != 204 && res.statusCode != 401) throw _problem(res);
   }
 }

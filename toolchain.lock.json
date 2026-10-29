@@ -10,13 +10,16 @@
       "dartSdk": "3.13.7",
       "channel": "stable",
       "source": "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json",
-      "verifiedAt": "2026-10-27"
+      "verifiedAt": "2026-10-27",
+      "revision": "737ba8f885dc774b53b442759999a312c9461e4e",
+      "note": "Source revision matches release metadata; mirror-only Gradle repository declarations added locally. Release APK build PASS; physical-device P0 gate remains BLOCKED."
     },
     "dotnet-sdk": {
       "version": "10.0.403",
       "lts": true,
       "source": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
-      "verifiedAt": "2026-10-27"
+      "verifiedAt": "2026-10-27",
+      "imageDigest": "sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b"
     },
     "asterisk": {
       "version": "22.11.0",
@@ -30,17 +33,128 @@
       "version": "2.11.7",
       "source": "https://github.com/caddyserver/caddy/releases/tag/v2.11.7",
       "verifiedAt": "2026-10-27",
-      "note": "Pin image digest at first deploy; record digest in release manifest."
+      "note": "Actual first local deployment digest; see server-init-lan.log.",
+      "imageDigest": "sha256:5e5286cb37d44086d651a5363f05f43a692ce4d649d88fb1bd844579f45fa9e8"
     },
-    "pub.sip_ua": { "version": "1.1.0", "source": "https://pub.dev/packages/sip_ua", "verifiedAt": "2026-10-27" },
-    "pub.flutter_webrtc": { "version": "1.6.3", "source": "https://pub.dev/packages/flutter_webrtc", "verifiedAt": "2026-10-27" },
-    "pub.http": { "version": "1.6.0", "source": "https://pub.dev/packages/http", "verifiedAt": "2026-10-27" },
-    "pub.flutter_lints": { "version": "6.0.0", "source": "https://pub.dev/packages/flutter_lints", "verifiedAt": "2026-10-27" },
-    "nuget.Microsoft.Data.Sqlite": { "version": "10.0.14", "source": "https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlite/index.json", "verifiedAt": "2026-10-27" },
-    "nuget.Microsoft.AspNetCore.Mvc.Testing": { "version": "10.0.14", "source": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.mvc.testing/index.json", "verifiedAt": "2026-10-27" },
-    "nuget.Microsoft.NET.Test.Sdk": { "version": "18.11.0", "source": "https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json", "verifiedAt": "2026-10-27" },
-    "nuget.xunit": { "version": "2.9.3", "source": "https://api.nuget.org/v3-flatcontainer/xunit/index.json", "verifiedAt": "2026-10-27" },
-    "nuget.xunit.runner.visualstudio": { "version": "4.0.1", "source": "https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/index.json", "verifiedAt": "2026-10-27" }
+    "pub.sip_ua": {
+      "version": "1.1.0",
+      "source": "https://pub.dev/packages/sip_ua",
+      "verifiedAt": "2026-10-27"
+    },
+    "pub.flutter_webrtc": {
+      "version": "1.6.3",
+      "source": "https://pub.dev/packages/flutter_webrtc",
+      "verifiedAt": "2026-10-27"
+    },
+    "pub.http": {
+      "version": "1.6.0",
+      "source": "https://pub.dev/packages/http",
+      "verifiedAt": "2026-10-27"
+    },
+    "pub.flutter_lints": {
+      "version": "6.0.0",
+      "source": "https://pub.dev/packages/flutter_lints",
+      "verifiedAt": "2026-10-27"
+    },
+    "nuget.Microsoft.Data.Sqlite": {
+      "version": "10.0.14",
+      "source": "https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlite/index.json",
+      "verifiedAt": "2026-10-27"
+    },
+    "nuget.Microsoft.AspNetCore.Mvc.Testing": {
+      "version": "10.0.14",
+      "source": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.mvc.testing/index.json",
+      "verifiedAt": "2026-10-27"
+    },
+    "nuget.Microsoft.NET.Test.Sdk": {
+      "version": "18.11.0",
+      "source": "https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json",
+      "verifiedAt": "2026-10-27"
+    },
+    "nuget.xunit": {
+      "version": "2.9.3",
+      "source": "https://api.nuget.org/v3-flatcontainer/xunit/index.json",
+      "verifiedAt": "2026-10-27"
+    },
+    "nuget.xunit.runner.visualstudio": {
+      "version": "4.0.1",
+      "source": "https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/index.json",
+      "verifiedAt": "2026-10-27"
+    },
+    "java": {
+      "version": "17.0.21+9",
+      "distribution": "Eclipse Temurin",
+      "source": "https://mirrors.tuna.tsinghua.edu.cn/Adoptium/17/jdk/x64/linux/OpenJDK17U-jdk_x64_linux_hotspot_17.0.21_9.tar.gz",
+      "sha256": "8b9b611d917e3dfd8419d3566b5949226f69b052fed7e109c1368add1dfe8711",
+      "note": "Downloaded archive hash; independent publisher checksum lookup returned HTTP 403. Java execution verified; Android build result is recorded separately."
+    },
+    "gradle": {
+      "version": "9.3.1",
+      "source": "https://mirrors.cloud.tencent.com/gradle/gradle-9.3.1-bin.zip",
+      "sha256": "b266d5ff6b90eada6dc3b20cb090e3731302e553a27c5d3e4df1f0d76beaff06",
+      "checksumSource": "https://services.gradle.org/distributions/gradle-9.3.1-bin.zip.sha256"
+    },
+    "android-gradle-plugin": {
+      "version": "9.1.0",
+      "source": "Flutter 3.47.8 generated settings.gradle.kts",
+      "status": "Android universal Release build PASS on local Linux; physical-device validation pending"
+    },
+    "kotlin": {
+      "version": "2.4.0",
+      "source": "Flutter 3.47.8 generated settings.gradle.kts",
+      "status": "Android universal Release build PASS on local Linux; physical-device validation pending"
+    },
+    "android-sdk": {
+      "compileSdk": 36,
+      "targetSdk": 36,
+      "minSdk": 26,
+      "buildTools": "36.0.0",
+      "ndk": "28.2.13676358",
+      "note": "API 26/35 emulator images only; no API 27–34 images requested.",
+      "buildToolsArchiveSha1": "b0b6376977657e8ad9b969bacf4093601da2c6fb",
+      "additionalCompilePlatforms": [
+        35
+      ],
+      "cmake": "3.22.1",
+      "platform35ArchiveSha1": "0bb560a90a7a2cbd0dd8348224d518b638fe7949"
+    },
+    "android-emulator": {
+      "version": "37.3.5",
+      "buildId": "16632760",
+      "source": "https://mirrors.cloud.tencent.com/AndroidSDK/emulator-linux_x64-16632760.zip",
+      "sha1": "a7e7c486f392cbf1a7502441b079b3f35493f134"
+    },
+    "debian-build-base": {
+      "image": "debian:12-slim",
+      "digest": "sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3",
+      "evidence": "qa/reports/2026-10-28-local/server-up-resume.log"
+    },
+    "dotnet-runtime": {
+      "version": "10.0.14",
+      "imageDigest": "sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee"
+    },
+    "pub.logger": {
+      "version": "2.8.0",
+      "note": "Existing locked transitive package made direct to suppress SIP credential/configuration traces; no version change."
+    },
+    "qa.scrcpy": {
+      "version": "5.0.1",
+      "source": "https://github.com/Genymobile/scrcpy/releases/tag/v5.0.1",
+      "sha256": "9f969d30cc574816077edecda65719c1c70b0aee1df1ba5fa00779ac07b8fd6e",
+      "verifiedAt": "2026-10-28",
+      "note": "Host-only ADB display helper; publisher asset digest matched; decision 0006. Not an app/runtime dependency."
+    },
+    "qa.redroid-api35": {
+      "version": "15.0.0_64only",
+      "tagAtLookup": "15.0.0_64only-latest",
+      "platform": "linux/amd64",
+      "imageDigest": "sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3",
+      "source": "https://github.com/remote-android/redroid-doc",
+      "registryManifest": "registry-1.docker.io/v2/redroid/redroid/manifests/15.0.0_64only-latest",
+      "downloadMirror": "docker.1ms.run/redroid/redroid",
+      "decision": "docs/decisions/0009-native-android15-qa-container.md",
+      "status": "Local QA PASS after pids4096 correction: API35, five observed cold startups, stored-account restore, Home/notification UI, bidirectional emulator calls/RTP/hangup; physical DeviceValidated remains BLOCKED"
+    }
   },
   "rules": {
     "floatingVersionsForbidden": true,

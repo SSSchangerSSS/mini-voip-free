@@ -7,6 +7,7 @@ class LoginResult {
   final int deviceGeneration;
   final String sipUri;
   final String sipUsername;
+  final String sipPassword;
   final String wssUrl;
   final int setupTimeoutSeconds;
 
@@ -17,6 +18,7 @@ class LoginResult {
     required this.deviceGeneration,
     required this.sipUri,
     required this.sipUsername,
+    required this.sipPassword,
     required this.wssUrl,
     required this.setupTimeoutSeconds,
   });
@@ -28,6 +30,7 @@ class LoginResult {
         deviceGeneration: (j['deviceGeneration'] as num).toInt(),
         sipUri: j['sipUri'] as String,
         sipUsername: j['sipUsername'] as String,
+        sipPassword: j['sipPassword'] as String,
         wssUrl: j['wssUrl'] as String,
         setupTimeoutSeconds: (j['setupTimeoutSeconds'] as num).toInt(),
       );

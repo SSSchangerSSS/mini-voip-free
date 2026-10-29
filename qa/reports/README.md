@@ -17,5 +17,10 @@ Notes:
 - هر شکست ثبت و نگه داشته می‌شود؛ اجرای مجدد موفق، شکست اولیه را از تاریخچه پاک نمی‌کند.
 - `NOT_APPLICABLE` فقط با دلیل scope و تأیید کارفرما.
 
-گزارش‌های فعلی: هنوز آزمونی اجرا نشده — همه ردیف‌های `../acceptance-tests.json`
-`NOT_RUN` هستند و ادعایی از DeviceValidated/Deployed/Published وجود ندارد.
+گزارش فعلی: [نصب محلی و بررسی Android — 2026-10-28](2026-10-28-local/REPORT.md). نتایج واقعی و محدودیت‌ها در همان گزارش و `../acceptance-tests.json` ثبت‌اند؛ اجرای شبیه‌ساز جای DeviceValidated یا پذیرش تماس واقعی نیست.
+
+گزارش اصلاح و بازآزمایی: [بازیابی حساب و شبکه شبیه‌ساز — 2026-10-29](2026-10-29-startup-fix/REPORT.fa.md).
+
+گزارش پایداری و پیش‌نیاز ادامه: [SystemUI/Quickstep و مسیر Android15 بومی — 2026-10-29](2026-10-29-emulator-stability/REPORT.fa.md).
+
+گزارش ادامه و runtime فعلی: [Android15 بومی، بوت و تماس — 2026-10-29](2026-10-29-native-android15/REPORT.fa.md).

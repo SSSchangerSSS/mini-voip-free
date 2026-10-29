@@ -1,0 +1,2 @@
+2026-10-28T12:41:10Z info: Smi.Control.Ami.AmiCallCoordinator[0] call f209b28e-fce2-4e25-a738-73ee4d80af85 102->101 admitted, push=False
+2026-10-28T12:41:15Z info: Smi.Control.Ami.AmiCallCoordinator[0] call f209b28e-fce2-4e25-a738-73ee4d80af85 connected via bridge evidence

@@ -1,0 +1,148 @@
+time="2026-10-28T15:57:45+03:30" level=warning msg="Docker Compose is configured to build using Bake, but buildx isn't installed"
+#0 building with "default" instance using docker driver
+
+#1 [control internal] load build definition from Dockerfile
+#1 transferring dockerfile: 843B done
+#1 DONE 0.0s
+
+#2 [pbx internal] load build definition from Dockerfile
+#2 transferring dockerfile: 3.44kB done
+#2 DONE 0.0s
+
+#3 [pbx internal] load metadata for docker.io/library/debian:12-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3
+#3 ...
+
+#4 [control internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0.403@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b
+#4 DONE 0.5s
+
+#5 [control internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0.14@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee
+#5 DONE 0.5s
+
+#6 [control internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [control build 1/4] FROM mcr.microsoft.com/dotnet/sdk:10.0.403@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b
+#7 resolve mcr.microsoft.com/dotnet/sdk:10.0.403@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b 0.0s done
+#7 DONE 0.0s
+
+#8 [control final 1/4] FROM mcr.microsoft.com/dotnet/aspnet:10.0.14@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee
+#8 resolve mcr.microsoft.com/dotnet/aspnet:10.0.14@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee 0.0s done
+#8 DONE 0.0s
+
+#9 [control internal] load build context
+#9 transferring context: 737.98kB 0.1s done
+#9 DONE 0.1s
+
+#10 [control build 2/4] WORKDIR /src
+#10 CACHED
+
+#11 [control build 3/4] COPY src/ ./src/
+#11 DONE 0.2s
+
+#3 [pbx internal] load metadata for docker.io/library/debian:12-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3
+#3 DONE 1.4s
+
+#12 [control build 4/4] RUN dotnet publish src/Smi.Control/Smi.Control.csproj -c Release -o /out /p:UseAppHost=false
+#12 ...
+
+#13 [pbx internal] load .dockerignore
+#13 transferring context: 2B done
+#13 DONE 0.0s
+
+#14 [pbx build 1/6] FROM docker.io/library/debian:12-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3
+#14 resolve docker.io/library/debian:12-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3 0.0s done
+#14 DONE 0.0s
+
+#15 [pbx build 6/6] RUN ./configure --libdir=/usr/lib/x86_64-linux-gnu         --with-pjproject-bundled         --without-bluetooth --without-dahdi --without-gtk2 --without-isdnnet         --without-misdn --without-nbs --without-oss --without-pri --without-pwlib         --without-x11 --without-sdl --without-unixodbc --without-postgres     && make menuselect.makeopts     && menuselect/menuselect --disable BUILD_NATIVE menuselect.makeopts     && make -j2     && make install     && make install-headers
+#15 CACHED
+
+#16 [pbx build 2/6] RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         build-essential wget ca-certificates bzip2         libssl-dev libncurses5-dev libncursesw5-dev libuuid1 uuid-dev         libjansson-dev libxml2-dev libsqlite3-dev libcurl4-openssl-dev         libedit-dev libxslt1-dev libsrtp2-dev libspeex-dev libspeexdsp-dev         libogg-dev libvorbis-dev libasound2-dev python3     && rm -rf /var/lib/apt/lists/*
+#16 CACHED
+
+#17 [pbx build 3/6] WORKDIR /usr/src
+#17 CACHED
+
+#18 [pbx runtime 3/8] COPY --from=build /usr/lib/x86_64-linux-gnu/ /usr/lib/x86_64-linux-gnu/
+#18 CACHED
+
+#19 [pbx build 4/6] RUN wget -q "https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-22.11.0.tar.gz"     && echo "3bd5ee040509a3d3cd9b1ba9520c18e6ec0a7e7981ca68c457dcd36ba3c54d94  asterisk-22.11.0.tar.gz" | sha256sum -c -     && tar xzf "asterisk-22.11.0.tar.gz"
+#19 CACHED
+
+#20 [pbx build 5/6] WORKDIR /usr/src/asterisk-22.11.0
+#20 CACHED
+
+#21 [pbx runtime 6/8] COPY --from=build /var/lib/asterisk /var/lib/asterisk
+#21 CACHED
+
+#22 [pbx runtime 4/8] COPY --from=build /usr/sbin/asterisk /usr/sbin/asterisk
+#22 CACHED
+
+#23 [pbx runtime 2/8] RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         ca-certificates libssl3 libjansson4 libxml2 libsqlite3-0 libcurl4         libedit2 libuuid1 libsrtp2-1 libspeex1 libspeexdsp1 libogg0 libvorbis0a         libasound2 tini     && rm -rf /var/lib/apt/lists/*     && groupadd --system --gid 1001 asterisk     && useradd --system --uid 1001 --gid 1001 --home-dir /var/lib/asterisk --no-create-home asterisk
+#23 CACHED
+
+#24 [pbx runtime 7/8] COPY --from=build /var/spool/asterisk /var/spool/asterisk
+#24 CACHED
+
+#25 [pbx runtime 5/8] COPY --from=build /usr/sbin/astcanary /usr/sbin/astcanary
+#25 CACHED
+
+#26 [pbx runtime 8/8] RUN mkdir -p /etc/asterisk /var/log/asterisk /var/run/asterisk     && chown -R asterisk:asterisk /var/lib/asterisk /var/spool/asterisk /var/log/asterisk /var/run/asterisk /etc/asterisk
+#26 CACHED
+
+#27 [pbx] exporting to image
+#27 exporting layers done
+#27 exporting manifest sha256:49d30ae2012b469ad864ad5ba38428360ae0d1859061f734b353fc19722b6e6c done
+#27 exporting config sha256:e3e6b506fe679a30a84f6e7d297461047fdfd176b9dfb9881e57e88351bbfe84 done
+#27 exporting attestation manifest sha256:2fce1568e6e6387099ceabb28dec53291783edca2e0523ca5ebdbade4ce1763b 0.0s done
+#27 exporting manifest list sha256:3248b47c066390a60d0022b0b5b8ce2a3c7a2965ed0a95ff086f32869548a062 done
+#27 naming to docker.io/mini-voip-free/pbx:22.11.0 done
+#27 unpacking to docker.io/mini-voip-free/pbx:22.11.0 0.0s done
+#27 DONE 0.1s
+
+#28 [pbx] resolving provenance for metadata file
+#28 DONE 0.0s
+
+#12 [control build 4/4] RUN dotnet publish src/Smi.Control/Smi.Control.csproj -c Release -o /out /p:UseAppHost=false
+#12 1.024   Determining projects to restore...
+#12 13.74   Restored /src/src/Smi.Control/Smi.Control.csproj (in 12.49 sec).
+#12 16.47   Smi.Control -> /src/src/Smi.Control/bin/Release/net10.0/Smi.Control.dll
+#12 16.54   Smi.Control -> /out/
+#12 DONE 16.7s
+
+#29 [control final 2/4] RUN groupadd --system --gid 1001 smi     && useradd --system --uid 1001 --gid 1001 --no-create-home smi
+#29 CACHED
+
+#30 [control final 3/4] WORKDIR /app
+#30 CACHED
+
+#31 [control final 4/4] COPY --from=build /out ./
+#31 DONE 0.1s
+
+#32 [control] exporting to image
+#32 exporting layers
+#32 exporting layers 0.9s done
+#32 exporting manifest sha256:4c96e01539f1f0c880e4fd5d5af0e25d2fad73dbec14fb6a65fbb35e3f599eb9 done
+#32 exporting config sha256:e04660a7d26528588b5e8e9c59a38b7635ac0f6367c7b9f3f79b04ea903c7933 done
+#32 exporting attestation manifest sha256:aa626109e3cdd6bd7df3a7cb643dda0a9fbe13aeb3722d486c8a9517abc77bc0 done
+#32 exporting manifest list sha256:488ce5a1783b42202856756744d1770bb90b2afd3051f8128bdd05bf6cd3824f done
+#32 naming to docker.io/mini-voip-free/control:0.1.0 done
+#32 unpacking to docker.io/mini-voip-free/control:0.1.0
+#32 unpacking to docker.io/mini-voip-free/control:0.1.0 0.2s done
+#32 DONE 1.2s
+
+#33 [control] resolving provenance for metadata file
+#33 DONE 0.0s
+ control  Built
+ pbx  Built
+ Container smi-control  Recreate
+ Container smi-pbx  Recreate
+ Container smi-control  Recreated
+ Container smi-pbx  Recreated
+ Container smi-edge  Running
+ Container smi-control  Starting
+ Container smi-pbx  Starting
+ Container smi-pbx  Started
+ Container smi-control  Started
+PASS compose stack started (edge/pbx/control)
+2026-10-28T12:28:05Z readiness: curl http://127.0.0.1:5080/health/ready — 200 only after AMI reconcile

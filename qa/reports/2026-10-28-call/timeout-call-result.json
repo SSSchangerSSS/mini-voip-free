@@ -1,0 +1,14 @@
+{
+  "mode": "timeout",
+  "status": "PASS",
+  "incomingSeen": true,
+  "secretValuesRecorded": false,
+  "serverAdmissionUtc": "2026-10-28T12:49:57Z",
+  "channelsGoneUtc": "2026-10-28T12:50:38.626454+00:00",
+  "serverPendingLifetimeSeconds": 41.63,
+  "deadlineWithinBounds": true,
+  "channelsCleared": true,
+  "callerIdle": true,
+  "calleeIdle": true,
+  "elapsedSeconds": 55.29
+}

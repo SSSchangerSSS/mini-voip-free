@@ -1,0 +1,12 @@
+{
+  "api": 35,
+  "extension": "102",
+  "status": "PASS",
+  "scope": "Screen-reviewed ready UI, real login HTTP200 and PBX REGISTER contact after explicit re-login",
+  "evidence": [
+    "api35-final-ready.png",
+    "final-contacts.txt"
+  ],
+  "automaticRestore": "FAIL",
+  "secretValuesRecorded": false
+}

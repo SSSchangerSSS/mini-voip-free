@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "desktopLaunchToFreshSipSeconds": 13.83,
+  "passwordEntered": false,
+  "dataWiped": false,
+  "anrOrCrashEvents": 0,
+  "screenReviewRequired": true,
+  "screenReviewed": true,
+  "blockingDialogObserved": false,
+  "runnerExitCode": 0
+}

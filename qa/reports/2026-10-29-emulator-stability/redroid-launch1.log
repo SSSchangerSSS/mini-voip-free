@@ -1,0 +1,25 @@
+ Container smi-qa-android15  Running
+adb: failed to install /home/changer/Desktop/flash/mini-voip-free/artifacts/android/mini-voip-free-192.168.1.151-startup-fix.apk: 
+Exception occurred while executing 'install':
+java.lang.NullPointerException: Attempt to invoke virtual method 'void android.content.pm.PackageManagerInternal.freeStorage(java.lang.String, long, int)' on a null object reference
+	at com.android.server.StorageManagerService.allocateBytes(StorageManagerService.java:4257)
+	at android.os.storage.StorageManager.allocateBytes(StorageManager.java:2321)
+	at android.os.storage.StorageManager.allocateBytes(StorageManager.java:2400)
+	at com.android.server.pm.PackageInstallerSession.doWriteInternal(PackageInstallerSession.java:2034)
+	at com.android.server.pm.PackageInstallerSession.write(PackageInstallerSession.java:1936)
+	at android.content.pm.PackageInstaller$Session.write(PackageInstaller.java:1630)
+	at com.android.server.pm.PackageManagerShellCommand.doWriteSplit(PackageManagerShellCommand.java:4225)
+	at com.android.server.pm.PackageManagerShellCommand.doWriteSplits(PackageManagerShellCommand.java:4174)
+	at com.android.server.pm.PackageManagerShellCommand.doRunInstall(PackageManagerShellCommand.java:1629)
+	at com.android.server.pm.PackageManagerShellCommand.runInstall(PackageManagerShellCommand.java:1561)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:245)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6684)
+	at android.os.Binder.shellCommand(Binder.java:1143)
+	at android.os.Binder.onTransact(Binder.java:945)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4693)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6668)
+	at android.os.Binder.execTransactInternal(Binder.java:1411)
+	at android.os.Binder.execTransact(Binder.java:1350)
+Performing Streamed Install

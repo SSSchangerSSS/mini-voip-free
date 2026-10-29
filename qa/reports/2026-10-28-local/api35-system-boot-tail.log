@@ -1,0 +1,122 @@
+--------- beginning of system
+10-28 14:46:29.446   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.logcat.LogcatManagerService took to complete: 0ms
+10-28 14:46:29.446   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.inputmethod.InputMethodManagerService$Lifecycle
+10-28 14:46:29.446   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.inputmethod.InputMethodManagerService$Lifecycle took to complete: 0ms
+10-28 14:46:29.446   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.accessibility.AccessibilityManagerService$Lifecycle
+--------- beginning of main
+10-28 14:46:29.448   562   717 W BestClock: java.time.DateTimeException: Missing network time fix
+10-28 14:46:29.450   562   846 W ZygoteProcess: Got error connecting to zygote, retrying. msg= Connection refused
+10-28 14:46:29.459   562   717 W BroadcastLoopers: Found previously unknown looper Thread[NetworkStats,5,main]
+10-28 14:46:29.465   562   722 W system_server: Long monitor contention with owner NetworkStats (717) at void android.net.connectivity.com.android.server.net.NetworkStatsService.performPoll(int, android.net.connectivity.com.android.server.net.NetworkStatsEventLogger$PollEvent)(NetworkStatsService.java:2590) waiters=0 in void android.net.connectivity.com.android.server.net.NetworkStatsService.noteUidForeground(int, boolean) for 659ms
+10-28 14:46:29.477   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.accessibility.AccessibilityManagerService$Lifecycle took to complete: 31ms
+10-28 14:46:29.477   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.StorageManagerService$Lifecycle
+10-28 14:46:29.477   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.StorageManagerService$Lifecycle took to complete: 0ms
+10-28 14:46:29.477   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.usage.StorageStatsService$Lifecycle
+10-28 14:46:29.477   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.usage.StorageStatsService$Lifecycle took to complete: 0ms
+10-28 14:46:29.477   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.UiModeManagerService
+10-28 14:46:29.478   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.UiModeManagerService took to complete: 0ms
+10-28 14:46:29.478   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.locales.LocaleManagerService
+10-28 14:46:29.478   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.locales.LocaleManagerService took to complete: 0ms
+10-28 14:46:29.478   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.grammaticalinflection.GrammaticalInflectionService
+10-28 14:46:29.478   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.grammaticalinflection.GrammaticalInflectionService took to complete: 0ms
+10-28 14:46:29.478   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.apphibernation.AppHibernationService
+10-28 14:46:29.478   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.apphibernation.AppHibernationService took to complete: 0ms
+10-28 14:46:29.478   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.locksettings.LockSettingsService$Lifecycle
+10-28 14:46:29.478   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.locksettings.LockSettingsService$Lifecycle took to complete: 0ms
+10-28 14:46:29.478   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.testharness.TestHarnessModeService
+10-28 14:46:29.478   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.testharness.TestHarnessModeService took to complete: 0ms
+10-28 14:46:29.478   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.DeviceIdleController
+10-28 14:46:29.479   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.DeviceIdleController took to complete: 0ms
+10-28 14:46:29.479   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.devicepolicy.DevicePolicyManagerService$Lifecycle
+10-28 14:46:29.479   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.devicepolicy.DevicePolicyManagerService$Lifecycle took to complete: 0ms
+10-28 14:46:29.479   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.texttospeech.TextToSpeechManagerService
+10-28 14:46:29.480   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.texttospeech.TextToSpeechManagerService took to complete: 2ms
+10-28 14:46:29.480   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.wearable.WearableSensingManagerService
+10-28 14:46:29.480   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.wearable.WearableSensingManagerService took to complete: 0ms
+10-28 14:46:29.503   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService
+10-28 14:46:29.505   562   846 W ZygoteProcess: Got error connecting to zygote, retrying. msg= Connection refused
+10-28 14:46:29.508   865   865 I WebViewZygoteInit: Starting WebViewZygoteInit
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: Couldn't pre-start remote ondeviceintelligence services.
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: java.lang.IllegalStateException: Remote service is not configured to complete the request
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService.validateServiceElevated(OnDeviceIntelligenceManagerService.java:813)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService.lambda$ensureRemoteInferenceServiceInitialized$2(OnDeviceIntelligenceManagerService.java:622)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService.$r8$lambda$qWFNamOCjZtux7sLH__Vr5HGTvc(OnDeviceIntelligenceManagerService.java:0)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService$$ExternalSyntheticLambda4.runOrThrow(R8$$SyntheticClass:0)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at android.os.Binder.withCleanCallingIdentity(Binder.java:550)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService.ensureRemoteInferenceServiceInitialized(OnDeviceIntelligenceManagerService.java:622)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService.onBootPhase(OnDeviceIntelligenceManagerService.java:201)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.SystemServiceManager.startBootPhase(SystemServiceManager.java:318)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.SystemServer.lambda$startOtherServices$6(SystemServer.java:3176)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.SystemServer.$r8$lambda$R8_YVQM1rsXoSgswlNNq9SsFhyw(SystemServer.java:0)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.SystemServer$$ExternalSyntheticLambda6.run(R8$$SyntheticClass:0)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.am.ActivityManagerService.systemReady(ActivityManagerService.java:9127)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.SystemServer.startOtherServices(SystemServer.java:3028)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.SystemServer.run(SystemServer.java:936)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.server.SystemServer.main(SystemServer.java:657)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at java.lang.reflect.Method.invoke(Native Method)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+10-28 14:46:29.518   562   562 W OnDeviceIntelligenceManagerService: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:864)
+10-28 14:46:29.521   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.ondeviceintelligence.OnDeviceIntelligenceManagerService took to complete: 16ms
+10-28 14:46:29.521   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.speech.SpeechRecognitionManagerService
+10-28 14:46:29.522   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.speech.SpeechRecognitionManagerService took to complete: 1ms
+10-28 14:46:29.529   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.graphics.fonts.FontManagerService$Lifecycle
+10-28 14:46:29.530   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.graphics.fonts.FontManagerService$Lifecycle took to complete: 0ms
+10-28 14:46:29.530   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.textservices.TextServicesManagerService$Lifecycle
+10-28 14:46:29.530   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.textservices.TextServicesManagerService$Lifecycle took to complete: 0ms
+10-28 14:46:29.530   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.textclassifier.TextClassificationManagerService$Lifecycle
+10-28 14:46:29.530   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.textclassifier.TextClassificationManagerService$Lifecycle took to complete: 0ms
+10-28 14:46:29.530   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.NetworkScoreService$Lifecycle
+10-28 14:46:29.530   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.NetworkScoreService$Lifecycle took to complete: 0ms
+10-28 14:46:29.530   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.NetworkStatsServiceInitializer
+10-28 14:46:29.530   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.NetworkStatsServiceInitializer took to complete: 0ms
+10-28 14:46:29.530   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.wifi.WifiService
+10-28 14:46:29.530   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.wifi.WifiService took to complete: 0ms
+10-28 14:46:29.530   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.wifi.scanner.WifiScanningService
+10-28 14:46:29.531   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.wifi.scanner.WifiScanningService took to complete: 0ms
+10-28 14:46:29.531   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.wifi.p2p.WifiP2pService
+10-28 14:46:29.531   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.wifi.p2p.WifiP2pService took to complete: 0ms
+10-28 14:46:29.531   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.ConnectivityServiceInitializer
+10-28 14:46:29.531   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.ConnectivityServiceInitializer took to complete: 1ms
+10-28 14:46:29.531   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.notification.NotificationManagerService
+10-28 14:46:29.633   562   562 W SystemServiceManager: Service com.android.server.notification.NotificationManagerService took 101 ms in onBootPhase
+10-28 14:46:29.633   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.notification.NotificationManagerService took to complete: 102ms
+10-28 14:46:29.634   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.storage.DeviceStorageMonitorService
+10-28 14:46:29.634   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.storage.DeviceStorageMonitorService took to complete: 0ms
+10-28 14:46:29.634   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.timedetector.TimeDetectorService$Lifecycle
+10-28 14:46:29.634   562   562 V SystemServerTiming: OnBootPhase_600_com.android.server.timedetector.TimeDetectorService$Lifecycle took to complete: 0ms
+10-28 14:46:29.635   562   562 D SystemServerTiming: OnBootPhase_600_com.android.server.location.LocationManagerService$Lifecycle
+10-28 14:46:29.650   831   831 V GraphicsEnvironment: Currently set values for:
+10-28 14:46:29.650   831   831 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+10-28 14:46:29.650   831   831 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+10-28 14:46:29.650   831   831 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+10-28 14:46:29.651   831   831 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+10-28 14:46:29.653   562   562 W LocationManagerService: no network location provider found
+10-28 14:46:29.673   865   865 I WebViewZygoteInit: Beginning application preload for com.android.webview
+10-28 14:46:29.674   865   865 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+10-28 14:46:29.700   865   865 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libapexsupport.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvendorsupport.so:libvndksupport.so:libvulkan.so
+10-28 14:46:29.700   865   865 D nativeloader: Configuring product-clns-7 for unbundled product apk /product/app/webview/webview.apk. target_sdk_version=34, uses_libraries=, library_path=/product/app/webview/lib/x86_64:/product/app/webview/webview.apk!/lib/x86_64:/product/lib64:/system/product/lib64, permitted_path=/data:/mnt/expand:/product/lib64:/system/product/lib64
+10-28 14:46:29.708   865   865 D nativeloader: InitVndkspLibrariesProduct: VNDK is deprecated with product
+10-28 14:46:29.710   865   865 W webviewchromiumloader: Failed to open relro file /data/misc/shared_relro/libwebviewchromium64.relro: No such file or directory
+10-28 14:46:29.710   865   865 W WebViewLibraryLoader: failed to load with relro file, proceeding without
+10-28 14:46:29.715   562   562 I ServiceWatcher: [fused] chose new implementation 1000/com.android.location.fused/.FusedLocationService@0
+--------- beginning of kernel
+10-28 14:46:29.739     0     0 I servicemanager: Caller(pid=562,uid=1000,sid=u:r:system_server:s0) Found android.hardware.gnss.IGnss/default in device VINTF manifest.
+10-28 14:46:29.744     0     0 I servicemanager: Caller(pid=562,uid=1000,sid=u:r:system_server:s0) Since 'android.hardware.gnss.IGnss/default' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-28 14:46:29.770     0     0 I init    : starting service 'vendor.gnss.ranchu'...
+10-28 14:46:29.908     0     0 I init    : ... started service 'vendor.gnss.ranchu' has pid 876
+10-28 14:46:29.908     0     0 I init    : Control message: Processed ctl.interface_start for 'aidl/android.hardware.gnss.IGnss/default' from pid: 145 (/system/bin/servicemanager)
+10-28 14:46:30.063   831   831 V WindowManagerShell: Adding init callback for DisplayChangeController
+10-28 14:46:30.140   831   831 V WindowManagerShell: Adding init callback for DisplayController
+10-28 14:46:30.140   831   831 V WindowManagerShell: Adding init callback for DisplayInsetsController
+10-28 14:46:30.142   831   831 V WindowManagerShell: Adding init callback for DisplayImeController
+10-28 14:46:30.143   831   831 V WindowManagerShell: Adding init callback for ShellController
+10-28 14:46:30.353   562   590 W ContentProviderHelper: Slow operation: 55ms so far, now at getContentProviderImpl: after updateOomAdj
+10-28 14:46:30.354   562   590 W ContentProviderHelper: Slow operation: 56ms so far, now at getContentProviderImpl: done!
+10-28 14:46:30.396   876   876 I AidlLazyServiceRegistrar: Registering service android.hardware.gnss.IGnss/default
+10-28 14:46:30.409     0     0 I servicemanager: Caller(pid=876,uid=1021,sid=u:r:hal_gnss_default:s0) Found android.hardware.gnss.IGnss/default in device VINTF manifest.
+10-28 14:46:30.428     0     0 I servicemanager: Notifying android.hardware.gnss.IGnss/default they do (previously: don't) have clients when service is guaranteed to be in use
+10-28 14:46:30.433   876   883 I AidlLazyServiceRegistrar: Process has 1 (of 1 available) client(s) in use after notification android.hardware.gnss.IGnss/default has clients: 1
+10-28 14:46:30.450     0     0 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-28 14:46:30.460   562   562 D GnssJni : Successfully got GNSS AIDL handle. Version=2.
+10-28 14:46:30.555   461   502 D C2SoftH263Enc: Given level 3004 does not cover current configuration: adjusting to 3003
+10-28 14:46:30.628     0     0 I logd    : logdr: UID=2000 GID=2000 PID=880 n tail=100 logMask=99 pid=0 start=0ns deadline=0ns

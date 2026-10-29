@@ -1,0 +1,1 @@
+{"status": "FAIL", "bootReadySeconds": 195.75, "passwordEntered": false, "dataWiped": false, "manualAppRestart": false, "launchOutput": "Observed the standard desktop launcher; no separate probe launch/restart", "sipContactSeen": false, "diagnostics": [], "screenReviewRequired": true}

@@ -146,6 +146,14 @@ class _LoginPageState extends State<LoginPage> {
                             color: Theme.of(context).colorScheme.error)),
                     const SizedBox(height: 12),
                   ],
+                  if (widget.controller.canRetrySavedAccount) ...[
+                    OutlinedButton.icon(
+                      onPressed: _busy ? null : widget.controller.restoreSession,
+                      icon: const Icon(Icons.refresh),
+                      label: const Text('تلاش مجدد با حساب ذخیره‌شده'),
+                    ),
+                    const SizedBox(height: 12),
+                  ],
                   FilledButton(
                     onPressed: _busy ? null : _submit,
                     child: _busy

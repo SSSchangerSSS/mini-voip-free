@@ -1,0 +1,21 @@
+{
+  "status": "FAIL",
+  "scope": "Native Qt/XCB, host GPU, Vulkan off, physical480x800; two guest cores; ART still verify at boot",
+  "bootReadySeconds": "Observed by220seconds; exact probe checkpoint unavailable",
+  "bootAnrObservedBeforeCompilation": [
+    "com.android.systemui",
+    "com.android.bluetooth",
+    "com.android.phone",
+    "com.android.launcher3"
+  ],
+  "accountRestore": "FAIL: network errors; route guard was not invoked by this experimental probe",
+  "anrDialogDismissed": false,
+  "probeExitCode": 143,
+  "probeLimitation": "Long-running observation process terminated before final JSON; independent event log and screenshots retained",
+  "evidence": [
+    "native-host-boot1.log",
+    "native1-anr-events.txt",
+    "native1-current.png",
+    "native1-contacts-current.txt"
+  ]
+}

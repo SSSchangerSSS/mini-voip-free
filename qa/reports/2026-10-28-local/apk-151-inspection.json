@@ -1,0 +1,128 @@
+{
+  "sha256": "c3f923e63d8e5177b3c4e39f5860548b0f563f8ae89287c4e47533e61970e0a0",
+  "libraries": [
+    {
+      "path": "lib/arm64-v8a/libapp.so",
+      "loadSegmentAlignments": [
+        65536,
+        65536,
+        65536
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/arm64-v8a/libdartjni.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/arm64-v8a/libflutter.so",
+      "loadSegmentAlignments": [
+        65536,
+        65536,
+        65536
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/arm64-v8a/libjingle_peerconnection_so.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libapp.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libdartjni.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libflutter.so",
+      "loadSegmentAlignments": [
+        65536,
+        65536,
+        65536
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libjingle_peerconnection_so.so",
+      "loadSegmentAlignments": [
+        4096,
+        4096,
+        4096
+      ],
+      "atLeast16KiB": false
+    },
+    {
+      "path": "lib/x86_64/libapp.so",
+      "loadSegmentAlignments": [
+        65536,
+        65536,
+        65536
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/x86_64/libdartjni.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/x86_64/libflutter.so",
+      "loadSegmentAlignments": [
+        65536,
+        65536,
+        65536
+      ],
+      "atLeast16KiB": true
+    },
+    {
+      "path": "lib/x86_64/libjingle_peerconnection_so.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "atLeast16KiB": true
+    }
+  ],
+  "bakedHost": {
+    "lib/arm64-v8a/libapp.so": {
+      "requested151Present": true,
+      "old244Present": false
+    },
+    "lib/armeabi-v7a/libapp.so": {
+      "requested151Present": true,
+      "old244Present": false
+    },
+    "lib/x86_64/libapp.so": {
+      "requested151Present": true,
+      "old244Present": false
+    }
+  },
+  "zipIntegrity": "PASS"
+}

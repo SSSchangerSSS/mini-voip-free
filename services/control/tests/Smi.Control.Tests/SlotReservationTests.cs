@@ -70,6 +70,22 @@ public class SlotReservationTests : IDisposable
         Assert.Equal(AdmissionResult.Created, again.Result);
     }
 
+    [Theory]
+    [InlineData(true)]
+    [InlineData(false)]
+    public async Task TerminalRequest_OnlyFirstAtomicTransitionMayTriggerPbxHangup(bool decline)
+    {
+        var admitted = _store.Admit("101", "102", Guid.NewGuid().ToString(), "inst", "pbx-1", "PJSIP/101-abc", DateTime.UtcNow).Call!;
+        var results = await Task.WhenAll(Enumerable.Range(0, 2).Select(_ => Task.Run(() =>
+            decline ? _store.Decline(admitted.CallId, "102", DateTime.UtcNow)
+                : _store.End(admitted.CallId, "101", EndReason.Completed, DateTime.UtcNow))));
+        Assert.Single(results, r => r.Error is null);
+        Assert.Single(results, r => r.Error == "CALL_ENDED");
+        Assert.All(results, r => Assert.Equal(CallState.Ended, r.Call!.State));
+        Assert.Equal(results[0].Call!.Revision, results[1].Call!.Revision);
+        Assert.Empty(_store.ListActive());
+    }
+
     [Fact]
     public void DuplicateAttempt_ReturnsSameCall_WithSameDeadline()
     {

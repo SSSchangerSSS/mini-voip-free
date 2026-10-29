@@ -1,0 +1,2 @@
+State  Recv-Q Send-Q Local Address:Port Peer Address:Port
+LISTEN 0      0          127.0.0.1:5565      0.0.0.0:*   

@@ -1,0 +1,4 @@
+[com.android.systemui]
+  path: /system_ext/priv-app/SystemUI/SystemUI.apk
+    x86_64: [status=speed] [reason=cmdline] [primary-abi]
+      [location is /data/dalvik-cache/x86_64/system_ext@priv-app@SystemUI@SystemUI.apk@classes.dex]

@@ -340,7 +340,7 @@ JWT، OAuth server، ثبت‌نام و سرویس هویت جدا لازم نی
 }
 ```
 
-پاسخ login باید شامل این فیلدها باشد: `accessToken`، `idleExpiresAt`، `extension`، `deviceGeneration`، `sipUri`، `sipUsername`، `wssUrl`، `setupTimeoutSeconds` و `serverTime`. رمز نباید به response log راه یابد؛ اپ همان رمز ورودی را امن نگهداری می‌کند. SIP realm/domain از تنظیم سرور می‌آید، نه حدس اپ.
+پاسخ login باید شامل این فیلدها باشد: `accessToken`، `idleExpiresAt`، `extension`، `deviceGeneration`، `sipUri`، `sipUsername`، `sipPassword`، `wssUrl`، `setupTimeoutSeconds` و `serverTime`. طبق تصمیم 0004، رمز SIP فقط در پاسخ ورود معتبر روی HTTPS با Cache-Control: no-store منتقل و در ذخیره‌ساز امن جدا نگهداری می‌شود؛ /me و Push حامل آن نیستند. رمز نباید به response log راه یابد؛ اپ همان رمز ورودی را امن نگهداری می‌کند. SIP realm/domain از تنظیم سرور می‌آید، نه حدس اپ.
 
 نمونه وضعیت تماس:
 
@@ -1076,3 +1076,8 @@ Operator quick-start commands verified:
 - **S28 — ساخت و انتشار Flutter Android:** https://docs.flutter.dev/deployment/android
 
 **پایان مشخصات نسخه ۱.۰.** این سند احتمال خطای پیاده‌سازی را با قرارداد و آزمون کاهش می‌دهد؛ جای اجرای واقعی، بازبینی کد و آزمون دستگاه را نمی‌گیرد.
+
+
+## اصلاح ثبت‌شدهٔ foreground و TLS محلی — تصمیم 0005
+
+در حالت اپِ باز و SIP ثبت‌شده، رخداد ثابت SIP MESSAGE با بدنهٔ ثابت smi-call فقط hint برای واکشی احرازشدهٔ calls/current است؛ منبع هویت یا مجوز تماس نیست و جای Push پس‌زمینه را نمی‌گیرد. تنها عمل MessageSend برای مقصد داخلی معتبر و بدنهٔ ثابت به فهرست اعمال AMI افزوده می‌شود. polling دائمی idle همچنان ممنوع است. در پروفایل LAN، اعتماد صریح به CA اختصاصی با --trusted-ca-file مجاز است؛ اعتبارسنجی زنجیره و SAN خاموش نمی‌شود. استقرار عمومی و پذیرش دستگاه واقعی مستقل باقی می‌مانند.

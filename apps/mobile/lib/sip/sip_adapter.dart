@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:sip_ua/sip_ua.dart';
+import 'package:logger/logger.dart';
+import 'package:flutter_webrtc/flutter_webrtc.dart' as rtc;
 
 import '../call/call_controller.dart';
 
@@ -11,8 +13,13 @@ import '../call/call_controller.dart';
 /// ⚠ P0 GATE: still must be validated against a real Release build on both
 /// platforms (cold start + REGISTER behaviour) before any claim.
 class SipAdapter implements SipUaHelperListener {
-  final SIPUAHelper _helper = SIPUAHelper();
+  SipAdapter({SIPUAHelper? helper}) : _helper = helper ?? SIPUAHelper() {
+    // Library debug traces contain complete SIP messages and configuration.
+    _helper.loggingLevel = Level.off;
+  }
+  final SIPUAHelper _helper;
   Call? _activeCall;
+  String? _reportedIncoming;
   CallController? _controller;
   Completer<void> _registeredOnce = Completer<void>();
   UaSettings? _settings;
@@ -32,6 +39,7 @@ class SipAdapter implements SipUaHelperListener {
   }) async {
     _domain = domain;
     final settings = UaSettings();
+    settings.transportType = TransportType.WS;
     settings.webSocketUrl = 'wss://$domain/ws';
     settings.webSocketSettings.allowBadCertificate = false; // TLS never bypassed (spec 11.1)
     settings.userAgent = 'mini-voip-free/0.1.0';
@@ -48,21 +56,25 @@ class SipAdapter implements SipUaHelperListener {
     final settings = _settings;
     if (settings == null) throw StateError('configure() must run before start()');
     _registeredOnce = Completer<void>();
+    _helper.removeSipUaHelperListener(this);
     _helper.addSipUaHelperListener(this);
-    _helper.start(settings);
+    await _helper.start(settings);
     // bounded wait for first REGISTER; callers treat not-ready explicitly
-    await _registeredOnce.future.timeout(const Duration(seconds: 10), onTimeout: () {});
+    await _registeredOnce.future.timeout(const Duration(seconds: 15));
   }
 
   Future<void> stop() async {
-    _helper.stop();
+    if (_settings != null) _helper.stop();
+    _helper.removeSipUaHelperListener(this);
     _registered = false;
   }
 
-  Future<void> call(String targetUri) async {
-    final ok = await _helper.call(targetUri, voiceOnly: true); // audio-only (spec 8.1)
+  Future<void> call(String targetUri, {required String attemptId}) async {
+    final ok = await _helper.call(targetUri, voiceOnly: true, headers: ['X-SMI-Attempt-ID: $attemptId']); // audio-only (spec 8.1)
     if (!ok) throw StateError('SIP engine not connected — REGISTER pending');
   }
+
+  Future<void> setSpeaker(bool enabled) => rtc.Helper.setSpeakerphoneOn(enabled);
 
   Future<void> hangUp() async {
     _activeCall?.hangup();
@@ -113,10 +125,12 @@ class SipAdapter implements SipUaHelperListener {
   void callStateChanged(Call call, CallState state) {
     switch (state.state) {
       case CallStateEnum.PROGRESS:
-        if (state.originator == Originator.remote) {
+        _activeCall = call;
+        if (call.direction == Direction.incoming && _reportedIncoming != call.id) {
+          _reportedIncoming = call.id;
           _activeCall = call;
           // correlation with the server callId happens in the controller (spec 5.2 step 13)
-          _controller?.onSipIncoming(null);
+          _controller?.onSipIncoming(call.session.request?.getHeader('X-SMI-Call-ID') as String?);
         }
         break;
       case CallStateEnum.ACCEPTED:
@@ -127,6 +141,7 @@ class SipAdapter implements SipUaHelperListener {
       case CallStateEnum.ENDED:
       case CallStateEnum.FAILED:
         _activeCall = null;
+        _reportedIncoming = null;
         _controller?.onSipRemoteEnded();
         break;
       case CallStateEnum.NONE:
@@ -134,16 +149,26 @@ class SipAdapter implements SipUaHelperListener {
       case CallStateEnum.UNMUTED:
       case CallStateEnum.MUTED:
       case CallStateEnum.CONNECTING:
+      case CallStateEnum.CALL_INITIATION:
+        _activeCall = call;
+        if (call.direction == Direction.incoming && _reportedIncoming != call.id) {
+          _reportedIncoming = call.id;
+          _controller?.onSipIncoming(call.session.request?.getHeader('X-SMI-Call-ID') as String?);
+        }
+        break;
       case CallStateEnum.REFER:
       case CallStateEnum.HOLD:
       case CallStateEnum.UNHOLD:
-      case CallStateEnum.CALL_INITIATION:
         break;
     }
   }
 
   @override
-  void onNewMessage(SIPMessageRequest msg) {}
+  void onNewMessage(SIPMessageRequest msg) {
+    if (msg.originator == Originator.remote && msg.request?.body == 'smi-call') {
+      _controller?.onForegroundCallHint();
+    }
+  }
 
   @override
   void onNewNotify(Notify ntf) {}

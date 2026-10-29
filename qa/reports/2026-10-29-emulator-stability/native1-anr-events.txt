@@ -1,0 +1,8 @@
+10-29 10:14:49.290   546  1070 I am_anr  : [0,822,com.android.systemui,818462221,Process ProcessRecord{ba264e9 822:com.android.systemui/u0a121} failed to complete startup]
+10-29 10:15:11.582   546  1070 I am_anr  : [0,929,com.android.bluetooth,550026821,executing service com.android.bluetooth/.btservice.AdapterService, waited 20026ms]
+10-29 10:15:42.590   546  1070 I am_anr  : [0,975,com.android.phone,952647245,Process ProcessRecord{674cc6c 975:com.android.phone/1001} failed to complete startup]
+10-29 10:16:03.521   546  1508 I am_anr  : [0,1225,com.android.launcher3,885767749,executing service com.android.launcher3/com.android.quickstep.TouchInteractionService, waited 22488ms]
+10-29 10:16:32.015   546  1508 I am_anr  : [0,1315,com.android.providers.media.module,684211781,Process ProcessRecord{9e707f4 1315:com.android.providers.media.module/u0a128} failed to complete startup]
+10-29 10:16:32.766   546  1508 I am_anr  : [0,1489,com.android.phone,952647245,Process ProcessRecord{674cc6c 1489:com.android.phone/1001} failed to complete startup]
+10-29 10:17:03.826   546  1938 I am_anr  : [0,1749,com.android.phone,952647245,Process ProcessRecord{674cc6c 1749:com.android.phone/1001} failed to complete startup]
+10-29 10:17:38.480   546  2193 I am_anr  : [0,1996,com.android.phone,952647245,Process ProcessRecord{674cc6c 1996:com.android.phone/1001} failed to complete startup]

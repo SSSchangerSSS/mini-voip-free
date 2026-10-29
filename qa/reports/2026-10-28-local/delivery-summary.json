@@ -1,0 +1,51 @@
+{
+  "updatedAtUtc": "2026-10-28T11:28:47.520613+00:00",
+  "host": "192.168.1.151",
+  "tests": {
+    "control": 43,
+    "mobile": 16,
+    "wrappers": 8
+  },
+  "commands": [
+    {
+      "command": "./smi check",
+      "exit": 0,
+      "evidence": "check-last.log"
+    },
+    {
+      "command": "./smi test unit",
+      "exit": 0,
+      "evidence": "unit-delivery.log"
+    },
+    {
+      "command": "./smi build android --release --server-host 192.168.1.151 --verbose",
+      "exit": 0,
+      "evidence": "android-build-ndk-links-fixed.log"
+    },
+    {
+      "command": "sg docker -c \"./smi server status\"",
+      "exit": 0,
+      "evidence": "server-status-last.log"
+    },
+    {
+      "command": "sg docker -c \"./smi doctor\"",
+      "exit": 1,
+      "status": "BLOCKED: push secrets absent/empty",
+      "evidence": "doctor-installed-final.log"
+    },
+    {
+      "command": "apksigner verify --verbose --print-certs <final-apk>",
+      "exit": 0,
+      "evidence": "apk-151-signature.log"
+    },
+    {
+      "command": "zipalign -c -P 16 -v 4 <final-apk>",
+      "exit": 0,
+      "evidence": "apk-151-zipalign.log"
+    }
+  ],
+  "CodeReady": false,
+  "DeviceValidated": false,
+  "Deployed": "local services only; telephony acceptance incomplete",
+  "Published": false
+}

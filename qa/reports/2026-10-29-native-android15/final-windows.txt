@@ -1,0 +1,4 @@
+     0xc0017e "Mini VoIP | Android15 native QA": ("mutter-x11-frames" "mutter-x11-frames")  482x759+369+-23  +369+-23
+        0x1e00033 "Mini VoIP | Android15 native QA": ("scrcpy" "scrcpy")  360x600+61+92  +430+69
+     0xc00136 "Android Emulator - mini-voip-api26:5554": ("mutter-x11-frames" "mutter-x11-frames")  506x799+39+45  +39+45
+        0x1600007 "Android Emulator - mini-voip-api26:5554": ("qemu-system-x86_64" "Emulator")  384x640+61+92  +100+137

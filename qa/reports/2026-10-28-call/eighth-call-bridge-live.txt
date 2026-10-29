@@ -1,0 +1,6 @@
+Channel                                                                          Context                  Extension                Prio State   Application  Data                      CallerID        Duration Accountcode PeerAccount BridgeID            
+PJSIP/102-00000007                                                               smi-internal                                         1 Up      AppDial      (Outgoing Line)           102             00:00:56                         21cea53e-6d67-43e9-9
+PJSIP/101-00000006                                                               smi-call                 102                        20 Up      Dial         PJSIP/102,39,b(smi-predia 101             00:00:57                         21cea53e-6d67-43e9-9
+2 active channels
+1 active call
+4 calls processed

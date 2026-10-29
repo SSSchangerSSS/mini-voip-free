@@ -1,0 +1,12 @@
+
+                                             ...........Receive......... .........Transmit..........
+ BridgeId ChannelId ........ UpTime.. Codec.   Count    Lost Pct  Jitter   Count    Lost Pct  Jitter RTT....
+ ===========================================================================================================
+
+ 21cea53e 101-00000006       00:00:45 ulaw      562       0    0   0.067    165       0    0   0.028   0.030
+ 21cea53e 102-00000007       00:00:44 ulaw      165       0    0   0.027    490       0    0   0.057   0.289
+
+Objects found: 2
+
+
+{"caller": "101", "callee": "102", "answerButtonSeen": true, "status": "FAIL", "secretValuesRecorded": false, "answerAfterSeconds": 9.97, "hangupTapped": true}

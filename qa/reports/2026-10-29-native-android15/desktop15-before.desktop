@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Mini VoIP — Android 15
+Comment=Local Android emulator; software CPU mode, no production validation
+Exec=/home/changer/.local/bin/mini-voip-emulator 35
+Icon=call-start
+Terminal=false
+Categories=Development;

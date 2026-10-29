@@ -1,0 +1,40 @@
+2026-10-28T11:00:34Z build wrapper regression tests (stubbed Flutter; no mobile runtime validation)
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.152s
+
+OK
+2026-10-28T11:00:35Z dotnet test (Control: state machine, slots, auth endpoints, crypto, normalization)
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Smi.Control -> /home/changer/Desktop/flash/mini-voip-free/services/control/src/Smi.Control/bin/Release/net10.0/Smi.Control.dll
+  Smi.Control.Tests -> /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll
+Test run for /home/changer/Desktop/flash/mini-voip-free/services/control/tests/Smi.Control.Tests/bin/Release/net10.0/Smi.Control.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    43, Skipped:     0, Total:    43, Duration: 1 s - Smi.Control.Tests.dll (net10.0)
+2026-10-28T11:00:40Z flutter test (mobile: normalization, event queue, wire models)
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart
+00:00 +0: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: unresponsive server has a bounded request deadline
+00:00 +1: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: unresponsive server has a bounded request deadline
+00:00 +2: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: unresponsive server has a bounded request deadline
+00:00 +3: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) rejects invalid targets
+00:00 +4: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: JSON requests declare JSON rather than form/text content
+00:00 +5: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: JSON requests declare JSON rather than form/text content
+00:00 +6: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart
+00:00 +6: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: replays the Android JSON backlog without a type cast crash
+00:00 +7: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: accepts the contract list and safely handles malformed legacy JSON
+00:00 +8: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/native_bridge_test.dart: legacy incoming expiry uses UTC and preserves contract fields
+00:00 +9: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/models_and_queue_test.dart: NativeEventQueue (spec 10.1) dedupes by eventId and acks exactly once
+00:00 +10: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/models_and_queue_test.dart: NativeEventQueue (spec 10.1) caps at 64 and drops the oldest (spec 10.1)
+00:00 +11: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/models_and_queue_test.dart: NativeEventQueue (spec 10.1) parses known events and ignores unknown types defensively
+00:00 +12: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/models_and_queue_test.dart: CallDto parsing (wire contract, camelCase) parses the spec example
+00:00 +13: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/models_and_queue_test.dart: CallDto parsing (wire contract, camelCase) maps Ended/Declined to terminal
+00:00 +14: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: failed network login returns to error rather than leaving spinner active
+[2026-10-28 14:30:43.403] Level.warning sip_ua_helper.dart:77 ::: ERROR: stop called but not started, call start first.[0m
+00:00 +15: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: unavailable secure store is handled before any network request
+[2026-10-28 14:30:43.410] Level.warning sip_ua_helper.dart:77 ::: ERROR: stop called but not started, call start first.[0m
+00:00 +16: All tests passed!
+2026-10-28T11:00:43Z contract validation
+PASS contracts validated (openapi.json, push.schema.json, native-events.schema.json)

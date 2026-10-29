@@ -1,0 +1,5 @@
+smi-control	running	Up About a minute
+smi-edge	running	Up 3 minutes
+smi-pbx	restarting	Restarting (1) 2 seconds ago
+PASS control /health/live -> 200
+BLOCKED control /health/ready -> 503

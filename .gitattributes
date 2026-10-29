@@ -1,0 +1,3 @@
+
+# Preserve verbatim QA evidence, including command-output whitespace.
+qa/reports/** -text -whitespace

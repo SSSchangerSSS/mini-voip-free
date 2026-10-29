@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show PlatformException;
+import 'package:http/http.dart' as http;
 
 import '../api/api_models.dart';
 import '../api/control_api_client.dart';
@@ -37,11 +40,13 @@ class CallController extends ChangeNotifier {
     required NativeCallBridge native,
     required SecureCredentialStore store,
     DateTime Function()? clock,
+    Future<void> Function(Duration)? restoreDelay,
   })  : _api = api,
         _sip = sip,
         _native = native,
         _store = store,
-        _now = clock ?? (() => DateTime.now().toUtc()) {
+        _now = clock ?? (() => DateTime.now().toUtc()),
+        _restoreDelay = restoreDelay ?? Future<void>.delayed {
     _queue = NativeEventQueue();
   }
 
@@ -50,6 +55,14 @@ class CallController extends ChangeNotifier {
   final NativeCallBridge _native;
   final SecureCredentialStore _store;
   final DateTime Function() _now;
+  final Future<void> Function(Duration) _restoreDelay;
+  bool _restoringAccount = false;
+  bool _savedAccountAvailable = false;
+  bool _lastFailureRetryable = false;
+  bool _engineStartAttempted = false;
+  bool _disposed = false;
+  String _startupStage = 'account-read';
+  String? _startupFailureKind;
 
   late final NativeEventQueue _queue;
   StreamSubscription<NativeEvent>? _nativeSub;
@@ -62,6 +75,8 @@ class CallController extends ChangeNotifier {
   int _deviceGeneration = 0;
   DateTime? _deadline;
   String? _remoteExtension;
+  String? _extension;
+  String? _incomingSipCallId;
   bool _muted = false;
   bool _speakerOn = false;
   String? _errorMessage;
@@ -70,6 +85,7 @@ class CallController extends ChangeNotifier {
   // survives until it can be applied exactly once — missing Dart/INVITE must not
   // destroy it.
   final Set<String> _answerIntents = <String>{};
+  final Set<String> _answeredSipCalls = <String>{};
   final Set<String> _readySent = <String>{};
 
   AppCallState get state => _state;
@@ -81,25 +97,46 @@ class CallController extends ChangeNotifier {
   bool get micReady => _sip.registered;
   int get deviceGeneration => _deviceGeneration;
   DateTime? get deadline => _deadline;
+  bool get restoringAccount => _restoringAccount;
+  bool get canRetrySavedAccount => _savedAccountAvailable && _lastFailureRetryable;
+  String? get startupFailureKind => _startupFailureKind;
 
   // ── lifecycle ────────────────────────────────────────────────────────────
 
   Future<void> restoreSession() async {
-    final saved = await _store.load();
-    if (saved == null) {
-      _state = AppCallState.unconfigured;
-      notifyListeners();
-      return;
+    if (_restoringAccount || _disposed ||
+        (_state != AppCallState.unconfigured && _state != AppCallState.error)) { return; }
+    _restoringAccount = true;
+    _state = AppCallState.signingIn;
+    _errorMessage = null;
+    notifyListeners();
+    try {
+      _startupStage = 'account-read';
+      final saved = await _store.load();
+      if (_disposed) return;
+      _savedAccountAvailable = saved != null;
+      if (saved == null) {
+        _state = AppCallState.unconfigured;
+        return;
+      }
+      // Only transient failures get bounded retries. Never replace credentials,
+      // change installation identity, bypass TLS or extend a call's deadline.
+      const delays = [Duration(seconds: 2), Duration(seconds: 5)];
+      for (var attempt = 0; attempt <= delays.length && !_disposed; attempt++) {
+        if (await signIn(domain: saved.domain, extension: saved.extension,
+            password: saved.password)) { break; }
+        if (!_lastFailureRetryable || attempt == delays.length) break;
+        debugPrint('SMI_STARTUP retry attempt=${attempt + 2}');
+        await _restoreDelay(delays[attempt]);
+      }
+    } catch (error) {
+      _recordStartupFailure(error);
+      _state = AppCallState.error;
+      _errorMessage = 'دسترسی به حساب ذخیره‌شده ممکن نشد؛ دوباره تلاش کنید.';
+    } finally {
+      _restoringAccount = false;
+      if (!_disposed) notifyListeners();
     }
-    _api.setDomain(saved.domain);
-    _api.setToken(saved.token);
-    await _startEngine(
-      domain: saved.domain,
-      extension: saved.extension,
-      password: saved.password,
-      installationId: saved.installationId,
-      relogin: false,
-    );
   }
 
   Future<bool> signIn({
@@ -107,13 +144,17 @@ class CallController extends ChangeNotifier {
     required String extension,
     required String password,
   }) async {
-    final installationId = await _ensureInstallationId();
-    _api.setDomain(domain);
     _state = AppCallState.signingIn;
     _errorMessage = null;
+    _lastFailureRetryable = false;
+    _startupFailureKind = null;
     notifyListeners();
 
     try {
+      _startupStage = 'account-read';
+      final installationId = await _ensureInstallationId();
+      _api.setDomain(domain);
+      _startupStage = 'api-login';
       final result = await _api.login(
         extension: extension,
         password: password,
@@ -122,28 +163,72 @@ class CallController extends ChangeNotifier {
       );
       _api.setToken(result.accessToken);
       _deviceGeneration = result.deviceGeneration;
+      _extension = result.extension;
+      _startupStage = 'account-write';
       await _store.saveAccount(
         domain: domain,
         extension: result.extension,
         password: password,
+        sipPassword: result.sipPassword,
         installationId: installationId,
         accessToken: result.accessToken,
       );
+      _savedAccountAvailable = true;
+      _startupStage = 'push-bind';
       await _registerPushToken();
       await _startEngine(
         domain: domain,
         extension: result.extension,
-        password: password,
+        password: result.sipPassword,
         installationId: installationId,
         relogin: true,
       );
       return true;
     } on ApiProblem catch (e) {
+      _recordStartupFailure(e);
+      await _closeFailedStartupEngine();
       _state = AppCallState.error;
       _errorMessage = _friendlyLoginError(e);
       notifyListeners();
       return false;
+    } catch (error) {
+      // Transport/TLS and native-store failures must end the progress state.
+      // Never expose raw exception text or weaken certificate verification.
+      _state = AppCallState.error;
+      _recordStartupFailure(error);
+      await _closeFailedStartupEngine();
+      _errorMessage = error is HandshakeException
+          ? 'اعتبار گواهی امن سرور تأیید نشد.'
+          : _lastFailureRetryable
+              ? 'اتصال برقرار نشد؛ دوباره تلاش کنید.'
+              : 'ورود انجام نشد؛ اتصال امن سرور و مجوزهای برنامه را بررسی کنید.';
+      notifyListeners();
+      return false;
     }
+  }
+
+  Future<void> _closeFailedStartupEngine() async {
+    if (!_engineStartAttempted) return;
+    try {
+      await _sip.stop();
+      _engineStartAttempted = false;
+    } catch (_) {
+      _lastFailureRetryable = false;
+      debugPrint('SMI_STARTUP cleanup failed; automatic retry stopped');
+    }
+  }
+
+  void _recordStartupFailure(Object error) {
+    _lastFailureRetryable = error is TimeoutException || error is SocketException ||
+        error is http.ClientException ||
+        (error is ApiProblem && [502, 503, 504].contains(error.status));
+    _startupFailureKind = error is HandshakeException ? 'tls'
+        : error is TimeoutException ? 'timeout'
+        : error is SocketException || error is http.ClientException ? 'network'
+        : error is ApiProblem ? 'api-${error.status}'
+        : error is PlatformException ? 'native' : 'protocol-or-internal';
+    // Never log exception messages, request bodies, account identifiers or tokens.
+    debugPrint('SMI_STARTUP failure stage=$_startupStage kind=$_startupFailureKind retryable=$_lastFailureRetryable');
   }
 
   String _friendlyLoginError(ApiProblem e) {
@@ -171,6 +256,9 @@ class CallController extends ChangeNotifier {
     try {
       final token = await _native.getPushToken();
       final isIos = defaultTargetPlatform == TargetPlatform.iOS;
+      if (token == null || token.isEmpty) {
+        _errorMessage = 'اعلان پس‌زمینه فعال نیست؛ دریافت تماس فعلاً فقط هنگام باز بودن اپ ممکن است.';
+      }
       await _api.registerPush(
         provider: isIos ? 'apns' : 'fcm',
         token: token ?? '',
@@ -189,6 +277,7 @@ class CallController extends ChangeNotifier {
     required String installationId,
     required bool relogin,
   }) async {
+    _startupStage = 'native-setup';
     await _native.configure(domain: domain);
     _native.startListening();
     _nativeSub ??= _native.events.listen(_onNativeEvent);
@@ -199,14 +288,18 @@ class CallController extends ChangeNotifier {
       await _native.ackEvent(e.eventId);
     }
 
+    _startupStage = 'sip-configure';
     await _sip.configure(
       domain: domain,
       username: extension,
       password: password,
     );
+    _startupStage = 'sip-register';
+    _engineStartAttempted = true;
     await _sip.start();
 
     // app open is NOT a sign of readiness; poll the server for a live call (spec 5.2 step 9)
+    _startupStage = 'call-reconcile';
     await _reconcileWithServer();
     _startPollingWhilePending();
 
@@ -232,6 +325,8 @@ class CallController extends ChangeNotifier {
       return false;
     }
     _attemptId = _newUuid();
+    _nativeCallUuid = _attemptId;
+    _deadline = _now().add(const Duration(seconds: 40));
     _state = AppCallState.outgoingPending;
     _remoteExtension = target;
     _errorMessage = null;
@@ -239,7 +334,7 @@ class CallController extends ChangeNotifier {
 
     try {
       await _native.reportOutgoing(_attemptId!);
-      await _sip.call('sip:$target@${_sip.domain}');
+      await _sip.call('sip:$target@${_sip.domain}', attemptId: _attemptId!);
     } catch (_) {
       _state = AppCallState.idle;
       _errorMessage = 'شروع تماس ناموفق بود.';
@@ -300,8 +395,10 @@ class CallController extends ChangeNotifier {
       notifyListeners();
     }
     try {
-      await _api.callAction('accept', _callId!,
+      final response = await _api.callAction('accept', _callId!,
           idempotencyKey: 'accept-$_callId'); // POST /accept registers intent only
+      if (response.isTerminal) { onServerState(response); return; }
+      if (_incomingSipCallId == _callId) await _answerSipOnce(_callId!);
     } on ApiProblem catch (e) {
       if (e.code == 'CALL_ENDED' || e.code == 'CALL_EXPIRED') {
         _teardown(outcome: CallOutcome.cancelled);
@@ -330,19 +427,30 @@ class CallController extends ChangeNotifier {
   /// Called by SipAdapter when the remote INVITE for a pending server call arrives.
   /// Matching is by the X-SMI-Call-ID header value (server UUID, spec 5.2 step 13).
   Future<void> onSipIncoming(String? smiCallId) async {
-    if (smiCallId == null) return;
+    if (smiCallId == null) { await _sip.rejectPendingOnce(); return; }
+    _incomingSipCallId = smiCallId;
+    await _reconcileWithServer();
     // late INVITE after decline/terminal → reject on the SIP path too (spec 5.3)
-    if (_answerIntents.contains(smiCallId) || smiCallId == _callId) {
-      await _sip.answerPendingOnce();
-    } else {
+    if (_answerIntents.contains(smiCallId) && smiCallId == _callId) {
+      await _answerSipOnce(smiCallId);
+    } else if (smiCallId != _callId) {
       await _sip.rejectPendingOnce();
     }
   }
 
+  Future<void> _answerSipOnce(String id) async {
+    if (!_answeredSipCalls.add(id)) return;
+    try { await _sip.answerPendingOnce(); }
+    catch (_) { _answeredSipCalls.remove(id); rethrow; }
+  }
+
+  Future<void> onForegroundCallHint() => _reconcileWithServer();
+
   void onSipConnected() {
     if (_state == AppCallState.outgoingPending ||
         _state == AppCallState.connecting) {
-      // final truth comes from the server; UI may show the call screen though
+      // Fetch PBX bridge evidence; SIP acceptance alone is not Connected.
+      _reconcileWithServer();
       notifyListeners();
     }
   }
@@ -360,6 +468,9 @@ class CallController extends ChangeNotifier {
 
   /// Server-confirmed Connected (polled state). Timer starts on real connection.
   void onServerState(CallDto call) {
+    final isCallee = call.callee == _extension;
+    if (!isCallee && call.caller != _extension) return;
+    _remoteExtension = isCallee ? call.caller : call.callee;
     _callId = call.callId;
     _deadline = call.expiresAt;
     _deviceGeneration = call.deviceGeneration;
@@ -369,10 +480,11 @@ class CallController extends ChangeNotifier {
             _state != AppCallState.outgoingPending) {
           _state = AppCallState.incomingPending;
         }
-        _sendReadyIfNeeded(call); // step 9: ready after SIP REGISTER gates the dial
+        if (isCallee) _sendReadyIfNeeded(call); // step 9: ready after SIP REGISTER gates the dial
         break;
       case CallDtoState.connecting:
-        _state = AppCallState.connecting;
+        _state = isCallee && !_answerIntents.contains(call.callId)
+            ? AppCallState.incomingPending : AppCallState.connecting;
         break;
       case CallDtoState.connected:
         if (_state != AppCallState.connected) {
@@ -390,7 +502,7 @@ class CallController extends ChangeNotifier {
   /// POST /ready exactly once per call — after REGISTER, with our device
   /// generation. Repeated ready never creates a second call (spec 5.2, T27).
   Future<void> _sendReadyIfNeeded(CallDto call) async {
-    if (call.isTerminal || !_readySent.add(call.callId)) return;
+    if (call.isTerminal || !_sip.registered || !_readySent.add(call.callId)) return;
     if (!_sip.registered) return; // ready will be sent on the next poll tick
     try {
       final fresh = await _api.callAction(
@@ -443,6 +555,7 @@ class CallController extends ChangeNotifier {
     _speakerOn = !_speakerOn;
     final id = _nativeCallUuid ?? _callId;
     if (id != null) await _native.setSpeaker(id, _speakerOn);
+    await _sip.setSpeaker(_speakerOn);
     notifyListeners();
   }
 
@@ -489,6 +602,10 @@ class CallController extends ChangeNotifier {
     try {
       final call = await _api.currentCall(attemptId: _attemptId);
       if (call == null) {
+        // AMI admission races the first poll after INVITE. Absence of the row
+        // is not a terminal decision while this outgoing attempt is starting.
+        if (_state == AppCallState.outgoingPending && _callId == null &&
+            _deadline != null && _now().isBefore(_deadline!)) { return; }
         if (_state == AppCallState.incomingPending ||
             _state == AppCallState.outgoingPending ||
             _state == AppCallState.connecting) {
@@ -519,6 +636,9 @@ class CallController extends ChangeNotifier {
 
   void _teardown({required CallOutcome outcome, bool silent = false}) {
     _readySent.clear();
+    _answerIntents.clear();
+    _answeredSipCalls.clear();
+    _incomingSipCallId = null;
     _callId = null;
     _attemptId = null;
     _nativeCallUuid = null;
@@ -555,10 +675,13 @@ class CallController extends ChangeNotifier {
 
   @override
   void dispose() {
+    _disposed = true;
     _pollTimer?.cancel();
     _nativeSub?.cancel();
     _native.stopListening();
-    _sip.stop();
+    unawaited(_sip.stop().catchError((Object _) {
+      debugPrint('SMI_STARTUP SIP shutdown failed');
+    }));
     super.dispose();
   }
 }

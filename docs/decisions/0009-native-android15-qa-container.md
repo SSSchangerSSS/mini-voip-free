@@ -1,0 +1,17 @@
+# Trial native Android15 QA container on the existing VMware host
+
+Date: 2026-10-29
+
+The existing SDK API35 emulator is TCG-only on this host. Three native-display experiments retained SystemUI startup ANRs despite lower rendering/encoding load and verified AOT artifacts. The last SDK instance also exited139 during requested shutdown; its process-group wrapper reaped CPU-consuming leftovers. Do not call these trials a complete fix.
+
+Trial the official ReDroid Android15 amd64/64-only image as an alternative QA runtime. It executes Android code natively against the host's existing Binder kernel driver, avoiding nested CPU emulation. This is QA infrastructure, not a change to the application/server architecture or the production three-service stack. Preserve the old AVD/account data as a fallback and use a separate data directory and test extension initially. Do not download Android9-14/16 or add GMS/push claims.
+
+Resolve the official Docker Hub15.0.0_64only-latest manifest once, then pin the linux/amd64 digest, not the moving tag: sha256:58e548d78c4854f032912757dc0782d7a86b9d602ffc10b2f09fb9e86731adf3. Fetch through Chinese mirrors and accept only that registry content digest. The official manifest and mirror outcomes are evidence in qa/reports/2026-10-29-emulator-stability/. Add the verified dependency to toolchain.lock.json without upgrading the existing SDK or packages.
+
+The host's signed binder_linux module already exists for kernel7.0.0-42-generic; loading it requires administrator access. No replacement kernel or reboot setting is planned. Use software graphics, memfd,480x800/density160, bounded memory/CPU, private QA data and ADB bound only127.0.0.1:5565. The official runtime uses a privileged Android container; do not mount the host root/home or expose ADB to LAN/public interfaces. No persistent privileged autostart is installed.
+
+Promotion to the convenient Android15 launcher requires actual API35 identification, boot/reboot and UI/ANR observation, the same APK, saved-account restoration and real PBX bridge/RTP/hangup evidence. Container validation remains emulator validation; microphones, physical audio routing, lock/push and DeviceValidated gates stay BLOCKED. If prerequisites or tests fail, retain explicit BLOCKED/FAIL and the prior AVD; do not fabricate readiness.
+
+Sources: https://github.com/remote-android/redroid-doc (official image list, Binder, memfd, software graphics, privileged runtime and local-only ADB guidance); official Docker Hub manifest recorded in redroid-official-manifest.json.
+
+Validated continuation: Binder loaded locally by user. Initial pids_limit1024 caused58 task-limit denials and system-service crashes; corrected to4096, with pids.events max0. Validated five observed cold startups including persistent-data container recreation and desktop launch, secure account103 restore, UI cycles and calls101↔103 with bridge/RTP/hangup. Keep103 as the isolated native QA account; old102/AVD binding is preserved. Promoted the Android15 desktop shortcut to the native QA launcher. The launcher waits for stable system_server/user/package readiness, compares actual installed/local APK hashes and never silently reinstalls a changed APK during a call. GUI PolicyKit may load the existing module on later host boots; no persistent modules-load file is written. Host-reboot/auth-dialog route was not run in these tests. See qa/reports/2026-10-29-native-android15/REPORT.fa.md for failures, runner exit143 on one functional sample, and independent evidence.

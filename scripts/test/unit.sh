@@ -45,6 +45,13 @@ run_contract_validation() {
   fi
 }
 
+log "build wrapper regression tests (stubbed Flutter; no mobile runtime validation)"
+if python3 "$ROOT/scripts/test/test_build_commands.py"; then
+  results+=('{"suite":"build-wrapper","status":"PASS"}')
+else
+  results+=('{"suite":"build-wrapper","status":"FAIL"}'); fail=1
+fi
+
 run_dotnet_tests
 run_flutter_tests
 run_contract_validation

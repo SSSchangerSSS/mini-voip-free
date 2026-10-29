@@ -1,0 +1,350 @@
+time="2026-10-28T14:28:16+03:30" level=warning msg="Docker Compose is configured to build using Bake, but buildx isn't installed"
+#0 building with "default" instance using docker driver
+
+#1 [pbx internal] load build definition from Dockerfile
+#1 DONE 0.0s
+
+#2 [control internal] load build definition from Dockerfile
+#2 transferring dockerfile: 699B done
+#2 DONE 0.0s
+
+#1 [pbx internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.30kB done
+#1 DONE 0.0s
+
+#3 [control internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0.403
+#3 DONE 0.5s
+
+#4 [control internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0.14
+#4 DONE 0.5s
+
+#5 [control internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [control build 1/4] FROM mcr.microsoft.com/dotnet/sdk:10.0.403@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b
+#6 resolve mcr.microsoft.com/dotnet/sdk:10.0.403@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b 0.0s done
+#6 DONE 0.0s
+
+#7 [control final 1/4] FROM mcr.microsoft.com/dotnet/aspnet:10.0.14@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee
+#7 resolve mcr.microsoft.com/dotnet/aspnet:10.0.14@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee 0.0s done
+#7 DONE 0.0s
+
+#8 [control internal] load build context
+#8 transferring context: 10.83kB done
+#8 DONE 0.0s
+
+#9 [control build 2/4] WORKDIR /src
+#9 CACHED
+
+#10 [control final 3/4] WORKDIR /app
+#10 CACHED
+
+#11 [control build 3/4] COPY src/ ./src/
+#11 CACHED
+
+#12 [control build 4/4] RUN dotnet publish src/Smi.Control/Smi.Control.csproj -c Release -o /out /p:UseAppHost=false
+#12 CACHED
+
+#13 [control final 2/4] RUN groupadd --system --gid 1001 smi     && useradd --system --uid 1001 --gid 1001 --no-create-home smi
+#13 CACHED
+
+#14 [control final 4/4] COPY --from=build /out ./
+#14 CACHED
+
+#15 [control] exporting to image
+#15 exporting layers done
+#15 exporting manifest sha256:d935530018bc8ff5a24ee00a07e8c11fc323ffa3987fbe708b5e771d30f19aa7 done
+#15 exporting config sha256:82e8c1dba25f7a0a8ca51419f0f39f0493dab703fc1f6e8b303e8bfb03df69e0 done
+#15 exporting attestation manifest sha256:cdb662e2a8d933c0f89c58f148717cab427294bd9e6b91b1e3d23f25356b3309 done
+#15 exporting manifest list sha256:46df6422374a184f9be9c203eb18b752c0e7cf69d80170fe4fe5fea3ab87d153 done
+#15 naming to docker.io/mini-voip-free/control:0.1.0 done
+#15 unpacking to docker.io/mini-voip-free/control:0.1.0 done
+#15 DONE 0.0s
+
+#16 [control] resolving provenance for metadata file
+#16 DONE 0.0s
+
+#17 [pbx internal] load metadata for docker.io/library/debian:12-slim
+#17 DONE 1.5s
+
+#18 [pbx internal] load .dockerignore
+#18 transferring context: 2B done
+#18 DONE 0.0s
+
+#19 [pbx build 5/6] WORKDIR /usr/src/asterisk-22.11.0
+#19 CACHED
+
+#20 [pbx build 2/6] RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         build-essential wget ca-certificates bzip2         libssl-dev libncurses5-dev libncursesw5-dev libuuid1 uuid-dev         libjansson-dev libxml2-dev libsqlite3-dev libcurl4-openssl-dev         libedit-dev libxslt1-dev libsrtp2-dev libspeex-dev libspeexdsp-dev         libogg-dev libvorbis-dev libasound2-dev python3     && rm -rf /var/lib/apt/lists/*
+#20 CACHED
+
+#21 [pbx build 3/6] WORKDIR /usr/src
+#21 CACHED
+
+#22 [pbx build 4/6] RUN wget -q "https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-22.11.0.tar.gz"     && echo "3bd5ee040509a3d3cd9b1ba9520c18e6ec0a7e7981ca68c457dcd36ba3c54d94  asterisk-22.11.0.tar.gz" | sha256sum -c -     && tar xzf "asterisk-22.11.0.tar.gz"
+#22 CACHED
+
+#23 [pbx build 1/6] FROM docker.io/library/debian:12-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3
+#23 resolve docker.io/library/debian:12-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3 done
+#23 CACHED
+
+#24 [pbx build 6/6] RUN ./configure --libdir=/usr/lib/x86_64-linux-gnu         --with-pjproject-bundled         --without-bluetooth --without-dahdi --without-gtk2 --without-isdnnet         --without-misdn --without-nbs --without-oss --without-pri --without-pwlib         --without-x11 --without-sdl --without-unixodbc --without-postgres     && make menuselect.makeopts     && menuselect/menuselect --disable BUILD_NATIVE menuselect.makeopts     && make -j2     && make install     && make install-headers
+#24 CACHED
+
+#25 [pbx runtime 2/8] RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         ca-certificates libssl3 libjansson4 libxml2 libsqlite3-0 libcurl4         libedit2 libuuid1 libsrtp2-1 libspeex1 libspeexdsp1 libogg0 libvorbis0a         libasound2 tini     && rm -rf /var/lib/apt/lists/*     && groupadd --system --gid 1001 asterisk     && useradd --system --uid 1001 --gid 1001 --home-dir /var/lib/asterisk --no-create-home asterisk
+#25 0.796 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#25 1.103 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#25 1.223 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+#25 1.333 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+#25 2.740 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#25 2.840 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [358 kB]
+#25 3.233 Fetched 9397 kB in 3s (3041 kB/s)
+#25 3.233 Reading package lists...
+#25 3.516 Reading package lists...
+#25 3.800 Building dependency tree...
+#25 3.869 Reading state information...
+#25 3.940 libuuid1 is already the newest version (2.38.1-5+deb12u3).
+#25 3.940 libuuid1 set to manually installed.
+#25 3.940 The following additional packages will be installed:
+#25 3.940   libasound2-data libbrotli1 libbsd0 libgssapi-krb5-2 libicu72 libk5crypto3
+#25 3.940   libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.5-0 libnghttp2-14 libnspr4
+#25 3.940   libnss3 libpsl5 librtmp1 libsasl2-2 libsasl2-modules-db libssh2-1 openssl
+#25 3.941 Suggested packages:
+#25 3.941   libasound2-plugins alsa-utils krb5-doc krb5-user speex
+#25 3.941 Recommended packages:
+#25 3.941   alsa-ucm-conf alsa-topology-conf krb5-locales libldap-common publicsuffix
+#25 3.941   libsasl2-modules
+#25 4.045 The following NEW packages will be installed:
+#25 4.045   ca-certificates libasound2 libasound2-data libbrotli1 libbsd0 libcurl4
+#25 4.045   libedit2 libgssapi-krb5-2 libicu72 libjansson4 libk5crypto3 libkeyutils1
+#25 4.045   libkrb5-3 libkrb5support0 libldap-2.5-0 libnghttp2-14 libnspr4 libnss3
+#25 4.045   libogg0 libpsl5 librtmp1 libsasl2-2 libsasl2-modules-db libspeex1
+#25 4.045   libspeexdsp1 libsqlite3-0 libsrtp2-1 libssh2-1 libssl3 libvorbis0a libxml2
+#25 4.045   openssl tini
+#25 4.284 0 upgraded, 33 newly installed, 0 to remove and 0 not upgraded.
+#25 4.284 Need to get 19.0 MB of archives.
+#25 4.284 After this operation, 62.8 MB of additional disk space will be used.
+#25 4.284 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.22-1~deb12u2 [2040 kB]
+#25 5.143 Get:2 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.22-1~deb12u2 [1442 kB]
+#25 5.448 Get:3 http://deb.debian.org/debian-security bookworm-security/main amd64 ca-certificates all 20250419~deb12u2 [161 kB]
+#25 5.449 Get:4 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1 [20.5 kB]
+#25 5.548 Get:5 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1 [362 kB]
+#25 5.597 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 libbrotli1 amd64 1.0.9-2+deb12u1 [275 kB]
+#25 5.633 Get:7 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#25 5.679 Get:8 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u5 [33.2 kB]
+#25 5.685 Get:9 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u5 [79.7 kB]
+#25 5.699 Get:10 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#25 5.701 Get:11 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u5 [332 kB]
+#25 5.760 Get:12 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u5 [135 kB]
+#25 5.784 Get:13 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#25 5.787 Get:14 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#25 5.799 Get:15 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#25 5.835 Get:16 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u3 [72.4 kB]
+#25 5.879 Get:17 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#25 5.893 Get:18 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#25 5.904 Get:19 http://deb.debian.org/debian-security bookworm-security/main amd64 libssh2-1 amd64 1.10.0-3+deb12u1 [176 kB]
+#25 5.929 Get:20 http://deb.debian.org/debian bookworm/main amd64 libcurl4 amd64 7.88.1-10+deb12u15 [392 kB]
+#25 5.988 Get:21 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#25 6.006 Get:22 http://deb.debian.org/debian bookworm/main amd64 libicu72 amd64 72.1-3+deb12u1 [9376 kB]
+#25 7.798 Get:23 http://deb.debian.org/debian bookworm/main amd64 libjansson4 amd64 2.14-2 [40.8 kB]
+#25 7.799 Get:24 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1 [113 kB]
+#25 7.821 Get:25 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2+deb12u2 [839 kB]
+#25 7.988 Get:26 http://deb.debian.org/debian-security bookworm-security/main amd64 libnss3 amd64 2:3.87.1-1+deb12u4 [1331 kB]
+#25 8.262 Get:27 http://deb.debian.org/debian bookworm/main amd64 libogg0 amd64 1.3.5-3 [23.4 kB]
+#25 8.265 Get:28 http://deb.debian.org/debian bookworm/main amd64 libspeex1 amd64 1.2.1-2 [54.6 kB]
+#25 8.275 Get:29 http://deb.debian.org/debian bookworm/main amd64 libspeexdsp1 amd64 1.2.1-1 [40.9 kB]
+#25 8.281 Get:30 http://deb.debian.org/debian bookworm/main amd64 libsrtp2-1 amd64 2.5.0-3 [43.9 kB]
+#25 8.287 Get:31 http://deb.debian.org/debian bookworm/main amd64 libvorbis0a amd64 1.3.7-1 [93.0 kB]
+#25 8.304 Get:32 http://deb.debian.org/debian bookworm/main amd64 libxml2 amd64 2.9.14+dfsg-1.3~deb12u6 [689 kB]
+#25 8.444 Get:33 http://deb.debian.org/debian bookworm/main amd64 tini amd64 0.19.0-1+b3 [267 kB]
+#25 8.583 debconf: delaying package configuration, since apt-utils is not installed
+#25 8.600 Fetched 19.0 MB in 4s (4274 kB/s)
+#25 8.615 Selecting previously unselected package libssl3:amd64.
+#25 8.615 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6096 files and directories currently installed.)
+#25 8.631 Preparing to unpack .../00-libssl3_3.0.22-1~deb12u2_amd64.deb ...
+#25 8.632 Unpacking libssl3:amd64 (3.0.22-1~deb12u2) ...
+#25 8.716 Selecting previously unselected package openssl.
+#25 8.716 Preparing to unpack .../01-openssl_3.0.22-1~deb12u2_amd64.deb ...
+#25 8.717 Unpacking openssl (3.0.22-1~deb12u2) ...
+#25 8.776 Selecting previously unselected package ca-certificates.
+#25 8.777 Preparing to unpack .../02-ca-certificates_20250419~deb12u2_all.deb ...
+#25 8.777 Unpacking ca-certificates (20250419~deb12u2) ...
+#25 8.799 Selecting previously unselected package libasound2-data.
+#25 8.799 Preparing to unpack .../03-libasound2-data_1.2.8-1_all.deb ...
+#25 8.800 Unpacking libasound2-data (1.2.8-1) ...
+#25 8.816 Selecting previously unselected package libasound2:amd64.
+#25 8.816 Preparing to unpack .../04-libasound2_1.2.8-1+b1_amd64.deb ...
+#25 8.816 Unpacking libasound2:amd64 (1.2.8-1+b1) ...
+#25 8.841 Selecting previously unselected package libbrotli1:amd64.
+#25 8.842 Preparing to unpack .../05-libbrotli1_1.0.9-2+deb12u1_amd64.deb ...
+#25 8.843 Unpacking libbrotli1:amd64 (1.0.9-2+deb12u1) ...
+#25 8.864 Selecting previously unselected package libbsd0:amd64.
+#25 8.865 Preparing to unpack .../06-libbsd0_0.11.7-2_amd64.deb ...
+#25 8.866 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#25 8.881 Selecting previously unselected package libkrb5support0:amd64.
+#25 8.881 Preparing to unpack .../07-libkrb5support0_1.20.1-2+deb12u5_amd64.deb ...
+#25 8.882 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#25 8.893 Selecting previously unselected package libk5crypto3:amd64.
+#25 8.893 Preparing to unpack .../08-libk5crypto3_1.20.1-2+deb12u5_amd64.deb ...
+#25 8.893 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#25 8.907 Selecting previously unselected package libkeyutils1:amd64.
+#25 8.907 Preparing to unpack .../09-libkeyutils1_1.6.3-2_amd64.deb ...
+#25 8.908 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#25 8.917 Selecting previously unselected package libkrb5-3:amd64.
+#25 8.917 Preparing to unpack .../10-libkrb5-3_1.20.1-2+deb12u5_amd64.deb ...
+#25 8.918 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#25 8.943 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#25 8.943 Preparing to unpack .../11-libgssapi-krb5-2_1.20.1-2+deb12u5_amd64.deb ...
+#25 8.943 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#25 8.958 Selecting previously unselected package libsasl2-modules-db:amd64.
+#25 8.959 Preparing to unpack .../12-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#25 8.960 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#25 8.969 Selecting previously unselected package libsasl2-2:amd64.
+#25 8.969 Preparing to unpack .../13-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#25 8.970 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#25 8.981 Selecting previously unselected package libldap-2.5-0:amd64.
+#25 8.981 Preparing to unpack .../14-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#25 8.982 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#25 9.002 Selecting previously unselected package libnghttp2-14:amd64.
+#25 9.002 Preparing to unpack .../15-libnghttp2-14_1.52.0-1+deb12u3_amd64.deb ...
+#25 9.003 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#25 9.015 Selecting previously unselected package libpsl5:amd64.
+#25 9.015 Preparing to unpack .../16-libpsl5_0.21.2-1_amd64.deb ...
+#25 9.016 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#25 9.027 Selecting previously unselected package librtmp1:amd64.
+#25 9.027 Preparing to unpack .../17-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#25 9.028 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#25 9.038 Selecting previously unselected package libssh2-1:amd64.
+#25 9.039 Preparing to unpack .../18-libssh2-1_1.10.0-3+deb12u1_amd64.deb ...
+#25 9.039 Unpacking libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#25 9.056 Selecting previously unselected package libcurl4:amd64.
+#25 9.057 Preparing to unpack .../19-libcurl4_7.88.1-10+deb12u15_amd64.deb ...
+#25 9.058 Unpacking libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#25 9.079 Selecting previously unselected package libedit2:amd64.
+#25 9.080 Preparing to unpack .../20-libedit2_3.1-20221030-2_amd64.deb ...
+#25 9.081 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#25 9.092 Selecting previously unselected package libicu72:amd64.
+#25 9.093 Preparing to unpack .../21-libicu72_72.1-3+deb12u1_amd64.deb ...
+#25 9.093 Unpacking libicu72:amd64 (72.1-3+deb12u1) ...
+#25 9.391 Selecting previously unselected package libjansson4:amd64.
+#25 9.391 Preparing to unpack .../22-libjansson4_2.14-2_amd64.deb ...
+#25 9.392 Unpacking libjansson4:amd64 (2.14-2) ...
+#25 9.403 Selecting previously unselected package libnspr4:amd64.
+#25 9.403 Preparing to unpack .../23-libnspr4_2%3a4.35-1_amd64.deb ...
+#25 9.404 Unpacking libnspr4:amd64 (2:4.35-1) ...
+#25 9.417 Selecting previously unselected package libsqlite3-0:amd64.
+#25 9.418 Preparing to unpack .../24-libsqlite3-0_3.40.1-2+deb12u2_amd64.deb ...
+#25 9.419 Unpacking libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#25 9.453 Selecting previously unselected package libnss3:amd64.
+#25 9.454 Preparing to unpack .../25-libnss3_2%3a3.87.1-1+deb12u4_amd64.deb ...
+#25 9.455 Unpacking libnss3:amd64 (2:3.87.1-1+deb12u4) ...
+#25 9.521 Selecting previously unselected package libogg0:amd64.
+#25 9.522 Preparing to unpack .../26-libogg0_1.3.5-3_amd64.deb ...
+#25 9.523 Unpacking libogg0:amd64 (1.3.5-3) ...
+#25 9.530 Selecting previously unselected package libspeex1:amd64.
+#25 9.531 Preparing to unpack .../27-libspeex1_1.2.1-2_amd64.deb ...
+#25 9.531 Unpacking libspeex1:amd64 (1.2.1-2) ...
+#25 9.541 Selecting previously unselected package libspeexdsp1:amd64.
+#25 9.542 Preparing to unpack .../28-libspeexdsp1_1.2.1-1_amd64.deb ...
+#25 9.542 Unpacking libspeexdsp1:amd64 (1.2.1-1) ...
+#25 9.550 Selecting previously unselected package libsrtp2-1:amd64.
+#25 9.551 Preparing to unpack .../29-libsrtp2-1_2.5.0-3_amd64.deb ...
+#25 9.551 Unpacking libsrtp2-1:amd64 (2.5.0-3) ...
+#25 9.560 Selecting previously unselected package libvorbis0a:amd64.
+#25 9.561 Preparing to unpack .../30-libvorbis0a_1.3.7-1_amd64.deb ...
+#25 9.561 Unpacking libvorbis0a:amd64 (1.3.7-1) ...
+#25 9.573 Selecting previously unselected package libxml2:amd64.
+#25 9.574 Preparing to unpack .../31-libxml2_2.9.14+dfsg-1.3~deb12u6_amd64.deb ...
+#25 9.574 Unpacking libxml2:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#25 9.606 Selecting previously unselected package tini.
+#25 9.606 Preparing to unpack .../32-tini_0.19.0-1+b3_amd64.deb ...
+#25 9.607 Unpacking tini (0.19.0-1+b3) ...
+#25 9.630 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#25 9.632 Setting up libpsl5:amd64 (0.21.2-1) ...
+#25 9.633 Setting up libicu72:amd64 (72.1-3+deb12u1) ...
+#25 9.635 Setting up libogg0:amd64 (1.3.5-3) ...
+#25 9.636 Setting up libspeex1:amd64 (1.2.1-2) ...
+#25 9.638 Setting up libbrotli1:amd64 (1.0.9-2+deb12u1) ...
+#25 9.639 Setting up libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#25 9.641 Setting up libssl3:amd64 (3.0.22-1~deb12u2) ...
+#25 9.643 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#25 9.644 Setting up libjansson4:amd64 (2.14-2) ...
+#25 9.646 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#25 9.647 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#25 9.648 Setting up libasound2-data (1.2.8-1) ...
+#25 9.650 Setting up libnspr4:amd64 (2:4.35-1) ...
+#25 9.651 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#25 9.652 Setting up libvorbis0a:amd64 (1.3.7-1) ...
+#25 9.653 Setting up tini (0.19.0-1+b3) ...
+#25 9.655 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#25 9.656 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#25 9.658 Setting up libspeexdsp1:amd64 (1.2.1-1) ...
+#25 9.660 Setting up libasound2:amd64 (1.2.8-1+b1) ...
+#25 9.661 Setting up libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#25 9.662 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#25 9.665 Setting up openssl (3.0.22-1~deb12u2) ...
+#25 9.668 Setting up libbsd0:amd64 (0.11.7-2) ...
+#25 9.669 Setting up libxml2:amd64 (2.9.14+dfsg-1.3~deb12u6) ...
+#25 9.671 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#25 9.673 Setting up libnss3:amd64 (2:3.87.1-1+deb12u4) ...
+#25 9.674 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#25 9.676 Setting up ca-certificates (20250419~deb12u2) ...
+#25 9.951 Updating certificates in /etc/ssl/certs...
+#25 10.29 148 added, 0 removed; done.
+#25 10.30 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#25 10.31 Setting up libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#25 10.31 Setting up libsrtp2-1:amd64 (2.5.0-3) ...
+#25 10.31 Processing triggers for libc-bin (2.36-9+deb12u14) ...
+#25 10.32 Processing triggers for ca-certificates (20250419~deb12u2) ...
+#25 10.32 Updating certificates in /etc/ssl/certs...
+#25 10.58 0 added, 0 removed; done.
+#25 10.58 Running hooks in /etc/ca-certificates/update.d...
+#25 10.58 done.
+#25 10.61 useradd warning: asterisk's uid 1001 is greater than SYS_UID_MAX 999
+#25 DONE 10.7s
+
+#26 [pbx runtime 3/8] COPY --from=build /usr/lib/x86_64-linux-gnu/ /usr/lib/x86_64-linux-gnu/
+#26 DONE 0.8s
+
+#27 [pbx runtime 4/8] COPY --from=build /usr/sbin/asterisk /usr/sbin/asterisk
+#27 DONE 0.0s
+
+#28 [pbx runtime 5/8] COPY --from=build /usr/sbin/astcanary /usr/sbin/astcanary
+#28 DONE 0.0s
+
+#29 [pbx runtime 6/8] COPY --from=build /var/lib/asterisk /var/lib/asterisk
+#29 DONE 0.1s
+
+#30 [pbx runtime 7/8] COPY --from=build /var/spool/asterisk /var/spool/asterisk
+#30 DONE 0.0s
+
+#31 [pbx runtime 8/8] RUN mkdir -p /etc/asterisk /var/log/asterisk /var/run/asterisk     && chown -R asterisk:asterisk /var/lib/asterisk /var/spool/asterisk /var/log/asterisk /var/run/asterisk /etc/asterisk
+#31 DONE 0.4s
+
+#32 [pbx] exporting to image
+#32 exporting layers
+#32 exporting layers 5.8s done
+#32 exporting manifest sha256:49d30ae2012b469ad864ad5ba38428360ae0d1859061f734b353fc19722b6e6c done
+#32 exporting config sha256:e3e6b506fe679a30a84f6e7d297461047fdfd176b9dfb9881e57e88351bbfe84 done
+#32 exporting attestation manifest sha256:9ac8a1dea3252d767724a6f6173fc616e575c1d3ac314536a9b6b083ac5db830 done
+#32 exporting manifest list sha256:605d285fe5bb6a3c05685e548822bfb7815c464c41ad61e614f94a6ed31428ac done
+#32 naming to docker.io/mini-voip-free/pbx:22.11.0 done
+#32 unpacking to docker.io/mini-voip-free/pbx:22.11.0
+#32 unpacking to docker.io/mini-voip-free/pbx:22.11.0 1.6s done
+#32 DONE 7.4s
+
+#33 [pbx] resolving provenance for metadata file
+#33 DONE 0.0s
+ control  Built
+ pbx  Built
+ Container smi-control  Recreate
+ Container smi-pbx  Recreate
+ Container smi-pbx  Recreated
+ Container smi-control  Recreated
+ Container smi-edge  Running
+ Container smi-control  Starting
+ Container smi-pbx  Starting
+ Container smi-pbx  Started
+ Container smi-control  Started
+PASS compose stack started (edge/pbx/control)
+2026-10-28T10:58:38Z readiness: curl http://127.0.0.1:5080/health/ready — 200 only after AMI reconcile

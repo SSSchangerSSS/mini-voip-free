@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # device reset — rotate generation/tokens/SIP secret via the Control CLI.
 set -euo pipefail
-source "$(cd "$(dirname "${BASH_SOURCE[0]}")/../lib/common.sh")"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/common.sh"
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 ext="${1:-}"; shift || true
 
 credential=""; force=false

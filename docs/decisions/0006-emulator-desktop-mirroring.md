@@ -1,0 +1,9 @@
+# Emulator desktop display helper
+
+Date: 2026-10-28
+
+Add scrcpy 5.0.1 as a host-only QA/display tool, outside the Android app/server runtime. Qt Emulator windows stalled Android 8 and caused heavy resource pressure in this VMware guest without KVM; headless execution had completed the real two-emulator call tests. Display/control the same headless AVDs through two software-rendered ADB mirror windows at at most 5 fps, no audio, clipboard autosync disabled. This does not validate physical microphone/speaker audio and does not introduce a product component.
+
+Tencent release mirror returned 404; official GitHub release fallback downloaded the 17,883,742-byte Linux x86_64 asset. Its SHA256 matches the publisher's GitHub release API asset digest: `9f969d30cc574816077edecda65719c1c70b0aee1df1ba5fa00779ac07b8fd6e`. Source: https://github.com/Genymobile/scrcpy/releases/tag/v5.0.1 and https://api.github.com/repos/Genymobile/scrcpy/releases/tags/v5.0.1. Existing Flutter, Android SDK, SIP, WebRTC and server versions remain fixed. Force scrcpy to use the existing locked SDK adb, rather than its bundled adb. Desktop shortcuts keep their existing names and launch the app plus its corresponding mirror window. Keep CA/account data and installed APK in the existing AVD data.
+
+Final desktop launcher waits for package discovery, RUNNING_UNLOCKED and a successful Activity start: Android 15 produced "Too early to start activity" despite its boot property. Requested guest RAM is 1536 MiB on API26 and 2048 MiB on API35; actual API35 MemTotal was 2532900 kB, so flag values are not treated as measured allocation. Keep swiftshader_indirect for API35 (used in the successful call runs), and swiftshader for API26. Both use headless execution plus the software-rendered mirror. No AVD data is wiped. An Android 8 restore failure during final startup required a manual re-login; record that limitation, do not claim reliable cold-start/device validation.

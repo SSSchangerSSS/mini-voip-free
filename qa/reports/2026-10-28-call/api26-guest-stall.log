@@ -1,0 +1,11 @@
+--------- beginning of main
+--------- beginning of system
+10-28 15:59:21.120  1627  2325 W ActivityManager: Slow operation: 89ms so far, now at startProcess: returned from zygote!
+10-28 15:59:21.120  1627  2325 W ActivityManager: Slow operation: 90ms so far, now at startProcess: done updating battery stats
+10-28 15:59:21.120  1627  2325 W ActivityManager: Slow operation: 90ms so far, now at startProcess: building log message
+10-28 15:59:21.120  1627  2325 I ActivityManager: Start proc 2443:com.android.email/u0a43 for broadcast com.android.email/.service.EmailBroadcastReceiver
+10-28 15:59:21.120  1627  2325 W ActivityManager: Slow operation: 90ms so far, now at startProcess: starting to update pids map
+10-28 15:59:21.121  1627  2325 W ActivityManager: Slow operation: 90ms so far, now at startProcess: done updating pids map
+10-28 15:59:21.121  1627  2325 W ActivityManager: Slow operation: 90ms so far, now at startProcess: done starting proc!
+10-28 15:59:21.733  1627  2325 W ActivityManager: Unable to start service Intent { act=com.android.email.EXCHANGE_INTENT pkg=com.android.exchange } U=0: not found
+10-28 16:00:15.459  1405  1943 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property

@@ -1,0 +1,11 @@
+{
+  "mode": "short",
+  "status": "PASS",
+  "secretValuesRecorded": false,
+  "newSipContact": true,
+  "diagnostics": [
+    "SMI_STARTUP failure stage=api-login kind=network retryable=true",
+    "SMI_STARTUP retry attempt=2"
+  ],
+  "recovery": "automatic retry"
+}

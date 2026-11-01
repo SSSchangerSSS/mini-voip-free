@@ -768,7 +768,7 @@
       "level": "گزارش کاربر",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T74",
@@ -778,7 +778,7 @@
       "level": "API/PBX",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T75",
@@ -788,7 +788,7 @@
       "level": "API",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T76",
@@ -798,7 +798,7 @@
       "level": "AndroidQA",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T77",
@@ -808,7 +808,7 @@
       "level": "AndroidQA",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T78",
@@ -818,7 +818,7 @@
       "level": "AndroidQA",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T79",
@@ -828,7 +828,7 @@
       "level": "AndroidQA/PBX",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T80",
@@ -838,17 +838,17 @@
       "level": "CLI/fixture",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T81",
       "scenario": "تحویل منبع رویGitHub",
       "expected": "commitوorigin/mainهمانSHAباworktreeتمیز",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "level": "Git",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
-      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
-      "commit": null
+      "lastRunAtUtc": "2026-11-01T13:50:49.230938+00:00",
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T82",
@@ -858,7 +858,7 @@
       "level": "دستگاه",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     },
     {
       "id": "T83",
@@ -868,7 +868,7 @@
       "status": "PASS",
       "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
       "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
-      "commit": null
+      "commit": "421c032449ce793685974fa3773bb67c5079b4fc"
     }
   ]
 }

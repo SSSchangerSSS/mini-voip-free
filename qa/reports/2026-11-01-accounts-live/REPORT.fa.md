@@ -79,3 +79,7 @@ CodeReady: PASS در محدوده اجراشده؛گیت کل محصول باز 
 مرحله بعد: Update روی دو گوشی، تست دفترچه زنده/ابطال نشست و تماس؛ برایسرورجدید،config/TLS/CAرا مطابقREADME آماده کنید. QA8/15 پس از صفرکانال برای آزادکردن منابع متوقف شدند؛سه سرویس محصول و دریافتAPK فعال ماندند.
 
 برای حفظ bytes منبع vendor و context معتبر patch، بررسی whitespace با .gitattributes برای import و فایلdiff مستثناست؛ EOFدو فایل بومیِ متعلق‌به‌پروژه فقط از blankline اضافی پاک شد، بدون تغییر دستور یا خط کد. overlayها با هم برابرند.
+
+## تحویل منبع GitHub
+
+PASS؛ commit کد آزموده‌شده [421c032](https://github.com/SSSchangerSSS/mini-voip-free/commit/421c032449ce793685974fa3773bb67c5079b4fc) بهorigin/main ارسال و SHAازخودremoteتطبیق داده شد؛worktreeدرلحظهبررسیتمیزبود. README.mdازAPIواقعیGitHubدریافتوهشblobباREADMEمحلیبرابرشد. شواهد github-source-delivery.json وgithub-readme.json هستند. این تحویل، انتشار رسمی APK/AppStore نیست. این رسید و وضعیتT81درcommitمستنداتبعدیثبت می‌شوند.

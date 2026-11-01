@@ -85,3 +85,5 @@
   - دو تماس نهایی با نام+داخلی،RTP،قفل8/task-remove15،قطع زنگ،hold60s باuptime96/99 وlost0،صفرکانال و حذف اعلان PASS؛گیتSDK هرPID9marker و نشت0. SHAسهABI/امضایupgrade/اسکن محدوداسرار/HTTP PASS.
   - شکست‌های helper و انتظار اعلان در گزارش حفظ‌اند. نام‌های QA101/103 به مقدار اصلی برگشتند؛104/105 reset یا تغییررمز نشدند. مالک24 را به‌صورت کلی موفق گزارش کرد؛ گوشی واقعی29 BLOCKED است.
   - README.md راهنمای صفحه GitHub؛ گزارش `qa/reports/2026-11-01-accounts-live/REPORT.fa.md`. پس از صفرکانال فقطQA8/15 برای آزادکردن منابع متوقف شدند؛محصول و سرور دانلود فعال‌اند. تحویل Git پس از این مدارک ثبت می‌شود؛انتشار رسمیAPK/iOS NOT_RUN.
+
+- **تحویل GitHub — 2026-11-01:** تمام منبع و شواهد مراحل قبلی و نسخه29 درcommit `421c032449ce793685974fa3773bb67c5079b4fc` بهorigin/main ارسال شد؛remoteSHA وcleanworktree تأیید شدند. README اصلی باAPIواقعیGitHub وblobSHA بررسی شد؛T81=PASS. رسیدQA درqa/reports/2026-11-01-accounts-live/evidence/github-source-delivery.json است. رسمی‌بودن انتشارAPK/iOS همچنانNOT_RUN و گوشی واقعی29BLOCKED است.

@@ -1,0 +1,20 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_network_failure_test.dart
+00:00 +0: hangup releases UI and attempts API when SIP failure=false
+00:00 +0 -1: hangup releases UI and attempts API when SIP failure=false [E]
+  TimeoutException: fixture network timeout
+  test/call_network_failure_test.dart 42:11  main.<fn>.<fn>
+  package:http/src/mock_client.dart 54:36    new MockClient.<fn>
+  
+00:00 +0 -1: hangup releases UI and attempts API when SIP failure=true
+00:00 +0 -2: hangup releases UI and attempts API when SIP failure=true [E]
+  Bad state: fixture SIP failure
+  test/call_network_failure_test.dart 20:21           FailingCallSip.hangUp
+  package:smi_phone/call/call_controller.dart 571:16  CallController.hangUp
+  test/call_network_failure_test.dart 52:15           main.<fn>
+  
+00:00 +0 -2: Some tests failed.
+
+Failing tests:
+  /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_network_failure_test.dart: hangup releases UI and attempts API when SIP failure=false
+  /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_network_failure_test.dart: hangup releases UI and attempts API when SIP failure=true

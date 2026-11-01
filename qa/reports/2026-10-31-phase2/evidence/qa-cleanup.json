@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "scope": "Only the two QA apps stopped and QA logcat buffers cleared after evidence; server and real phones untouched",
+  "privacyGateRemains": "FAIL"
+}

@@ -28,7 +28,7 @@
 		-Server
 	}
 
-	@api path /api/v1/* /health/* /health
+	@api path /api/v1/* /health/* /health /admin /admin/*
 	handle @api {
 		reverse_proxy 127.0.0.1:5080
 	}

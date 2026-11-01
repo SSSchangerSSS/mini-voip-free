@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using Smi.Control.Database;
 
 namespace Smi.Control.Push;
 
@@ -11,16 +12,17 @@ namespace Smi.Control.Push;
 /// delivery to the device (spec 4.3).
 /// </summary>
 public sealed record PushPayload(int SchemaVersion, string Type, string CallId,
-    string CallerExtension, string CalleeExtension, int DeviceGeneration, DateTime ExpiresAtUtc)
+    string CallerExtension, string CalleeExtension, int DeviceGeneration, DateTime ExpiresAtUtc, string CallerName = "")
 {
     public string ToJson() => JsonSerializer.Serialize(new Dictionary<string, object?>
     {
         ["schemaVersion"] = SchemaVersion,
+        ["callerName"] = CallerName,
         ["type"] = Type,
         ["callId"] = CallId,
         ["callerExtension"] = CallerExtension,
         ["calleeExtension"] = CalleeExtension,
-        ["deviceGeneration"] = DeviceGeneration.ToString(), // FCM data fields are strings
+        ["deviceGeneration"] = DeviceGeneration, // FCM sender string-encodes its transport map
         ["expiresAt"] = ExpiresAtUtc.ToString("o"),
     });
 }
@@ -30,13 +32,14 @@ public sealed record PushResult(bool Accepted, string? Status, string? Detail);
 /// <summary>Dispatch is selected by the callee device platform. Missing credentials = explicit failure, never fake success.</summary>
 public sealed class PushDispatch
 {
+    private readonly Db _db;
     private readonly ApnsSender? _apns;
     private readonly FcmSender? _fcm;
     private readonly ILogger<PushDispatch> _log;
 
-    public PushDispatch(SmiConfig cfg, ILogger<PushDispatch> log, ILogger<ApnsSender> apnsLog, ILogger<FcmSender> fcmLog, HttpClient http)
+    public PushDispatch(SmiConfig cfg, Db db, ILogger<PushDispatch> log, ILogger<ApnsSender> apnsLog, ILogger<FcmSender> fcmLog, HttpClient http)
     {
-        _log = log;
+        _log = log; _db = db;
         try
         {
             if (!string.IsNullOrEmpty(cfg.ApnsP8Path) && File.Exists(cfg.ApnsP8Path) &&
@@ -59,32 +62,41 @@ public sealed class PushDispatch
         catch (Exception ex) { _log.LogError(ex, "FCM sender init failed"); }
     }
 
-    public async Task<bool> SendIncomingCallAsync(Calls.CallRow call)
+    public async Task<bool> SendIncomingCallAsync(Calls.CallRow call) =>
+        (await SendBoundAsync(call, "incoming_call")).Accepted;
+
+    public Task<PushResult> SendCancelDataAsync(Calls.CallRow call) => SendBoundAsync(call, "cancel_call");
+
+    private async Task<PushResult> SendBoundAsync(Calls.CallRow call, string type)
     {
-        var payload = new PushPayload(1, "incoming_call", call.CallId,
-            call.CallerExt, call.CalleeExt, call.CalleeDeviceGeneration, call.DeadlineUtc);
-        // device/platform resolution is done by the endpoint layer via PushBinding; the
-        // coordinator only knows the call — we send to BOTH providers' last-known tokens.
-        // (A single active device per extension exists; provider chosen by its binding.)
-        // v0.1: platform-specific routing is wired through SessionService bindings at API layer.
-        var anyOk = false;
-        if (_apns is not null)
-        {
-            var r = await _apns.SendToEnvironmentAsync(payload, call.CalleeExt);
-            anyOk |= r.Accepted;
+        string? token=null,provider=null; string name="";
+        using(var c=_db.Open()) {
+            using(var r=Db.Query(c,"SELECT PushProvider,PushToken FROM Devices WHERE Extension=@e AND Active=1 AND DeviceGeneration=@g",("@e",call.CalleeExt),("@g",call.CalleeDeviceGeneration))) {
+                if(r.Read()){provider=r.IsDBNull(0)?null:r.GetString(0);token=r.IsDBNull(1)?null:r.GetString(1);}
+            }
+            name=Db.Scalar(c,"SELECT DisplayName FROM Extensions WHERE Extension=@e",("@e",call.CallerExt)) as string ?? "";
         }
-        if (_fcm is not null)
-        {
-            var r = await _fcm.SendDataAsync(payload, call.CalleeExt);
-            anyOk |= r.Accepted;
+        if(string.IsNullOrWhiteSpace(token))return new(false,"not_bound",null);
+        var payload=new PushPayload(1,type,call.CallId,call.CallerExt,call.CalleeExt,call.CalleeDeviceGeneration,call.DeadlineUtc,name);
+        var ttl=(int)Math.Ceiling((call.DeadlineUtc-DateTime.UtcNow).TotalSeconds);
+        if(ttl<=0)return new(false,"expired",null);
+        using var timeout=new CancellationTokenSource(TimeSpan.FromSeconds(Math.Min(ttl,15)));
+        if(provider=="apns" && type=="incoming_call" && _apns is not null)return await _apns.SendAsync(token,payload);
+        if(provider!="fcm" || _fcm is null)return new(false,"not_configured",null);
+        PushResult result=new(false,"not_sent",null);
+        for(var attempt=0;attempt<3;attempt++) {
+            result=await _fcm.SendToDeviceAsync(token,payload,ttl,timeout.Token);
+            if(result.Accepted || result.Status is not ("429" or "500" or "502" or "503" or "504"))break;
+            try {await Task.Delay(500*(attempt+1),timeout.Token);} catch(OperationCanceledException){break;}
+            ttl=(int)Math.Ceiling((call.DeadlineUtc-DateTime.UtcNow).TotalSeconds);if(ttl<=0)break;
         }
-        return anyOk;
+        if(result.Detail=="UNREGISTERED") {
+            using var c=_db.Open();
+            Db.Exec(c,"UPDATE Devices SET PushToken=NULL WHERE Extension=@e AND PushToken=@t AND DeviceGeneration=@g",("@e",call.CalleeExt),("@t",token),("@g",call.CalleeDeviceGeneration));
+        }
+        return result;
     }
 
-    public Task<PushResult> SendCancelDataAsync(Calls.CallRow call) =>
-        _fcm?.SendDataAsync(new PushPayload(1, "cancel_call", call.CallId,
-            call.CallerExt, call.CalleeExt, call.CalleeDeviceGeneration, call.DeadlineUtc), call.CalleeExt)
-        ?? Task.FromResult(new PushResult(false, "not_configured", "FCM sender absent"));
 }
 
 /// <summary>
@@ -199,19 +211,18 @@ public sealed class FcmSender
         }
     }
 
-    private async Task<string?> GetAccessTokenAsync()
+    private async Task<string?> GetAccessTokenAsync(CancellationToken ct = default)
     {
         if (_cachedToken is { } t && DateTime.UtcNow < t.ExpiresUtc) return t.AccessToken;
         try
         {
             var sa = ServiceAccount.Load(_cfg.FcmServiceAccountPath!);
-            using var key = ECDsa.Create();
-            var pemBody = string.Concat(sa.PrivateKeyPem.Split('\n').Where(l => !l.Contains("-----")).Select(l => l.Trim()));
-            key.ImportPkcs8PrivateKey(Convert.FromBase64String(pemBody), out _);
+            using var key = RSA.Create();
+            key.ImportFromPem(sa.PrivateKeyPem);
 
             string B64Url(byte[] b) => Convert.ToBase64String(b).TrimEnd('=').Replace('+', '-').Replace('/', '_');
             var now = DateTime.UtcNow;
-            var header = B64Url(JsonSerializer.SerializeToUtf8Bytes(new { alg = "ES256", typ = "JWT" }));
+            var header = B64Url(JsonSerializer.SerializeToUtf8Bytes(new { alg = "RS256", typ = "JWT" }));
             var claims = B64Url(JsonSerializer.SerializeToUtf8Bytes(new
             {
                 iss = sa.ClientEmail,
@@ -221,8 +232,8 @@ public sealed class FcmSender
                 exp = new DateTimeOffset(now.AddMinutes(55)).ToUnixTimeSeconds(),
             }));
             var unsigned = $"{header}.{claims}";
-            var sig = key.SignData(Encoding.ASCII.GetBytes(unsigned), HashAlgorithmName.SHA256);
-            var assertion = $"{unsigned}.{B64Url(sig[..(sig.Length / 2)])}{B64Url(sig[(sig.Length / 2)..])}";
+            var sig = key.SignData(Encoding.ASCII.GetBytes(unsigned), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            var assertion = $"{unsigned}.{B64Url(sig)}";
 
             using var req = new HttpRequestMessage(HttpMethod.Post, "https://oauth2.googleapis.com/token")
             {
@@ -232,7 +243,7 @@ public sealed class FcmSender
                     ["assertion"] = assertion,
                 }),
             };
-            using var res = await _http.SendAsync(req);
+            using var res = await _http.SendAsync(req,ct);
             if ((int)res.StatusCode != 200) { _log.LogError("FCM token exchange failed: {Status}", (int)res.StatusCode); return null; }
             using var doc = JsonDocument.Parse(await res.Content.ReadAsStringAsync());
             var accessToken = doc.RootElement.GetProperty("access_token").GetString()!;
@@ -241,7 +252,7 @@ public sealed class FcmSender
         }
         catch (Exception ex)
         {
-            _log.LogError(ex, "FCM auth failed");
+            _log.LogError("FCM auth failed: {Kind}", ex.GetType().Name);
             return null;
         }
     }
@@ -255,11 +266,11 @@ public sealed class FcmSender
         return await Task.FromResult(new PushResult(false, "token_resolution_pending", "Android push token binding wired in P3"));
     }
 
-    public async Task<PushResult> SendToDeviceAsync(string deviceToken, PushPayload payload, int ttlSeconds)
+    public async Task<PushResult> SendToDeviceAsync(string deviceToken, PushPayload payload, int ttlSeconds, CancellationToken ct = default)
     {
         try
         {
-            var token = await GetAccessTokenAsync();
+            var token = await GetAccessTokenAsync(ct);
             if (token is null) return new PushResult(false, "auth_failed", null);
 
             var body = JsonSerializer.Serialize(new Dictionary<string, object?>
@@ -271,7 +282,7 @@ public sealed class FcmSender
                     {
                         ["priority"] = "HIGH",
                         ["ttl"] = $"{Math.Max(1, ttlSeconds)}s",
-                        ["data"] = JsonDocument.Parse(payload.ToJson()).RootElement,
+                        ["data"] = JsonDocument.Parse(payload.ToJson()).RootElement.EnumerateObject().ToDictionary(p=>p.Name,p=>p.Value.ValueKind==JsonValueKind.String?p.Value.GetString():p.Value.ToString()),
                     },
                 },
             });
@@ -279,12 +290,17 @@ public sealed class FcmSender
                 $"https://fcm.googleapis.com/v1/projects/{_cfg.FcmProjectId}/messages:send");
             req.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             req.Content = new StringContent(body, Encoding.UTF8, "application/json");
-            using var res = await _http.SendAsync(req);
-            return new PushResult((int)res.StatusCode == 200, ((int)res.StatusCode).ToString(), null);
+            using var res = await _http.SendAsync(req,ct);
+            string? detail=null;
+            if((int)res.StatusCode==404) {
+                var text=await res.Content.ReadAsStringAsync(ct);
+                if(text.Contains("UNREGISTERED",StringComparison.Ordinal))detail="UNREGISTERED";
+            }
+            return new PushResult((int)res.StatusCode == 200, ((int)res.StatusCode).ToString(), detail);
         }
         catch (Exception ex)
         {
-            _log.LogWarning(ex, "FCM send failed");
+            _log.LogWarning("FCM send failed: {Kind}", ex.GetType().Name);
             return new PushResult(false, "exception", ex.GetType().Name);
         }
     }

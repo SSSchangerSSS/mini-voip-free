@@ -11,6 +11,7 @@ import 'native/native_call_bridge.dart';
 import 'secure/secure_credential_store.dart';
 import 'sip/sip_adapter.dart';
 import 'ui/call_page.dart';
+import 'config/app_config.dart';
 import 'ui/dialer_page.dart';
 import 'ui/login_page.dart';
 
@@ -25,6 +26,7 @@ Future<void> main() async {
     SecurityContext.defaultContext.setTrustedCertificatesBytes(base64Decode(extraCa));
   }
   final native = NativeCallBridge();
+  AppConfig.overrideDomain = await native.secureRead('smi.serverOverride');
   final sip = SipAdapter();
   final controller = CallController(
     api: ControlApiClient(domain: 'not-yet-configured.invalid'),

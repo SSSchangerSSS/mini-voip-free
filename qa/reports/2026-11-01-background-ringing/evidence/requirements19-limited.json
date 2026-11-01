@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "batteryRestrictionWarningAndSettingsButtonVisible": true,
+  "scope": "Real native capability refresh on QA15; physical phones untouched"
+}

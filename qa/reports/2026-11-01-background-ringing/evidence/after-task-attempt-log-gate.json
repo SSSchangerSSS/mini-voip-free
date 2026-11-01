@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "observedAtUtc": "2026-11-01T05:51:34.020947+00:00",
+  "rawLogWrittenOrPrinted": false,
+  "sdk": "144.7559.15",
+  "apkVersionCode": 21,
+  "devices": [
+    {
+      "device": "emulator-5554",
+      "pid": 2759,
+      "linesScanned": 114,
+      "privacyHookMarkers": 3,
+      "counts": {
+        "nativeIceCredential": 0,
+        "sdpCredential": 0,
+        "authorizationHeader": 0,
+        "sdpPayload": 0,
+        "fatalException": 0
+      },
+      "status": "PASS"
+    },
+    {
+      "device": "127.0.0.1:5565",
+      "pid": 1895,
+      "linesScanned": 269,
+      "privacyHookMarkers": 3,
+      "counts": {
+        "nativeIceCredential": 0,
+        "sdpCredential": 0,
+        "authorizationHeader": 0,
+        "sdpPayload": 0,
+        "fatalException": 0
+      },
+      "status": "PASS"
+    }
+  ]
+}

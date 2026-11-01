@@ -214,5 +214,11 @@ public static class Migrations
                 Detail TEXT NOT NULL,
                 AtUtc TEXT NOT NULL);
             """),
+        new Migration(2, "extension_display_names", """
+            ALTER TABLE Extensions ADD COLUMN DisplayName TEXT NOT NULL DEFAULT '';
+            """),
+        new Migration(3, "extension_tombstones", """
+            ALTER TABLE Extensions ADD COLUMN Deleted INTEGER NOT NULL DEFAULT 0;
+            """),
     };
 }

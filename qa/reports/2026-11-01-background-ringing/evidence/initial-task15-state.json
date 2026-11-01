@@ -1,0 +1,11 @@
+{
+  "prepare": {
+    "status": "PASS",
+    "screenOff": false,
+    "calleeActivityForeground": false,
+    "calleeActivityRecordPresent": false,
+    "standbyServiceAlive": true,
+    "calleePid": "1895",
+    "taskRemovalMethod": "isolated app root task remove"
+  }
+}

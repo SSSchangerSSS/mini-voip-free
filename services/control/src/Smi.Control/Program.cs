@@ -1,4 +1,7 @@
 using System.Text.Json;
+using Smi.Control.Management;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Logging.Abstractions;
 using Smi.Control;
 using Smi.Control.Ami;
@@ -32,7 +35,7 @@ builder.Services.ConfigureHttpJsonOptions(o =>
 
 var cfg = SmiConfig.FromEnvironment();
 builder.Services.AddSingleton(cfg);
-builder.Services.AddSingleton<Db>(_ => { var d = new Db(cfg); d.Migrate(); return d; });
+builder.Services.AddSingleton<Db>(sp => { var d = new Db(sp.GetRequiredService<SmiConfig>()); d.Migrate(); return d; });
 builder.Services.AddSingleton<SessionService>();
 builder.Services.AddSingleton<CallStore>();
 builder.Services.AddSingleton<Readiness>();
@@ -42,6 +45,20 @@ builder.Services.AddSingleton<AmiCallCoordinator>();
 builder.Services.AddHostedService(sp => sp.GetRequiredService<AmiCallCoordinator>());
 builder.Services.AddSingleton<PushDispatch>();
 builder.Services.AddHttpClient();
+builder.Services.AddSingleton<ExtensionManager>();
+builder.Services.AddAntiforgery(o => { o.HeaderName = "X-CSRF-TOKEN"; o.Cookie.SameSite = SameSiteMode.Strict; });
+builder.Services.AddAuthentication("admin").AddCookie("admin", o => {
+    o.Cookie.Name = "SMI_ADMIN_SESSION"; o.Cookie.HttpOnly = true;
+    o.Cookie.SameSite = SameSiteMode.Strict; o.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+    o.ExpireTimeSpan = TimeSpan.FromMinutes(30); o.SlidingExpiration = true;
+    o.Events.OnRedirectToLogin = c => { c.Response.StatusCode = 401; return Task.CompletedTask; };
+    o.Events.OnRedirectToAccessDenied = c => { c.Response.StatusCode = 403; return Task.CompletedTask; };
+});
+builder.Services.Configure<ForwardedHeadersOptions>(o => {
+    o.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    o.KnownProxies.Add(System.Net.IPAddress.Loopback); o.KnownProxies.Add(System.Net.IPAddress.IPv6Loopback);
+    o.ForwardLimit = 1;
+});
 
 var app = builder.Build();
 var readiness = app.Services.GetRequiredService<Readiness>();
@@ -64,6 +81,7 @@ app.Use(async (ctx, next) =>
 {
     try { await next(ctx); }
     catch (InvalidTransitionException) { ctx.Response.StatusCode = 409; await ctx.Response.WriteAsJsonAsync(ApiError.Body("INVALID_TRANSITION", ctx.TraceIdentifier)); }
+    catch (OperationCanceledException) when (ctx.RequestAborted.IsCancellationRequested) { /* Normal long-poll disconnect, not a server fault. */ }
     catch (Exception ex)
     {
         app.Logger.LogError(ex, "unhandled error on {Path}", ctx.Request.Path);
@@ -72,7 +90,10 @@ app.Use(async (ctx, next) =>
         await ctx.Response.WriteAsJsonAsync(ApiError.Body("INTERNAL", ctx.TraceIdentifier));
     }
 });
+app.UseForwardedHeaders();
+app.UseAuthentication();
 app.UseMiddleware<AuthMiddleware>();
+app.MapManagement();
 
 // ─── Health (public, no internal detail) ───
 app.MapGet("/health/live", () => Results.Ok(new { status = "live" }));
@@ -123,8 +144,7 @@ app.MapDelete("/api/v1/sessions/current", async (HttpContext ctx, SessionService
         var fresh = calls.GetById(call.CallId);
         if (fresh is not null) await coordinator.EndViaPbxAsync(fresh, 16);
     }
-    sessions.Revoke(s.TokenHash, DateTime.UtcNow);
-    sessions.UnbindPush(s.InstallationId, DateTime.UtcNow);
+    sessions.ReleaseDevice(s.InstallationId, DateTime.UtcNow);
     return Results.NoContent();
 });
 

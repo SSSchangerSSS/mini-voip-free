@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Actual admin assets rendered with two synthetic accounts and mocked fetch on localhost8789; not a production-cookie login",
+  "searchByExtension": true,
+  "boundFilter": true,
+  "productionLoginPageJavascriptErrors": 0,
+  "selectorAttemptByLabel": "FAIL; fallback to observed #statusFilter succeeded"
+}

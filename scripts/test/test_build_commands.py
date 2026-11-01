@@ -16,7 +16,7 @@ class BuildCommandsTest(unittest.TestCase):
         self.root = Path(self.temp.name)
         for file in ("smi", "scripts/lib/common.sh", "scripts/build/build-android.sh",
                      "scripts/build/build-ios.sh", "scripts/deploy/server-init.sh",
-                     "scripts/deploy/extension.sh"):
+                     "scripts/deploy/extension.sh", "scripts/deploy/device-reset.sh", "scripts/deploy/server-configure.sh"):
             target = self.root / file
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(ROOT / file, target)
@@ -39,6 +39,31 @@ exit 7
     def run_build(self, *args):
         return subprocess.run(["bash", str(self.root / "smi"), "build", *args],
                               cwd="/tmp", env=self.env, text=True, capture_output=True)
+
+    def test_static_configuration_isolated_and_preserves_other_options(self):
+        config=self.root / "test-site.env"
+        config.write_text("SMI_DOMAIN=192.168.1.151\nTURN_ENABLED=false\n")
+        result=subprocess.run(["bash",str(self.root / "smi"),"server","configure","--host","192.168.1.152","--config",str(config)],env=self.env,capture_output=True,text=True)
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertIn("SMI_DOMAIN=192.168.1.152",config.read_text())
+        self.assertIn("TURN_ENABLED=false",config.read_text())
+        before=config.read_bytes()
+        result=subprocess.run(["bash",str(self.root / "smi"),"server","configure","--host","https://bad/path","--config",str(config)],env=self.env,capture_output=True,text=True)
+        self.assertNotEqual(result.returncode,0)
+        self.assertEqual(config.read_bytes(),before)
+
+    def test_developer_password_becomes_salted_verifier_and_never_flutter_argument(self):
+        import hashlib,base64
+        (self.root / "apps/mobile/android/app").mkdir()
+        password=self.root / "private-password"
+        password.write_text("fixture-developer-password")
+        password.chmod(0o600)
+        self.env["BUILD_TEST_PUB_OK"]="1"
+        result=self.run_build("android","--release","--developer-password-file",str(password))
+        self.assertEqual(result.returncode,7,result.stderr)
+        props=dict(line.split("=",1) for line in (self.root / "apps/mobile/android/app/developer-gate.properties").read_text().splitlines())
+        self.assertEqual(hashlib.pbkdf2_hmac('sha256',password.read_bytes(),base64.b64decode(props['salt']),120000),base64.b64decode(props['hash']))
+        self.assertNotIn(password.read_text(),self.trace.read_text()+result.stdout+result.stderr)
 
     def test_android_resolves_repo_and_propagates_pub_failure(self):
         result = self.run_build("android", "--release", "--server-host", "192.168.1.244")
@@ -131,6 +156,34 @@ IFS= read -r value
         self.assertIn("/dev/stdin", args)
         self.assertNotIn("fixture-credential-only", self.trace.read_text())
         self.assertEqual(credential.stat().st_mode & 0o777, 0o600)
+
+    def test_device_reset_uses_deployed_cli_and_preserves_failure(self):
+        deploy = self.root / "deploy"
+        deploy.mkdir()
+        (deploy / "site.env").write_text("SMI_DOMAIN=192.168.1.151\n")
+        credential = self.root / "credential"
+        credential.write_text("fixture-credential-only\n")
+        credential.chmod(0o600)
+        docker = self.root / "tools/docker"
+        docker.write_text('''#!/bin/bash
+if [ "$1" = image ]; then exit 0; fi
+printf '%s\\n' "$@" > "$BUILD_TEST_TRACE"
+IFS= read -r value
+[ "$value" = fixture-credential-only ] || exit 9
+exit 7
+''')
+        docker.chmod(0o755)
+        result = subprocess.run(["bash", str(self.root / "smi"), "device", "reset", "104",
+                                 "--credential-file", str(credential), "--force"],
+                                env=self.env, text=True, capture_output=True)
+        self.assertEqual(result.returncode, 7, result.stderr)
+        args = self.trace.read_text().splitlines()
+        self.assertIn("device", args)
+        self.assertIn("reset", args)
+        self.assertIn("104", args)
+        self.assertIn("--force", args)
+        self.assertIn("/dev/stdin", args)
+        self.assertNotIn("fixture-credential-only", self.trace.read_text())
 
     @unittest.skipIf(os.uname().sysname == "Darwin", "Linux preflight test")
     def test_ios_reports_platform_blocker(self):

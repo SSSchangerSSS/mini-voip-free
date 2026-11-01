@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "reviewedAtUtc": "2026-10-31T04:58:08.980129+00:00",
+  "coldScreens": {
+    "rc-cold1-app.png": "Ready, no blocking dialog",
+    "rc-cold2-app.png": "Ready, no blocking dialog"
+  },
+  "controls": {
+    "controls-muted.png": "orange mic-off",
+    "controls-unmuted.png": "grey mic-on",
+    "controls-speaker-on.png": "blue speaker",
+    "controls-speaker-off.png": "grey speaker"
+  },
+  "scope": "Visual UI only; acoustic audio NOT_RUN"
+}

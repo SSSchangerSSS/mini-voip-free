@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 
 /// Typed Flutter↔native bridge for the FIXED channel `smi.phone/native/v1`
 /// (spec 10.2). Exactly one owner dispatcher exists in the app (this class);
@@ -40,11 +41,30 @@ class NativeCallBridge {
     return (res as Map<Object?, Object?>?) ?? <Object?, Object?>{};
   }
 
+  Future<void> suppressMediaLogs() => _methods.invokeMethod('suppressMediaLogs');
+
+  Future<void> updateReception(bool registered) => _methods.invokeMethod('updateReception', {'registered':registered});
+
+  Future<String> openReceptionSetting(String target) async =>
+      await _methods.invokeMethod<String>('openReceptionSetting', {'target':target}) ?? 'unknown';
+
+  Future<bool> verifyDeveloperPassword(String password) async =>
+      await _methods.invokeMethod<bool>('verifyDeveloperPassword', {'password':password}) ?? false;
+
+  Future<void> openIncomingSettings() => _methods.invokeMethod('openIncomingSettings');
+
   Future<String?> getPushToken() => _methods.invokeMethod<String>('getPushToken');
 
   /// Outgoing native call UUID = attemptId for the entire call lifetime (spec 9.3).
   Future<void> reportOutgoing(String attemptId) =>
       _methods.invokeMethod('reportOutgoing', {'attemptId': attemptId});
+
+  Future<void> reportIncoming(String callId, String caller, String callerName, DateTime expiresAt) async {
+    // iOS incoming calls are reported by its existing PushKit provider.
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      await _methods.invokeMethod('reportIncoming', {'callId':callId,'caller':caller,'callerName':callerName,'expiresAt':expiresAt.toUtc().toIso8601String()});
+    }
+  }
 
   Future<void> updateCallState(String nativeCallUuid, String state) =>
       _methods.invokeMethod('updateCallState',
@@ -96,6 +116,7 @@ class NativeCallBridge {
 }
 
 enum NativeEventType {
+  receptionCheckRequested,
   incomingReported,
   answerRequested,
   declineRequested,
@@ -115,6 +136,8 @@ class NativeEvent {
   final int? deviceGeneration;
   final DateTime? expiresAt;
   final String? pushToken;
+  final bool? speakerOn;
+  final bool? muted;
 
   const NativeEvent({
     required this.eventId,
@@ -124,6 +147,8 @@ class NativeEvent {
     this.deviceGeneration,
     this.expiresAt,
     this.pushToken,
+    this.speakerOn,
+    this.muted,
   });
 
   static NativeEvent? tryParse(Object? payload) {
@@ -144,6 +169,8 @@ class NativeEvent {
     }
     final id = payload['eventId'];
     return NativeEvent(
+      speakerOn: payload['speakerOn'] is bool ? payload['speakerOn'] as bool : null,
+      muted: payload['muted'] is bool ? payload['muted'] as bool : null,
       eventId: id is String ? id : 'evt-${DateTime.now().microsecondsSinceEpoch}',
       type: type,
       callId: payload['callId'] is String ? payload['callId'] as String : null,

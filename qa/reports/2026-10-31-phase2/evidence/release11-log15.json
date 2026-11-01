@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "nativeIceCredentialLogLines": 1,
+  "scope": "release11 current API35 process real outgoing peer; raw log not exported"
+}

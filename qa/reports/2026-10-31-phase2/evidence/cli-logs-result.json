@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "exitCode": 124,
+  "expectedTimeout": 124,
+  "logStreamObserved": true
+}

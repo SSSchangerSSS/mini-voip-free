@@ -1,0 +1,33 @@
+{
+  "prepare": {
+    "status": "FAIL",
+    "calleeActivityForeground": true,
+    "calleeActivityRecordPresent": true,
+    "standbyServiceAlive": true,
+    "calleePid": "3279",
+    "taskRemovalMethod": null
+  },
+  "start": {
+    "status": "PASS",
+    "callId": "05270d61-182a-41bc-bda4-b4a6b2b7739b",
+    "incomingNotification": {
+      "liveIds": [
+        4101,
+        4201
+      ],
+      "soundKey": "0|app.minivoipfree|4101|null|10087",
+      "vibrateKey": "0|app.minivoipfree|4101|null|10087"
+    },
+    "scope": "NotificationManager ringing key; acoustic sound NOT_RUN"
+  },
+  "answer": {
+    "status": "FAIL",
+    "afterAnswerNotification": {
+      "liveIds": [],
+      "soundKey": "null",
+      "vibrateKey": "null"
+    },
+    "notificationAnswerIntentDelivered": true,
+    "acousticSound": "NOT_RUN"
+  }
+}

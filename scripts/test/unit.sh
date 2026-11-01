@@ -52,6 +52,13 @@ else
   results+=('{"suite":"build-wrapper","status":"FAIL"}'); fail=1
 fi
 
+log "QA launcher daemon/lock regression tests (real flock; no Android runtime)"
+if python3 "$ROOT/scripts/test/test_qa_launch_locks.py"; then
+  results+=('{"suite":"qa-launch-locks","status":"PASS"}')
+else
+  results+=('{"suite":"qa-launch-locks","status":"FAIL"}'); fail=1
+fi
+
 run_dotnet_tests
 run_flutter_tests
 run_contract_validation

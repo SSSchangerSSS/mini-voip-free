@@ -1,0 +1,8 @@
+--- a/p2p/base/p2p_transport_channel.cc
++++ b/p2p/base/p2p_transport_channel.cc
+@@ -494,3 +494,2 @@
+-  RTC_LOG(LS_INFO) << "Set ICE ufrag: " << ice_params.ufrag
+-                   << " pwd: " << ice_params.pwd << " on transport "
+-                   << transport_name();
++  RTC_LOG(LS_INFO) << "Updated local ICE parameters on transport "
++                   << transport_name();

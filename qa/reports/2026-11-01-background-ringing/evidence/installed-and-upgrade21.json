@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "apkSha256": "5a02949c8898f49a7d3e2026e109fb5d0a7e246342f78366b5720bc3bdda0393",
+  "sameSignerAsUserVersion4": true,
+  "devices": [
+    {
+      "device": "emulator-5554",
+      "api": 26,
+      "versionCode": 21,
+      "installedSha256Matches": true
+    },
+    {
+      "device": "127.0.0.1:5565",
+      "api": 35,
+      "versionCode": 21,
+      "installedSha256Matches": true
+    }
+  ]
+}

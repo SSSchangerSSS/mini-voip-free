@@ -1,0 +1,5 @@
+smi-control	running	Up 2 minutes
+smi-edge	running	Up 2 hours
+smi-pbx	running	Up 2 minutes (healthy)
+PASS control /health/live -> 200
+PASS control /health/ready -> 200

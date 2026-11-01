@@ -1,0 +1,187 @@
+{
+  "status": "NOT_RUN",
+  "samples": [
+    {
+      "seconds": 0.08,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 184,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 184
+        }
+      ]
+    },
+    {
+      "seconds": 10.14,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 414,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 414
+        }
+      ]
+    },
+    {
+      "seconds": 20.19,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 653,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 653
+        }
+      ]
+    },
+    {
+      "seconds": 30.25,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 889,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 889
+        }
+      ]
+    },
+    {
+      "seconds": 40.3,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1130,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 1130
+        }
+      ]
+    },
+    {
+      "seconds": 50.35,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1366,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 1366
+        }
+      ]
+    },
+    {
+      "seconds": 60.41,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1586,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 1586
+        }
+      ]
+    },
+    {
+      "seconds": 70.47,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1819,
+          "tx": 440
+        },
+        {
+          "rx": 462,
+          "tx": 1819
+        }
+      ]
+    },
+    {
+      "seconds": 83.91,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1992,
+          "tx": 1105
+        },
+        {
+          "rx": 1127,
+          "tx": 1992
+        }
+      ]
+    },
+    {
+      "seconds": 94.04,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2110,
+          "tx": 1611
+        },
+        {
+          "rx": 1633,
+          "tx": 2110
+        }
+      ]
+    },
+    {
+      "seconds": 104.12,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2275,
+          "tx": 2116
+        },
+        {
+          "rx": 2138,
+          "tx": 2275
+        }
+      ]
+    },
+    {
+      "seconds": 114.21,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2430,
+          "tx": 2620
+        },
+        {
+          "rx": 2642,
+          "tx": 2430
+        }
+      ]
+    },
+    {
+      "seconds": 124.36,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2499,
+          "tx": 3126
+        },
+        {
+          "rx": 3148,
+          "tx": 2499
+        }
+      ]
+    }
+  ]
+}

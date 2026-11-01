@@ -39,6 +39,8 @@ public sealed class SmiConfig
     public string? FcmServiceAccountPath { get; init; }
     public string? FcmProjectId { get; init; }
 
+    public string? AdminPassword { get; init; }
+
     public bool TurnEnabled { get; init; }
 
     public string WssUrl => Domain is null ? "SMI_DOMAIN_NOT_CONFIGURED" : $"wss://{Domain}/ws";
@@ -90,6 +92,7 @@ public sealed class SmiConfig
             ApnsEnvironment = Environment.GetEnvironmentVariable("SMI_APNS_ENVIRONMENT") ?? "production",
             FcmServiceAccountPath = Environment.GetEnvironmentVariable("SMI_FCM_SERVICE_ACCOUNT_FILE"),
             FcmProjectId = Environment.GetEnvironmentVariable("SMI_FCM_PROJECT_ID"),
+            AdminPassword = ReadFileSecret(Environment.GetEnvironmentVariable("SMI_ADMIN_PASSWORD_FILE")),
             TurnEnabled = string.Equals(Environment.GetEnvironmentVariable("TURN_ENABLED"), "true", StringComparison.OrdinalIgnoreCase),
         };
     }

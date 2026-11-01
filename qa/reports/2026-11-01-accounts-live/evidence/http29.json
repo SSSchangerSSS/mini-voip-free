@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "httpStatus": 200,
+  "bytes": 90874038,
+  "hashMatches": true,
+  "scope": "Full HTTP download from PC; not phone"
+}

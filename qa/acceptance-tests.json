@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-31",
   "note": "All rows start NOT_RUN. BLOCKED is never PASS. N/A requires recorded scope reason + employer confirmation (spec 15.2).",
   "tests": [
     {
@@ -79,8 +79,8 @@
       "expected": "Android→Android و iOS→iOS؛ با دو دستگاه یا تست مستقل واقعی",
       "level": "دستگاه",
       "status": "BLOCKED",
-      "evidence": "qa/reports/2026-10-28-call/REPORT.fa.md",
-      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
       "commit": null
     },
     {
@@ -109,8 +109,8 @@
       "expected": "قطع صدای ارسال، ادامه تماس و بازگشت درست",
       "level": "دستگاه",
       "status": "BLOCKED",
-      "evidence": "qa/reports/2026-10-29-native-android15/REPORT.fa.md",
-      "lastRunAtUtc": "2026-10-29T07:49:48.317205+00:00",
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
       "commit": null
     },
     {
@@ -119,8 +119,8 @@
       "expected": "کنترل درست، بدون crash یا میکروفون مانده",
       "level": "دستگاه",
       "status": "BLOCKED",
-      "evidence": "qa/reports/2026-10-29-native-android15/REPORT.fa.md",
-      "lastRunAtUtc": "2026-10-29T07:49:48.317219+00:00",
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
       "commit": null
     },
     {
@@ -229,8 +229,8 @@
       "expected": "CANCEL/UI cleanup و عدم زنگ مانده",
       "level": "خودکار + دستگاه",
       "status": "BLOCKED",
-      "evidence": "qa/reports/2026-10-28-call/REPORT.fa.md",
-      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
       "commit": null
     },
     {
@@ -249,8 +249,8 @@
       "expected": "مهلت کل ۴۰ ثانیه؛ timeout بعد از ready از نو شروع نشود",
       "level": "خودکار/PBX",
       "status": "PASS",
-      "evidence": "qa/reports/2026-10-28-call/delayed-ready-timeout-result.json",
-      "lastRunAtUtc": "2026-10-28T12:57:23.064495+00:00",
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
       "commit": null
     },
     {
@@ -499,9 +499,9 @@
       "expected": "امضای ثابت، حفظ حساب، FCM/صوت واقعی",
       "level": "انتشار/دستگاه",
       "status": "BLOCKED",
-      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
-      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
-      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
+      "commit": null
     },
     {
       "id": "T51",
@@ -549,8 +549,8 @@
       "expected": "بازیابی token/حساب؛ رفتار قبل از unlock مستند",
       "level": "دستگاه",
       "status": "BLOCKED",
-      "evidence": "qa/reports/2026-10-29-native-android15/REPORT.fa.md",
-      "lastRunAtUtc": "2026-10-29T07:49:48.317223+00:00",
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
       "commit": null
     },
     {
@@ -599,9 +599,276 @@
       "expected": "همان باینری آزموده‌شده انتشار یابد",
       "level": "انتشار",
       "status": "BLOCKED",
-      "evidence": "qa/reports/2026-10-28-local/REPORT.md",
-      "lastRunAtUtc": "2026-10-28T11:09:11.691789Z",
-      "commit": "69e8b509b4e84d06a6fbda56928ee5a046597be8"
+      "evidence": "qa/reports/2026-10-31-manual-rc/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T05:16:50.916567+00:00",
+      "commit": null
+    },
+    {
+      "id": "T61",
+      "scenario": "پنل مدیریت داخلی: احراز هویت، CSRF، ساخت/ویرایش/تغییر رمز",
+      "expected": "عدم نشت رمز؛ نشست مدیر جدا از گوشی؛ اعتبارسنجی و ابطال نشست واقعی",
+      "level": "خودکار/API",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-31-phase2/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T06:27:52.416475+00:00",
+      "commit": null
+    },
+    {
+      "id": "T62",
+      "scenario": "دفترچه داخلی‌های فعال با نام و شماره",
+      "expected": "فهرست احرازشده، جستجو، نام و شماره تماس و کناررفتن فهرست هنگام ورود تماس",
+      "level": "خودکار/شبیه‌ساز",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-31-phase2/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T06:27:52.416475+00:00",
+      "commit": null
+    },
+    {
+      "id": "T63",
+      "scenario": "مسیر اولیه صدای گوشی واقعی و هماهنگی دکمه بلندگو",
+      "expected": "خروجی گوشی در شروع؛ تغییر مسیر واقعی با دکمه؛ آزمون هر دو گوشی",
+      "level": "دستگاه",
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-10-31-phase2/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T06:27:52.416475+00:00",
+      "commit": null
+    },
+    {
+      "id": "T64",
+      "scenario": "دریافت مستقیم بدون Google: قفل، اپ دیگر، فرایند بسته و boot",
+      "expected": "آماده‌باش بومی و زنگ واقعی بدون حساب/SDK Firebase؛ نیازمند مجوز باتری/اعلان؛ Force stop خارج تضمین",
+      "level": "دستگاه/سرور خصوصی",
+      "status": "FAIL",
+      "evidence": "qa/reports/2026-11-01-poco-background/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T08:20:26.260560+00:00",
+      "commit": null,
+      "history": [
+        {
+          "status": "FAIL",
+          "evidence": "qa/reports/2026-11-01-background-ringing/REPORT.fa.md",
+          "lastRunAtUtc": "2026-11-01T06:02:08.977261+00:00",
+          "scope": "User reported swipe from Recents does not ring; last delivered APK16, actual installed version not independently read"
+        },
+        {
+          "status": "BLOCKED",
+          "evidence": "qa/reports/2026-11-01-background-ringing/REPORT.fa.md",
+          "lastRunAtUtc": "2026-11-01T06:02:08.977261+00:00",
+          "commit": null
+        }
+      ]
+    },
+    {
+      "id": "T65",
+      "scenario": "فایل اجرایی CLI سرور از پوشه دیگر",
+      "expected": "start/status/logs با فرمان‌های موجود و readiness واقعی",
+      "level": "عملیات",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-10-31-phase2/REPORT.fa.md",
+      "lastRunAtUtc": "2026-10-31T06:27:52.416475+00:00",
+      "commit": null
+    },
+    {
+      "id": "T66",
+      "scenario": "نبود اطلاعات موقت ICE در لاگ بومی Android",
+      "expected": "هیچ credential موقت رسانه در لاگ SDK نوشته نشود؛ تنظیم none به‌تنهایی اثبات نیست",
+      "level": "SDK/شبیه‌ساز",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-11-01-background-ringing/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T06:02:08.977261+00:00",
+      "commit": null,
+      "history": [
+        {
+          "status": "FAIL",
+          "evidence": "qa/reports/2026-10-31-phase2/evidence/release15-log-timeline.json",
+          "lastRunAtUtc": "2026-10-31T07:47:44.345247+00:00",
+          "commit": null
+        },
+        {
+          "status": "PASS",
+          "evidence": "qa/reports/2026-10-31-sdk-privacy/REPORT.fa.md",
+          "lastRunAtUtc": "2026-10-31T08:57:08.071360+00:00",
+          "commit": null
+        }
+      ]
+    },
+    {
+      "id": "T67",
+      "scenario": "دریافت پس از حذف task در QA Android8/15",
+      "expected": "swipe واقعی8 و حذف rootTask ایزوله15؛ سرویس زنده، دریافت وRTP موفق",
+      "level": "QA/شبیه‌ساز",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-11-01-background-ringing/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T06:02:08.977261+00:00",
+      "commit": null
+    },
+    {
+      "id": "T68",
+      "scenario": "توقف صدای زنگ و لرزش سیستم پیش از انتظار پاسخ شبکه",
+      "expected": "زنگ4101 پیش ازپاسخ؛ پس ازپاسخ soundKey/vibrateKey=null، اعلان4102؛ پایان4201",
+      "level": "QA/واحد/NotificationManager",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-11-01-background-ringing/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T06:02:08.977261+00:00",
+      "commit": null
+    },
+    {
+      "id": "T69",
+      "scenario": "قطع زنگ پس از پاسخ روی دو گوشی واقعی مالک",
+      "expected": "صدای زنگ و لرزش بلافاصله پس از پاسخ قطع شوند",
+      "level": "دستگاه",
+      "status": "BLOCKED",
+      "history": [
+        {
+          "status": "FAIL",
+          "evidence": "qa/reports/2026-11-01-background-ringing/REPORT.fa.md",
+          "lastRunAtUtc": "2026-11-01T06:02:08.977261+00:00",
+          "scope": "User report before APK21; actual installed version not independently read"
+        }
+      ],
+      "evidence": "qa/reports/2026-11-01-background-ringing/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T06:02:08.977261+00:00",
+      "commit": null
+    },
+    {
+      "id": "T70",
+      "scenario": "POCO X7 Pro: دریافت تماس پس از حذف کارت Recent",
+      "expected": "دریافت واقعی پس از بستن رابط با سرویس و مجوزهای لازم؛ آزمونHyperOS واقعی",
+      "level": "دستگاه/HyperOS",
+      "status": "FAIL",
+      "evidence": "qa/reports/2026-11-01-poco-background/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T08:20:26.260560+00:00",
+      "commit": null,
+      "note": "User confirmed Android16 BP2A.250605.031.A3 / HyperOS3.0.7.0.WOJMIXM; standby notification disappears after swipe; autostart/no-restrictions results pending"
+    },
+    {
+      "id": "T71",
+      "scenario": "راه‌اندازی دریافت: مجوز runtime و بازخوانی پس از تنظیمات",
+      "expected": "میکروفن از پنجره Android؛ باتری با تأیید سیستم؛ وضعیت از capabilities واقعی",
+      "level": "native API35 / widget",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-11-01-reception-setup/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T09:18:16.116356+00:00",
+      "commit": null
+    },
+    {
+      "id": "T72",
+      "scenario": "مسیر اختصاصی autostart روی POCO X7 Pro HyperOS3",
+      "expected": "هدایت به تنظیمات موجود و حفظ وضعیت نامشخص تا آزمون واقعی",
+      "level": "دستگاه/HyperOS",
+      "status": "BLOCKED",
+      "evidence": "qa/reports/2026-11-01-reception-setup/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T09:18:16.116356+00:00",
+      "commit": null
+    },
+    {
+      "id": "T73",
+      "scenario": "بازخورد کلی مالک رویAPK24",
+      "expected": "بازخورد موفق؛ جزئیات جداگانه هر سناریو معلوم نیست",
+      "status": "PASS",
+      "level": "گزارش کاربر",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
+      "commit": null
+    },
+    {
+      "id": "T74",
+      "scenario": "چرخه مدیریت حساب وابطال نشست درAPIواقعی",
+      "expected": "ساخت/ویرایش/حذف/استفاده دوباره/اجبار ورود؛ توکن قدیمی نامعتبر",
+      "status": "PASS",
+      "level": "API/PBX",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
+      "commit": null
+    },
+    {
+      "id": "T75",
+      "scenario": "دو اتصال احرازشده دفترچه باlong-poll",
+      "expected": "تغییر پنل بدونrefreshبه هردو برسد",
+      "status": "PASS",
+      "level": "API",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
+      "commit": null
+    },
+    {
+      "id": "T76",
+      "scenario": "رمز دولوپر و آدرس سرور درAPI26/35",
+      "expected": "رد رمز غلط، قبول صحیح، ذخیره151:443وورود دوباره",
+      "status": "PASS",
+      "level": "AndroidQA",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
+      "commit": null
+    },
+    {
+      "id": "T77",
+      "scenario": "دفترچه زنده دررابط هردوشبیه‌سازAPK29",
+      "expected": "ساخت/نام/حذف بدونrefreshدرصفحه باز",
+      "status": "PASS",
+      "level": "AndroidQA",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
+      "commit": null
+    },
+    {
+      "id": "T78",
+      "scenario": "ابطال نشست وقتی دفترچه بازاست",
+      "expected": "بستن دفترچه و نمایش ورود؛ورود دستی مجدد",
+      "status": "PASS",
+      "level": "AndroidQA",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
+      "commit": null
+    },
+    {
+      "id": "T79",
+      "scenario": "تماس دوطرفهAPK29پس ازپس‌زمینه/قفل",
+      "expected": "نام+داخلی،Bridge/RTP،قطع زنگ،پایان وگیت لاگ",
+      "status": "PASS",
+      "level": "AndroidQA/PBX",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
+      "commit": null
+    },
+    {
+      "id": "T80",
+      "scenario": "configآدرس ثابت ومالکیتruntimeنصب تازه",
+      "expected": "envایزوله حفظ گزینه‌ها؛UID1001بخواند/بنویسدو1002نتواند",
+      "status": "PASS",
+      "level": "CLI/fixture",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
+      "commit": null
+    },
+    {
+      "id": "T81",
+      "scenario": "تحویل منبع رویGitHub",
+      "expected": "commitوorigin/mainهمانSHAباworktreeتمیز",
+      "status": "NOT_RUN",
+      "level": "Git",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
+      "commit": null
+    },
+    {
+      "id": "T82",
+      "scenario": "آزمونAPK29رویگوشی‌های واقعی مالک",
+      "expected": "دریافت ونام/فهرست و مدیریت نشست رویهمانگوشی‌ها",
+      "status": "BLOCKED",
+      "level": "دستگاه",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:36:44.161327+00:00",
+      "commit": null
+    },
+    {
+      "id": "T83",
+      "scenario": "حفظ آدرس دولوپر و حساب پس از شروع سردAPK29در8/15",
+      "expected": "PIDجدید،بازیابی و151:443بدونوروددوباره؛بازکردنصریحپسازforce-stop",
+      "level": "AndroidQA",
+      "status": "PASS",
+      "evidence": "qa/reports/2026-11-01-accounts-live/REPORT.fa.md",
+      "lastRunAtUtc": "2026-11-01T13:47:56.916329+00:00",
+      "commit": null
     }
   ]
 }

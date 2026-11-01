@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "scope": "Only QA Android8/15 stopped after tests to free resources for real phones; server/download service and physical phones untouched",
+  "emulator8Exit": 0,
+  "container15Exit": 0
+}

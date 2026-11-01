@@ -81,7 +81,7 @@ ok "manager.d/smi-control.conf rendered from secret (value never printed)"
 
 # optional push secrets: create empty mount targets only if absent so `docker compose`
 # secret mounts resolve; control treats missing content as BLOCKED push (no fake success)
-for s in apns.p8 fcm-service-account.json; do
+for s in apns.p8 fcm-service-account.json admin-password; do
   [ -f "$DEPLOY/secrets/$s" ] || { : > "$DEPLOY/secrets/$s"; chmod 600 "$DEPLOY/secrets/$s"; warn "created EMPTY $s — push stays BLOCKED until the employer secret is provided"; }
 done
 

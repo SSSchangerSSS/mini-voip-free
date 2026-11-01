@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "scenario": "Unavailable Docker must not be masked as no matching logs",
+  "exitCode": 1
+}

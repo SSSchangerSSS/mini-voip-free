@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "scope": "HTTP download from host; new phone download not yet observed",
+  "bytes": 90693410,
+  "downloadedSha256": "bd41c1b0f995a529a1b355960679a56a779da382a211a13a95c7fa082966427d"
+}

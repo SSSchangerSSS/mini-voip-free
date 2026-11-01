@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.1+2",
+  "baseCommit": "d7b334e7f91fa15e18e4dfc9dd5f1be93ba38c5d",
+  "sourceState": "working tree changes based on baseCommit; not yet committed or pushed",
+  "artifact": "artifacts/android/mini-voip-free-0.1.1+2-lan.apk",
+  "sha256": "41aefcae4816653336d1eb38e0ae52252e355c61b04c58d2050bb133e070e48f",
+  "bytes": 90176573,
+  "signature": "local Android Debug certificate; organization signing BLOCKED",
+  "signerSha256": "e8bad89c12ec9cb3b28ffe1664f7d3477f32840ee604a0c86b6d3d7f499edbbc",
+  "server": "192.168.1.151",
+  "minimumAndroidApi": 26,
+  "targetAndroidApi": 36,
+  "tests": {
+    "control": 45,
+    "flutter": 40,
+    "wrapper": 8,
+    "status": "PASS",
+    "qaLaunchLocks": 4,
+    "total": 97
+  },
+  "deviceValidated": "BLOCKED",
+  "published": "BLOCKED",
+  "sourceSha256": {
+    "apps/mobile/lib/api/api_models.dart": "c492577a05d94aa57b681c085706eab92ba249542a0da1f37f3f732fa56fe45b",
+    "apps/mobile/lib/api/control_api_client.dart": "04e72e3d21c7e650bf42567e5fca6ee3bdd8d5fb661062126134d50ff2a46344",
+    "apps/mobile/lib/call/call_controller.dart": "74e8760c0e722d36e9cc96d811bae46a18bfb4df87d767b179498db1b8a20c61",
+    "apps/mobile/lib/config/app_config.dart": "758c2921993a11d1653906c6563e5e24d1384340dd4267ab641299bc7a550ec3",
+    "apps/mobile/lib/main.dart": "05e7e2ab436c9a8f022a469709e73ba8d87cb03a08133fcc6713fa76ee8cdd50",
+    "apps/mobile/lib/native/native_call_bridge.dart": "d53a718cd978b26f32866f34f33658d00a0e966554bce76d605d45e64a8aa41c",
+    "apps/mobile/lib/native/native_event_queue.dart": "6d9c2b43d0b7d0bd03b3dc0386893a949247965d9f18ece367902f1e5314579b",
+    "apps/mobile/lib/secure/secure_credential_store.dart": "17032190fc9b1986a43e97ddc77113719eaf30f82e77edbbcd9584104706f02d",
+    "apps/mobile/lib/sip/sip_adapter.dart": "d8d79156582e168303dab49ddf0c42e5825bef3d77aa8d1d5e230c5ca5a5b5af",
+    "apps/mobile/lib/ui/call_page.dart": "e5fbecddb1c102dcf2f3c08b49c274f437fefd57a29255588edb2d1b303195e4",
+    "apps/mobile/lib/ui/dialer_page.dart": "971aa0ebd8cdedbb2e5c0be8b1ae37205d566a14bf8032da51a44e5322b9ce22",
+    "apps/mobile/lib/ui/login_page.dart": "09e175c4946ba6f5c4bbdd3cac62dcead78820663d1ad727b06da495155c810f",
+    "apps/mobile/lib/util/digit_normalizer.dart": "b4a0062be5f8a030b6a1c8fcf0bdb7fdcfc617828691f702caa53485082700e6",
+    "apps/mobile/pubspec.lock": "d16617ec0af563ca37437bf1408690ab351b101890c05ba0ccb39496a7f66379",
+    "apps/mobile/pubspec.yaml": "40637bc144c0ec089f18479209443f7067eb3cd165794908e5badb227513afa4",
+    "toolchain.lock.json": "5072d52a5e76aebc47a0f4f910247f41a25aba134742a5ca5869c5351dd79934",
+    "apps/mobile/test/call_network_failure_test.dart": "6f7385c8c6faab124772bc8c5eb8debdc81774b4526e23956b4e42d3ab5af2b9",
+    "scripts/test/test_qa_launch_locks.py": "c503517e8e3c7e157bacd479d572d6a5bc54151d659d7fb890889e6d4ff9b4ab",
+    "scripts/test/unit.sh": "1c2dacaeb2ba385dc6692efa01686f999f65ceac0321b680928b7f91ee527633"
+  },
+  "qaLauncherSha256": {
+    "scripts/qa/launch-emulator.sh": "54a58b4245fb717feabbdc8a0818c58d105f5bbddc9c097b5cada73f2a8075b1",
+    "scripts/qa/start-android15-container.sh": "ce8221dd0b4c3f3ed5e03708027b8a4ebf91e39b8954450457ecd30eb7a123dc"
+  },
+  "artifactRecordedAtUtc": "2026-10-31T04:46:32.578520+00:00",
+  "testPeriodUtc": {
+    "started": "2026-10-31T04:41:00Z",
+    "finished": "2026-10-31T04:58:21.586502+00:00"
+  },
+  "foregroundCandidate": "PASS",
+  "codeReadyFullScope": "BLOCKED",
+  "deployedLocal": "PASS",
+  "validatedRuntimes": {
+    "android8": "emulator-5554 / extension101",
+    "android15": "ReDroid API35 / extension103"
+  }
+}

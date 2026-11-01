@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "reviewedAtUtc": "2026-10-31T05:17:31.217541+00:00",
+  "screens": {
+    "call-to8-callee-connected.png": "PASS: connected, previous invalid-call error absent",
+    "call-to8-muted.png": "PASS: orange mic-off",
+    "call-to8-speaker-on.png": "PASS: blue speaker and mic restored",
+    "call-to8-controls-restored.png": "PASS: grey speaker and mic restored",
+    "call-to8-callee-idle.png": "PASS: Ready, normal end without error",
+    "call-to8-caller-idle.png": "PASS: Ready, normal end without error",
+    "cold1-app.png": "PASS: Ready, no blocking/ANR dialog; no-Push warning visible",
+    "cold2-app.png": "PASS: Ready, no blocking/ANR dialog; no-Push warning visible",
+    "call-to15-callee-idle.png": "PASS: Ready, normal end without error",
+    "android8-handoff.png": "PASS: Ready, target103, no error",
+    "android15-handoff.png": "PASS: Ready, target101, no error"
+  },
+  "remaining": null,
+  "scope": "Visual UI only; acoustic audio NOT_RUN"
+}

@@ -1,0 +1,42 @@
+--- upstream/android/build.gradle
++++ local/android/build.gradle
+@@ -75,7 +75,7 @@
+ }
+ 
+ dependencies {
+-    implementation 'io.github.webrtc-sdk:android:150.7871.04'
++    implementation 'io.github.webrtc-sdk:android:144.7559.15'
+     implementation 'com.github.davidliu:audioswitch:039a35aefab7747c557242fa216c9ea11743b604'
+     implementation 'androidx.annotation:annotation:1.1.0'
+     testImplementation 'junit:junit:4.13.2'
+--- upstream/android/src/main/java/com/cloudwebrtc/webrtc/MethodCallHandlerImpl.java
++++ local/android/src/main/java/com/cloudwebrtc/webrtc/MethodCallHandlerImpl.java
+@@ -248,7 +248,7 @@
+ 
+     InitializationOptions.Builder initializationOptionsBuilder =
+             InitializationOptions.builder(context)
+-                    .setEnableInternalTracer(true)
++                    .setEnableInternalTracer(false)
+                     .setInjectableLogger(logSink, logSeverity);
+ 
+     String fieldTrials = "";
+@@ -1363,7 +1363,7 @@
+     // Enable SNAP (SCTP INIT in SDP), part of WARP.
+     // see https://www.ietf.org/archive/id/draft-hancke-tsvwg-snap-00.html
+     if (warpEnabled) {
+-      conf.enableSctpSnap = true;
++      throw new IllegalArgumentException("WARP/SCTP SNAP is not supported by the pinned SDK");
+     }
+ 
+     if (map == null) {
+@@ -1413,7 +1413,9 @@
+ 
+     if (map.hasKey("enableSctpSnap")
+             && map.getType("enableSctpSnap") == ObjectType.Boolean) {
+-      conf.enableSctpSnap = map.getBoolean("enableSctpSnap");
++      if (map.getBoolean("enableSctpSnap")) {
++        throw new IllegalArgumentException("SCTP SNAP is not supported by the pinned SDK");
++      }
+     }
+ 
+     // rtcpMuxPolicy (public api)

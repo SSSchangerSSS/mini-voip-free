@@ -1,0 +1,29 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+! flutter_webrtc 1.6.3 from path ../../third_party/flutter_webrtc (overridden)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/account_settings_sync_test.dart
+00:00 +0: invalid or denied server change preserves saved account; allowed change wipes and persists override
+00:00 +0 -1: invalid or denied server change preserves saved account; allowed change wipes and persists override [E]
+  Expected: <0>
+    Actual: <1>
+  An unauthenticated settings change must not contact a fictitious old server
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/account_settings_sync_test.dart 25:160         main.<fn>
+  
+00:00 +0 -1: revoked stored token never triggers automatic password login on cold start
+00:00 +1 -1: directory updates without opening contacts; revocation clears cached contacts and credentials
+00:00 +2 -1: server addresses reject schemes, paths, malformed IPs and ports
+00:00 +3 -1: Some tests failed.
+
+Failing tests:
+  /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/account_settings_sync_test.dart: invalid or denied server change preserves saved account; allowed change wipes and persists override

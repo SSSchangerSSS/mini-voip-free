@@ -13,13 +13,22 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL" />
     <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
-    <application android:label="Mini VoIP Free" android:name="${applicationName}" android:icon="@mipmap/ic_launcher">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <queries><package android:name="com.miui.securitycenter" /></queries>
+
+    <application android:label="Mini VoIP Free" android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleTop"
-            android:taskAffinity=""
+            android:launchMode="singleTask"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
@@ -33,11 +42,13 @@
             </intent-filter>
         </activity>
 
-        <!-- phoneCall foreground service during a call; stopped after the last call ends -->
-        <service
-            android:name=".SmiTelecomCallService"
-            android:exported="false"
-            android:foregroundServiceType="phoneCall" />
+        <service android:name=".SmiIncomingService" android:exported="false" android:stopWithTask="false" android:foregroundServiceType="specialUse|phoneCall">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Persistent incoming enterprise VoIP calls over the private LAN PBX without cloud push; user-visible standby notification" />
+        </service>
+        <receiver android:name=".SmiBootReceiver" android:exported="false">
+            <intent-filter><action android:name="android.intent.action.BOOT_COMPLETED" /><action android:name="android.intent.action.MY_PACKAGE_REPLACED" /></intent-filter>
+        </receiver>
+        <receiver android:name=".SmiCallActionReceiver" android:exported="false" />
 
         <meta-data
             android:name="flutterEmbedding"

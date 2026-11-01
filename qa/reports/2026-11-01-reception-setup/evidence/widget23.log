@@ -1,0 +1,47 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+! flutter_webrtc 1.6.3 from path ../../third_party/flutter_webrtc (overridden)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart
+00:00 +0: continue requests next missing permission and never trusts an opened screen
+00:00 +1: OEM fallback remains explicitly unverified and recoverable
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing قابل تأیید خودکار نیست:
+[]>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart:39:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart line 39
+The test description was:
+  OEM fallback remains explicitly unverified and recoverable
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +1 -1: OEM fallback remains explicitly unverified and recoverable [E]
+  Test failed. See exception logs above.
+  The test description was: OEM fallback remains explicitly unverified and recoverable
+  
+00:01 +1 -1: denial and launch failure do not complete a permission
+00:01 +2 -1: incoming call dismisses setup so call controls are reachable
+00:01 +3 -1: setup scrolls on small screens without overflow
+00:01 +4 -1: Some tests failed.
+
+Failing tests:
+  /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: OEM fallback remains explicitly unverified and recoverable

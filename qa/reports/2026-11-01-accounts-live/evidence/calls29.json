@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "task15",
+      "exitCode": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "lock8",
+      "exitCode": 0,
+      "status": "PASS"
+    }
+  ],
+  "qaDisplayNamesRestored": true,
+  "physical104105Untouched": true
+}

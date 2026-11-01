@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "scope": "QA emulator SystemUI",
+  "observedDialog": "System UI isn't responding",
+  "recoveryAction": "Wait tapped; no product pass inferred"
+}

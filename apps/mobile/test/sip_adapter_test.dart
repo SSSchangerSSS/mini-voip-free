@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'package:flutter_webrtc/flutter_webrtc.dart' as rtc;
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:smi_phone/api/control_api_client.dart';
@@ -12,13 +14,14 @@ class CapturingHelper extends SIPUAHelper {
   UaSettings? settings;
   List<String>? headers;
   bool? voiceOnly;
+  Map<String,dynamic>? options;
   @override Future<void> start(UaSettings settings) async {
     this.settings = settings;
     throw StateError('fixture startup failure');
   }
   @override Future<bool> call(String target, {bool voiceOnly = false,
       dynamic mediaStream, List<String>? headers, Map<String,dynamic>? customOptions}) async {
-    this.headers = headers; this.voiceOnly = voiceOnly; return true;
+    this.headers = headers; this.voiceOnly = voiceOnly; options=customOptions; return true;
   }
 }
 class HintRequest { HintRequest(this.body); final String body; }
@@ -33,21 +36,34 @@ void main() {
     adapter.onNewMessage(SIPMessageRequest(null,Originator.local,HintRequest('smi-call')));
     await Future<void>.delayed(Duration.zero); expect(requests,0);
     adapter.onNewMessage(SIPMessageRequest(null,Originator.remote,HintRequest('smi-call')));
-    await Future<void>.delayed(Duration.zero); expect(requests,1);
+    await Future<void>.delayed(Duration.zero); expect(requests,2); // Authenticated directory refresh plus authoritative current-call query.
   });
   test('WS transport is explicit, TLS remains verified, startup errors propagate', () async {
-    final helper=CapturingHelper(); final adapter=SipAdapter(helper:helper);
+    final helper=CapturingHelper(); final adapter=SipAdapter(helper:helper,audioOutput:(_) async {});
     await adapter.configure(domain:'192.168.1.151',username:'101',password:'fixture-sip-only');
     await expectLater(adapter.start(),throwsStateError);
     expect(helper.settings!.transportType,TransportType.WS);
     expect(helper.settings!.webSocketUrl,'wss://192.168.1.151/ws');
     expect(helper.settings!.webSocketSettings.allowBadCertificate,isFalse);
     expect(helper.settings!.password,'fixture-sip-only');
+    expect(helper.settings!.iceServers,isEmpty,reason:'Private LAN calls must not depend on Google STUN');
   });
   test('outgoing INVITE carries attempt UUID and stays audio-only', () async {
-    final helper=CapturingHelper(); final adapter=SipAdapter(helper:helper);
+    final helper=CapturingHelper(); final adapter=SipAdapter(helper:helper,audioOutput:(_) async {});
     await adapter.call('sip:102@192.168.1.151',attemptId:'11111111-1111-4111-8111-111111111111');
     expect(helper.headers,['X-SMI-Attempt-ID: 11111111-1111-4111-8111-111111111111']);
     expect(helper.voiceOnly,isTrue);
   });
+  test('local SDP waits for the native privacy gate and remains unchanged', () async {
+    final gate=Completer<void>();final helper=CapturingHelper();var started=false;
+    final adapter=SipAdapter(helper:helper,audioOutput:(_)async{},prepareMediaLogging:()async{started=true;await gate.future;});
+    await adapter.call('sip:102@test.local',attemptId:'fixture-attempt');
+    final constraints=helper.options!['rtcOfferConstraints'] as Map<String,dynamic>;
+    final modifiers=constraints['offerModifiers'] as List<Future<rtc.RTCSessionDescription> Function(rtc.RTCSessionDescription)>;
+    final description=rtc.RTCSessionDescription('v=0\r\ns=fixture\r\n','offer');var done=false;
+    final pending=modifiers.single(description).then((v){done=true;return v;});
+    await Future<void>.delayed(Duration.zero);expect(started,true);expect(done,false);
+    gate.complete();expect(await pending,same(description));expect(done,true);
+  });
+
 }

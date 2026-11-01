@@ -1,0 +1,16 @@
+2026-11-01T09:17:20Z build wrapper regression tests (stubbed Flutter; no mobile runtime validation)
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.134s
+
+OK
+2026-11-01T09:17:20Z QA launcher daemon/lock regression tests (real flock; no Android runtime)
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.040s
+
+OK
+2026-11-01T09:17:20Z dotnet test (Control: state machine, slots, auth endpoints, crypto, normalization)
+2026-11-01T09:17:24Z flutter test (mobile: normalization, event queue, wire models)
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+2026-11-01T09:17:32Z contract validation

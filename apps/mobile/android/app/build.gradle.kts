@@ -1,10 +1,18 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+val developerGate = Properties().apply {
+    val source = file("developer-gate.properties")
+    if(source.exists()) source.inputStream().use { load(it) }
+}
+
 android {
+    buildFeatures { buildConfig = true }
     namespace = "app.minivoipfree"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
@@ -17,6 +25,8 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "app.minivoipfree"
+        buildConfigField("String", "SMI_DEVELOPER_HASH", "\"${developerGate.getProperty("hash", "")}\"")
+        buildConfigField("String", "SMI_DEVELOPER_SALT", "\"${developerGate.getProperty("salt", "")}\"")
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 26
@@ -49,5 +59,7 @@ flutter {
 }
 
 dependencies {
+    implementation("io.github.webrtc-sdk:android:144.7559.15") // Same pinned SDK already used by flutter_webrtc; exposes native logging control.
     implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.core:core-telecom:1.0.0")
 }

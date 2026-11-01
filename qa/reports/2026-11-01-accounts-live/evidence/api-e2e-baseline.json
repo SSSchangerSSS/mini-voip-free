@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "steps": [
+    {
+      "name": "create-two-extensions-pbx-applied",
+      "status": "PASS"
+    },
+    {
+      "name": "two-connected-clients-updated",
+      "status": "PASS",
+      "latencySeconds": 0.174
+    },
+    {
+      "name": "force-relogin-revokes-token",
+      "status": "PASS"
+    },
+    {
+      "name": "password-change-revokes-token",
+      "status": "PASS"
+    },
+    {
+      "name": "delete-removes-directory-and-revokes",
+      "status": "PASS"
+    },
+    {
+      "name": "reuse-never-revives-old-token",
+      "status": "PASS"
+    }
+  ],
+  "existingAccountMetadataPreserved": true
+}

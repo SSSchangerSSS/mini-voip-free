@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Local executable entry point; reuses the established deployment commands.
+set -euo pipefail
+root="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")" && pwd)"
+cd "$root"
+command="${1:-start}"; [ "$#" -eq 0 ] || shift
+case "$command" in
+  start|up) exec ./smi server up "$@" ;;
+  configure) exec ./smi server configure "$@" ;;
+  status) exec ./smi server status "$@" ;;
+  logs) [ "$#" -gt 0 ] || set -- control; exec ./smi server logs "$@" ;;
+  help|--help|-h) printf '%s\n' 'Usage: ./server configure --host <ip> [--tls internal|public] | start [--config <file>] | status | logs' 'start builds/starts the existing Docker stack; data and keys are preserved.' ;;
+  *) printf '%s\n' 'Unknown command. Use ./server help' >&2; exit 2 ;;
+esac

@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "cases": [
+    {
+      "case": "task15",
+      "exitCode": 1,
+      "status": "FAIL"
+    }
+  ],
+  "qaDisplayNamesRestored": true,
+  "physical104105Untouched": true
+}

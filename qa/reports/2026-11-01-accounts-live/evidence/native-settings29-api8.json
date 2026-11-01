@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "nativePasswordVerifierDeniedWrongValue": true,
+  "correctValueSavedAndRequiredLogin": true,
+  "qa101Relogin": true,
+  "configuredAddress": "192.168.1.151:443",
+  "secretValuesLogged": false
+}

@@ -1,0 +1,4 @@
+{
+  "status": "FAIL",
+  "scope": "QA helper generation mistakenly changed loopback127 to128 while replacing version strings; corrected fixture, product server IP unchanged"
+}

@@ -1,0 +1,6 @@
+{"status": "FAIL", "calleeActivityForeground": true, "calleeActivityRecordPresent": true, "standbyServiceAlive": true, "calleePid": "3088", "taskRemovalMethod": null}
+Traceback (most recent call last):
+  File "/home/changer/Desktop/flash/mini-voip-free/.tool-results/background-ringing/e2e19.py", line 49, in <module>
+    j={'status':'PASS' if not foreground and 'SmiIncomingService' in svc and pid else 'FAIL','calleeActivityForeground':foreground,'calleeActivityRecordPresent':hasActivity,'standbyServiceAlive':'SmiIncomingService' in svc,'calleePid':pid,'taskRemovalMethod':'isolated app root task remove' if case=='task15' else None};save(j);assert j['status']=='PASS'
+                                                                                                                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^
+AssertionError

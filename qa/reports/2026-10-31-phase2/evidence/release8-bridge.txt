@@ -1,0 +1,2 @@
+Bridge-ID                            Name                                 Chans Type            Technology      Duration
+8b8e0602-ec42-42be-b452-4f5afedb0ba0 <unknown>                                2 basic           simple_bridge   00:00:05

@@ -1,0 +1,11 @@
+{
+  "prepare": {
+    "status": "FAIL",
+    "screenOff": false,
+    "calleeActivityForeground": true,
+    "calleeActivityRecordPresent": true,
+    "standbyServiceAlive": true,
+    "calleePid": "1895",
+    "taskRemovalMethod": null
+  }
+}

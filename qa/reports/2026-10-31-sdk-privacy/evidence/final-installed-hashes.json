@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "apkSha256": "bd41c1b0f995a529a1b355960679a56a779da382a211a13a95c7fa082966427d",
+  "devices": [
+    {
+      "device": "emulator-5554",
+      "installedApkMatches": true
+    },
+    {
+      "device": "127.0.0.1:5565",
+      "installedApkMatches": true
+    }
+  ]
+}

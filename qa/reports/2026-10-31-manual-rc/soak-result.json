@@ -1,0 +1,218 @@
+{
+  "status": "PASS",
+  "samples": [
+    {
+      "seconds": 0.06,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 417,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 417
+        }
+      ]
+    },
+    {
+      "seconds": 10.11,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 659,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 659
+        }
+      ]
+    },
+    {
+      "seconds": 20.16,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 893,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 893
+        }
+      ]
+    },
+    {
+      "seconds": 30.21,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1126,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 1126
+        }
+      ]
+    },
+    {
+      "seconds": 40.28,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1357,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 1357
+        }
+      ]
+    },
+    {
+      "seconds": 50.33,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1596,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 1596
+        }
+      ]
+    },
+    {
+      "seconds": 60.38,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 1827,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 1827
+        }
+      ]
+    },
+    {
+      "seconds": 70.43,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2037,
+          "tx": 1144
+        },
+        {
+          "rx": 1191,
+          "tx": 2037
+        }
+      ]
+    },
+    {
+      "seconds": 80.77,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2231,
+          "tx": 1655
+        },
+        {
+          "rx": 1702,
+          "tx": 2231
+        }
+      ]
+    },
+    {
+      "seconds": 90.82,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2424,
+          "tx": 2158
+        },
+        {
+          "rx": 2205,
+          "tx": 2424
+        }
+      ]
+    },
+    {
+      "seconds": 100.87,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2617,
+          "tx": 2660
+        },
+        {
+          "rx": 2707,
+          "tx": 2617
+        }
+      ]
+    },
+    {
+      "seconds": 110.92,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 2818,
+          "tx": 3163
+        },
+        {
+          "rx": 3210,
+          "tx": 2818
+        }
+      ]
+    },
+    {
+      "seconds": 120.97,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 3016,
+          "tx": 3665
+        },
+        {
+          "rx": 3712,
+          "tx": 3016
+        }
+      ]
+    },
+    {
+      "seconds": 131.03,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 3223,
+          "tx": 4168
+        },
+        {
+          "rx": 4215,
+          "tx": 3223
+        }
+      ]
+    },
+    {
+      "seconds": 141.08,
+      "sharedBridgeAndRtp": true,
+      "counts": [
+        {
+          "rx": 3433,
+          "tx": 4671
+        },
+        {
+          "rx": 4718,
+          "tx": 3433
+        }
+      ]
+    }
+  ],
+  "observedSeconds": 141.08,
+  "controlsExercised": true,
+  "acousticAudio": "NOT_RUN"
+}

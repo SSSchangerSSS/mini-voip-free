@@ -66,11 +66,19 @@ class _CallPageState extends State<CallPage> {
             children: [
               const Spacer(flex: 2),
               Text(
-                c.remoteExtension == null ? '—' : 'داخلی ${c.remoteExtension}',
+                c.remoteLabel,
                 style: const TextStyle(color: Colors.white, fontSize: 32),
               ),
               const SizedBox(height: 8),
               Text(_status(), style: const TextStyle(color: Colors.white70, fontSize: 18)),
+              if (c.errorMessage != null) ...[
+                const SizedBox(height: 12),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(c.errorMessage!, textAlign: TextAlign.center,
+                      style: const TextStyle(color: Colors.orangeAccent)),
+                ),
+              ],
               const Spacer(flex: 3),
               if (incoming) ...[
                 Row(

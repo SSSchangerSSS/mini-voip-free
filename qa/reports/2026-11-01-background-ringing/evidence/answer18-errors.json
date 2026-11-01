@@ -1,0 +1,20 @@
+{
+  "exceptions": [
+    "android.net.DnsResolver$DnsException",
+    "android.os.Parcel.createException",
+    "android.os.Parcel.readException",
+    "android.os.RemoteException",
+    "android.os.ServiceManager$ServiceNotFoundException",
+    "android.system.ErrnoException",
+    "android.telephony.satellite.SatelliteManager$SatelliteException",
+    "java.io.IOException",
+    "java.lang.IllegalArgumentException",
+    "java.lang.IllegalStateException",
+    "java.lang.SecurityException",
+    "java.net.UnknownHostException",
+    "java.time.DateTimeException",
+    "java.util.concurrent.TimeoutException"
+  ],
+  "fatalCount": 1,
+  "appFrames": []
+}

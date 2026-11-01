@@ -1,0 +1,9 @@
+{"stage": "prepare", "exitCode": 0, "status": "PASS"}
+{"stage": "start", "exitCode": 0, "status": "PASS"}
+{"stage": "answer", "exitCode": 0, "status": "PASS"}
+{"stage": "media", "exitCode": 0, "status": "PASS"}
+{"holdingConnectedSeconds": 15}
+{"holdingConnectedSeconds": 30}
+{"holdingConnectedSeconds": 45}
+{"holdingConnectedSeconds": 60}
+{"stage": "end", "exitCode": 0, "status": "PASS"}

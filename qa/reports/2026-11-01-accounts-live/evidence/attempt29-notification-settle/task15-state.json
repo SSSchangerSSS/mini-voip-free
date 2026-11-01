@@ -1,0 +1,51 @@
+{
+  "prepare": {
+    "status": "PASS",
+    "screenOff": false,
+    "calleeActivityForeground": false,
+    "calleeActivityRecordPresent": false,
+    "standbyServiceAlive": true,
+    "calleePid": "3296",
+    "taskRemovalMethod": "isolated app root task remove"
+  },
+  "start": {
+    "status": "PASS",
+    "callId": "85e0bb41-8fd0-44cb-b4e2-f3e7d231dc86",
+    "incomingNotification": {
+      "liveIds": [
+        4101
+      ],
+      "soundKey": "0|app.minivoipfree|4101|null|10087",
+      "vibrateKey": "0|app.minivoipfree|4101|null|10087"
+    },
+    "scope": "NotificationManager ringing key; acoustic sound NOT_RUN"
+  },
+  "answer": {
+    "status": "PASS",
+    "afterAnswerNotification": {
+      "liveIds": [
+        4102
+      ],
+      "soundKey": "null",
+      "vibrateKey": "null"
+    },
+    "notificationAnswerIntentDelivered": true,
+    "acousticSound": "NOT_RUN"
+  },
+  "media": {
+    "status": "PASS",
+    "sharedBridgeAndRtpBothWays": true,
+    "callerNameAndExtensionVisible": true
+  },
+  "end": {
+    "status": "FAIL",
+    "channelsCleared": true,
+    "afterEndNotification": {
+      "liveIds": [
+        4102
+      ],
+      "soundKey": "null",
+      "vibrateKey": "null"
+    }
+  }
+}

@@ -2,6 +2,9 @@
 # Explicit local QA launch; no privileged service is installed at system boot.
 set -euo pipefail
 source /home/changer/.config/mini-voip-free/env.sh
+# Keep the long-lived adb server outside this launcher's startup lock.
+adb() { command adb "$@" 9>&-; }
+timeout() { command timeout "$@" 9>&-; }
 root=/home/changer/Desktop/flash/mini-voip-free
 device=127.0.0.1:5565
 if [ ! -d /sys/module/binder_linux ]; then
@@ -37,7 +40,7 @@ for attempt in $(seq 1 90); do
 done
 [ "$ready" = true ] || { echo 'BLOCKED: Android15 container boot did not complete' >&2; exit 3; }
 [ "$(adb -s "$device" shell getprop ro.build.version.sdk | tr -d '\r')" = 35 ] || { echo 'FAIL: expected Android API35' >&2; exit 1; }
-apk="$root/artifacts/android/mini-voip-free-192.168.1.151-startup-fix.apk"
+apk="$root/artifacts/android/mini-voip-free-0.3.0+29-lan.apk"
 [ -f "$apk" ] || { echo 'BLOCKED: local QA APK missing' >&2; exit 3; }
 remote_apk="$(adb -s "$device" shell pm path app.minivoipfree 2>/dev/null | tr -d '\r' | sed -n 's/^package://p' | head -1)"
 if [ -n "$remote_apk" ]; then

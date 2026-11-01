@@ -20,6 +20,19 @@ site="$ROOT/deploy/site.env"
 [ -f "$site" ] || fail_blocked "deploy/site.env missing — run ./smi server init first"
 # shellcheck disable=SC1090
 source "$site"
+if command -v docker >/dev/null 2>&1 && docker image inspect mini-voip-free/control:0.1.0 >/dev/null 2>&1; then
+  [ -f "$credential" ] || fail_input "credential file not found"
+  extra=()
+  $force && extra+=(--force)
+  exec docker run --rm -i --network host \
+    -e SMI_DB_PATH=/var/lib/smi/smi.db \
+    -e SMI_PBX_CFG_DIR=/etc/asterisk \
+    -e SMI_DOMAIN="$SMI_DOMAIN" \
+    -v "$ROOT/deploy/data/control:/var/lib/smi" \
+    -v "$ROOT/deploy/data/asterisk/config:/etc/asterisk" \
+    mini-voip-free/control:0.1.0 device reset "$ext" \
+    --credential-file /dev/stdin "${extra[@]}" < "$credential"
+fi
 require_cmd dotnet
 
 cd "$ROOT/services/control"

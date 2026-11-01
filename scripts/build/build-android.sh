@@ -11,10 +11,14 @@ server_host="${SMI_SERVER_HOST:-}"
 server_port="${SMI_SERVER_PORT:-443}"
 flutter_flags=()
 trusted_ca=""
+developer_password_file=""
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --release) release=true; shift ;;
     --verbose) flutter_flags+=(--verbose); shift ;;
+    --developer-password-file)
+      [ "$#" -ge 2 ] || fail_input "--developer-password-file requires a path"
+      developer_password_file="$2"; shift 2 ;;
     --trusted-ca-file)
       [ "$#" -ge 2 ] || fail_input "--trusted-ca-file requires a path"
       trusted_ca="$2"; shift 2 ;;
@@ -47,6 +51,23 @@ with open(sys.argv[2], 'w') as output:
 PYCA
   build_config+=("--dart-define-from-file=$ca_defines")
 fi
+# The verifier is build data; plaintext remains exclusively in the private input file.
+python3 - "$developer_password_file" "$MOBILE/android/app/developer-gate.properties" <<'PYGATE'
+import sys,pathlib,hashlib,secrets,base64,os
+source,target=sys.argv[1:]
+p=pathlib.Path(target)
+if not source:
+    p.unlink(missing_ok=True)
+else:
+    f=pathlib.Path(source)
+    if f.stat().st_mode & 0o077:raise SystemExit('Developer password file must be private (mode600)')
+    password=f.read_bytes().strip()
+    if not 12<=len(password)<=256:raise SystemExit('Developer password must contain12..256bytes')
+    salt=secrets.token_bytes(16)
+    derived=hashlib.pbkdf2_hmac('sha256',password,salt,120000)
+    fd=os.open(p,os.O_WRONLY|os.O_CREAT|os.O_TRUNC,0o600)
+    with os.fdopen(fd,'w') as out:out.write('salt='+base64.b64encode(salt).decode()+'\nhash='+base64.b64encode(derived).decode()+'\n')
+PYGATE
 require_cmd flutter
 if [ ! -d "$MOBILE/android" ]; then
   fail_blocked "apps/mobile/android missing — run: flutter create --org app --project-name smi_phone apps/mobile && ./scripts/build/apply-platform-overlay.sh"

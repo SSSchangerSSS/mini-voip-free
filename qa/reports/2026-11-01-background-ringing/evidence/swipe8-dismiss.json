@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "ownCardDismissedByHorizontalSwipe": true,
+  "labels": [
+    "Email",
+    "Gallery",
+    "Search",
+    "Apps list",
+    "Phone",
+    "Messaging",
+    "WebView Browser Tester",
+    "Camera"
+  ]
+}

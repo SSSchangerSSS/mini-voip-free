@@ -133,3 +133,11 @@ class ApiProblem implements Exception {
   @override
   String toString() => 'ApiProblem($status, $code)';
 }
+
+class ExtensionEntry {
+  final String extension;
+  final String displayName;
+  const ExtensionEntry(this.extension, this.displayName);
+  factory ExtensionEntry.fromJson(Map<String,dynamic> j) => ExtensionEntry(j['extension'] as String, j['displayName'] as String? ?? '');
+  String get label => displayName.isEmpty ? 'داخلی $extension' : '$displayName · $extension';
+}

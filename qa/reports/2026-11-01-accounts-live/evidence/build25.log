@@ -1,0 +1,67 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+! flutter_webrtc 1.6.3 from path ../../third_party/flutter_webrtc (overridden)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+! flutter_webrtc 1.6.3 from path ../../third_party/flutter_webrtc (overridden)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleRelease'...                        
+e: file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/build.gradle.kts:7:26: Unresolved reference 'util'.
+e: file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/build.gradle.kts:9:46: Cannot infer type for type parameter 'R'. Specify it explicitly.
+e: file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/build.gradle.kts:9:52: Unresolved reference 'load'.
+e: file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/build.gradle.kts:26:77: Unresolved reference 'getProperty'.
+e: file:///home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/build.gradle.kts:27:77: Unresolved reference 'getProperty'.
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/changer/Desktop/flash/mini-voip-free/apps/mobile/android/app/build.gradle.kts' line: 7
+
+* What went wrong:
+Script compilation errors:
+
+  Line 07: val developerGate = java.util.Properties().apply {
+                                    ^ Unresolved reference 'util'.
+
+  Line 09:     if(source.exists()) source.inputStream().use { load(it) }
+                                                        ^ Cannot infer type for type parameter 'R'. Specify it explicitly.
+
+  Line 09:     if(source.exists()) source.inputStream().use { load(it) }
+                                                              ^ Unresolved reference 'load'.
+
+  Line 12: android {
+           ^ 'fun Project.android(configure: Action<BaseAppModuleExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.ApplicationExtension.
+               This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+
+  Line 26:         buildConfigField("String", "SMI_DEVELOPER_HASH", "\"${developerGate.getProperty("hash", "")}\"")
+                                                                                       ^ Unresolved reference 'getProperty'.
+
+  Line 27:         buildConfigField("String", "SMI_DEVELOPER_SALT", "\"${developerGate.getProperty("salt", "")}\"")
+                                                                                       ^ Unresolved reference 'getProperty'.
+
+6 errors
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 10s
+Running Gradle task 'assembleRelease'...                           11.1s
+Gradle task assembleRelease failed with exit code 1

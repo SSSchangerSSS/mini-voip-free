@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 source /home/changer/.config/mini-voip-free/env.sh
+# A newly started adb server must not inherit the frontend's startup flock.
+# Otherwise it holds that lock until the host/server is restarted.
+adb() { command adb "$@" 9>&-; }
+timeout() { command timeout "$@" 9>&-; }
 api="${1:-26}"
 case "$api" in 26) port=5554; label='Android 8 | 101'; pos=30; gpu=swiftshader; memory=1536; cores=2 ;; 35) port=5556; label='Android 15 | 102'; pos=430; gpu=swiftshader; memory=2560; cores=1 ;; *) echo 'Use 26 or 35'; exit 2 ;; esac
 device="emulator-$port"

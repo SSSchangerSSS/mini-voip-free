@@ -1,0 +1,10 @@
+{
+  "test": "Android15 standby restarts after QA SIGKILL; no force-stop or activity launch",
+  "status": "FAIL",
+  "oldPid": "126535",
+  "newPid": "",
+  "waitSeconds": 12,
+  "initial12SecondResult": "FAIL",
+  "newPidAfterExtendedObservation": "126673",
+  "limitation": "Not immediate: system restart scheduled roughly50s after SIGKILL; first12s FAIL preserved"
+}

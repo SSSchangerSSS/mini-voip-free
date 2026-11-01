@@ -1,0 +1,9 @@
+{
+  "sdkVersion": "144.7559.15",
+  "aarSha256": "fc7c8d027eb33860ccbb7847988f7f942d44a92d1f575348bba6c0250cde4071",
+  "pluginVersion": "1.6.3",
+  "modifiedUpstreamFiles": 2,
+  "upstreamBranchTreeSha": "a802fa9849e0dae7f54c7d3deb05820a674b2f46",
+  "upstreamPubArchiveSha256": "b98ef03376401e54ff87fc78907b38e562b15ca8424aba589c263eddc3c1ecf9",
+  "upstreamChecksumSource": "Pub hosted cache checksum; per-file SHA256 manifest and restricted patch kept in patches/webrtc"
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "QA emulator8 only; no physical phones changed",
+  "before": {
+    "deviceProvisioned": 0,
+    "userSetupComplete": 0,
+    "notificationEffectsDisabled": true
+  },
+  "after": {
+    "deviceProvisioned": 1,
+    "userSetupComplete": 1,
+    "notificationEffectsDisabled": true
+  },
+  "status": "FAIL"
+}

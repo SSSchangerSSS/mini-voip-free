@@ -1,0 +1,7 @@
+Starting: Intent { cmp=app.minivoipfree/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: app.minivoipfree/.MainActivity
+TotalTime: 654
+WaitTime: 680
+Complete

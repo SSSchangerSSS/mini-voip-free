@@ -1,0 +1,15 @@
+{
+  "sha256": "011a169db15a8c25d8c433d0c59e544911049a03d4839a62f21e8fccd8fb3799",
+  "devices": [
+    {
+      "device": "emulator-5554",
+      "status": "PASS",
+      "installedApkMatches": true
+    },
+    {
+      "device": "127.0.0.1:5565",
+      "status": "PASS",
+      "installedApkMatches": true
+    }
+  ]
+}

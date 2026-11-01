@@ -1,0 +1,1 @@
+{"status": "PASS", "callId": "85e0bb41-8fd0-44cb-b4e2-f3e7d231dc86", "incomingNotification": {"liveIds": [4101], "soundKey": "0|app.minivoipfree|4101|null|10087", "vibrateKey": "0|app.minivoipfree|4101|null|10087"}, "scope": "NotificationManager ringing key; acoustic sound NOT_RUN"}

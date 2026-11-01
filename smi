@@ -25,6 +25,7 @@ Usage: ./smi <command> [subcommand] [options]
   check                                         Run available static checks (format/lint/contract validation)
   test unit|integration [--json]                Run test suites (integration is BLOCKED until P2 PBX env)
   build android|ios --release                   Build release binaries (ios requires macOS)
+  server configure --host <static-ip-or-dns> [--tls internal|public] [--config <file>]
   server init --config deploy/site.env          Validate config, prepare dirs/files (idempotent)
   server up|status|logs [--call-id <UUID>]      Compose lifecycle helpers
   extension add|disable <ext> --credential-file <f>
@@ -59,6 +60,7 @@ case "$cmd" in
     ;;
   server)
     case "$sub" in
+      configure) exec bash "$ROOT/scripts/deploy/server-configure.sh" "$@" ;;
       init)  exec bash "$ROOT/scripts/deploy/server-init.sh" "$@" ;;
       up)    exec bash "$ROOT/scripts/deploy/server-up.sh" "$@" ;;
       status) exec bash "$ROOT/scripts/deploy/server-status.sh" "$@" ;;

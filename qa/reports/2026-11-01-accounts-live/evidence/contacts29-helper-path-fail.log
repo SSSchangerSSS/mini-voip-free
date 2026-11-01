@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/changer/Desktop/flash/mini-voip-free/.tool-results/accounts-live/contacts29.py", line 36, in <module>
+    for i,dev in enumerate(devices):snapshot(dev,'contacts29-'+str(i))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/changer/Desktop/flash/mini-voip-free/.tool-results/accounts-live/contacts29.py", line 16, in snapshot
+    def snapshot(dev,name): (base/(name+'.png')).write_bytes(adb_run(dev,'exec-out','screencap','-p'))
+                             ~~~~^^~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/changer/Desktop/flash/mini-voip-free/.tool-results/accounts-live/contacts29.py", line 57, in <module>
+    (base/'contacts29.json').write_text(json.dumps(results,indent=2));print(json.dumps(results))
+     ~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'

@@ -1,0 +1,99 @@
+ M AGENTS.md
+ M README.fa.md
+ M apps/mobile/android/.gitignore
+ M apps/mobile/android/app/build.gradle.kts
+ M apps/mobile/android/app/src/main/AndroidManifest.xml
+ M apps/mobile/android/app/src/main/kotlin/app/minivoipfree/MainActivity.kt
+ M apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiCallStore.kt
+ M apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiTelecomCallService.kt
+ M apps/mobile/lib/api/api_models.dart
+ M apps/mobile/lib/api/control_api_client.dart
+ M apps/mobile/lib/call/call_controller.dart
+ M apps/mobile/lib/native/native_call_bridge.dart
+ M apps/mobile/lib/sip/sip_adapter.dart
+ M apps/mobile/lib/ui/call_page.dart
+ M apps/mobile/lib/ui/dialer_page.dart
+ M apps/mobile/platform-overlay/android/app/src/main/AndroidManifest.xml
+ M apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/MainActivity.kt
+ M apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiCallStore.kt
+ D apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiFirebaseMessagingService.kt
+ M apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiTelecomCallService.kt
+ M apps/mobile/pubspec.lock
+ M apps/mobile/pubspec.yaml
+ M apps/mobile/test/call_handshake_test.dart
+ M apps/mobile/test/sip_adapter_test.dart
+ M contracts/native-events.schema.json
+ M contracts/openapi.json
+ M contracts/push.schema.json
+ M deploy/compose.yaml
+ M docs/PROJECT_SPEC.fa.md
+ M docs/USAGE.fa.md
+ M infra/caddy/Caddyfile
+ M infra/caddy/Caddyfile.lan
+ M qa/acceptance-tests.json
+ M scripts/build/apply-platform-overlay.sh
+ M scripts/checks/validate-contracts.py
+ M scripts/deploy/device-reset.sh
+ M scripts/deploy/server-init.sh
+ M scripts/deploy/server-logs.sh
+ M scripts/qa/launch-emulator.sh
+ M scripts/qa/start-android15-container.sh
+ M scripts/test/test_build_commands.py
+ M scripts/test/unit.sh
+ M services/control/src/Smi.Control/Auth/SessionService.cs
+ M services/control/src/Smi.Control/Calls/CallStore.cs
+ M services/control/src/Smi.Control/Config.cs
+ M services/control/src/Smi.Control/Database/Db.cs
+ M services/control/src/Smi.Control/Program.cs
+ M services/control/src/Smi.Control/Provisioning/ExtensionsCli.cs
+ M services/control/src/Smi.Control/Push/PushSenders.cs
+ M services/control/src/Smi.Control/Smi.Control.csproj
+ M toolchain.lock.json
+?? apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SecureStore.kt
+?? apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiCalls.kt
+?? apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiEngine.kt
+?? apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiIncomingService.kt
+?? apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiNativeChannels.kt
+?? apps/mobile/android/app/src/main/kotlin/app/minivoipfree/SmiReceptionSettings.kt
+?? apps/mobile/lib/ui/directory_page.dart
+?? apps/mobile/lib/ui/reception_setup_page.dart
+?? apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SecureStore.kt
+?? apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiCalls.kt
+?? apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiEngine.kt
+?? apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiIncomingService.kt
+?? apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiNativeChannels.kt
+?? apps/mobile/platform-overlay/android/app/src/main/kotlin/app/minivoipfree/SmiReceptionSettings.kt
+?? apps/mobile/test/audio_route_test.dart
+?? apps/mobile/test/background_ringing_regression_test.dart
+?? apps/mobile/test/call_network_failure_test.dart
+?? apps/mobile/test/direct_reception_test.dart
+?? apps/mobile/test/directory_page_test.dart
+?? apps/mobile/test/reception_setup_page_test.dart
+?? docs/ADMIN_SERVER.fa.md
+?? docs/DIRECT_RECEPTION.fa.md
+?? docs/MANUAL_TEST.fa.md
+?? docs/PHONE_RC_TEST.fa.md
+?? docs/POCO_HYPEROS.fa.md
+?? docs/REAL_PHONES.fa.md
+?? docs/decisions/0010-manual-rc-call-network-errors.md
+?? docs/decisions/0011-qa-launcher-adb-lock-inheritance.md
+?? docs/decisions/0012-background-admin-directory-scope.md
+?? docs/decisions/0013-direct-android-incoming-no-google.md
+?? docs/decisions/0014-webrtc-privacy-compatibility-trial.md
+?? docs/decisions/0015-sdk-logging-compatible-144.md
+?? docs/decisions/0016-background-call-notification-lifecycle.md
+?? docs/decisions/0017-reception-permission-setup.md
+?? patches/
+?? qa/reports/2026-10-31-manual-rc/
+?? qa/reports/2026-10-31-phase2/
+?? qa/reports/2026-10-31-sdk-privacy/
+?? qa/reports/2026-11-01-background-ringing/
+?? qa/reports/2026-11-01-poco-background/
+?? qa/reports/2026-11-01-reception-setup/
+?? scripts/test/test_qa_launch_locks.py
+?? server
+?? services/control/src/Smi.Control/Management/
+?? services/control/src/Smi.Control/UtcTime.cs
+?? services/control/tests/Smi.Control.Tests/FcmSenderTests.cs
+?? services/control/tests/Smi.Control.Tests/ManagementTests.cs
+?? third_party/

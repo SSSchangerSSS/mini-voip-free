@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "tapsSent": true,
+  "frameSettleSeconds": 1.5,
+  "visualReviewRequired": false,
+  "acousticAudio": "NOT_RUN",
+  "visualReviewEvidence": "visual-review.json"
+}

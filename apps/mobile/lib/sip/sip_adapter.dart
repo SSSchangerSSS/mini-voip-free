@@ -5,6 +5,9 @@ import 'package:logger/logger.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart' as rtc;
 
 import '../call/call_controller.dart';
+import '../native/native_call_bridge.dart';
+// ignore: implementation_imports
+import 'package:sip_ua/src/event_manager/call_events.dart' show EventStream;
 
 /// Thin SIP adapter around sip_ua 1.1.0 (spec 2.1/10.1). Written against the REAL
 /// package API (SIPUAHelper + SipUaHelperListener) verified from the pub.dev
@@ -13,11 +16,18 @@ import '../call/call_controller.dart';
 /// ⚠ P0 GATE: still must be validated against a real Release build on both
 /// platforms (cold start + REGISTER behaviour) before any claim.
 class SipAdapter implements SipUaHelperListener {
-  SipAdapter({SIPUAHelper? helper}) : _helper = helper ?? SIPUAHelper() {
+  SipAdapter({SIPUAHelper? helper, Future<void> Function(bool)? audioOutput, Future<void> Function()? prepareMediaLogging})
+      : _helper = helper ?? SIPUAHelper(),
+        _audioOutput = audioOutput ?? rtc.Helper.setSpeakerphoneOn,
+        _prepareMediaLogging = prepareMediaLogging ?? (() async {
+          if (rtc.WebRTC.platformIsAndroid) await NativeCallBridge().suppressMediaLogs();
+        }) {
     // Library debug traces contain complete SIP messages and configuration.
     _helper.loggingLevel = Level.off;
   }
   final SIPUAHelper _helper;
+  final Future<void> Function(bool) _audioOutput;
+  final Future<void> Function() _prepareMediaLogging;
   Call? _activeCall;
   String? _reportedIncoming;
   CallController? _controller;
@@ -30,6 +40,8 @@ class SipAdapter implements SipUaHelperListener {
   String get domain => _domain;
   bool get registered => _registered;
 
+  bool get hasActiveCall => _activeCall != null;
+
   void bind(CallController controller) => _controller = controller;
 
   Future<void> configure({
@@ -38,6 +50,10 @@ class SipAdapter implements SipUaHelperListener {
     required String password,
   }) async {
     _domain = domain;
+    if (rtc.WebRTC.platformIsAndroid || rtc.WebRTC.platformIsIOS) {
+      await rtc.WebRTC.initialize(options: {'logSeverity':'none'}); // Native INFO logs contain ephemeral ICE credentials.
+    }
+    await rtc.Helper.setAndroidAudioConfiguration(rtc.AndroidAudioConfiguration.communication);
     final settings = UaSettings();
     settings.transportType = TransportType.WS;
     settings.webSocketUrl = 'wss://$domain/ws';
@@ -47,6 +63,7 @@ class SipAdapter implements SipUaHelperListener {
     settings.authorizationUser = username;
     settings.password = password;
     settings.displayName = 'داخلی $username';
+    settings.iceServers = <Map<String, String>>[]; // Private LAN: host ICE candidates; no public Google STUN dependency.
     settings.register = true;
     settings.register_expires = 300;
     _settings = settings;
@@ -70,11 +87,12 @@ class SipAdapter implements SipUaHelperListener {
   }
 
   Future<void> call(String targetUri, {required String attemptId}) async {
-    final ok = await _helper.call(targetUri, voiceOnly: true, headers: ['X-SMI-Attempt-ID: $attemptId']); // audio-only (spec 8.1)
+    await setSpeaker(false); // Set earpiece preference BEFORE AudioSwitch starts media.
+    final ok = await _helper.call(targetUri, voiceOnly: true, headers: ['X-SMI-Attempt-ID: $attemptId'], customOptions: {'rtcOfferConstraints':_privateConstraints(),'rtcAnswerConstraints':_privateConstraints()}); // audio-only (spec 8.1)
     if (!ok) throw StateError('SIP engine not connected — REGISTER pending');
   }
 
-  Future<void> setSpeaker(bool enabled) => rtc.Helper.setSpeakerphoneOn(enabled);
+  Future<void> setSpeaker(bool enabled) => _audioOutput(enabled);
 
   Future<void> hangUp() async {
     _activeCall?.hangup();
@@ -93,7 +111,10 @@ class SipAdapter implements SipUaHelperListener {
   /// Answer the pending remote INVITE exactly once (spec 5.2 step 13).
   /// The microphone starts only after this user action — ringing stays mic-free.
   Future<void> answerPendingOnce() async {
+    await setSpeaker(false);
     _activeCall?.answer(<String, dynamic>{
+      'rtcAnswerConstraints':_privateConstraints(),
+      'rtcOfferConstraints':_privateConstraints(),
       'mediaConstraints': <String, dynamic>{
         'audio': true,
         'video': false, // audio-only product — no camera permission is ever requested
@@ -121,8 +142,24 @@ class SipAdapter implements SipUaHelperListener {
     // registration alone never implies an incoming call is ready (spec 4.3)
   }
 
+  Map<String,dynamic> _privateConstraints()=>{
+    'mandatory': {'OfferToReceiveAudio':true,'OfferToReceiveVideo':false},
+    'optional': <dynamic>[],
+    // sip_ua awaits modifiers AFTER offer/answer creation, BEFORE setLocalDescription.
+    'offerModifiers': <Future<rtc.RTCSessionDescription> Function(rtc.RTCSessionDescription)>[
+      (description) async { await _prepareMediaLogging(); return description; },
+    ],
+  };
+
   @override
   void callStateChanged(Call call, CallState state) {
+    if(state.state==CallStateEnum.CALL_INITIATION && rtc.WebRTC.platformIsAndroid){
+      call.session.on(EventStream(),(EventStream event){
+        if(event.originator==Originator.local){
+          unawaited(NativeCallBridge().suppressMediaLogs().catchError((Object _){call.hangup();}));
+        }
+      });
+    }
     switch (state.state) {
       case CallStateEnum.PROGRESS:
         _activeCall = call;
@@ -142,7 +179,7 @@ class SipAdapter implements SipUaHelperListener {
       case CallStateEnum.FAILED:
         _activeCall = null;
         _reportedIncoming = null;
-        _controller?.onSipRemoteEnded();
+        _controller?.onSipRemoteEnded(failed: state.state == CallStateEnum.FAILED);
         break;
       case CallStateEnum.NONE:
       case CallStateEnum.STREAM:

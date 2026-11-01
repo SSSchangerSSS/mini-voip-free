@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "nativeIceCredentialLogLines": 1,
+  "scope": "release13 current API35 process actual outgoing peer with awaited pre-SDP privacy gate; raw log not exported"
+}

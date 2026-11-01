@@ -53,6 +53,15 @@ class ControlApiClient {
     return ApiProblem(res.statusCode, code, traceId: traceId, callId: callId);
   }
 
+  Future<({String version, List<ExtensionEntry> entries})> watchDirectory(String version) async {
+    final res = await _http.get(baseUri.replace(path: '${baseUri.path}/extensions/watch',
+        queryParameters: {'version': version}), headers: _headers()).timeout(const Duration(seconds: 35));
+    if (res.statusCode != 200) throw _problem(res);
+    final j = jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>;
+    return (version:j['version'] as String, entries:(j['entries'] as List)
+        .map((e)=>ExtensionEntry.fromJson(e as Map<String,dynamic>)).toList());
+  }
+
   Future<LoginResult> login({
     required String extension,
     required String password,
@@ -126,9 +135,17 @@ class ControlApiClient {
   }
 
   Future<void> logout() async {
+    if (_token == null) return; // No remote session exists; avoid DNS/timeouts before first login.
     final res = await _http.delete(
         baseUri.replace(path: '${baseUri.path}/sessions/current'),
         headers: _headers()).timeout(requestTimeout);
     if (res.statusCode != 204 && res.statusCode != 401) throw _problem(res);
   }
+  Future<List<ExtensionEntry>> extensions() async {
+    final res = await _http.get(baseUri.replace(path: '${baseUri.path}/extensions'),headers:_headers()).timeout(requestTimeout);
+    if (res.statusCode != 200) throw _problem(res);
+    final rows = jsonDecode(utf8.decode(res.bodyBytes)) as List<dynamic>;
+    return rows.map((x)=>ExtensionEntry.fromJson(x as Map<String,dynamic>)).toList(growable:false);
+  }
+
 }

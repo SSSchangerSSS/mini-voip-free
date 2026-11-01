@@ -1,0 +1,12 @@
+{
+  "pid": "2283",
+  "standbyService": true,
+  "callService": true,
+  "incomingNotification": true,
+  "soundKey": [
+    "mSoundNotificationKey=0|app.minivoipfree|4101|null|10087",
+    "mVibrateNotificationKey=0|app.minivoipfree|4101|null|10087"
+  ],
+  "foregroundStartDenied": 0,
+  "resumedApp": false
+}

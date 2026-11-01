@@ -1,0 +1,16 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart
+00:00 +0: remote fixed SIP MESSAGE triggers authenticated reconcile; unrelated bodies do not
+00:00 +1: WS transport is explicit, TLS remains verified, startup errors propagate
+00:00 +2: outgoing INVITE carries attempt UUID and stays audio-only
+00:00 +3: local SDP waits for the native privacy gate and remains unchanged
+00:00 +4: All tests passed!

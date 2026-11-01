@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "holdSeconds": 60,
+  "sharedBridgeAndRtpBothWays": true
+}

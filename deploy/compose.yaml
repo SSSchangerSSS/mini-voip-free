@@ -57,6 +57,7 @@ services:
       SMI_DB_PATH: /var/lib/smi/smi.db
       SMI_PBX_CFG_DIR: /etc/asterisk
       SMI_DOMAIN: ${SMI_DOMAIN:?SMI_DOMAIN missing — set it in deploy/site.env}
+      SMI_ADMIN_PASSWORD_FILE: /run/secrets/admin_password
       SMI_SETUP_TIMEOUT_SECONDS: ${SMI_SETUP_TIMEOUT_SECONDS:-40}
       SMI_SESSION_IDLE_DAYS: ${SMI_SESSION_IDLE_DAYS:-90}
       SMI_DIAGNOSTIC_RETENTION_DAYS: ${SMI_DIAGNOSTIC_RETENTION_DAYS:-7}
@@ -80,6 +81,7 @@ services:
       - ami
       - apns_p8
       - fcm_service_account
+      - admin_password
     logging:
       driver: json-file
       options: { max-size: "10m", max-file: "5" }
@@ -88,6 +90,8 @@ services:
 # Missing optional files make compose fail — server-init creates safe empty
 # placeholders ONLY for the optional push secrets, never for the AMI secret.
 secrets:
+  admin_password:
+    file: ./secrets/admin-password
   ami:
     file: ./secrets/ami
   apns_p8:

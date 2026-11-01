@@ -1,0 +1,1 @@
+{"status": "PASS", "answered": true, "sharedBridgeAndBidirectionalRtp": true, "caller": "127.0.0.1:5565", "callee": "emulator-5554", "rtpCounts": [{"rx": 18, "tx": 138}, {"rx": 185, "tx": 18}], "acousticAudio": "NOT_RUN", "observedAtUtc": "2026-10-31T04:48:52.306377+00:00"}

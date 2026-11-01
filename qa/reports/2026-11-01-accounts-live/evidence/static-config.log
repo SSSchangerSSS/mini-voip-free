@@ -1,0 +1,1 @@
+PASS server address configured; host network unchanged. Run ./smi server up --config <same-file> to apply.

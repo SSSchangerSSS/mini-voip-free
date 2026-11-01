@@ -17,6 +17,7 @@ REQUIRED_API_PATHS = {
     "/api/v1/sessions": {"post"},
     "/api/v1/sessions/current": {"delete"},
     "/api/v1/me": {"get"},
+    "/api/v1/extensions": {"get"}, # decision 0012: read-only mobile directory
     "/api/v1/devices/current/push": {"put"},
     "/api/v1/calls/current": {"get"},
     "/api/v1/calls/{callId}": {"get"},
@@ -33,7 +34,6 @@ FORBIDDEN_PUBLIC_PATHS = (
     "/api/v1/send-push",
     "/api/v1/run-command",
     "/api/v1/setvar",
-    "/api/v1/extensions",   # provisioning is CLI-only, never a public endpoint (spec 7.2)
 )
 
 REQUIRED_ERROR_CODES = {

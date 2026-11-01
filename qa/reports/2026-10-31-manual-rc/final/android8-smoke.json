@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "device": "emulator-5554",
+  "version": "0.1.1+4",
+  "passwordEntered": false,
+  "dataWiped": false,
+  "coldAppRestores": [
+    {
+      "status": "PASS",
+      "seconds": 8.37
+    }
+  ],
+  "selfCallReturnsIdle": true,
+  "unknownCallReturnsIdle": true,
+  "anrOrCrashEvents": 0
+}

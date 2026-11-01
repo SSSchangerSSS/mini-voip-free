@@ -313,12 +313,12 @@ public sealed class CallStore
 
     private static CallRow Map(SqliteDataReader r) => new(
         r.GetString(0), r.GetString(1), r.GetString(2), r.GetString(3), (int)r.GetInt64(4),
-        Enum.Parse<CallState>(r.GetString(5)), DateTime.Parse(r.GetString(6)), DateTime.Parse(r.GetString(7)),
+        Enum.Parse<CallState>(r.GetString(5)), UtcTime.Parse(r.GetString(6)), UtcTime.Parse(r.GetString(7)),
         NullDate(r, 8), NullDate(r, 9), NullDate(r, 10), NullDate(r, 11), NullDate(r, 12), NullDate(r, 13),
         NullDate(r, 14), r.IsDBNull(15) ? null : Enum.Parse<EndReason>(r.GetString(15)),
         r.GetInt64(16), r.IsDBNull(17) ? null : r.GetString(17), r.IsDBNull(18) ? null : r.GetString(18), r.IsDBNull(19) ? null : r.GetString(19));
 
-    private static DateTime? NullDate(SqliteDataReader r, int i) => r.IsDBNull(i) ? null : DateTime.Parse(r.GetString(i));
+    private static DateTime? NullDate(SqliteDataReader r, int i) => r.IsDBNull(i) ? null : UtcTime.Parse(r.GetString(i));
 
     private static int Exec(SqliteConnection c, string sql, params (string Name, object? Value)[] p) => Db.Exec(c, sql, p);
     private static SqliteDataReader Query(SqliteConnection c, string sql, params (string Name, object? Value)[] p) => Db.Query(c, sql, p);

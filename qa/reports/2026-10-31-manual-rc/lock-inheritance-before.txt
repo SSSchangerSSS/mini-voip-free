@@ -1,0 +1,3 @@
+COMMAND           PID   TYPE   SIZE MODE   M      START        END PATH
+flock            9873  FLOCK        WRITE* 0          0          0 /home/changer/.local/share/mini-voip-free/run/emulator-startup.lock
+adb              6006  FLOCK        WRITE  0          0          0 /home/changer/.local/share/mini-voip-free/run/emulator-startup.lock

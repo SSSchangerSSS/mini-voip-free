@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/changer/Desktop/flash/mini-voip-free/.tool-results/accounts-live/native-settings29-api8.py", line 23, in <module>
+    assert button is not None;tap(button);r=tree();fields=[n for n in r.iter('node') if n.get('class')=='android.widget.EditText'];assert len(fields)==2
+           ^^^^^^^^^^^^^^^^^^
+AssertionError

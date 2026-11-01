@@ -2,18 +2,8 @@
 # apply-platform-overlay.sh — copies native adapters over the flutter-create output.
 # Run AFTER `flutter create` (first time only). Idempotent.
 #
-# Modes:
-#   (default)                 full overlay incl. the FCM receiver. Requires the
-#                             firebase_messaging dependency + google-services.json
-#                             (PREFLIGHT B3) or the Kotlin build fails.
-#   --android-no-push         same overlay WITHOUT the FCM receiver: the file
-#                             SmiFirebaseMessagingService.kt is skipped and the
-#                             MESSAGING_EVENT <service> block is stripped from the
-#                             manifest. This is the mode the android-build workflow
-#                             uses while B3 (Firebase project) is BLOCKED — the
-#                             APK then honestly runs foreground-only incoming calls.
-#                             Everything else (CallStyle FGS, Keystore store,
-#                             event backlog) is identical.
+# Android uses direct private-PBX reception; no Firebase SDK/config is required.
+# --android-no-push remains accepted for older build workflows.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
@@ -27,26 +17,9 @@ NO_PUSH=0
 
 echo "Applying Android overlay… (no-push mode: $NO_PUSH)"
 mkdir -p "$ANDROID_APP/src/main/kotlin/app/minivoipfree"
-if [ "$NO_PUSH" = 1 ]; then
-  for f in "$OVERLAY"/android/app/src/main/kotlin/app/minivoipfree/*.kt; do
-    base="$(basename "$f")"
-    [ "$base" = "SmiFirebaseMessagingService.kt" ] && continue
-    cp -v "$f" "$ANDROID_APP/src/main/kotlin/app/minivoipfree/"
-  done
-  python3 - "$OVERLAY/android/app/src/main/AndroidManifest.xml" \
-            "$ANDROID_APP/src/main/AndroidManifest.xml" <<'PY'
-import re, sys
-src, dst = sys.argv[1], sys.argv[2]
-s = open(src).read()
-s2 = re.sub(r'\n\s*<!-- Single FCM receiver.*?</service>', '', s, flags=re.S)
-assert s2 != s, 'FCM service block not found in overlay manifest — manifest changed?'
-open(dst, 'w').write(s2)
-print('manifest written with FCM receiver stripped:', dst)
-PY
-else
-  cp -v "$OVERLAY/android/app/src/main/AndroidManifest.xml" "$ANDROID_APP/src/main/AndroidManifest.xml"
-  cp -v "$OVERLAY"/android/app/src/main/kotlin/app/minivoipfree/*.kt "$ANDROID_APP/src/main/kotlin/app/minivoipfree/"
-fi
+cp -v "$OVERLAY/android/app/src/main/AndroidManifest.xml" "$ANDROID_APP/src/main/AndroidManifest.xml"
+cp -v "$OVERLAY"/android/app/src/main/kotlin/app/minivoipfree/*.kt "$ANDROID_APP/src/main/kotlin/app/minivoipfree/"
+rm -f "$ANDROID_APP/src/main/kotlin/app/minivoipfree/SmiFirebaseMessagingService.kt" "$ANDROID_APP/src/main/kotlin/app/minivoipfree/SmiPush.kt" "$ANDROID_APP/smi-push-disabled"
 
 if [ -d "$IOS_RUNNER" ]; then
   echo "Applying iOS overlay…"
@@ -59,5 +32,4 @@ else
 fi
 
 echo "Overlay applied. Next: flutter pub get && flutter analyze"
-echo "NOTE: android/app/build.gradle.kts needs google-services applied ONLY when"
-echo "google-services.json exists (employer input B3) — see PREFLIGHT.md."
+echo "Android direct incoming standby installed; no Google account or Firebase configuration required."

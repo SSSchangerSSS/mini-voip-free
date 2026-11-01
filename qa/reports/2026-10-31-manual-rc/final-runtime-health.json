@@ -1,0 +1,13 @@
+{
+  "android8": {
+    "status": "PASS",
+    "anrOrCrashEvents": 0,
+    "crashBufferEmpty": true
+  },
+  "android15": {
+    "status": "PASS",
+    "anrOrCrashEvents": 0,
+    "crashBufferEmpty": true
+  },
+  "observedAtUtc": "2026-10-31T04:57:54.117728+00:00"
+}

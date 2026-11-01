@@ -1,0 +1,100 @@
+[
+  {
+    "step": "android8-smoke",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:06:54.408390+00:00",
+    "finishedAtUtc": "2026-10-31T05:07:59.562402+00:00"
+  },
+  {
+    "step": "android15-ui",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:07:59.562595+00:00",
+    "finishedAtUtc": "2026-10-31T05:08:17.256233+00:00"
+  },
+  {
+    "step": "to8-start",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:08:17.256535+00:00",
+    "finishedAtUtc": "2026-10-31T05:08:36.372212+00:00"
+  },
+  {
+    "step": "to8-mute",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:08:36.372537+00:00",
+    "finishedAtUtc": "2026-10-31T05:08:37.982738+00:00"
+  },
+  {
+    "step": "soak",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:08:37.983103+00:00",
+    "finishedAtUtc": "2026-10-31T05:10:47.690497+00:00"
+  },
+  {
+    "step": "to15-start",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:10:47.690808+00:00",
+    "finishedAtUtc": "2026-10-31T05:11:18.535301+00:00"
+  },
+  {
+    "step": "to15-end",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:11:18.535892+00:00",
+    "finishedAtUtc": "2026-10-31T05:11:36.512202+00:00"
+  },
+  {
+    "step": "decline",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:11:36.512545+00:00",
+    "finishedAtUtc": "2026-10-31T05:12:00.615497+00:00"
+  },
+  {
+    "step": "cancel",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:12:00.615993+00:00",
+    "finishedAtUtc": "2026-10-31T05:12:49.313932+00:00"
+  },
+  {
+    "step": "timeout",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:12:49.314419+00:00",
+    "finishedAtUtc": "2026-10-31T05:13:49.220170+00:00"
+  },
+  {
+    "step": "cold1",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:13:49.220546+00:00",
+    "finishedAtUtc": "2026-10-31T05:14:21.576484+00:00"
+  },
+  {
+    "step": "cold2",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:14:21.577002+00:00",
+    "finishedAtUtc": "2026-10-31T05:14:52.227904+00:00"
+  },
+  {
+    "step": "postcold-start",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:14:52.228263+00:00",
+    "finishedAtUtc": "2026-10-31T05:15:22.364024+00:00"
+  },
+  {
+    "step": "postcold-end",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:15:22.364393+00:00",
+    "finishedAtUtc": "2026-10-31T05:15:38.983855+00:00"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "devices": [
+    {
+      "device": "emulator-5554",
+      "status": "PASS",
+      "newProcess": true,
+      "savedAccountRestored": true,
+      "serverOverridePersisted": true,
+      "address": "192.168.1.151:443",
+      "scope": "Explicit launch after force-stop; not delivery while force-stopped"
+    },
+    {
+      "device": "127.0.0.1:5565",
+      "status": "PASS",
+      "newProcess": true,
+      "savedAccountRestored": true,
+      "serverOverridePersisted": true,
+      "address": "192.168.1.151:443",
+      "scope": "Explicit launch after force-stop; not delivery while force-stopped"
+    }
+  ]
+}

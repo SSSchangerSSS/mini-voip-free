@@ -1,0 +1,9 @@
+  * ServiceRecord{f92a2da u0 app.minivoipfree/.SmiIncomingService c:app.minivoipfree}
+    app=null
+    lastActivity=-38s727ms restartTime=-39s316ms createdFromFg=false
+    restartCount=1 restartDelay=-2h28m34s175ms nextRestartTime=+10s283ms crashCount=0
+  Restarting services:
+  * Restarting ServiceRecord{f92a2da u0 app.minivoipfree/.SmiIncomingService c:app.minivoipfree}
+    app=null
+    lastActivity=-38s728ms restartTime=-39s317ms createdFromFg=false
+    restartCount=1 restartDelay=-2h28m34s176ms nextRestartTime=+10s282ms crashCount=0

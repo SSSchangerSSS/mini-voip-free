@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "freshIsolatedDirectories": true,
+  "service1001ReadsRuntimeSecretsAndWritesData": true,
+  "unrelated1002Denied": true,
+  "secretValuesPrinted": false
+}

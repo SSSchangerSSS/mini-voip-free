@@ -24,9 +24,14 @@ class SmiCallStoreImpl {
     }
 
     fun pushTokenChanged(ctx: Context, token: String) {
-        enqueue(ctx, eventId = "ptc-${UUID.randomUUID()}", type = "pushTokenChanged",
-                payload = JSONObject().put("pushToken", token))
-        FlutterBridge.instance.dispatchIfAlive("pushTokenChanged", payloadOf(ctx, token))
+        // Tokens live encrypted in SecureStore; the queue contains metadata only.
+        SecureStore.write(ctx,"smi.fcmToken",token)
+        enqueue(ctx,eventId="ptc-${UUID.randomUUID()}",type="pushTokenChanged",payload=JSONObject())
+        FlutterBridge.instance.dispatchIfAlive("pushTokenChanged",JSONObject())
+    }
+
+    fun enqueueDecline(ctx: Context, callId: String) {
+        enqueue(ctx,eventId="decline-$callId",type="declineRequested",payload=JSONObject().put("callId",callId))
     }
 
     fun enqueueIncoming(ctx: Context, callId: String, caller: String, expiresAtEpoch: Long) {
@@ -57,7 +62,7 @@ class SmiCallStoreImpl {
             val entry = JSONObject()
                 .put("eventId", eventId)
                 .put("type", type)
-                .put("nativeTimestamp", System.currentTimeMillis())
+                .put("nativeTimestamp", java.time.Instant.now().toString())
                 .put("payload", payload)
             arr.put(entry)
             while (arr.length() > 64) arr.remove(0) // bounded, spec 10.1

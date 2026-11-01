@@ -7,6 +7,7 @@ import 'package:flutter/services.dart' show PlatformException;
 import 'package:http/http.dart' as http;
 
 import '../api/api_models.dart';
+import '../config/app_config.dart';
 import '../api/control_api_client.dart';
 import '../native/native_call_bridge.dart';
 import '../native/native_event_queue.dart';
@@ -79,6 +80,15 @@ class CallController extends ChangeNotifier {
   String? _incomingSipCallId;
   bool _muted = false;
   bool _speakerOn = false;
+  bool _platformAudioRoute = false;
+  bool _directReception = false;
+  bool _backgroundReady = false;
+  String? _receptionWarning;
+  bool get backgroundReceptionReady => !_directReception || _backgroundReady;
+  String? get receptionWarning => _receptionWarning;
+  bool _directCheckBusy = false;
+  bool _controlReachable = false;
+  DateTime? _lastDirectReconnect;
   String? _errorMessage;
 
   // answer intent binding (spec 6.2): AnswerRequested is bound to a callId and
@@ -95,6 +105,77 @@ class CallController extends ChangeNotifier {
   bool get muted => _muted;
   bool get speakerOn => _speakerOn;
   bool get micReady => _sip.registered;
+  List<ExtensionEntry> _directory = const [];
+  List<ExtensionEntry> get directory => List.unmodifiable(_directory);
+  String? get extension => _extension;
+  bool _directoryLoading = false;
+  bool get directoryLoading => _directoryLoading;
+  String? _directoryError;
+  String? get directoryError => _directoryError;
+  String get remoteName {
+    for (final entry in _directory) { if (entry.extension == _remoteExtension) return entry.displayName; }
+    return '';
+  }
+  String get remoteLabel {
+    for (final entry in _directory) { if (entry.extension == _remoteExtension) return entry.label; }
+    return _remoteExtension == null ? '—' : 'داخلی $_remoteExtension';
+  }
+  Future<Map<Object?, Object?>> receptionCapabilities() => _native.getCapabilities();
+  Future<String> openReceptionSetting(String target) => _native.openReceptionSetting(target);
+  Future<void> openIncomingSettings() => _native.openIncomingSettings();
+  Timer? _directoryRetry;
+  int _directoryEpoch = 0;
+  bool _invalidating = false;
+  void _stopDirectoryWatch() { _directoryEpoch++; _directoryRetry?.cancel(); }
+  void _startDirectoryWatch() { _stopDirectoryWatch(); _watchDirectory(_directoryEpoch, ''); }
+  Future<void> _watchDirectory(int epoch, String version) async {
+    if (_disposed || epoch != _directoryEpoch) return;
+    try {
+      final snapshot = await _api.watchDirectory(version);
+      if (_disposed || epoch != _directoryEpoch) return;
+      _directory = snapshot.entries; _directoryError = null; notifyListeners();
+      // Yield to the event loop even when the first snapshot is immediate.
+      _directoryRetry = Timer(Duration.zero, ()=>_watchDirectory(epoch,snapshot.version));
+    } on ApiProblem catch(e) {
+      if (_disposed || epoch != _directoryEpoch) return;
+      if(e.status==401) { await _sessionRevoked(); return; }
+      _directoryRetry=Timer(const Duration(seconds:3),()=>_watchDirectory(epoch,version));
+    } catch(_) {
+      if (!_disposed && epoch==_directoryEpoch) _directoryRetry=Timer(const Duration(seconds:3),()=>_watchDirectory(epoch,version));
+    }
+  }
+  Future<void> _sessionRevoked() async {
+    if (_invalidating || _disposed) return;
+    _invalidating=true; _stopDirectoryWatch(); _api.setToken(null);
+    _state=AppCallState.error;
+    _savedAccountAvailable=false; _lastFailureRetryable=false;
+    _extension=null; _directory=const []; _controlReachable=false;
+    try { await _sip.stop(); } catch(_) { /* local credentials still wiped */ }
+    await _store.wipe();
+    _teardown(outcome:CallOutcome.endedNormally,silent:true);
+    _state=AppCallState.error; _errorMessage='نشست باطل شده؛ دوباره با شماره و رمز وارد شوید.';
+    _invalidating=false;
+    if(!_disposed)notifyListeners();
+  }
+  String get serverAddress => AppConfig.domain.isNotEmpty ? AppConfig.domain : _api.domain;
+  Future<void> changeServer(String address, String developerPassword) async {
+    if (![AppCallState.idle,AppCallState.unconfigured,AppCallState.error].contains(_state)) throw StateError('ACTIVE_CALL');
+    if(!AppConfig.validAddress(address)) throw ArgumentError('INVALID_ADDRESS');
+    if(!await _native.verifyDeveloperPassword(developerPassword)) throw StateError('DEVELOPER_DENIED');
+    await logout();
+    await _native.secureWrite('smi.serverOverride',address.toLowerCase());
+    AppConfig.overrideDomain=address.toLowerCase();
+    _api.setDomain(address.toLowerCase()); notifyListeners();
+  }
+  Future<void> refreshDirectory() async {
+    if (_directoryLoading || _disposed) return;
+    final epoch=_directoryEpoch;
+    _directoryLoading = true; _directoryError = null; notifyListeners();
+    try { final entries=await _api.extensions(); if(epoch==_directoryEpoch)_directory = entries; }
+    catch (_) { _directoryError = 'فهرست داخلی‌ها دریافت نشد؛ دوباره تلاش کنید.'; }
+    finally { _directoryLoading = false; if (!_disposed) notifyListeners(); }
+  }
+
   int get deviceGeneration => _deviceGeneration;
   DateTime? get deadline => _deadline;
   bool get restoringAccount => _restoringAccount;
@@ -118,6 +199,11 @@ class CallController extends ChangeNotifier {
       if (saved == null) {
         _state = AppCallState.unconfigured;
         return;
+      }
+      if(saved.token != null) {
+        _api.setDomain(saved.domain); _api.setToken(saved.token);
+        try { await _api.me(); }
+        on ApiProblem catch(e) { if(e.status==401) {await _sessionRevoked(); return;} rethrow; }
       }
       // Only transient failures get bounded retries. Never replace credentials,
       // change installation identity, bypass TLS or extend a call's deadline.
@@ -144,6 +230,8 @@ class CallController extends ChangeNotifier {
     required String extension,
     required String password,
   }) async {
+    if(_invalidating)return false;
+    _stopDirectoryWatch();
     _state = AppCallState.signingIn;
     _errorMessage = null;
     _lastFailureRetryable = false;
@@ -174,6 +262,7 @@ class CallController extends ChangeNotifier {
         accessToken: result.accessToken,
       );
       _savedAccountAvailable = true;
+      await _native.secureWrite('smi.deviceGeneration', _deviceGeneration.toString());
       _startupStage = 'push-bind';
       await _registerPushToken();
       await _startEngine(
@@ -183,6 +272,7 @@ class CallController extends ChangeNotifier {
         installationId: installationId,
         relogin: true,
       );
+      _startDirectoryWatch();
       return true;
     } on ApiProblem catch (e) {
       _recordStartupFailure(e);
@@ -252,22 +342,35 @@ class CallController extends ChangeNotifier {
     return fresh;
   }
 
-  Future<void> _registerPushToken() async {
+  Future<bool> _registerPushToken() async {
     try {
+      Map<Object?,Object?> capabilities = {};
+      try { capabilities = await _native.getCapabilities(); } catch (_) { /* legacy adapter */ }
+      if (capabilities['directIncoming'] == true) {
+        _directReception = true;
+        _updateReceptionRequirements(capabilities);
+        return true;
+      }
       final token = await _native.getPushToken();
       final isIos = defaultTargetPlatform == TargetPlatform.iOS;
       if (token == null || token.isEmpty) {
         _errorMessage = 'اعلان پس‌زمینه فعال نیست؛ دریافت تماس فعلاً فقط هنگام باز بودن اپ ممکن است.';
+        return false;
       }
       await _api.registerPush(
         provider: isIos ? 'apns' : 'fcm',
-        token: token ?? '',
+        token: token,
         environment: 'production',
       );
     } on ApiProblem {
       // push registration failure must not hide behind a green ready state (spec 10.1)
       _errorMessage = 'ثبت توکن اعلان ناموفق بود؛ دریافت تماس در پس‌زمینه ممکن نیست.';
+      return false;
+    } catch (_) {
+      _errorMessage = 'ثبت اعلان تماس انجام نشد؛ اتصال را بررسی و برنامه را دوباره باز کنید.';
+      return false;
     }
+    return true;
   }
 
   Future<void> _startEngine({
@@ -284,8 +387,12 @@ class CallController extends ChangeNotifier {
 
     // reconcile pending native events BEFORE trusting any new state (spec 10.3)
     for (final e in await _native.getPendingEvents()) {
-      _onNativeEvent(e);
-      await _native.ackEvent(e.eventId);
+      if (e.type == NativeEventType.pushTokenChanged) {
+        if (await _registerPushToken()) await _native.ackEvent(e.eventId);
+      } else {
+        _onNativeEvent(e);
+        await _native.ackEvent(e.eventId);
+      }
     }
 
     _startupStage = 'sip-configure';
@@ -301,6 +408,12 @@ class CallController extends ChangeNotifier {
     // app open is NOT a sign of readiness; poll the server for a live call (spec 5.2 step 9)
     _startupStage = 'call-reconcile';
     await _reconcileWithServer();
+    // A new process cannot recover the previous process's WebRTC media session.
+    // End that orphaned server leg rather than showing a connected silent call.
+    if (_state == AppCallState.connected && !_sip.hasActiveCall) {
+      await hangUp();
+      _errorMessage = 'تماس قبلی پس از بسته‌شدن فرایند پایان یافت؛ دوباره تماس بگیرید.';
+    }
     _startPollingWhilePending();
 
     if (_state == AppCallState.unconfigured || _state == AppCallState.signingIn) {
@@ -336,9 +449,7 @@ class CallController extends ChangeNotifier {
       await _native.reportOutgoing(_attemptId!);
       await _sip.call('sip:$target@${_sip.domain}', attemptId: _attemptId!);
     } catch (_) {
-      _state = AppCallState.idle;
-      _errorMessage = 'شروع تماس ناموفق بود.';
-      notifyListeners();
+      _teardown(outcome: CallOutcome.failedSetup);
       return false;
     }
     return true;
@@ -349,8 +460,13 @@ class CallController extends ChangeNotifier {
   void _onNativeEvent(NativeEvent e) {
     final expired = e.expiresAt != null && e.expiresAt!.isBefore(_now());
     switch (e.type) {
+      case NativeEventType.receptionCheckRequested:
+        _directReception = true; // Native standby also resumes a failed cold login.
+        unawaited(checkDirectReception());
+        break;
       case NativeEventType.incomingReported:
         if (expired) return; // never attach a dead call (spec 5.4)
+        _errorMessage = null;
         _callId = e.callId;
         _remoteExtension = e.callerExtension;
         _deadline = e.expiresAt;
@@ -367,18 +483,69 @@ class CallController extends ChangeNotifier {
         if (e.callId != null && e.callId == _callId) declineIncoming();
         break;
       case NativeEventType.endRequested:
+        if (_state != AppCallState.idle && _state != AppCallState.unconfigured &&
+            (e.callId == _callId || e.callId == _nativeCallUuid)) { unawaited(hangUp()); }
+        break;
       case NativeEventType.nativeCallReset:
-        if (_callId == null || e.callId == null || e.callId == _callId) {
-          _teardown(outcome: CallOutcome.disconnected, silent: e.type == NativeEventType.endRequested);
+        if (e.callId == _callId || e.callId == _nativeCallUuid) {
+          unawaited(_sip.hangUp()); _teardown(outcome: CallOutcome.disconnected);
+        }
+        break;
+      case NativeEventType.capabilityChanged:
+        if ((e.callId == _callId || e.callId == _nativeCallUuid) && e.callId != null) {
+          if (e.speakerOn != null) { _platformAudioRoute = true; _speakerOn = e.speakerOn!; }
+          if (e.muted != null) { _muted = e.muted!; _sip.setMuted(_muted); }
+          notifyListeners();
         }
         break;
       case NativeEventType.audioActivated:
       case NativeEventType.audioDeactivated:
-      case NativeEventType.capabilityChanged:
+        break;
       case NativeEventType.pushTokenChanged:
-        _registerPushToken();
+        unawaited(_registerPushToken().then((ok) async {
+          if (ok) await _native.ackEvent(e.eventId);
+          if (!_disposed) notifyListeners();
+        }));
         break;
     }
+  }
+
+  void _updateReceptionRequirements(Map<Object?, Object?> capabilities) {
+    _backgroundReady = capabilities['microphone'] == true && capabilities['notifications'] == true &&
+        capabilities['incomingChannelEnabled'] != false &&
+        capabilities['batteryUnrestricted'] == true && capabilities['standbyRunning'] == true;
+    _receptionWarning = capabilities['notifications'] != true || capabilities['incomingChannelEnabled'] == false
+        ? 'اعلان تماس غیرفعال است؛ برای زنگ در پس‌زمینه آن را فعال کنید.'
+        : capabilities['microphone'] != true
+            ? 'اجازه میکروفن فعال نیست؛ راه‌اندازی دریافت تماس را کامل کنید.'
+        : capabilities['batteryUnrestricted'] != true
+            ? 'دریافت در قفل و پس‌زمینه آماده نیست؛ محدودیت باتری برنامه را بردارید.'
+            : capabilities['standbyRunning'] != true ? 'سرویس دریافت تماس هنوز آماده نشده است.'
+            : capabilities['fullScreenIntent'] == false ? 'نمایش تمام‌صفحه روی قفل اجازه ندارد؛ راه‌اندازی دریافت تماس را بررسی کنید.'
+            : capabilities['vendorBackgroundSetup'] == true ? 'اتصال Android آماده است؛ راه‌اندازی خودکار و تنظیمات HyperOS هنوز قابل تأیید خودکار نیستند.' : null;
+  }
+
+  /// Native standby heartbeat also catches a missed SIP MESSAGE; it carries no credentials.
+  Future<void> checkDirectReception() async {
+    if (!_directReception || _directCheckBusy || _disposed || _restoringAccount) return;
+    _directCheckBusy = true;
+    try {
+      final retryDue = _lastDirectReconnect == null || _now().difference(_lastDirectReconnect!) >= const Duration(seconds:30);
+      if (_state == AppCallState.error && _lastFailureRetryable && _savedAccountAvailable && retryDue) {
+        _lastDirectReconnect = _now();
+        await restoreSession();
+      } else if (_extension != null && _state != AppCallState.unconfigured && _state != AppCallState.signingIn) {
+        if (!_sip.registered && _state == AppCallState.idle && retryDue) {
+          _lastDirectReconnect = _now();
+          try { await _sip.start(); } catch (_) { /* next bounded native heartbeat */ }
+        }
+        if (_state != AppCallState.error) await _reconcileWithServer();
+      }
+      _updateReceptionRequirements(await _native.getCapabilities());
+      await _native.updateReception(_backgroundReady && _sip.registered && _controlReachable && _state != AppCallState.error);
+      if (!_disposed) notifyListeners();
+    } catch (_) { /* no uncaught background errors; next native heartbeat retries */ }
+    finally { _directCheckBusy = false; }
   }
 
   /// User tapped answer (maybe before INVITE arrived): intent first, SIP second (spec 5.2 steps 13–14).
@@ -391,10 +558,15 @@ class CallController extends ChangeNotifier {
   Future<void> _acceptIntent() async {
     if (_callId == null) return;
     if (_state == AppCallState.incomingPending) {
+      _errorMessage = null;
       _state = AppCallState.connecting;
       notifyListeners();
     }
     try {
+      // Stop native ringing at the user's answer intent, before network/SIP waits.
+      if (defaultTargetPlatform == TargetPlatform.android) {
+        await _native.updateCallState(_nativeCallUuid ?? _callId!, 'answering');
+      }
       final response = await _api.callAction('accept', _callId!,
           idempotencyKey: 'accept-$_callId'); // POST /accept registers intent only
       if (response.isTerminal) { onServerState(response); return; }
@@ -402,24 +574,46 @@ class CallController extends ChangeNotifier {
     } on ApiProblem catch (e) {
       if (e.code == 'CALL_ENDED' || e.code == 'CALL_EXPIRED') {
         _teardown(outcome: CallOutcome.cancelled);
+      } else {
+        _acceptFailed();
       }
+    } catch (_) {
+      _acceptFailed();
     }
   }
 
+  void _acceptFailed() {
+    // A lost response is not confirmation of acceptance. Require another tap
+    // before answering a late INVITE; keep the original server deadline.
+    if (_state != AppCallState.connecting) return;
+    if (_callId != null) _answerIntents.remove(_callId);
+    _state = AppCallState.incomingPending;
+    _errorMessage = 'پاسخ تماس تأیید نشد؛ دوباره پاسخ دهید یا تماس را رد کنید.';
+    notifyListeners();
+  }
+
   Future<void> declineIncoming() async {
-    if (_callId == null) return;
+    if (_callId == null || _state == AppCallState.ending) return;
     final id = _callId!;
+    final nativeId = _nativeCallUuid ?? id;
     _state = AppCallState.ending;
     notifyListeners();
+    var confirmed = false;
     try {
       await _api.callAction('decline', id, idempotencyKey: 'decline-$id');
+      confirmed = true;
     } on ApiProblem catch (e) {
-      if (e.code == 'CALL_ENDED' || e.code == 'CALL_EXPIRED') {
-        // server already terminal — align UI, never revive
-      }
+      confirmed = e.code == 'CALL_ENDED' || e.code == 'CALL_EXPIRED';
+    } catch (_) {
+      // Reject the SIP leg even when the independent API path is unavailable.
     }
-    await _native.endCall(_nativeCallUuid ?? id, 'declined');
+    try { await _sip.rejectPendingOnce(); } catch (_) { confirmed = false; }
+    try { await _native.endCall(nativeId, 'declined'); } catch (_) { confirmed = false; }
     _teardown(outcome: CallOutcome.endedNormally);
+    if (!confirmed) {
+      _errorMessage = 'تأیید رد تماس کامل دریافت نشد؛ اتصال سرور را بررسی کنید.';
+      notifyListeners();
+    }
   }
 
   // ── SIP adapter callbacks ────────────────────────────────────────────────
@@ -440,11 +634,17 @@ class CallController extends ChangeNotifier {
 
   Future<void> _answerSipOnce(String id) async {
     if (!_answeredSipCalls.add(id)) return;
-    try { await _sip.answerPendingOnce(); }
+    try {
+      await _native.updateCallState(_nativeCallUuid ?? id, 'answered');
+      await _sip.answerPendingOnce();
+    }
     catch (_) { _answeredSipCalls.remove(id); rethrow; }
   }
 
-  Future<void> onForegroundCallHint() => _reconcileWithServer();
+  Future<void> onForegroundCallHint() async {
+    unawaited(refreshDirectory());
+    await _reconcileWithServer();
+  }
 
   void onSipConnected() {
     if (_state == AppCallState.outgoingPending ||
@@ -457,12 +657,14 @@ class CallController extends ChangeNotifier {
 
   /// SIP path terminated (remote BYE/CANCEL/failure). The server remains the
   /// source of truth; UI falls back to idle immediately so no ghost call remains.
-  void onSipRemoteEnded() {
+  void onSipRemoteEnded({bool failed = false}) {
     if (_state == AppCallState.connected ||
         _state == AppCallState.connecting ||
         _state == AppCallState.incomingPending ||
         _state == AppCallState.outgoingPending) {
-      _teardown(outcome: CallOutcome.disconnected);
+      _teardown(outcome: failed ? CallOutcome.disconnected
+          : _state == AppCallState.connected ? CallOutcome.endedNormally
+          : CallOutcome.cancelled);
     }
   }
 
@@ -470,6 +672,7 @@ class CallController extends ChangeNotifier {
   void onServerState(CallDto call) {
     final isCallee = call.callee == _extension;
     if (!isCallee && call.caller != _extension) return;
+    if (_callId != call.callId && !call.isTerminal) _errorMessage = null;
     _remoteExtension = isCallee ? call.caller : call.callee;
     _callId = call.callId;
     _deadline = call.expiresAt;
@@ -488,8 +691,12 @@ class CallController extends ChangeNotifier {
         break;
       case CallDtoState.connected:
         if (_state != AppCallState.connected) {
+          _errorMessage = null;
           _state = AppCallState.connected;
           _nativeCallUuid ??= call.callId;
+          unawaited(_native.updateCallState(_nativeCallUuid!, 'connected').catchError((Object _) {
+            if (_state == AppCallState.connected) unawaited(hangUp());
+          }));
         }
         break;
       case CallDtoState.ended:
@@ -505,6 +712,7 @@ class CallController extends ChangeNotifier {
     if (call.isTerminal || !_sip.registered || !_readySent.add(call.callId)) return;
     if (!_sip.registered) return; // ready will be sent on the next poll tick
     try {
+      await _native.reportIncoming(call.callId, call.caller, remoteName, call.expiresAt);
       final fresh = await _api.callAction(
         'ready',
         call.callId,
@@ -519,7 +727,13 @@ class CallController extends ChangeNotifier {
     } on ApiProblem catch (e) {
       if (e.code == 'STALE_DEVICE' || e.code == 'CALL_EXPIRED' || e.code == 'CALL_ENDED') {
         _teardown(outcome: CallOutcome.disconnected);
+      } else if ([502, 503, 504].contains(e.status)) {
+        _readySent.remove(call.callId);
       }
+    } catch (_) {
+      // Retry only within the existing pending window, using the same
+      // idempotency key. Never let an unawaited transport error escape.
+      _readySent.remove(call.callId);
     }
   }
 
@@ -535,6 +749,7 @@ class CallController extends ChangeNotifier {
       case 'CallerCancelled':
         return CallOutcome.cancelled;
       case 'Declined':
+      case 'Completed':
         return CallOutcome.endedNormally;
       default:
         return CallOutcome.disconnected;
@@ -552,35 +767,54 @@ class CallController extends ChangeNotifier {
   }
 
   Future<void> toggleSpeaker() async {
-    _speakerOn = !_speakerOn;
+    final target = !_speakerOn;
     final id = _nativeCallUuid ?? _callId;
-    if (id != null) await _native.setSpeaker(id, _speakerOn);
-    await _sip.setSpeaker(_speakerOn);
+    try {
+      if (id != null) await _native.setSpeaker(id, target);
+      await _sip.setSpeaker(target);
+      if (!_platformAudioRoute) _speakerOn = target;
+    } catch (_) {
+      _errorMessage = 'تغییر مسیر صدا انجام نشد؛ دستگاه صوتی را بررسی کنید.';
+    }
     notifyListeners();
   }
 
   Future<void> hangUp() async {
-    if (_callId == null) {
-      await _sip.hangUp();
-      _teardown(outcome: CallOutcome.endedNormally);
-      return;
-    }
-    final id = _callId!;
+    if (_state == AppCallState.ending) return;
+    final id = _callId;
     _state = AppCallState.ending;
     notifyListeners();
-    await _sip.hangUp();
+    var sipEnded = false;
+    var serverEnded = false;
     try {
-      await _api.callAction('end', id, idempotencyKey: 'end-$id');
-    } on ApiProblem {
-      // SIP BYE path is primary; API end is the backstop (spec 5.2 step 16)
+      await _sip.hangUp();
+      sipEnded = true;
+    } catch (_) {
+      // Still attempt the independent server backstop if the SIP engine fails.
+    }
+    if (id != null) {
+      try {
+        await _api.callAction('end', id, idempotencyKey: 'end-$id');
+        serverEnded = true;
+      } on ApiProblem catch (e) {
+        serverEnded = e.code == 'CALL_ENDED' || e.code == 'CALL_EXPIRED';
+      } catch (_) {
+        // A timeout or transport failure must not strand the UI in Ending.
+      }
     }
     _teardown(outcome: CallOutcome.endedNormally);
+    if (!sipEnded || (id != null && !serverEnded)) {
+      _errorMessage = 'تأیید پایان تماس کامل دریافت نشد؛ اتصال سرور را بررسی کنید.';
+      notifyListeners();
+    }
   }
 
   Future<void> logout() async {
+    _stopDirectoryWatch();
     await _sip.stop();
     await _api.logout().catchError((Object _) {/* local wipe proceeds; server revoke unconfirmed is reported */});
     await _store.wipe();
+    _api.setToken(null); _extension=null; _directory=const []; _savedAccountAvailable=false;
     _teardown(outcome: CallOutcome.endedNormally, silent: true);
     _state = AppCallState.unconfigured;
     notifyListeners();
@@ -599,8 +833,11 @@ class CallController extends ChangeNotifier {
   }
 
   Future<void> _reconcileWithServer() async {
+    final epoch=_directoryEpoch;
     try {
       final call = await _api.currentCall(attemptId: _attemptId);
+      if(_disposed || epoch!=_directoryEpoch)return;
+      _controlReachable = true;
       if (call == null) {
         // AMI admission races the first poll after INVITE. Absence of the row
         // is not a terminal decision while this outgoing attempt is starting.
@@ -617,24 +854,34 @@ class CallController extends ChangeNotifier {
         return; // not our attempt
       }
       if (_deadline != null && call.callId == _callId &&
-          _now().isAfter(call.expiresAt) && !call.isTerminal) {
+          _now().isAfter(call.expiresAt) && !call.isTerminal &&
+          call.state != CallDtoState.connected) {
         // server deadline passed while UI still pending → clean failure (spec 5.3)
         _teardown(outcome: CallOutcome.unavailable);
         return;
       }
       onServerState(call);
     } on ApiProblem catch (e) {
+      if(_disposed || epoch!=_directoryEpoch)return;
+      _controlReachable = false;
       if (e.status == 401) {
-        _state = AppCallState.error;
-        _errorMessage = 'نشست منقضی شده؛ دوباره وارد شوید.';
-        notifyListeners();
+        await _sessionRevoked();
       }
     } catch (_) {
+      if(_disposed || epoch!=_directoryEpoch)return;
+      _controlReachable = false;
       // network hiccup — deadline + SIP teardown still protect us (spec 5.5)
     }
   }
 
   void _teardown({required CallOutcome outcome, bool silent = false}) {
+    final nativeId = _nativeCallUuid ?? _callId;
+    if (nativeId != null) {
+      unawaited(_native.endCall(nativeId, outcome.name).catchError((Object _) {
+        debugPrint('SMI_NATIVE call cleanup not confirmed');
+      }));
+    }
+    _platformAudioRoute = false;
     _readySent.clear();
     _answerIntents.clear();
     _answeredSipCalls.clear();
@@ -676,6 +923,7 @@ class CallController extends ChangeNotifier {
   @override
   void dispose() {
     _disposed = true;
+    _stopDirectoryWatch();
     _pollTimer?.cancel();
     _nativeSub?.cancel();
     _native.stopListening();

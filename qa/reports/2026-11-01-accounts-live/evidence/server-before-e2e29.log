@@ -1,0 +1,4 @@
+smi-control	running	Up Less than a second
+smi-edge	running	Up 9 hours
+smi-pbx	running	Up Less than a second (health: starting)
+BLOCKED control /health/live -> 000

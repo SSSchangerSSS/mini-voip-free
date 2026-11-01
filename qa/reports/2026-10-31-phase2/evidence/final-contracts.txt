@@ -1,0 +1,1 @@
+PASS contracts validated (openapi.json, push.schema.json, native-events.schema.json)

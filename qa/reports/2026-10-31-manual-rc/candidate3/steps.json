@@ -1,0 +1,30 @@
+[
+  {
+    "step": "android8-smoke",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:02:18.951640+00:00",
+    "finishedAtUtc": "2026-10-31T05:03:22.799605+00:00"
+  },
+  {
+    "step": "android15-ui",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:03:22.799816+00:00",
+    "finishedAtUtc": "2026-10-31T05:03:40.348032+00:00"
+  },
+  {
+    "step": "to8-start",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:03:40.348400+00:00",
+    "finishedAtUtc": "2026-10-31T05:03:59.833091+00:00"
+  },
+  {
+    "step": "to8-mute",
+    "status": "PASS",
+    "exitCode": 0,
+    "startedAtUtc": "2026-10-31T05:03:59.833433+00:00",
+    "finishedAtUtc": "2026-10-31T05:04:01.441602+00:00"
+  }
+]

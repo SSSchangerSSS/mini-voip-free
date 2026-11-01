@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "firebaseSDKMatches": [],
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86_64"
+  ],
+  "sha256": "011a169db15a8c25d8c433d0c59e544911049a03d4839a62f21e8fccd8fb3799",
+  "publication": "WITHHELD: runtime SDK privacy gate FAIL"
+}

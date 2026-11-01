@@ -44,7 +44,10 @@
     "pub.flutter_webrtc": {
       "version": "1.6.3",
       "source": "https://pub.dev/packages/flutter_webrtc",
-      "verifiedAt": "2026-10-27"
+      "verifiedAt": "2026-10-27",
+      "localOverride": "third_party/flutter_webrtc",
+      "upstreamArchiveSha256": "b98ef03376401e54ff87fc78907b38e562b15ca8424aba589c263eddc3c1ecf9",
+      "decision": "docs/decisions/0015-sdk-logging-compatible-144.md"
     },
     "pub.http": {
       "version": "1.6.0",
@@ -154,6 +157,19 @@
       "downloadMirror": "docker.1ms.run/redroid/redroid",
       "decision": "docs/decisions/0009-native-android15-qa-container.md",
       "status": "Local QA PASS after pids4096 correction: API35, five observed cold startups, stored-account restore, Home/notification UI, bidirectional emulator calls/RTP/hangup; physical DeviceValidated remains BLOCKED"
+    },
+    "androidx.core-telecom": {
+      "version": "1.0.0",
+      "source": "https://developer.android.com/jetpack/androidx/releases/core",
+      "decision": "docs/decisions/0012-background-admin-directory-scope.md",
+      "status": "Release build verified; direct private-PBX Android standby (decision0013); physical audio/OEM tests required"
+    },
+    "webrtc-sdk.android": {
+      "version": "144.7559.15",
+      "sha256": "fc7c8d027eb33860ccbb7847988f7f942d44a92d1f575348bba6c0250cde4071",
+      "source": "https://maven.aliyun.com/repository/central/io/github/webrtc-sdk/android/144.7559.15/android-144.7559.15.aar",
+      "decision": "docs/decisions/0015-sdk-logging-compatible-144.md",
+      "note": "Accepted for manual RC: build/API26+35 bidirectional RTP and runtime privacy gate PASS; exact upstream AAR, no binary patch; physical/OEM validation remains pending."
     }
   },
   "rules": {

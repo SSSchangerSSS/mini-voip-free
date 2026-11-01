@@ -1,0 +1,2 @@
+{"stage": "prepare", "exitCode": 0, "status": "PASS"}
+{"stage": "start", "exitCode": 1, "status": "FAIL"}

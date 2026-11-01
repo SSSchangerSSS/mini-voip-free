@@ -1,0 +1,5 @@
+Channel                                                          Location                         State   Application(Data)             
+PJSIP/101-00000003                                               (None)                           Up      AppDial((Outgoing Line))      
+0 active channels
+0 active calls
+3 calls processed

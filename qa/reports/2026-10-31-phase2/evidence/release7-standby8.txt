@@ -1,0 +1,2 @@
+  * ServiceRecord{b8d76ee u0 app.minivoipfree/.SmiIncomingService}
+    isForeground=true foregroundId=4201 foregroundNoti=Notification(channel=smi_direct_incoming pri=0 contentView=null vibrate=null sound=null defaults=0x0 flags=0x6a color=0x00000000 groupKey=silent vis=PRIVATE)

@@ -1,0 +1,22 @@
+{
+  "status": "FAIL",
+  "timeline": [
+    {
+      "at": "10-31 07:41:03.988",
+      "event": "privacy hook"
+    },
+    {
+      "at": "10-31 07:41:04.043",
+      "event": "privacy hook"
+    },
+    {
+      "at": "10-31 07:41:04.052",
+      "event": "privacy hook"
+    },
+    {
+      "at": "10-31 07:41:04.053",
+      "event": "native ICE credential log"
+    }
+  ],
+  "rawLogExported": false
+}

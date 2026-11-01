@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/changer/Desktop/flash/mini-voip-free/.tool-results/accounts-live/native-settings27.py", line 26, in <module>
+    fields=[n for n in r.iter('node') if n.get('class')=='android.widget.EditText'];fill(fields[1],pathlib.Path('deploy/secrets/developer-password').read_text().strip());run('shell','input','keyevent','4');tap(find('ذخیره و ورود دوباره'));time.sleep(2);r=tree();login=any(text(n)=='ورود' for n in r.iter('node')) and len([n for n in r.iter('node') if n.get('class')=='android.widget.EditText'])==3;assert login,'Successful save did not return to login';snap('developer-saved27')
+                                                                                                                                                                                                                                                                                                                                                                                                                     ^^^^^
+AssertionError: Successful save did not return to login

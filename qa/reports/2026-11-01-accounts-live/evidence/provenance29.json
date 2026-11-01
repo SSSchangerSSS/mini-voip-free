@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "sha256": "221367448dc762a699e1f5965baa734d35bd97de2f9f1a5f6136352fdcd0d32f",
+  "nativeLibraries": [
+    {
+      "abi": "arm64-v8a",
+      "matchesLockedSdk": true
+    },
+    {
+      "abi": "armeabi-v7a",
+      "matchesLockedSdk": true
+    },
+    {
+      "abi": "x86_64",
+      "matchesLockedSdk": true
+    }
+  ],
+  "nativeOverlayIdentical": true,
+  "sameSignerAsVersion4": true,
+  "devices": [
+    {
+      "device": "emulator-5554",
+      "api": 26,
+      "versionCode": 29,
+      "installedShaMatches": true
+    },
+    {
+      "device": "127.0.0.1:5565",
+      "api": 35,
+      "versionCode": 29,
+      "installedShaMatches": true
+    }
+  ]
+}

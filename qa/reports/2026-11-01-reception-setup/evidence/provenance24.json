@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "sha256": "73b0d990ac0932baa2d34cad14a2e6e2eb41618ea5c4e70be42d5797206ff8e3",
+  "nativeLibraries": [
+    {
+      "abi": "arm64-v8a",
+      "matchesLockedSdk": true
+    },
+    {
+      "abi": "armeabi-v7a",
+      "matchesLockedSdk": true
+    },
+    {
+      "abi": "x86_64",
+      "matchesLockedSdk": true
+    }
+  ],
+  "overlayIdentical": true,
+  "installedApi35HashMatches": true,
+  "sameSignerAsVersion4": true
+}

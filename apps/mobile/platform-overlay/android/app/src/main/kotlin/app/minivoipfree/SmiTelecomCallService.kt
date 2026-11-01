@@ -1,157 +1,113 @@
 package app.minivoipfree
-
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.app.Service
-import android.content.Context
-import android.content.Intent
-import android.content.pm.ServiceInfo
-import android.os.Build
-import android.os.IBinder
+import android.app.*
+import android.content.*
+import android.media.AudioAttributes
+import android.os.*
+import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.core.app.Person
-import androidx.core.app.ServiceCompat
-import org.json.JSONObject
 import java.time.Instant
 
-/**
- * phoneCall foreground service during a call (spec 9.4, [S13][S14]):
- *  - publishes a CallStyle incoming-call notification within the system window;
- *  - hosts the call lifecycle so the microphone policy and lifecycle survive
- *    Activity teardown;
- *  - STOPS itself after the last call ends and removes the ongoing notification.
- *
- * Full-screen intent usage respects `canUseFullScreenIntent` on Android 14+ ([S15]);
- * when unavailable, the heads-up notification is still shown. Telecom (Connection
- * / CallControl) integration is completed in P3 — this scaffold keeps a single
- * call slot and never claims default-dialer behaviour.
- */
-class SmiTelecomCallService : Service() {
-
-    override fun onCreate() {
-        super.onCreate()
-        // Every supported release (Android 8+) requires an existing channel
-        // before a foreground notification can be posted.
-        getSystemService(NotificationManager::class.java).createNotificationChannel(
-            NotificationChannel(CHANNEL_ID, "تماس‌ها", NotificationManager.IMPORTANCE_HIGH),
-        )
+class SmiCallNotifications(private val service:SmiIncomingService) {
+    private fun <T> system(c:Class<T>):T=service.getSystemService(c)
+    private var current:String?=null
+    private var lastNumber=""
+    private var lastName=""
+    private var lastExpiry=0L
+    private var ringing=true
+    private val main=Handler(Looper.getMainLooper())
+    init {
+        // A process restart cannot keep the old call/media session alive.
+        system(NotificationManager::class.java).apply{cancel(4101);cancel(4102)}
+        val channel=NotificationChannel(CHANNEL,"تماس‌های داخلی",NotificationManager.IMPORTANCE_HIGH)
+        channel.setSound(Settings.System.DEFAULT_RINGTONE_URI,AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION_RINGTONE).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build())
+        channel.enableVibration(true);system(NotificationManager::class.java).createNotificationChannel(channel)
+        val active=NotificationChannel(ACTIVE_CHANNEL,"مکالمه داخلی",NotificationManager.IMPORTANCE_LOW)
+        active.setSound(null,null);active.enableVibration(false)
+        system(NotificationManager::class.java).createNotificationChannel(active)
     }
-
-    override fun onBind(intent: Intent?): IBinder? = null
-
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val callId = intent?.getStringExtra(EXTRA_CALL_ID)
-        val caller = intent?.getStringExtra(EXTRA_CALLER) ?: ""
-        val expiresAt = intent?.getLongExtra(EXTRA_EXPIRES_AT, 0L) ?: 0L
-
-        when (intent?.action) {
-            ACTION_ANSWER_FROM_NOTIFICATION -> {
-                SmiCallStore.instance.enqueueAnswer(applicationContext, callId ?: return START_NOT_STICKY)
-                FlutterBridge.instance.dispatchIfAlive(
-                    "answerRequested",
-                    JSONObject().put("callId", callId),
-                )
-                stopSelf()
-                return START_NOT_STICKY
-            }
-            ACTION_DECLINE_FROM_NOTIFICATION -> {
-                SmiCallStore.instance.enqueueEnd(applicationContext, callId ?: "", "declined")
-                stopSelf()
-                return START_NOT_STICKY
-            }
-            else -> {
-                startInForeground(callId ?: "unknown", caller, expiresAt)
-            }
+    fun show(i:Intent):Int {
+        val id=i.getStringExtra("callId")?:return Service.START_NOT_STICKY
+        if((i.action==CONNECTED || i.action==SILENCE) && current!=id)return Service.START_NOT_STICKY
+        if(current!=null && current!=id){
+            main.removeCallbacksAndMessages(null)
+            service.clearCall()
+            system(NotificationManager::class.java).apply{cancel(4101);cancel(4102)}
         }
-        return START_NOT_STICKY
-    }
-
-    private fun startInForeground(callId: String, caller: String, expiresAtEpoch: Long) {
-        val open = PendingIntent.getActivity(
-            this, callId.hashCode(),
-            Intent(this, MainActivity::class.java).apply {
-                putExtra(EXTRA_CALL_ID, callId)
-            },
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
-        )
-        val answer = PendingIntent.getService(
-            this, (callId + "a").hashCode(),
-            Intent(this, SmiTelecomCallService::class.java).apply {
-                action = ACTION_ANSWER_FROM_NOTIFICATION
-                putExtra(EXTRA_CALL_ID, callId)
-            },
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
-        )
-        val decline = PendingIntent.getService(
-            this, (callId + "d").hashCode(),
-            Intent(this, SmiTelecomCallService::class.java).apply {
-                action = ACTION_DECLINE_FROM_NOTIFICATION
-                putExtra(EXTRA_CALL_ID, callId)
-            },
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
-        )
-
-        val callerPerson = Person.Builder().setName("داخلی $caller").build()
-        val remainingSec = maxOf(1L, expiresAtEpoch - Instant.now().epochSecond)
-
-        val notification: Notification =
-            NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(android.R.drawable.ic_menu_call)
-                .setContentTitle("تماس ورودی")
-                .setContentText("داخلی $caller")
-                .setOngoing(true)
-                .setCategory(NotificationCompat.CATEGORY_CALL)
-                .addPerson(callerPerson.uri.toString())
-                .setStyle(
-                    NotificationCompat.CallStyle.forIncomingCall(
-                        callerPerson, decline, answer,
-                    ).setIsVideo(false),
-                )
-                .setTimeoutAfter(remainingSec * 1000)
-                .build()
-
-        val type = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL
-        } else {
-            0
+        val number=i.getStringExtra("number")?:lastNumber;val name=i.getStringExtra("name")?:lastName
+        // Once answered/silenced, a delayed duplicate START must never restart the ringtone.
+        val wasRinging=current==id && ringing
+        val incoming=if(i.action==CONNECTED || i.action==SILENCE || SmiCalls.ringingSuppressed(id) || (current==id && !ringing))false else i.getBooleanExtra("incoming",true)
+        val expiry=i.getLongExtra("expiry",lastExpiry)
+        lastNumber=number;lastName=name;lastExpiry=expiry;ringing=incoming;current=id
+        val open=PendingIntent.getActivity(service,id.hashCode(),Intent(service,MainActivity::class.java).setAction(OPEN).putExtra("callId",id),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val answer=PendingIntent.getActivity(service,(id+"answer").hashCode(),Intent(service,MainActivity::class.java).setAction(ANSWER).putExtra("callId",id),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val end=PendingIntent.getBroadcast(service,(id+"end").hashCode(),Intent(service,SmiCallActionReceiver::class.java).setAction(if(incoming)DECLINE else END).putExtra("callId",id),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val person=Person.Builder().setName(if(name.isBlank())"داخلی $number" else "$name · $number").setImportant(true).build()
+        val builder=NotificationCompat.Builder(service,if(incoming)CHANNEL else ACTIVE_CHANNEL).setSmallIcon(android.R.drawable.ic_menu_call)
+            .setContentTitle(if(incoming)"تماس ورودی" else "تماس داخلی").setContentText(person.name)
+            .setCategory(NotificationCompat.CATEGORY_CALL).setPriority(NotificationCompat.PRIORITY_MAX)
+            .setOngoing(true).setOnlyAlertOnce(true).setSilent(!incoming).setContentIntent(open).setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setStyle(if(incoming)NotificationCompat.CallStyle.forIncomingCall(person,end,answer) else NotificationCompat.CallStyle.forOngoingCall(person,end))
+        if(incoming && (Build.VERSION.SDK_INT<34 || system(NotificationManager::class.java).canUseFullScreenIntent()))builder.setFullScreenIntent(open,true)
+        val notification=builder.build()
+        if(incoming)notification.flags=notification.flags or Notification.FLAG_INSISTENT
+        // Switch the existing service's foreground notification first. The previous
+        // ID can then be cancelled explicitly, stopping INSISTENT sound/vibration.
+        service.presentCall(if(incoming)4101 else 4102,notification,SmiCalls.active)
+        if(wasRinging && !incoming)system(NotificationManager::class.java).cancel(4101)
+        if(incoming)main.postDelayed({if(current==id&&!SmiCalls.active)SmiCalls.end(service,id,false)},maxOf(1,expiry-Instant.now().epochSecond)*1000)
+        // API26-28 permit this lock-screen fallback; newer releases own FSI policy.
+        val power=system(PowerManager::class.java)
+        val notifications=system(NotificationManager::class.java)
+        val legacyAllowed=notifications.areNotificationsEnabled() && notifications.currentInterruptionFilter==NotificationManager.INTERRUPTION_FILTER_ALL && (notifications.getNotificationChannel(CHANNEL)?.importance?:0)>=NotificationManager.IMPORTANCE_HIGH
+        if(incoming && legacyAllowed && Build.VERSION.SDK_INT<29 && (!power.isInteractive || system(KeyguardManager::class.java).isKeyguardLocked)) {
+            @Suppress("DEPRECATION")
+            val wake=power.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK or PowerManager.ACQUIRE_CAUSES_WAKEUP,"mini-voip-free:incoming-screen")
+            wake.acquire(10000)
+            service.startActivity(Intent(service,MainActivity::class.java).setAction(OPEN).putExtra("callId",id).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP))
         }
-        ServiceCompat.startForeground(this, NOTIFICATION_ID, notification, type)
+        return Service.START_NOT_STICKY
     }
-
-    override fun onDestroy() {
-        stopForeground(STOP_FOREGROUND_REMOVE)
-        super.onDestroy()
+    fun end(id:String){
+        if(current!=id)return
+        current=null;ringing=false;main.removeCallbacksAndMessages(null)
+        service.clearCall()
+        system(NotificationManager::class.java).apply{cancel(4101);cancel(4102)}
     }
-
+    fun dispose(){main.removeCallbacksAndMessages(null);system(NotificationManager::class.java).apply{cancel(4101);cancel(4102)}}
     companion object {
-        const val CHANNEL_ID = "smi_calls"
-        const val ACTION_ANSWER_FROM_NOTIFICATION = "app.minivoipfree.ANSWER"
-        const val ACTION_DECLINE_FROM_NOTIFICATION = "app.minivoipfree.DECLINE"
-        const val EXTRA_CALL_ID = "callId"
-        const val EXTRA_CALLER = "caller"
-        const val EXTRA_EXPIRES_AT = "expiresAtEpoch"
-        private const val NOTIFICATION_ID = 4101
+        const val ACTIVE_CHANNEL="smi_calls_active"
+        const val SILENCE="app.minivoipfree.SILENCE_RINGING"
+        const val CONNECTED="app.minivoipfree.CONNECTED"
+        const val OPEN="app.minivoipfree.INCOMING"
+        const val ANSWER="app.minivoipfree.ANSWER"
+        const val DECLINE="app.minivoipfree.DECLINE"
+        const val END="app.minivoipfree.END"
+        const val CHANNEL="smi_calls_v2"
+    }
+}
+/** Notification operations reuse the live standby service; no new background FGS start. */
+object SmiTelecomCallService {
+    const val OPEN=SmiCallNotifications.OPEN
+    const val ANSWER=SmiCallNotifications.ANSWER
+    const val DECLINE=SmiCallNotifications.DECLINE
+    const val END=SmiCallNotifications.END
+    private var presenter:SmiCallNotifications?=null
+    fun attach(service:SmiIncomingService){presenter=SmiCallNotifications(service)}
+    fun detach(){presenter?.dispose();presenter=null}
+    fun connected(ctx:Context,id:String){presenter?.show(Intent().setAction(SmiCallNotifications.CONNECTED).putExtra("callId",id))}
+    fun silence(ctx:Context,id:String){presenter?.show(Intent().setAction(SmiCallNotifications.SILENCE).putExtra("callId",id))}
+    fun end(ctx:Context,id:String){presenter?.end(id)}
+    fun start(ctx:Context,id:String,name:String,number:String,incoming:Boolean,expiry:Long){
+        val p=presenter?:throw IllegalStateException("Incoming standby service is not running")
+        p.show(Intent().putExtra("callId",id).putExtra("name",name).putExtra("number",number).putExtra("incoming",incoming).putExtra("expiry",expiry))
+    }
+}
 
-        fun startForIncoming(ctx: Context, callId: String, caller: String, expiresAtEpoch: Long) {
-            val i = Intent(ctx, SmiTelecomCallService::class.java).apply {
-                putExtra(EXTRA_CALL_ID, callId)
-                putExtra(EXTRA_CALLER, caller)
-                putExtra(EXTRA_EXPIRES_AT, expiresAtEpoch)
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                ctx.startForegroundService(i)
-            } else {
-                ctx.startService(i)
-            }
-        }
-
-        /** Best-effort ring suppression on FCM cancel (never load-bearing, spec 5.4). */
-        fun suppressRingIfPending(ctx: Context, callId: String) {
-            val manager = ctx.getSystemService(NotificationManager::class.java)
-            manager.cancel(callId.hashCode())
-            manager.cancel(NOTIFICATION_ID)
-        }
+class SmiCallActionReceiver:BroadcastReceiver() {
+    override fun onReceive(ctx:Context,i:Intent){
+        val id=i.getStringExtra("callId")?:return
+        when(i.action){SmiTelecomCallService.DECLINE->SmiCalls.intent(ctx,id,"declineRequested");SmiTelecomCallService.END->SmiCalls.intent(ctx,id,"endRequested")}
     }
 }

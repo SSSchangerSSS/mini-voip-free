@@ -1,0 +1,6 @@
+{"status": "FAIL", "channelsCleared": true, "afterEndNotification": {"liveIds": [4102], "soundKey": "null", "vibrateKey": "null"}}
+Traceback (most recent call last):
+  File "/home/changer/Desktop/flash/mini-voip-free/.tool-results/accounts-live/e2e29.py", line 98, in <module>
+    (base/(case+'-end-count.txt')).write_text(stats);n=noti(callee);ok='0 active channels' in stats and not set(n['liveIds']).intersection([4101,4102]);save({'status':'PASS' if ok else 'FAIL','channelsCleared':'0 active channels' in stats,'afterEndNotification':n});assert ok
+                                                                                                                                                                                                                                                                                 ^^
+AssertionError

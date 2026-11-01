@@ -1,0 +1,9 @@
+
+  Contact:  <Aor/ContactUri..............................> <Hash....> <Status> <RTT(ms)..>
+==========================================================================================
+
+  Contact:  101/sip:tplichwm@127.0.0.1:39108;transport=WS; 3994a27280 NonQual         nan
+  Contact:  103/sip:97092720@127.0.0.1:39504;transport=WS; 60045c0c81 NonQual         nan
+
+Objects found: 2
+

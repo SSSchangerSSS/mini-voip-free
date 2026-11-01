@@ -1,0 +1,8 @@
+
+  Contact:  <Aor/ContactUri..............................> <Hash....> <Status> <RTT(ms)..>
+==========================================================================================
+
+  Contact:  103/sip:h4xlpxh2@127.0.0.1:39580;transport=WS; 3ac58bfaea NonQual         nan
+
+Objects found: 1
+

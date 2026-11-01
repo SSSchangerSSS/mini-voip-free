@@ -1,0 +1,58 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_network_failure_test.dart
+00:00 +0: hangup releases UI and attempts API when SIP failure=false
+00:00 +1: hangup releases UI and attempts API when SIP failure=true
+00:00 +2: accept handles a lost control connection without an uncaught error
+00:00 +2 -1: accept handles a lost control connection without an uncaught error [E]
+  ClientException: fixture offline
+  test/call_network_failure_test.dart 83:36  main.<fn>.<fn>
+  package:http/src/mock_client.dart 54:36    new MockClient.<fn>
+  
+00:00 +2 -1: decline handles a lost control connection without an uncaught error
+00:00 +2 -2: decline handles a lost control connection without an uncaught error [E]
+  ClientException: fixture offline
+  test/call_network_failure_test.dart 83:36  main.<fn>.<fn>
+  package:http/src/mock_client.dart 54:36    new MockClient.<fn>
+  
+00:00 +2 -2: ready handles a lost control connection without an uncaught error
+00:00 +2 -3: ready handles a lost control connection without an uncaught error [E]
+  ClientException: fixture offline
+  test/call_network_failure_test.dart 83:36           main.<fn>.<fn>
+  package:http/src/mock_client.dart 54:36             new MockClient.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                          _CustomZone.registerBinaryCallback
+  package:smi_phone/call/call_controller.dart 508:21  CallController._sendReadyIfNeeded
+  package:smi_phone/call/call_controller.dart 483:23  CallController.onServerState
+  package:smi_phone/call/call_controller.dart 637:7   CallController._reconcileWithServer
+  ===== asynchronous gap ===========================
+  dart:async                                          _CustomZone.registerUnaryCallback
+  package:smi_phone/call/call_controller.dart 615:20  CallController._reconcileWithServer
+  package:smi_phone/call/call_controller.dart 447:42  CallController.onForegroundCallHint
+  test/call_network_failure_test.dart 92:15           main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                          _CustomZone.registerUnaryCallback
+  test/call_network_failure_test.dart 90:7            main.<fn>
+  
+  Expected: <2>
+    Actual: <1>
+  A failed ready must be retryable with the same key
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/call_network_failure_test.dart 97:9            main.<fn>
+  
+00:00 +2 -3: Some tests failed.
+
+Failing tests:
+  /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_network_failure_test.dart: accept handles a lost control connection without an uncaught error
+  /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_network_failure_test.dart: decline handles a lost control connection without an uncaught error
+  /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_network_failure_test.dart: ready handles a lost control connection without an uncaught error

@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "notificationEffectsDisabled": false,
+  "scope": "QA8 after completed initial provisioning and guest reboot"
+}

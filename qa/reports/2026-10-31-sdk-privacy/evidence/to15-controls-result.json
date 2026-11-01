@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "scope": "QA runner",
+  "reason": "Speaker-control runner overlapped with end runner; controls lookup saw ended UI. Not accepted as product pass; sequential retry required."
+}

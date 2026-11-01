@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "observedToolExitCode": 143,
+  "scope": "Original long command; standalone detached retry exit0; APK27 was QA only"
+}

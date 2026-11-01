@@ -1,7 +1,7 @@
 name: smi_phone
 description: mini-voip-free — internal two-party voice calling for Android/iOS (SMI Phone spec v1.0).
 publish_to: "none"
-version: 0.1.0+1
+version: 0.3.0+29
 
 environment:
   sdk: ">=3.9.0 <4.0.0"
@@ -23,3 +23,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+# Auditable compatibility patch; see decision 0015. No global pub-cache edits.
+dependency_overrides:
+  flutter_webrtc:
+    path: ../../third_party/flutter_webrtc

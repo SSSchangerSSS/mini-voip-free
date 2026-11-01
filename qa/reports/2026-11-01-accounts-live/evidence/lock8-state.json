@@ -1,0 +1,52 @@
+{
+  "prepare": {
+    "status": "PASS",
+    "screenOff": true,
+    "calleeActivityForeground": false,
+    "calleeActivityRecordPresent": true,
+    "standbyServiceAlive": true,
+    "calleePid": "2701",
+    "taskRemovalMethod": null
+  },
+  "start": {
+    "status": "PASS",
+    "callId": "671ebeda-e8fe-4c33-979e-0ac3faab7cb3",
+    "incomingNotification": {
+      "liveIds": [
+        4101
+      ],
+      "soundKey": "0|app.minivoipfree|4101|null|10066",
+      "vibrateKey": "0|app.minivoipfree|4101|null|10066"
+    },
+    "scope": "NotificationManager ringing key; acoustic sound NOT_RUN"
+  },
+  "answer": {
+    "status": "PASS",
+    "afterAnswerNotification": {
+      "liveIds": [
+        4102
+      ],
+      "soundKey": "null",
+      "vibrateKey": "null"
+    },
+    "notificationAnswerIntentDelivered": true,
+    "acousticSound": "NOT_RUN"
+  },
+  "media": {
+    "status": "PASS",
+    "sharedBridgeAndRtpBothWays": true,
+    "callerNameAndExtensionVisible": true
+  },
+  "end": {
+    "status": "PASS",
+    "channelsCleared": true,
+    "afterEndNotification": {
+      "liveIds": [
+        4201
+      ],
+      "soundKey": "null",
+      "vibrateKey": "null"
+    },
+    "cleanupObservedSeconds": 2.422
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "FAIL",
+  "source": "User report",
+  "model": "POCO X7 Pro",
+  "scenario": "No incoming ring after closing app from Recents",
+  "lastDeliveredApk": "0.2.2+21",
+  "installedVersionIndependentlyRead": false,
+  "androidVersion": "16",
+  "hyperOsVersion": "3.0.7.0.WOJMIXM",
+  "standbyNotificationAfterSwipe": "DISAPPEARS",
+  "observedAtUtc": "2026-11-01T08:19:12.577728+00:00",
+  "scope": "Physical-device report; not locally reproduced",
+  "androidBuild": "BP2A.250605.031.A3",
+  "backgroundAutostartSetting": "OPTION_NOT_FOUND_BY_USER",
+  "hyperOsBatteryNoRestrictions": "ENABLED_PER_USER",
+  "updatedAtUtc": "2026-11-01T09:02:03.077314+00:00"
+}

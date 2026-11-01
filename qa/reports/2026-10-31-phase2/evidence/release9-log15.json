@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "nativeIceCredentialLogLines": 1,
+  "scope": "release9 current Android15 process actual outgoing call, raw log not exported"
+}

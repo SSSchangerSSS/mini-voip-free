@@ -1,0 +1,4 @@
+smi-qa-android15 CPU=12.83% Mem=1.234GiB / 2.5GiB PIDs=964
+smi-control CPU=0.21% Mem=73.88MiB / 7.204GiB PIDs=22
+smi-pbx CPU=2.54% Mem=54.15MiB / 7.204GiB PIDs=59
+smi-edge CPU=0.00% Mem=14.53MiB / 7.204GiB PIDs=10

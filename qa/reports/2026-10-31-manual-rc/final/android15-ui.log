@@ -1,0 +1,1 @@
+{"status": "PASS", "cycles": [{"homeReturnReady": true, "notificationsOpenedAndBack": true, "procedureSeconds": 5.87}, {"homeReturnReady": true, "notificationsOpenedAndBack": true, "procedureSeconds": 5.9}, {"homeReturnReady": true, "notificationsOpenedAndBack": true, "procedureSeconds": 5.8}], "anrDialogsDismissed": false, "anrOrCrashEvents": 0}

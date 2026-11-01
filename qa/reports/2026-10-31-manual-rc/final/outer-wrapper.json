@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "exitCode": 143,
+  "scope": "Long-lived outer terminal command; child-step results are independently recorded",
+  "childSteps": 14,
+  "allChildStepsExitZero": true,
+  "cause": "Not established",
+  "followup": "Independent short final collection and checks; see collect-final.log and final-runtime-health.json"
+}

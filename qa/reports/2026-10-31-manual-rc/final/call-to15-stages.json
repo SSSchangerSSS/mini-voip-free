@@ -1,0 +1,26 @@
+{
+  "start": {
+    "status": "PASS",
+    "answered": true,
+    "sharedBridgeAndBidirectionalRtp": true,
+    "caller": "emulator-5554",
+    "callee": "127.0.0.1:5565",
+    "rtpCounts": [
+      {
+        "rx": 23,
+        "tx": 83
+      },
+      {
+        "rx": 148,
+        "tx": 23
+      }
+    ],
+    "acousticAudio": "NOT_RUN",
+    "observedAtUtc": "2026-10-31T05:11:18.530115+00:00"
+  },
+  "end": {
+    "status": "PASS",
+    "channelsCleared": true,
+    "observedAtUtc": "2026-10-31T05:11:36.507419+00:00"
+  }
+}

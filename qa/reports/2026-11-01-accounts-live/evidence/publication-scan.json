@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Common GitHub token prefixes and private-key PEM blocks; not a comprehensive audit",
+  "suspiciousFiles": [],
+  "largestTrackedOrCandidateFiles": [
+    {
+      "bytes": 812097,
+      "path": "qa/reports/2026-10-28-local/android-build-ndk-links-fixed.log"
+    },
+    {
+      "bytes": 411553,
+      "path": "qa/reports/2026-10-28-local/android-build-plugin-mirrors.log"
+    },
+    {
+      "bytes": 361903,
+      "path": "qa/reports/2026-10-29-native-android15/initial-app.png"
+    },
+    {
+      "bytes": 358762,
+      "path": "qa/reports/2026-10-29-native-android15/boot2-app-login.png"
+    },
+    {
+      "bytes": 357566,
+      "path": "qa/reports/2026-10-31-phase2/release7-long15.png"
+    }
+  ]
+}

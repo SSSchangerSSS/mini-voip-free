@@ -15,3 +15,8 @@ key.properties
 
 # Generated Gradle reports/output; Android source stays tracked.
 /build/
+
+/app/smi-push-disabled
+/app/google-services.json
+
+/app/developer-gate.properties

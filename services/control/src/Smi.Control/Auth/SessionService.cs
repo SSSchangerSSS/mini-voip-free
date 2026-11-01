@@ -95,11 +95,12 @@ public sealed class SessionService
         using var r = Db.Query(c, """
             SELECT s.TokenHash, s.InstallationId, s.Extension, s.IdleExpiresAtUtc, s.RevokedAtUtc, d.DeviceGeneration
             FROM Sessions s JOIN Devices d ON d.InstallationId = s.InstallationId
-            WHERE s.TokenHash=@t
+            JOIN Extensions e ON e.Extension=s.Extension
+            WHERE s.TokenHash=@t AND d.Active=1 AND d.Extension=s.Extension AND e.Enabled=1 AND e.Deleted=0
             """, ("@t", hash));
         if (!r.Read()) return null;
         if (!r.IsDBNull(4)) return null;                                  // revoked
-        var expiry = DateTime.Parse(r.GetString(3));
+        var expiry = UtcTime.Parse(r.GetString(3));
         if (nowUtc > expiry) return null;                                  // idle-expired
         // renew idle window when less than half remains (spec 4.2: valid use extends it)
         if (expiry - nowUtc < TimeSpan.FromDays(_cfg.SessionIdleDays / 2.0))
@@ -116,6 +117,13 @@ public sealed class SessionService
         using var c = _db.Open();
         return Db.Exec(c, "UPDATE Sessions SET RevokedAtUtc=@n WHERE TokenHash=@t AND RevokedAtUtc IS NULL",
             ("@n", nowUtc.ToString("o")), ("@t", tokenHash)) == 1;
+    }
+
+    public void ReleaseDevice(string installationId,DateTime nowUtc) {
+        using var c=_db.Open();using var tx=Db.BeginImmediate(c);
+        Db.Exec(c,"UPDATE Sessions SET RevokedAtUtc=@n WHERE InstallationId=@i AND RevokedAtUtc IS NULL",("@n",nowUtc.ToString("o")),("@i",installationId));
+        Db.Exec(c,"UPDATE Devices SET Active=0,PushProvider=NULL,PushToken=NULL,PushEnvironment=NULL,DeviceGeneration=DeviceGeneration+1 WHERE InstallationId=@i",("@i",installationId));
+        tx.Commit();
     }
 
     public bool UnbindPush(string installationId, DateTime nowUtc)

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:smi_phone/api/control_api_client.dart';
+import 'package:smi_phone/api/api_models.dart';
 import 'package:smi_phone/call/call_controller.dart';
 import 'package:smi_phone/native/native_call_bridge.dart';
 import 'package:smi_phone/secure/secure_credential_store.dart';
@@ -10,6 +11,7 @@ import 'package:smi_phone/sip/sip_adapter.dart';
 
 class MemoryNative extends NativeCallBridge {
   final values = <String, String>{};
+  @override Future<Map<Object?,Object?>> getCapabilities()async=>{};
   @override Future<String?> secureRead(String key) async => values[key];
   @override Future<void> secureWrite(String key, String value) async { values[key] = value; }
   @override Future<void> secureDelete(String key) async { values.remove(key); }
@@ -19,6 +21,9 @@ class MemoryNative extends NativeCallBridge {
   @override Future<List<NativeEvent>> getPendingEvents() async => [];
   @override Future<String?> getPushToken() async => null;
   @override Future<void> reportOutgoing(String attemptId) async {}
+  @override Future<void> reportIncoming(String callId,String caller,String callerName,DateTime expiresAt) async {}
+  @override Future<void> updateCallState(String id,String state) async {}
+  @override Future<void> endCall(String id,String reason) async {}
 }
 class TestSip extends SipAdapter {
   String? password;
@@ -26,6 +31,7 @@ class TestSip extends SipAdapter {
   int answered = 0;
   int rejected = 0;
   @override bool get registered => true;
+  @override bool get hasActiveCall => true;
   @override String get domain => '192.168.1.151';
   @override Future<void> configure({required String domain, required String username, required String password}) async { this.password = password; }
   @override Future<void> start() async {}
@@ -64,6 +70,15 @@ void main() {
     expect(sip.attempt,matches(RegExp(r'^[0-9a-f-]{36}$')));
     await c.onForegroundCallHint();
     expect(c.state,AppCallState.outgoingPending);
+    c.onServerState(CallDto.fromJson({...callData(), 'state':'Connected'}));
+    c.onSipRemoteEnded();
+    expect(c.state, AppCallState.idle);
+    expect(c.errorMessage, isNull, reason: 'A normal remote BYE is not a connection failure');
+    c.onServerState(CallDto.fromJson({...callData(), 'state':'Connected'}));
+    c.onSipRemoteEnded(failed: true);
+    expect(c.errorMessage, 'اتصال قطع شد.', reason: 'A real SIP failure must stay visible');
+    c.onServerState(CallDto.fromJson({...callData(), 'state':'Ended', 'endReason':'Completed'}));
+    expect(c.errorMessage, isNull, reason: 'Server-confirmed completion is normal too');
   });
 
   test('foreground hint gates ready; matching INVITE does not answer before user intent', () async {
@@ -85,6 +100,7 @@ void main() {
     active=callData();
     await c.onForegroundCallHint();
     expect(c.state,AppCallState.incomingPending);
+    expect(c.errorMessage, isNull, reason: 'A new call must not inherit an earlier status message');
     await c.onSipIncoming(active['callId'] as String);
     expect(ready,1);
     expect(sip.answered,0);
@@ -92,4 +108,12 @@ void main() {
     await c.answerIncoming();
     expect(sip.answered,1);
   });
+}
+
+class DirectNativeFixture extends MemoryNative {
+  var tokenReads=0;
+  final statuses=<bool>[];
+  @override Future<Map<Object?,Object?>> getCapabilities()async=>{'directIncoming':true,'microphone':true,'fullScreenIntent':true,'notifications':true,'batteryUnrestricted':true,'standbyRunning':true,'incomingChannelEnabled':true};
+  @override Future<String?> getPushToken()async{tokenReads++;return null;}
+  @override Future<void> updateReception(bool registered)async{statuses.add(registered);}
 }

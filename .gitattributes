@@ -1,3 +1,7 @@
 
 # Preserve verbatim QA evidence, including command-output whitespace.
 qa/reports/** -text -whitespace
+
+# Preserve upstream vendor bytes and valid unified-diff context markers.
+third_party/flutter_webrtc/** -whitespace
+patches/**/*.patch -whitespace

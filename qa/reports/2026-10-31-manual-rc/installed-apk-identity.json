@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "expectedSha256": "41aefcae4816653336d1eb38e0ae52252e355c61b04c58d2050bb133e070e48f",
+  "devices": {
+    "emulator-5554": {
+      "sha256": "41aefcae4816653336d1eb38e0ae52252e355c61b04c58d2050bb133e070e48f",
+      "matches": true
+    },
+    "127.0.0.1:5565": {
+      "sha256": "41aefcae4816653336d1eb38e0ae52252e355c61b04c58d2050bb133e070e48f",
+      "matches": true
+    }
+  }
+}

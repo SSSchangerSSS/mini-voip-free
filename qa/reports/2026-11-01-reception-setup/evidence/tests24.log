@@ -1,0 +1,103 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Resolving dependencies...
+Downloading packages...
+! flutter_webrtc 1.6.3 from path ../../third_party/flutter_webrtc (overridden)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  sdp_transform 0.3.2 (0.4.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  text 0.2.0 (1.0.0 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/direct_reception_test.dart
+00:00 +0: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/control_api_client_test.dart: unresponsive server has a bounded request deadline
+00:00 +1: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/direct_reception_test.dart: direct standby binds no Google token and discovers incoming call without SIP hint
+00:00 +2: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/direct_reception_test.dart: direct standby binds no Google token and discovers incoming call without SIP hint
+00:00 +3: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/direct_reception_test.dart: direct heartbeat does not expire an established call at its setup deadline
+00:00 +4: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/direct_reception_test.dart: cold restoration ends an orphaned connected server call instead of showing silent media
+00:00 +5: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/direct_reception_test.dart: standby stops claiming ready when Control fails even if SIP stays registered
+00:00 +6: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) accepts plain ASCII
+00:00 +7: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) converts Persian and Arabic-Indic digits
+00:00 +8: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) rejects invalid targets
+00:00 +9: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/digit_normalizer_test.dart: DigitNormalizer (T03) rejects hidden direction marks (never partially interpreted)
+00:00 +10: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: transient startup retries keep installation/password and redact diagnostics
+00:00 +11: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: HTTP 401 never retries stored credentials
+SMI_STARTUP failure stage=api-login kind=api-401 retryable=false
+00:00 +12: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: HTTP 409 never retries stored credentials
+SMI_STARTUP failure stage=api-login kind=api-409 retryable=false
+00:00 +13: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: HTTP 429 never retries stored credentials
+SMI_STARTUP failure stage=api-login kind=api-429 retryable=false
+00:00 +14: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: invalid TLS never retries or exposes exception text
+SMI_STARTUP failure stage=api-login kind=tls retryable=false
+00:00 +15: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: persistent outage stops after three attempts; explicit retry reuses account
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=3
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+00:00 +16: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: temporary HTTP 503 recovers with the same stored identity
+SMI_STARTUP failure stage=api-login kind=api-503 retryable=true
+SMI_STARTUP retry attempt=2
+00:00 +17: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: registration timeout closes failed engine before retry
+SMI_STARTUP failure stage=sip-register kind=timeout retryable=true
+SMI_STARTUP retry attempt=2
+00:00 +18: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: failed SIP cleanup prevents another startup engine
+SMI_STARTUP failure stage=sip-register kind=timeout retryable=true
+SMI_STARTUP cleanup failed; automatic retry stopped
+SMI_STARTUP SIP shutdown failed
+00:00 +19: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: fresh install and inaccessible store never invent or replace credentials
+SMI_STARTUP failure stage=account-read kind=native retryable=false
+00:00 +20: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: concurrent restores coalesce and dispose cancels backoff
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+00:00 +21: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: retry backoff shows restoring UI rather than a failed login form
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+00:01 +22: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: continue requests next missing permission and never trusts an opened screen
+00:01 +22: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/startup_restore_test.dart: saved-account retry button recovers without typing password
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=2
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+SMI_STARTUP retry attempt=3
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+00:02 +23: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: continue requests next missing permission and never trusts an opened screen
+00:02 +24: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: OEM fallback remains explicitly unverified and recoverable
+00:02 +25: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: denial and launch failure do not complete a permission
+00:02 +26: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: denial and launch failure do not complete a permission
+00:02 +27: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: denial and launch failure do not complete a permission
+00:02 +28: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: denial and launch failure do not complete a permission
+00:02 +29: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: incoming call dismisses setup so call controls are reachable
+00:02 +30: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/reception_setup_page_test.dart: setup scrolls on small screens without overflow
+00:03 +31: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/background_ringing_regression_test.dart: answer silences native ringing before a slow accept response and SIP media
+00:03 +32: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/background_ringing_regression_test.dart: vendor settings remain unverified and fullscreen denial stays visible
+00:03 +33: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/background_ringing_regression_test.dart: standby does not advertise ready with missing microphone and recovers after settings change
+00:03 +34: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/background_ringing_regression_test.dart: standby does not advertise ready with missing notifications and recovers after settings change
+00:03 +35: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/background_ringing_regression_test.dart: standby does not advertise ready with missing batteryUnrestricted and recovers after settings change
+00:03 +36: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/background_ringing_regression_test.dart: standby does not advertise ready with missing standbyRunning and recovers after settings change
+00:03 +37: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/background_ringing_regression_test.dart: standby does not advertise ready with missing incomingChannelEnabled and recovers after settings change
+00:03 +38: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart: remote fixed SIP MESSAGE triggers authenticated reconcile; unrelated bodies do not
+00:03 +39: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart: WS transport is explicit, TLS remains verified, startup errors propagate
+00:03 +40: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart: outgoing INVITE carries attempt UUID and stays audio-only
+00:03 +41: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/sip_adapter_test.dart: local SDP waits for the native privacy gate and remains unchanged
+00:03 +42: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/audio_route_test.dart: earpiece preference is set before outgoing media and restored for next call
+00:03 +43: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/audio_route_test.dart: failed route selection does not start media with a misleading default
+00:03 +44: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:03 +45: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:03 +46: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:03 +47: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:03 +48: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:03 +49: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:04 +50: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:04 +51: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:04 +52: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:04 +53: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:04 +54: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/dialer_page_test.dart: call button actually requests a normalized call from the controller
+00:05 +55: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_handshake_test.dart: separate SIP credential is stored and configured; admission race preserves outgoing attempt
+00:05 +56: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/call_handshake_test.dart: foreground hint gates ready; matching INVITE does not answer before user intent
+00:05 +57: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: failed network login returns to error rather than leaving spinner active
+SMI_STARTUP failure stage=api-login kind=network retryable=true
+00:05 +58: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/login_failure_test.dart: unavailable secure store is handled before any network request
+SMI_STARTUP failure stage=account-read kind=native retryable=false
+00:05 +59: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/directory_page_test.dart: incoming call dismisses directory so call controls are visible
+00:06 +60: /home/changer/Desktop/flash/mini-voip-free/apps/mobile/test/directory_page_test.dart: directory searches names and numbers and disables own extension
+00:06 +61: All tests passed!

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../call/call_controller.dart';
+import 'server_settings_page.dart';
 import '../config/app_config.dart';
 import '../secure/secure_credential_store.dart';
 import '../util/digit_normalizer.dart';
@@ -75,7 +76,10 @@ class _LoginPageState extends State<LoginPage> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(title: const Text('Mini VoIP Free — ورود')),
+        appBar: AppBar(title: const Text('Mini VoIP Free — ورود'),actions:[IconButton(tooltip:'تنظیمات سرور',icon:const Icon(Icons.settings_outlined),onPressed:_busy?null:()async{
+          await Navigator.of(context).push(MaterialPageRoute<bool>(builder:(_)=>ServerSettingsPage(controller:widget.controller)));
+          if(mounted)setState(()=>_domainCtrl.text=AppConfig.domain);
+        })]),
         body: Center(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(24),

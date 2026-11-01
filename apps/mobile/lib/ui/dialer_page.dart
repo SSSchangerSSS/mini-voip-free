@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 import '../call/call_controller.dart';
 import '../util/digit_normalizer.dart';
+import 'directory_page.dart';
+import 'server_settings_page.dart';
+import 'reception_setup_page.dart';
 
 /// Dialer (F02): status line + 3-digit target + single-call button.
 /// Repeated taps while a call is pending never create a second INVITE (T09).
@@ -39,7 +43,7 @@ class _DialerPageState extends State<DialerPage> {
   String _statusText() {
     switch (widget.controller.state) {
       case AppCallState.idle:
-        return widget.controller.micReady ? 'آماده' : 'در حال ثبت SIP…';
+        return !widget.controller.micReady ? 'در حال ثبت SIP…' : widget.controller.backgroundReceptionReady ? (widget.controller.receptionWarning == null ? 'آماده' : 'تنظیمات دریافت نیازمند بررسی') : 'دریافت پس‌زمینه آماده نیست';
       case AppCallState.outgoingPending:
         return 'در حال تماس با داخلی ${widget.controller.remoteExtension}…';
       case AppCallState.incomingPending:
@@ -65,7 +69,12 @@ class _DialerPageState extends State<DialerPage> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(title: const Text('Mini VoIP Free')),
+        appBar: AppBar(title: const Text('Mini VoIP Free'), actions:[
+          IconButton(tooltip:'تنظیمات سرور',icon:const Icon(Icons.settings_outlined),onPressed:idle?()=>Navigator.of(context).push(MaterialPageRoute<bool>(builder:(_)=>ServerSettingsPage(controller:widget.controller))):null),
+          if(defaultTargetPlatform==TargetPlatform.android) IconButton(tooltip:'تنظیمات اعلان و تماس قفل',icon:const Icon(Icons.notifications_outlined),onPressed:_openSetup),
+          IconButton(tooltip:'فهرست داخلی‌ها',icon:const Icon(Icons.people_outline),
+              onPressed:()=>Navigator.of(context).push(MaterialPageRoute<void>(builder:(_)=>DirectoryPage(controller:widget.controller)))),
+        ]),
         body: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
@@ -74,8 +83,8 @@ class _DialerPageState extends State<DialerPage> {
               Row(
                 children: [
                   Icon(
-                    idle && widget.controller.micReady ? Icons.check_circle : Icons.info_outline,
-                    color: idle && widget.controller.micReady ? Colors.green : Colors.orange,
+                    idle && widget.controller.micReady && widget.controller.backgroundReceptionReady && widget.controller.receptionWarning == null ? Icons.check_circle : Icons.info_outline,
+                    color: idle && widget.controller.micReady && widget.controller.backgroundReceptionReady && widget.controller.receptionWarning == null ? Colors.green : Colors.orange,
                     size: 18,
                   ),
                   const SizedBox(width: 8),
@@ -87,6 +96,14 @@ class _DialerPageState extends State<DialerPage> {
                 Text(widget.controller.errorMessage!,
                     style: TextStyle(color: Theme.of(context).colorScheme.error)),
               ],
+              if (widget.controller.receptionWarning != null) ...[
+                const SizedBox(height: 8),
+                Text(widget.controller.receptionWarning!),
+                TextButton(onPressed: _openSetup,
+                    child: const Text('فعال‌کردن دریافت در پس‌زمینه')),
+              ],
+              if (defaultTargetPlatform == TargetPlatform.android && widget.controller.receptionWarning == null)
+                TextButton(onPressed: _openSetup, child: const Text('راه‌اندازی تماس پس‌زمینه')),
               const Spacer(),
               TextField(
                 controller: _targetCtrl,
@@ -116,6 +133,18 @@ class _DialerPageState extends State<DialerPage> {
         ),
       ),
     );
+  }
+
+  Future<void> _openSetup() async {
+    _focus.unfocus();
+    await Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ReceptionSetupPage(
+      load: widget.controller.receptionCapabilities,
+      open: widget.controller.openReceptionSetting,
+      callChanges: widget.controller,
+      callActive: () => const [AppCallState.incomingPending, AppCallState.outgoingPending,
+          AppCallState.connecting, AppCallState.connected, AppCallState.ending].contains(widget.controller.state),
+    )));
+    await widget.controller.checkDirectReception();
   }
 
   Future<void> _start() async {

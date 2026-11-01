@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "sha256": "5a02949c8898f49a7d3e2026e109fb5d0a7e246342f78366b5720bc3bdda0393",
+  "nativeLibraries": [
+    {
+      "abi": "arm64-v8a",
+      "matchesSdk144": true
+    },
+    {
+      "abi": "armeabi-v7a",
+      "matchesSdk144": true
+    },
+    {
+      "abi": "x86_64",
+      "matchesSdk144": true
+    }
+  ]
+}

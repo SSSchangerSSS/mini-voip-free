@@ -1,0 +1,39 @@
+{
+  "start": {
+    "status": "PASS",
+    "answered": true,
+    "sharedBridgeAndBidirectionalRtp": true,
+    "caller": "127.0.0.1:5565",
+    "callee": "emulator-5554",
+    "rtpCounts": [
+      {
+        "rx": 10,
+        "tx": 79
+      },
+      {
+        "rx": 88,
+        "tx": 10
+      }
+    ],
+    "acousticAudio": "NOT_RUN",
+    "observedAtUtc": "2026-10-31T05:08:36.367526+00:00"
+  },
+  "mute": {
+    "status": "PASS",
+    "requestedAtEpoch": 1793423317.9787571,
+    "scope": "Mute UI and call stability; acoustic effect NOT_RUN",
+    "observedAtUtc": "2026-10-31T05:08:37.978768+00:00"
+  },
+  "controls": {
+    "status": "PASS",
+    "muteIntervalSeconds": 70.46,
+    "sharedBridgeMaintained": true,
+    "scope": "UI mute/unmute/speaker controls; physical audio routing NOT_RUN",
+    "observedAtUtc": "2026-10-31T05:09:51.677417+00:00"
+  },
+  "end": {
+    "status": "PASS",
+    "channelsCleared": true,
+    "observedAtUtc": "2026-10-31T05:10:47.682466+00:00"
+  }
+}
